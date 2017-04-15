@@ -1,24 +1,32 @@
 // webpack.config.js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const injectConfig = new HtmlWebpackPlugin({
-  template: './index.html',
-  filename: 'index.html',
-  inject: 'body'
-});
-
 
 module.exports = {
   context: __dirname + '/app',
-  entry: './index.js',
+  entry: {
+    index: './index.js',
+    framework: './frameWork.js'
+  },
   output: {
     path: __dirname + '/build',
-    filename: 'bundle.js'
+    filename: "[name].bundle.js",
+  },
+  resolveLoader: {
+    moduleExtensions: ['-loader']
   },
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ }
+      { test: /\.js$/, loader: 'babel?presets[]=es2015', exclude: /node_modules/ },
+      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'], exclude: /node_modules/ },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=100000000'
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file?name=assets/fonts/[name].[ext]'
+      }
     ]
- },
- plugins: [injectConfig]
+ }
 }

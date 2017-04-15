@@ -1,0 +1,235 @@
+body {
+  background: #ffffff !important;
+  margin: 0;
+}
+
+.cover-page {
+  height: auto;
+  color: #FFF;
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #0A4166;
+}
+
+.cover-page .btnIcon {
+  background: url(../images/btnstrip.png) repeat-x scroll 0 0 transparent;
+  display: table-cell;
+  height: 40px;
+  color: #5C6670;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  width: 40px;
+  font-size: 1.1em;
+}
+
+.instruction-container {
+  height: 100%;
+  display: table;
+  width: 100%;
+  position: relative;
+  margin-top: 0;
+}
+
+.logo-container {
+  background-color: #FFF;
+  display: block;
+  padding: 35px 15px 24px;
+}
+
+.instruction-title .title {
+  color: rgba(0, 0, 0, 0.68);
+  font-size: 2em;
+  font-weight: 100;
+  margin: 0;
+}
+
+.text-container {
+  padding: 15px 10px 0px;
+}
+
+.cover-page .text-container p {
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 20px;
+}
+
+.cover-page .btnIconBlank {
+  display: table-cell;
+  height: 40px;
+  color: #5C6670;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  width: 40px;
+  font-size: 1.1em;
+  color: #FFFF;
+}
+
+.cover-page .text-container .text {
+  font-size: 0.875em;
+  padding: 4px;
+}
+
+.cover-page .text-container .text>div {
+  display: table;
+  width: 100%;
+}
+
+.cover-page .text-container .btnIcon {
+    padding-right: 0px;
+}
+
+.cover-page .text-container .btnIconBlank {
+  padding-right: 0px;
+  color: #fff;
+}
+
+.cover-page .text-container .btnIcon1 span {
+  font-size: 1.3em;
+}
+
+.cover-page .text-container p:nth-child(2) {
+  padding-left: 20px;
+  font-size: 1.17em;
+}
+
+.cover-page .text {
+  color: #FFF;
+  font-weight: 700;
+  height: 40px;
+  display: table;
+  width: 100%;
+  padding: 0 15px;
+  margin-bottom: 4px;
+  font-size: 1.1em;
+}
+
+.cover-page .dis_sys_check {
+  position: relative;
+  top: 7px;
+  z-index: 101;
+}
+
+.cover-page .container {
+  height: 100%;
+  position: relative;
+  display: table;
+}
+
+.cover-page .startbtn {
+  display: table-cell;
+  width: 100%;
+}
+
+.cover-page .instruction {
+  color: #FFF;
+  height: 40px;
+  margin: 0;
+  padding: 10px 0 10px 12px;
+  position: relative;
+  background-color: #083451;
+  font-size: 0.9375em;
+}
+
+.cover-page .startbtn_a {
+  color: #ffffff;
+  display: inline-block;
+  float: right;
+  font-size: 1.5625em;
+  height: 40px;
+  margin-top: 0;
+  position: relative;
+  text-decoration: none;
+  top: 25px;
+  vertical-align: middle;
+  width: 100px;
+  margin-left: 10px;
+  z-index: 101;
+  background-color: #1792E5;
+}
+
+.cover-page .btnContent {
+  display: table;
+  width: 100%;
+  padding: 0;
+  height: 40px;
+}
+
+.cover-page .btnContent span {
+  vertical-align: middle;
+  display: table-cell;
+  text-align: center;
+}
+
+.cover-page .instruction .fontBold {
+  font-weight: bold;
+}
+
+.cover-page .sys_container {
+  display: none;
+}
+
+.cover-page .invisible-container {
+    height: 70px;
+}
+
+@media (min-width: 400px) {
+  .cover-page .startbtn_a {
+      top: 35px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cover-page .dis_sys_check {
+    padding-left: 25px;
+    z-index: 101;
+  }
+
+  .cover-page .instruction {
+    padding: 0 0 0 15px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .cover-page .startbtn_a {
+    float: none;
+    top: 0;
+    right: -1px;
+  }
+}
+
+@media (min-width: 600x) {
+  .cover-page .instruction {
+    padding: 0 0 0 20px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1em;
+  }
+
+  .cover-page .startbtn_a {
+    top: 0px;
+    float: none;
+  }
+}
+
+@media (min-width: 480x) {
+  .cover-page .instruction {
+    padding: 0 0 0 20px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1em;
+  }
+
+  .cover-page .startbtn_a {
+    top: 0px;
+    float: none;
+  }
+}
+
+@media (min-width: 320px) {
+  .cover-page .dis_sys_check {
+    padding: 0 15px;
+  }
+}

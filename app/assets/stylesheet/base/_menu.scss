@@ -1,0 +1,31 @@
+.menu-overlay-style {
+  position: absolute !important;
+}
+
+.menu-custom-style {
+  bottom: 44px !important;
+  top: 64px !important;
+}
+
+.menu-overlay-style {
+  background-color: rgba(0, 0, 0, 0.498039) !important;
+}
+
+.menu-style {
+  background-color: #fff;
+  bottom: 2px !important;
+  font-size: 1em;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.6) !important;
+  margin-right: -10px;
+}
+
+.menu-header h1 {
+  font: inherit;
+  margin: 0;
+}
+
+@media (min-width: 650px) {
+  .menu-style {
+      width: 460px;
+  }
+}

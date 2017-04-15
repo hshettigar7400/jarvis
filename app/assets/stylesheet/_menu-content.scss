@@ -1,0 +1,29 @@
+.menu-header {
+  background-color: #EE3124;
+  display: table;
+  font-size: 1.25em;
+  height: 40px;
+  width: 100%;
+}
+
+.menu-header-title {
+  color: #ffffff;
+  display: table-cell;
+  font-size: 1.15em;
+  height: 100%;
+  padding-left: $base-padding * 1.4;
+  vertical-align: middle;
+}
+
+.menu-close-button-container {
+  color: $white;
+  cursor: pointer;
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+  width: 40px;
+}
+
+.collapse-menu .collapse-menu-header h1 {
+  padding: 6px 14px;
+}
