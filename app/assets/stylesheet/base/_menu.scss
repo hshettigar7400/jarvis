@@ -24,6 +24,12 @@
   margin: 0;
 }
 
+@media (min-width: 320px) {
+  .menu-style {
+      width: 102%;
+  }
+}
+
 @media (min-width: 650px) {
   .menu-style {
       width: 460px;

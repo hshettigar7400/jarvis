@@ -1,39 +1,63 @@
 var React = require('react'),
-  Header = require('../components/Header.jsx'),
+  HeaderTitle = require('../components/HeaderTitle.jsx'),
   Footer = require('../components/Footer.jsx'),
   PageContainer = require('../components/PageContainer.jsx'),
   MenuContent = require('../components/MenuContent.jsx'),
-  Menu = require('react-sidebar').default;
+  ToolsMenuContent = require('../components/ToolsMenuContent.jsx').default,
+  MediaQuery = require('react-responsive'),
+  TopNav = require('../components/TopNav.jsx'),
+  Menu = require('react-sidebar').default,
+  ToolsMenu = require('react-sidebar').default;
 
 var Shell = React.createClass ({
 getInitialState: function() {
-  return {sidebarOpen: false};
+  return {
+    sidebarOpen: false,
+    toolsMenuOpen: false
+  };
 },
 
-handleChildClick: function() {
- this.setState({sidebarOpen: true});
+clickOpenMenu: function() {
+  this.setState({sidebarOpen: !this.state.sidebarOpen});
+},
+
+clickOpenToolsMenu: function() {
+  this.setState({toolsMenuOpen: !this.state.toolsMenuOpen});
 },
 
 setOpen() {
   this.setState({sidebarOpen: false});
 },
 
+setToolsMenuOpen() {
+  this.setState({toolsMenuOpen: false});
+},
+
 render() {
   return (
     <div className="shell-container">
       <div className="header">
-        <Header />
+        <MediaQuery query='(max-width: 800px)'>
+          <TopNav
+            onMenuClick={this.clickOpenMenu}
+            onToolsMenuClick={this.clickOpenToolsMenu}
+          />
+        </MediaQuery>
+        <MediaQuery query='(min-width: 800px)'>
+          <HeaderTitle />
+        </MediaQuery>
       </div>
 
       <div className="page-container">
         <PageContainer />
       </div>
+      <MediaQuery query='(min-width: 800px)'>
+        <div className="footer">
+          <Footer onMenuClick={this.clickOpenMenu}/>
+        </div>
+      </MediaQuery>
 
-      <div className="footer">
-        <Footer onMenuClick={this.handleChildClick}/>
-      </div>
-
-      <Menu sidebar={<MenuContent />}
+      <Menu sidebar={<MenuContent onCloseMenuClick={this.setOpen}/>}
          open={this.state.sidebarOpen}
          onSetOpen={this.onSetSidebarOpen}
          overlayClassName="menu-overlay-style"
@@ -43,6 +67,17 @@ render() {
          sidebarClassName="menu-style">
          <b>{}</b>
       </Menu>
+
+      <ToolsMenu sidebar={<ToolsMenuContent onCloseMenuClick={this.setOpen}/>}
+         open={this.state.toolsMenuOpen}
+         onSetOpen={this.onSetSidebarOpen}
+         overlayClassName="tool-menu-overlay-style"
+         onSetOpen={this.setToolsMenuOpen}
+         pullRight={true}
+         rootClassName="tool-menu-custom-style"
+         sidebarClassName="tool-menu-style">
+         <b>{}</b>
+      </ToolsMenu>
     </div>
   )
 }

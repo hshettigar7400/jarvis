@@ -24,7 +24,7 @@
 }
 
 @font-face {
-    font-family: 'FRED';
+    font-family: 'icomoon';
     src:url('../fonts/icomoon.eot?c92yby');
     src:url('../fonts/icomoon.eot?#iefixc92yby') format('embedded-opentype'),
         url('../fonts/icomoon.woff?c92yby') format('woff'),
@@ -35,13 +35,22 @@
 }
 
 [class^="icon-"], [class*=" icon-"] {
-    font-family: 'FRED';
+    font-family: 'icomoon';
     speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
     line-height: 1;
+
+    letter-spacing: 0;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    font-feature-settings: "liga";
+    -webkit-font-variant-ligatures: discretionary-ligatures;
+    font-variant-ligatures: discretionary-ligatures;
 
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
