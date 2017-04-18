@@ -1,5 +1,6 @@
 var React = require('react');
 var Shell = require('./Shell.jsx').default;
+var Sound = require('react-sound');
 
 var Instruction = React.createClass ({
 
@@ -24,6 +25,12 @@ if (this.state.isStartCourse) {
 else {
   return (
   <div className="instruction-container">
+    <Sound
+    url="../app/assets/audio/course_instruction.mp3"
+    playStatus={Sound.status.PLAYING}
+    playFromPosition={0 /* in milliseconds */}
+    />
+
     <div className="cover-page">
       <div className="logo-container">
         <img src="../app/assets/images/coverPage_logo.png" />

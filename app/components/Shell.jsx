@@ -65,9 +65,7 @@ var Shell = React.createClass ({
           </a>
         </div>
         <div className="transcript-text-container">
-          eirhgjdhbd
-          dflghdglkdjgkldjgjdlkg
-          dghdjghdjgfhhllk
+            Loading......
         </div>
       </div>
     )
@@ -80,7 +78,7 @@ var Shell = React.createClass ({
         <div className="header">
           <MediaQuery query='(max-width: 800px)'>
             <TopNav
-              onMenuClick={this.clickOpenMenu}
+              onMenuClick={this.clickOpenMenu.bind(null, this)}
               onToolsMenuClick={this.clickOpenToolsMenu}
             />
           </MediaQuery>
@@ -108,11 +106,13 @@ var Shell = React.createClass ({
         <MediaQuery query='(min-width: 800px)'>
           <div className="footer">
             <Footer
-              onMenuClick={this.clickOpenMenu}
+              onMenuClick={this.clickOpenMenu.bind(null, this)}
               onHelpClick={this.clickOpenHelpDock}
               onNextButtonClick={this.loadNextPage}
               onBackButtonClick={this.loadPreviousPage}
               onTranscriptButtonClick={this.enableTranscript}
+              totalPages={10}
+              currentPageNumber={this.state.currentPageNumber}
             />
           </div>
         </MediaQuery>

@@ -1,13 +1,16 @@
 var React = require('react'),
     ReactDOM = require('react-dom');
 
+
 var Footer = React.createClass ({
 propTypes: {
   onMenuClick: React.PropTypes.func,
   onHelpClick: React.PropTypes.func,
   onNextButtonClick: React.PropTypes.func,
   onBackButtonClick: React.PropTypes.func,
-  onTranscriptButtonClick: React.PropTypes.func
+  onTranscriptButtonClick: React.PropTypes.func,
+  totalPages: React.PropTypes.number,
+  currentPageNumber: React.PropTypes.number
 },
 
 render() {
@@ -67,16 +70,16 @@ render() {
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-back" onClick={this.props.onBackButtonClick} className="tabindex" aria-label="back" role="button" aria-disabled="true">
+          <a href="#" id="button-back" onClick={this.props.onBackButtonClick} className={this.props.currentPageNumber > 1 ? "tabindex" : "tabindex disabled"} aria-label="back" role="button" aria-disabled="true">
             <span className="button-label"></span>
             <span className="icon-back"></span>
           </a>
         </div>
         <div className="nav-comp-container">
           <div className="page-counter clearfix">
-            <span className="page-number">01</span>
+            <span className="page-number">{this.props.currentPageNumber}</span>
             <span className="page-separator">|</span>
-            <span className="total-pages">13</span>
+            <span className="total-pages">{this.props.totalPages}</span>
           </div>
         </div>
         <div className="button-box">
