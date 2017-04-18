@@ -14,6 +14,10 @@ module.exports = {
   resolveLoader: {
     moduleExtensions: ['-loader']
   },
+  devServer: {
+    host: '0.0.0.0',
+    port: 8008
+  },
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel?presets[]=es2015', exclude: /node_modules/ },
