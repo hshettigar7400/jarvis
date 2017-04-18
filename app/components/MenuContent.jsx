@@ -50,4 +50,4 @@ render() {
 }
 });
 
-module.exports = MenuContent;
+export default MenuContent;

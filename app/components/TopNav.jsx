@@ -1,5 +1,5 @@
 var React = require('react'),
-    MediaQuery = require('react-responsive');
+    MediaQuery = require('react-responsive').default;
 
 var TopNav = React.createClass ({
 
@@ -66,4 +66,4 @@ var TopNav = React.createClass ({
   }
 });
 
-module.exports = TopNav;
+export default TopNav;

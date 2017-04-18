@@ -1,6 +1,6 @@
 var React = require('react'),
     MediaQuery = require('react-responsive'),
-    TopNav = require('../components/TopNav.jsx');
+    TopNav = require('../components/TopNav.jsx').default;
 
 var HeaderTitle = React.createClass ({
   propTypes: {
@@ -26,4 +26,4 @@ var HeaderTitle = React.createClass ({
   }
 });
 
-module.exports = HeaderTitle;
+export default HeaderTitle;

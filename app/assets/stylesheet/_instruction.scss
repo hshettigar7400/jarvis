@@ -7,6 +7,7 @@ body {
   height: auto;
   color: #FFF;
   min-height: 100%;
+  height: 650px;
   position: relative;
   overflow: hidden;
   background-color: #0A4166;
@@ -53,6 +54,7 @@ body {
   display: table-cell;
   vertical-align: middle;
   padding-right: 20px;
+  font-size: 1.35em;
 }
 
 .cover-page .btnIconBlank {
@@ -84,6 +86,7 @@ body {
 .cover-page .text-container .btnIconBlank {
   padding-right: 0px;
   color: #fff;
+  font-size: 1.65em;
 }
 
 .cover-page .text-container .btnIcon1 span {
@@ -92,12 +95,11 @@ body {
 
 .cover-page .text-container p:nth-child(2) {
   padding-left: 20px;
-  font-size: 1.17em;
+  font-size: 1.45em;
 }
 
 .cover-page .text {
   color: #FFF;
-  font-weight: 700;
   height: 40px;
   display: table;
   width: 100%;
@@ -125,12 +127,11 @@ body {
 
 .cover-page .instruction {
   color: #FFF;
-  height: 40px;
   margin: 0;
   padding: 10px 0 10px 12px;
   position: relative;
   background-color: #083451;
-  font-size: 0.9375em;
+  font-size: 1.25em;
 }
 
 .cover-page .startbtn_a {
@@ -157,6 +158,10 @@ body {
   height: 40px;
 }
 
+.cover-page .btnContent:hover {
+  background-color: #ee3124;
+}
+
 .cover-page .btnContent span {
   vertical-align: middle;
   display: table-cell;
@@ -169,6 +174,10 @@ body {
 
 .cover-page .sys_container {
   display: none;
+}
+
+.text-container a {
+  color: #ffffff;
 }
 
 .cover-page .invisible-container {
@@ -197,6 +206,36 @@ body {
     float: none;
     top: 0;
     right: -1px;
+  }
+}
+
+@media (min-width: 995px) {
+  .cover-page .logo-container {
+    padding: 30px 25px 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cover-page .logo-container {
+    padding: 30px 25px 24px;
+  }
+
+  .cover-page .text-container {
+    padding: 25px 25px 0;
+  }
+
+  .cover-page .holder_text_mobile .btnIcon {
+    font-size: 0.9em;
+  }
+
+  .cover-page .text {
+    color: #FFF;
+    height: 40px;
+    display: table;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 10px;
+    padding-right: 115px;
   }
 }
 

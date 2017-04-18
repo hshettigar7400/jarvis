@@ -1,8 +1,13 @@
-var React = require('react');
+var React = require('react'),
+    ReactDOM = require('react-dom');
 
 var Footer = React.createClass ({
 propTypes: {
-  onMenuClick:React.PropTypes.func
+  onMenuClick: React.PropTypes.func,
+  onHelpClick: React.PropTypes.func,
+  onNextButtonClick: React.PropTypes.func,
+  onBackButtonClick: React.PropTypes.func,
+  onTranscriptButtonClick: React.PropTypes.func
 },
 
 render() {
@@ -26,19 +31,19 @@ render() {
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-glossary" className="tabindex" aria-label="glossary" role="button" aria-disabled="false" aria-pressed="false">
+          <a href="#" id="button-glossary" className="tabindex disabled" aria-label="glossary" role="button" aria-disabled="false" aria-pressed="false">
             <span className="button-label"></span>
             <span className="icon-glossary"></span>
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-help" className="tabindex" aria-label="help" role="button" aria-disabled="false" aria-pressed="false">
+          <a href="#" id="button-help" onClick={this.props.onHelpClick} className="tabindex" aria-label="help" role="button" aria-disabled="false" aria-pressed="false">
             <span className="button-label"></span>
             <span className="icon-help"></span>
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-transcript" className="tabindex" aria-label="transcript" role="button" aria-disabled="false" aria-pressed="false">
+          <a href="#" id="button-transcript" onClick={this.props.onTranscriptButtonClick} className="tabindex" aria-label="transcript" role="button" aria-disabled="false" aria-pressed="false">
             <span className="button-label"></span>
             <span className="icon-audio"></span>
           </a>
@@ -62,7 +67,7 @@ render() {
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-back" className="tabindex disabled" aria-label="back" role="button" aria-disabled="true">
+          <a href="#" id="button-back" onClick={this.props.onBackButtonClick} className="tabindex" aria-label="back" role="button" aria-disabled="true">
             <span className="button-label"></span>
             <span className="icon-back"></span>
           </a>
@@ -75,7 +80,7 @@ render() {
           </div>
         </div>
         <div className="button-box">
-          <a href="#" id="button-next" className="tabindex" aria-label="next" role="button" aria-disabled="false">
+          <a href="#" id="button-next" onClick={this.props.onNextButtonClick} className="tabindex" aria-label="next" role="button" aria-disabled="false">
             <span className="button-label"></span>
             <span className="icon-next"></span>
           </a>
@@ -86,4 +91,4 @@ render() {
 }
 });
 
-module.exports = Footer;
+export default Footer;

@@ -1,5 +1,5 @@
 var React = require('react');
-var Shell = require('./Shell.jsx')
+var Shell = require('./Shell.jsx').default;
 
 var Instruction = React.createClass ({
 
@@ -76,7 +76,7 @@ else {
             <div className="container">
                 <div className="startbtn dis">
                    <p className="instruction">Select <span className="fontBold">Start</span> to proceed with the course.
-                     <a href="#" className="startbtn_a tab" role="button" onClick={this.startCourse}>
+                     <a href="#" className="startbtn_a tab" role="button" onClick={this.startCourse.bind(null, this)}>
                           <span className="btnContent">
                               <span>Start</span>
                           </span>
@@ -102,4 +102,4 @@ else {
 }
 });
 
-module.exports = Instruction;
+export default Instruction;

@@ -1,0 +1,39 @@
+.transcript-container {
+  width: 320px;
+  max-height: 240px;
+  margin: 0 auto;
+  bottom: 240px;
+  z-index: 99999;
+  position: relative;
+}
+
+.transcript-container .transcript-header {
+  font-size: 1.25em;
+  background-color: #EE3124;
+  color: #FFF;
+  font-weight: 400;
+  cursor: move;
+}
+
+.transcript-container .transcript-title {
+  display: inline-block;
+  padding: 10px 8px 10px 16px;
+}
+
+.transcript-container .transcript-close-button {
+  display: block;
+  float: right;
+  font-size: 1.25em;
+  height: 44px;
+  width: 44px;
+  line-height: 44px;
+  text-align: center;
+  color: #FFF;
+  opacity: 0.6;
+}
+
+.transcript-text-container {
+  height: 198px;
+  text-align: center;
+  background-color: #e9e9e9;
+}

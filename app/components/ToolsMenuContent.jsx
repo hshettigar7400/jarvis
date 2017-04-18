@@ -13,7 +13,7 @@ render() {
       </div>
 
       <div className="button-box">
-        <a href="#" id="button-glossary" className="tabindex" aria-label="glossary" role="button" aria-disabled="false" aria-pressed="false">
+        <a href="#" id="button-glossary" className="tabindex disabled" aria-label="glossary" role="button" aria-disabled="false" aria-pressed="false">
           <span className="button-label"></span>
           <span className="icon-glossary"></span>
         </a>

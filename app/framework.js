@@ -1,6 +1,6 @@
 var React = require('react'),
   ReactDOM = require('react-dom'),
-  Instruction = require('./components/Instruction.jsx');
+  Instruction = require('./components/Instruction.jsx').default;
 import SCSS from './assets/stylesheet/app.scss';
 
 const appData = {
