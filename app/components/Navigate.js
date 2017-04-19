@@ -21,7 +21,8 @@ function loadMenu() {
 function millisToMinutesAndSeconds(millis) {
   var minutes = Math.floor(millis / 60000);
   var seconds = ((millis % 60000) / 1000).toFixed(0);
-  return seconds;
+  var s = ((minutes * 60) + parseInt(seconds));
+  return s;
 }
 
 function onAudioPlaying(position) {
@@ -31,6 +32,9 @@ function onAudioPlaying(position) {
   if(qPoints == null) return;
   var t = millisToMinutesAndSeconds(position);
   if(t == qPoints[currentCuePointId]) {
+    if(imageSwap &&  document.querySelector('.sync'+(currentCuePointId))){
+      document.querySelector('.sync'+(currentCuePointId)).classList.add('hide');
+    }
     document.querySelector('.sync'+(currentCuePointId+1)).classList.remove('fadeOut');
     document.querySelector('.sync'+(currentCuePointId+1)).classList.add('fadeIn');
     currentCuePointId++;
