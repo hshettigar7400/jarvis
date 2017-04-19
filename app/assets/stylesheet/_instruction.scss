@@ -1,14 +1,14 @@
 body {
   background: #ffffff !important;
   margin: 0;
+  overflow-y: auto;
 }
 
 .cover-page {
   height: auto;
   color: #FFF;
-  min-height: 100%;
-  height: 650px;
   position: relative;
+  min-height: 100%;
   overflow: hidden;
   background-color: #0A4166;
 }
@@ -31,6 +31,7 @@ body {
   width: 100%;
   position: relative;
   margin-top: 0;
+  overflow-y: auto;
 }
 
 .logo-container {
@@ -184,6 +185,25 @@ body {
     height: 70px;
 }
 
+@media (max-width: 480px) {
+  .cover-page .dis_sys_check {
+    padding: 0 15px;
+  }
+
+  .cover-page .text-container p {
+    font-size: 1em;
+  }
+
+  .cover-page .text-container p:nth-child(2) {
+    padding-left: 20px;
+    font-size: 1.07em;
+  }
+
+  .cover-page .instruction {
+    font-size: 0.9em;
+  }
+}
+
 @media (min-width: 400px) {
   .cover-page .startbtn_a {
       top: 35px;
@@ -264,11 +284,5 @@ body {
   .cover-page .startbtn_a {
     top: 0px;
     float: none;
-  }
-}
-
-@media (min-width: 320px) {
-  .cover-page .dis_sys_check {
-    padding: 0 15px;
   }
 }

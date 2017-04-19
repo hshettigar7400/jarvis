@@ -5,7 +5,15 @@ var TopNav = React.createClass ({
 
   propTypes: {
     onMenuClick:React.PropTypes.func,
-    onToolsMenuClick:React.PropTypes.func
+    onToolsMenuClick:React.PropTypes.func,
+    onNextButtonClick: React.PropTypes.func,
+    onBackButtonClick: React.PropTypes.func,
+    onTranscriptButtonClick: React.PropTypes.func,
+    onPlayPauseClick: React.PropTypes.func,
+    totalPages: React.PropTypes.number,
+    currentPageNumber: React.PropTypes.number,
+    onReplayClick: React.PropTypes.func,
+    isMenuOpened: React.PropTypes.bool
   },
 
   render() {
@@ -21,14 +29,14 @@ var TopNav = React.createClass ({
             </a>
           </div>
           <div className="button-box">
-            <a href="#" id="button-pause" onClick={this.props.onMenuClick} className="tabindex" aria-label="menu" role="button" aria-disabled="false" aria-pressed="false">
+            <a href="#" id="button-pause" onClick={this.props.onPlayPauseClick} className="tabindex" aria-label="menu" role="button" aria-disabled="false" aria-pressed="false">
               <span className="button-label">
               </span>
-              <span className="icon-playPause"></span>
+              <span className="icon-playPause"></span>
             </a>
           </div>
           <div className="button-box">
-            <a href="#" id="button-back" onClick={this.props.onMenuClick} className="tabindex" aria-label="menu" role="button" aria-disabled="false" aria-pressed="false">
+            <a href="#" id="button-back" onClick={this.props.onBackButtonClick} className="tabindex" aria-label="menu" role="button" aria-disabled="false" aria-pressed="false">
               <span className="button-label">
               </span>
               <span className="icon-back"></span>
@@ -36,21 +44,21 @@ var TopNav = React.createClass ({
           </div>
           <div className="nav-comp-container">
             <div className="page-counter clearfix">
-              <span className="page-number">01</span>
+              <span className="page-number">{this.props.currentPageNumber}</span>
               <span className="page-separator">|</span>
-              <span className="total-pages">13</span>
+              <span className="total-pages">{this.props.totalPages}</span>
             </div>
           </div>
           <div className="button-box">
-            <a href="#" id="button-next" className="tabindex" aria-label="next" role="button" aria-disabled="false">
+            <a href="#" id="button-next" onClick={this.props.onNextButtonClick} className="tabindex" aria-label="next" role="button" aria-disabled="false">
               <span className="button-label"></span>
               <span className="icon-next"></span>
             </a>
           </div>
           <div className="button-box">
-            <a href="#" id="button-transcript" className="tabindex" aria-label="transcript" role="button" aria-disabled="false" aria-pressed="false">
+            <a href="#" id="button-transcript" onClick={this.props.onTranscriptButtonClick} className="tabindex" aria-label="transcript" role="button" aria-disabled="false" aria-pressed="false">
               <span className="button-label"></span>
-              <span className="icon-audio"></span>
+              <span className="icon-transcript"></span>
             </a>
           </div>
           <div className="button-box">

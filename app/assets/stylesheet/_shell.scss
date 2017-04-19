@@ -8,6 +8,7 @@ body {
   height: 100vh;
   max-height: $base-height;
   position: relative;
+  overflow: hidden;
 }
 
 .header {

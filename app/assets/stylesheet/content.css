@@ -148,14 +148,14 @@ b{font-weight:bold;}
 **/
 .m01_t01_p02 {background-color: #0a4166;}
 .m01_t01_p02 .template-panel{display: flex;flex-wrap: wrap;}
-.m01_t01_p02 .objective-holder{position: relative;margin-top: 8px;height: auto;width: 100%;left: 0;max-width: 50%;}
+.m01_t01_p02 .objective-holder{position: relative;margin-top: 25px;height: auto;width: 100%;left: 0;max-width: 50%;}
 .m01_t01_p02 .img1 {width: 100%; max-width: 50%;}
 .m01_t01_p02 .img1 img {max-width: 100%;display: block;margin: 0 auto;}
 .m01_t01_p02 .objective-txt{background-color: #FFF;padding: 15px 20px;}
-.m01_t01_p02 .header{display:table;padding: 0;width:100%;}
-.m01_t01_p02 .header>div{display:table-cell}
-.m01_t01_p02 .header h3{display:inline;font-size: 1.3em;}
-.m01_t01_p02 .header .title{color: #EE3124;/* font-family: "Lato-Light"; */vertical-align: middle;border-bottom: 1px solid #EE3124;padding-bottom: 8px;/* font-weight: bold; */}
+.m01_t01_p02 .page-header{display:table;padding: 0;width:100%;}
+.m01_t01_p02 .page-header>div{display:table-cell}
+.m01_t01_p02 .page-header h3{display:inline;font-size: 1.3em;}
+.m01_t01_p02 .page-header .title{color: #EE3124;/* font-family: "Lato-Light"; */vertical-align: middle;border-bottom: 1px solid #EE3124;padding-bottom: 8px;/* font-weight: bold; */}
 
 .m01_t01_p02 .scroll-data{padding: 10px 0;}
 .m01_t01_p02 .scroll-data p{margin: 0;margin-bottom: 10px;}
@@ -220,9 +220,8 @@ b{font-weight:bold;}
     m01_t01_p04
 **/
 .m01_t01_p04 {background-color: #e1f4fb;margin: 0;padding: 0;padding-bottom: 25px;}
-.m01_t01_p04 .template-panel .image-holder1 {width: 100%;}
-.m01_t01_p04 .template-panel .image-holder1 .img1 {background: url("images/m01_t01_p04/m01_t01_p04_img1_large.jpg");background-position: right top;background-repeat: no-repeat;min-width: 100%; min-height: 100%;background-size: contain;}
-.m01_t01_p04 .template-panel .image-holder1 div p {padding-top: 46%;text-align: center;color: #fff;font-size: 16px;font-weight: normal;}
+.m01_t01_p04 .template-panel .image-holder {width: 100%;}
+.m01_t01_p04 .template-panel .image-holder div p {padding-top: 46%;text-align: center;color: #fff;font-size: 16px;font-weight: normal;}
 
 @media all and (max-width: 680px) {
 

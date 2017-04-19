@@ -9,8 +9,12 @@ propTypes: {
   onNextButtonClick: React.PropTypes.func,
   onBackButtonClick: React.PropTypes.func,
   onTranscriptButtonClick: React.PropTypes.func,
+  onPlayPauseClick: React.PropTypes.func,
+  onReplayClick: React.PropTypes.func,
   totalPages: React.PropTypes.number,
-  currentPageNumber: React.PropTypes.number
+  currentPageNumber: React.PropTypes.number,
+  onVolumeClick: React.PropTypes.func,
+  isMenuOpened: React.PropTypes.bool
 },
 
 render() {
@@ -40,37 +44,37 @@ render() {
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-help" onClick={this.props.onHelpClick} className="tabindex" aria-label="help" role="button" aria-disabled="false" aria-pressed="false">
+          <a href="#" id="button-help" onClick={this.props.onHelpClick} className={this.props.isMenuOpened ? "tabindex" : "tabindex disabled"} aria-label="help" role="button" aria-disabled="false" aria-pressed="false">
             <span className="button-label"></span>
             <span className="icon-help"></span>
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-transcript" onClick={this.props.onTranscriptButtonClick} className="tabindex" aria-label="transcript" role="button" aria-disabled="false" aria-pressed="false">
+          <a href="#" id="button-transcript" onClick={this.props.onTranscriptButtonClick} className={this.props.isMenuOpened ? "tabindex" : "tabindex disabled"} aria-label="transcript" role="button" aria-disabled="false" aria-pressed="false">
             <span className="button-label"></span>
-            <span className="icon-audio"></span>
+            <span className="icon-transcript"></span>
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-audio" className="tabindex  selected" aria-label="audio" role="button" aria-disabled="false" aria-pressed="true">
+          <a href="#" id="button-audio" onClick={this.props.onVolumeClick} className={this.props.isMenuOpened ? "tabindex" : "tabindex disabled"} aria-label="audio" role="button" aria-disabled="false" aria-pressed="true">
             <span className="button-label"></span>
-            <span className="icon-transcript"></span>
+            <span className="icon-audio"></span>
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-replay" className="tabindex" aria-label="replay" role="button" aria-disabled="false">
+          <a href="#" id="button-replay" onClick={this.props.onReplayClick} className={this.props.isMenuOpened ? "tabindex" : "tabindex disabled"} aria-label="replay" role="button" aria-disabled="false">
             <span className="button-label"></span>
             <span className="icon-replay"></span>
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-playPause" className="tabindex  selected disabled" aria-label="playPause" role="button" aria-disabled="true" aria-pressed="true">
+          <a href="#" id="button-playPause" onClick={this.props.onPlayPauseClick} className={this.props.isMenuOpened ? "tabindex" : "tabindex disabled"} aria-label="playPause" role="button" aria-disabled="true" aria-pressed="true">
             <span className="button-label"></span>
-            <span className="icon-playPause"></span>
+            <span className="icon-playPause"></span>
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-back" onClick={this.props.onBackButtonClick} className={this.props.currentPageNumber > 1 ? "tabindex" : "tabindex disabled"} aria-label="back" role="button" aria-disabled="true">
+          <a href="#" id="button-back" onClick={this.props.onBackButtonClick} className={(this.props.currentPageNumber > 1 || !this.props.isMenuOpened)? "tabindex" : "tabindex disabled"} aria-label="back" role="button" aria-disabled="true">
             <span className="button-label"></span>
             <span className="icon-back"></span>
           </a>
@@ -83,7 +87,7 @@ render() {
           </div>
         </div>
         <div className="button-box">
-          <a href="#" id="button-next" onClick={this.props.onNextButtonClick} className="tabindex" aria-label="next" role="button" aria-disabled="false">
+          <a href="#" id="button-next" onClick={this.props.onNextButtonClick} className={this.props.isMenuOpened ? "tabindex next-button" : "tabindex disabled next-button"} aria-label="next" role="button" aria-disabled="false">
             <span className="button-label"></span>
             <span className="icon-next"></span>
           </a>

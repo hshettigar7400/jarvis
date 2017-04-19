@@ -3,7 +3,8 @@ var React = require('react'),
 
 var MenuContent = React.createClass ({
 propTypes: {
-  onCloseMenuClick:React.PropTypes.func
+  onCloseMenuClick:React.PropTypes.func,
+  onPageLinkClick: React.PropTypes.func
 },
 
 render() {
@@ -23,23 +24,35 @@ render() {
         <MenuList trigger="Introduction">
           <ul>
             <li>
-              <a>Course objectives</a>
+              <a onClick={this.props.onPageLinkClick} data-page-id={1}>Welcome</a>
               <span className="menu-page-progress"></span>
             </li>
             <li>
-              <a>Increase in home therapy options</a>
+              <a onClick={this.props.onPageLinkClick} data-page-id={2}>Course Objectives</a>
               <span className="menu-page-progress"></span>
             </li>
             <li>
-              <a>Small and portable medical devices</a>
+              <a onClick={this.props.onPageLinkClick} data-page-id={3}>Increase in home therapy options</a>
               <span className="menu-page-progress"></span>
             </li>
             <li>
-              <a>Internet of things—connected medical equipment</a>
+              <a onClick={this.props.onPageLinkClick} data-page-id={4}>Small and portable medical devices</a>
               <span className="menu-page-progress"></span>
             </li>
             <li>
-              <a>Welcome to the quiz</a>
+              <a onClick={this.props.onPageLinkClick} data-page-id={5}>Internet of things—connected medical equipment</a>
+              <span className="menu-page-progress"></span>
+            </li>
+            <li>
+              <a onClick={this.props.onPageLinkClick} data-page-id={6}>Medical appications for Honeywell sensors - Activity</a>
+              <span className="menu-page-progress"></span>
+            </li>
+            <li>
+              <a onClick={this.props.onPageLinkClick} data-page-id={7}>Course Summary</a>
+              <span className="menu-page-progress"></span>
+            </li>
+            <li>
+              <a onClick={this.props.onPageLinkClick} data-page-id={8}>Welcome to the quiz</a>
               <span className="menu-page-progress"></span>
             </li>
           </ul>
