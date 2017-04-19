@@ -2,44 +2,65 @@
 
 <div id="m01_t01_p03" class="page m01_t01_p03">
     <div class="template-panel">
-        <div class="intro-text fadeout sync0">
-            <p class="p1" data-index="1">Increase in home therapy options</p>
-            <div class="text-holder">
-                <div class="part1" style="display: none">
-                    <p class="fadeout sync0">For the dialysis treatment:</p>
-                    <p class="fadeout sync1">Would you prefer taking it in a hospital or at home?</p>
-                    <p class="fadeout sync2">Would you prefer travelling to the hospital multiple times to take it?</p>
-                    <p class="fadeout sync3">Would you prefer the use of needles or a surgically implanted catherter?</p>
+        <div class="instruction sync1">Select each category to learn more.</div>
+        <div class="template-holder">
+            <div class="template-horizontal-tab">
+                <div class="tabs-nav">
+                    <a class="h-tab" data-index="1" area-expanded="false" role="button" aria-disabled="true">
+                        <span class="">Hemodialysis</span>
+                    </a>
+                    <a class="h-tab" data-index="2" area-expanded="false" role="button" aria-disabled="true">
+                        <span class="">Peritoneal dialysis</span>
+                    </a>
                 </div>
-                <div class="part2">
-                    <div class="part2-1 fadeout sync4">
-                        <p>Hemodialysis in a clinic requires:</p>
-                        <ul>
-                            <li>Travel to a clinic serveral times a week</li>
-                            <li>Complex medical equipment</li>
-                            <li>Health professional supervision</li>
-                        </ul>
+                <div class="tab-content" style="display: none;">
+                    <div class="tab-data" id="tab-data-1" style="display: none;">
+                        <div class="popup-txt">
+                            <p>Hemodialysis in a clinic requires:</p>
+                            <ul>
+                                <li>Travel to a clinic serveral times a week</li>
+                                <li>Complex medical equipment</li>
+                                <li>Health professional supervision</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="part2-2 fadeout sync5">
-                        <p>Peritoneal dialysis at home requires:</p>
-                        <ul>
-                            <li>No travel</li>
-                            <li>Self-administered treatment</li>
-                            <li>Compliance with prescribed procedure</li>
-                        </ul>
+                    <div class="tab-data" id="tab-data-2" style="display: none;">
+                        <div class="popup-txt">
+                            <p>Peritoneal dialysis at home requires:</p>
+                            <ul>
+                                <li>No travel</li>
+                                <li>Self-administered treatment</li>
+                                <li>Compliance with prescribed procedure</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="image-holder">
-                <div class="img1 fadeout sync4">
+                <div class="img1" style="display: none;">
                     <img src="images/m01_t01_p03/Slide_08_image_01.jpg">
                     <p>Hemodialysis in a hospital</p>
                 </div>
-                <div class="img2 fadeout sync5">
+                <div class="img2" style="display: none;">
                     <img src="images/m01_t01_p03/Slide_08_image_02.jpg">
                     <p>Peritoneal dialysis at home</p>
                 </div>
             </div>
         </div>
+
+        <div class="main-content">
+            <div class="text-1">For the dialysis treatment:</div>
+            <div class="text-2">Would you prefer taking it in a hospital or at home?</div>
+            <div class="text-3">Would you prefer the use of needles or a surgically implanted catheter?</div>
+        </div>
     </div>
 </div>
+
+<script>
+    var qPoints = [5, 10, 14, 22];
+    var qPointsExecution = ["stopAudio"];
+    var currentCuePointId = 0;
+    var transcript = "After completing this course, you will be able to:";
+
+
+</script>
