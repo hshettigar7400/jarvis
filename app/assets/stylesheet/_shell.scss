@@ -1,12 +1,15 @@
 body {
   margin: 0 auto;
-  max-height: $base-height;
-  max-width: $base-width;
+  font-family: Arial;
+  color: #FFF;
+  font-size: 1em;
+  font-weight: 300;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .shell-container {
-  height: 100vh;
-  max-height: $base-height;
   position: relative;
   overflow: hidden;
 }
@@ -20,6 +23,7 @@ body {
 }
 
 .title-holder {
+  padding: 20px;
   display: table;
   color: #5C6670;
   font-weight: 700;
@@ -55,4 +59,8 @@ body {
 
 .title-seperator {
   padding: 0 5px;
+}
+
+.page-loader {
+
 }

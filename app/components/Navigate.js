@@ -1,7 +1,8 @@
 var $ = require("jquery");
 
 function loadPage(pageNumber) {
-  document.querySelector('.next-button').classList.remove("blinker");
+  if(document.querySelector('.next-button'))
+    document.querySelector('.next-button').classList.remove("blinker");
   $(".page-loader").empty();
   $(".page-loader").load('components/content/m01/t01/m01_t01_p0'+(pageNumber)+'.html');
 }
@@ -25,25 +26,9 @@ function millisToMinutesAndSeconds(millis) {
   return s;
 }
 
-function onAudioPlaying(position) {
-  if(document.querySelector('.transcript-text-container')) {
-    document.querySelector('.transcript-text-container').innerHTML = transcript;
-  }
-  if(qPoints == null) return;
-  var t = millisToMinutesAndSeconds(position);
-  if(t == qPoints[currentCuePointId]) {
-    if(imageSwap &&  document.querySelector('.sync'+(currentCuePointId))){
-      document.querySelector('.sync'+(currentCuePointId)).classList.add('hide');
-    }
-    document.querySelector('.sync'+(currentCuePointId+1)).classList.remove('fadeOut');
-    document.querySelector('.sync'+(currentCuePointId+1)).classList.add('fadeIn');
-    currentCuePointId++;
-  }
-}
-
 module.exports = {
   loadPage,
   loadSound,
   loadTranscript,
-  onAudioPlaying
+  millisToMinutesAndSeconds
 }
