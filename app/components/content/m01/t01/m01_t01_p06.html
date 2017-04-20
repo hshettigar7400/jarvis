@@ -1,11 +1,166 @@
 <link rel="stylesheet" type="text/css" href="assets/stylesheet/content.css">
-var $ = require('jquery');
-<div class="dragImg"><img src="http://placehold.it/80x80">
+
+<div class="m01_t01_p06">
+`  <div class="activity-intro-container" id="intro">
+`    <div class="activity-intro">
+      <div class="activity-title">
+        Medical applications for Honeywell sensors—Activity
+      </div>
+      <div class="activity-instruction">
+        Drag and drop each medical equipment label on to the correct medical application in which Honeywell sensors are used. After making a drop, select Proceed to view the next medical application label and its drop options.
+    Select Start to begin.
+      </div>
+      <div class="activity-condition">
+        <span>Total opportunities: 16</span>
+        <span>Minimum required score: 12</span>
+        <span>Duration per attempt: 4 minutes</sapn>
+        <span>Number of attempts: unlimited</span>
+      </div>
+      <div class="activity-action">
+        Select start to begin
+        <button onclick="startActivity()"> Start</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity-holder" id="activity1">
+    <div class="activity-question">
+      Drag and Drop the Medical Equipment to the correct Medical Application
+      <div class="activity-score">Score - 3/16</div>
+      <div class="activity-timer">Time - 3/16</div>
+    </div>
+    <div class="activity-drag__element">
+      Medical Equipment
+      <div class="drag-element">Hospital bed</div>
+    </div>
+    <div class="activity-drop__container">
+      <div class="drop-category">
+        Medical Application
+      </div>
+      <div class="drop-container1">
+        Kidney dialysis machines
+      <div>
+      <div class="drop-container2">
+        Hospital hardware
+      <div>
+      <div class="drop-container3">
+        Respiratory
+      <div>
+      <div class="drop-container4">
+        Infusion, insulin, and syringe pumps
+      <div>
+    </div>
+    <button>Proceed</div>
+  </div>
+
+  <div class="activity-holder" id="activity2">
+    <div class="activity-question">
+      Drag and Drop the Medical Equipment to the correct Medical Application
+      <div class="activity-score">Score - 3/16</div>
+      <div class="activity-timer">Time - 3/16</div>
+    </div>
+    <div class="activity-drag__element">
+      Medical Equipment
+      <div class="drag-element">Hospital bed</div>
+    </div>
+    <div class="activity-drop__container">
+      <div class="drop-category">
+        Medical Application
+      </div>
+      <div class="drop-container1">
+        Kidney dialysis machines
+      <div>
+      <div class="drop-container2">
+        Hospital hardware
+      <div>
+      <div class="drop-container3">
+        Respiratory
+      <div>
+      <div class="drop-container4">
+        Infusion, insulin, and syringe pumps
+      <div>
+    </div>
+    <button>Proceed</div>
+  </div>
+
+  <div class="activity-holder" id="activity3">
+    <div class="activity-question">
+      Drag and Drop the Medical Equipment to the correct Medical Application
+      <div class="activity-score">Score - 3/16</div>
+      <div class="activity-timer">Time - 3/16</div>
+    </div>
+    <div class="activity-drag__element">
+      Medical Equipment
+      <div class="drag-element">Hospital bed</div>
+    </div>
+    <div class="activity-drop__container">
+      <div class="drop-category">
+        Medical Application
+      </div>
+      <div class="drop-container1">
+        Kidney dialysis machines
+      <div>
+      <div class="drop-container2">
+        Hospital hardware
+      <div>
+      <div class="drop-container3">
+        Respiratory
+      <div>
+      <div class="drop-container4">
+        Infusion, insulin, and syringe pumps
+      <div>
+    </div>
+    <button>Proceed</div>
+  </div>
+
+  <div class="activity-holder" id="activity4">
+    <div class="activity-question">
+      Drag and Drop the Medical Equipment to the correct Medical Application
+      <div class="activity-score">Score - 3/16</div>
+      <div class="activity-timer">Time - 3/16</div>
+    </div>
+    <div class="activity-drag__element">
+      Medical Equipment
+      <div class="drag-element">Hospital bed</div>
+    </div>
+    <div class="activity-drop__container">
+      <div class="drop-category">
+        Medical Application
+      </div>
+      <div class="drop-container1">
+        Kidney dialysis machines
+      <div>
+      <div class="drop-container2">
+        Hospital hardware
+      <div>
+      <div class="drop-container3">
+        Respiratory
+      <div>
+      <div class="drop-container4">
+        Infusion, insulin, and syringe pumps
+      <div>
+    </div>
+    <button>Proceed</div>
+  </div>
+
 </div>
 
-<div id="dropHere"></div>
+
+
+
+
 <script>
+function startActivity() {
+  $(".activity-intro-container").fadeOut( "slow", function() {
+    alert("asdas")
+    $("#activity1").show();
+  })
+
+}
+
 $(function(){
+
+
   //Make every clone image unique.
   var counts = [0];
   $(".dragImg").draggable({
@@ -29,10 +184,7 @@ $(function(){
       //make the div draggable --- Not working???
       make_draggable($(".item-1"));
     }
-
-
   });
-
 
   var zIndex = 0;
   function make_draggable(elements)
@@ -44,8 +196,5 @@ $(function(){
       }
     });
   }
-
-
-
 });
 </script>
