@@ -82,28 +82,18 @@
                         "id": "question",
 						"audioID":"p1q1",	
                         "type": "mcq",
-                        "text": "The time frame for maintenance procedures may be based on:<br>A) Flight hours<br>B) Aircraft cycles<br>C) Age of aircraft<br>D) Pilot experience",
+                        "text": "As medical devices are become more portable and accessible, they will <b>require</b> more or less sensors?",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                             {
                                 "id": "option",
                                 "correct": 1,
-                                "text": "A, B, and C"
+                                "text": "Yes"
                             },
                             {
                                 "id": "option",
                                 "correct": 0,
-                                "text": "A, C, and D"
-                            },
-                            {
-                                "id": "option",
-                                "correct": 0,
-                                "text": "B, C, and D"
-                            },
-                            {
-                                "id": "option",
-                                "correct": 0,
-                                "text": "All"
+                                "text": "No"
                             }
                         ]
                     },
@@ -111,28 +101,18 @@
                         "id": "question",
 						"audioID":"p1q2",	
                         "type": "mcq",
-                        "text": "Which MRO service does not involve removing aircraft from service?",
+                        "text": "Patient care is moving towards the hospital.",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                             {
                                 "id": "option",
                                 "correct": 0,
-                                "text": "Engine"
-                            },
-                            {
-                                "id": "option",
-                                "correct": 0,
-                                "text": "Component"
+                                "text": "True. These days people need to travel to hospitals increasingly to take treatments."
                             },
                             {
                                 "id": "option",
                                 "correct": 1,
-                                "text": "Line"
-                            },
-                            {
-                                "id": "option",
-                                "correct": 0,
-                                "text": "Airframe"
+                                "text": "False. These days people prefer to use portable and manageable medical equipment at home."
                             }
 							
                         ]
@@ -140,19 +120,29 @@
                     {
                         "id": "question",
 						"audioID":"p1q3",	
-                        "type": "mcq",
-                        "text": "Independent service providers are formed typically by joining the resources of OEMs and in-country capabilities to build an indigenous capacity. ",
+                        "type": "mrq",
+                        "text": "With medical devices becoming smaller and portable, what are the implications for sensors?",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                               {
                                 "id": "option",
-                                "correct": 0,
-                                "text": "True"
+                                "correct": 1,
+                                "text": "Lower power"
                             },
                             {
                                 "id": "option",
                                 "correct": 1,
-                                "text": "False"
+                                "text": "Smaller size"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 1,
+                                "text": "Higher volume"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "Higher price"
                             }
                         ]
                     },
@@ -160,37 +150,82 @@
                         "id": "question",
 						"audioID":"p1q4",	
                         "type": "mcq",
-                        "text": "OEMs offer maintenance capabilities for their respective aircraft types, engine types, and component parts by utilizing company owned facilities.",
+                        "text": "Identify key reasons that led IOT revolution in the medical device industry.",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                               {
                                 "id": "option",
-                                "correct": 1,
-                                "text": "True"
+                                "correct": 0,
+                                "text": "Digitization and interconnectivity of medical devices"
                             },
                             {
                                 "id": "option",
                                 "correct": 0,
-                                "text": "False"
+                                "text": "Easy retrieval and analysis of medical data"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "Real-time data monitoring"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 1,
+                                "text": "All of the above"
                             }
                         ]
                     },
                     {
                         "id": "question",
 						"audioID":"p1q5",	
-                        "type": "mcq",
-                        "text": "All MRO activities are documented in English language.",
+                        "type": "mrq",
+                        "text": "From medical applications listed below, identify Honeywell’s focus medical applications.?",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                             {
                                 "id": "option",
                                 "correct": 1,
-                                "text": "True"
+                                "text": "Kidney dialysis machines"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 1,
+                                "text": "Respiratory"
                             },
                             {
                                 "id": "option",
                                 "correct": 0,
-                                "text": "False"
+                                "text": "Pacemaker"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 1,
+                                "text": "Diagnostic/analytical equipment"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "Holter monitor"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "Ultrasound imaging"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 1,
+                                "text": "Hospital hardware"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 1,
+                                "text": "Surgical equipment"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "Balloon angioplasty"
                             }
                         ]
                     }
