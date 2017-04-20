@@ -183,6 +183,7 @@ var Shell = React.createClass ({
               <HelpContent closeHelp={this.clickOpenHelpDock}/>
             </HelpDock>
           </div>
+
         </div>
 
         <MediaQuery query='(min-width: 680px)'>

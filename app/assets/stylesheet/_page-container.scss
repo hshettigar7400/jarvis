@@ -7,18 +7,17 @@
   z-index: 9;
 }
 
-
 .page-container .page-holder {
-
   height: 100%;
 }
 
 .page-loader {
   height: 100%;
+  z-index: 99;
 }
 
 .help-container > div:first-child {
-  position: absolute !important;
+  position: static !important;
   width: 100% !important;
   height: 100% !important;
   z-index: 1 !important;
