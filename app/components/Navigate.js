@@ -3,6 +3,8 @@ var $ = require("jquery");
 function loadPage(pageNumber) {
   if(document.querySelector('.next-button'))
     document.querySelector('.next-button').classList.remove("blinker");
+  document.querySelector('#button-audio').classList.remove("disabled");
+  document.querySelector('#button-playPause').classList.remove("disabled");
   $(".page-loader").empty();
   $(".page-loader").load('components/content/m01/t01/m01_t01_p0'+(pageNumber)+'.html');
 }

@@ -93,10 +93,10 @@ var Shell = React.createClass ({
 
   enableTranscript(e) {
     if (!this.state.transcriptVisible) {
-      e.currentTarget.classList.add("selected");
+      $("#button-transcript").addClass("selected");
     }
     else {
-      e.currentTarget.classList.remove("selected");
+      $("#button-transcript").removeClass("selected");
     }
     this.setState({transcriptVisible: !this.state.transcriptVisible});
   },
@@ -172,16 +172,16 @@ var Shell = React.createClass ({
             replayState={this.state.isReplayed}
             volume={this.state.volume}/>
           <div className="help-container">
-            {this.state.isHelpDockOpen && <HelpDock
+            <HelpDock
               position='top'
               isVisible={this.state.isHelpDockOpen}
               duration={800}
               size={0.98}
               dockStyle={{position: 'absolute', height: 'auto'}}
-              dimStyle={{position: 'relative', height: '102%'}}
+              dimStyle={{position: 'relative', height: '100%'}}
               >
               <HelpContent closeHelp={this.clickOpenHelpDock}/>
-            </HelpDock>}
+            </HelpDock>
           </div>
         </div>
 

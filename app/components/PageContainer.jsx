@@ -3,6 +3,7 @@ var React = require('react'),
 Sound = require('react-sound');
 var $ = require("jquery");
 var playAudioInterval;
+var checkAudioPositionInterval;
 
 var PageContainer = React.createClass ({
   propTypes: {
@@ -14,7 +15,6 @@ var PageContainer = React.createClass ({
 
   getInitialState() {
     return {
-      isFirstTime: false,
       finishedPlaying: false,
       stopAudio: false,
       currentAudioPosition: 0
@@ -26,25 +26,28 @@ var PageContainer = React.createClass ({
   },
 
   componentDidUpdate(prevProps, prevState) {
-    if(currentAudioPosition > 0) {
-      this.setState({currentAudioPosition: currentAudioPosition})
-    }
     if((this.props.PageNum !== prevProps.PageNum)) {
       loadPage(this.props.PageNum)
     }
   },
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.PageNum === nextProps.PageNum) {
-        this.setState({isFirstTime: true})
+    if(this.props.PageNum !== nextProps.PageNum) {
+        this.setState({stopAudio: false});
     }
-    else {
-        this.setState({isFirstTime: false})
-    }
+  },
+
+  shouldComponentUpdate: function(nextProps, nextState) {
+    if(this.props.PageNum !== nextProps.PageNum || this.props.volume !== nextProps.volume || this.props.audioState !== nextProps.audioState)
+      return true;
+    else
+      return false;
   },
 
   onAudioFinished() {
     document.querySelector('.next-button').classList.add("blinker");
+    document.querySelector('#button-audio').classList.add("disabled");
+    document.querySelector('#button-playPause').classList.add("disabled");
   },
 
   stopSound () {
@@ -58,7 +61,6 @@ var PageContainer = React.createClass ({
       this.setState({stopAudio: false});
       clearInterval(playAudioInterval)
     }
-
   },
 
   onAudioPlaying(position) {
@@ -68,21 +70,18 @@ var PageContainer = React.createClass ({
     }
     if (qPoints !== null) {
       var t = millisToMinutesAndSeconds(position);
-      console.log(t,' == ',qPoints[currentCuePointId]);
       if (t == qPoints[currentCuePointId]) {
         if (imageSwap &&  document.querySelector('.sync'+(currentCuePointId))){
           document.querySelector('.sync'+(currentCuePointId)).classList.add('hide');
+          document.querySelector('.sync'+(currentCuePointId + 1)).classList.remove('hide');
         }
         if (document.querySelector('.sync'+(currentCuePointId+1))) {
           document.querySelector('.sync'+(currentCuePointId+1)).classList.remove('fadeOut');
           document.querySelector('.sync'+(currentCuePointId+1)).classList.add('fadeIn');
         }
-        console.log(t,' == ',qPointsExecution[currentCuePointId]);
         if(qPointsExecution && qPointsExecution[currentCuePointId])
         {
-          console.log(qPointsExecution[currentCuePointId]);
           eval(qPointsExecution[currentCuePointId]);
-
         }
         currentCuePointId++;
       }
@@ -102,14 +101,14 @@ var PageContainer = React.createClass ({
         </div>
         <div ref="pageLoader" className="page-loader">
         </div>
-        {!this.state.sFirstTime && <Sound
+        <Sound
         url={audioPath}
         playStatus={(this.props.audioState || this.state.stopAudio) ? Sound.status.PAUSED : Sound.status.PLAYING}
         playFromPosition={this.state.currentAudioPosition}
         onPlaying={({position}) => this.onAudioPlaying(position)}
         volume={this.props.volume}
         onFinishedPlaying={this.onAudioFinished}
-        />}
+        />
       </div>
     )
   }

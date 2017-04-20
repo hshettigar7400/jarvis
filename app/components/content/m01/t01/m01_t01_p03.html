@@ -5,47 +5,50 @@
         <div class="instruction sync1">Select each category to learn more.</div>
         <div class="template-holder">
             <div class="template-horizontal-tab">
-                <div class="tabs-nav">
-                    <a class="h-tab" data-index="1" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab1()">
-                        <span class="">Hemodialysis</span>
-                    </a>
-                    <a class="h-tab" data-index="2" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab2()">
-                        <span class="">Peritoneal dialysis</span>
-                    </a>
+                <div>
+                  <div class="tabs-nav">
+                      <a class="h-tab" data-index="1" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab1()">
+                          <span class="">Hemodialysis</span>
+                      </a>
+                      <a class="h-tab" data-index="2" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab2()">
+                          <span class="">Peritoneal dialysis</span>
+                      </a>
+                  </div>
+                  <div class="tab-content" style="display: none;">
+                      <div class="tab-data" id="tab-data-1" style="display: none;">
+                          <div class="popup-txt">
+                              <p>Hemodialysis in a clinic requires:</p>
+                              <ul>
+                                  <li>Travel to a clinic serveral times a week</li>
+                                  <li>Complex medical equipment</li>
+                                  <li>Health professional supervision</li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="tab-data" id="tab-data-2" style="display: none;">
+                          <div class="popup-txt">
+                              <p>Peritoneal dialysis at home requires:</p>
+                              <ul>
+                                  <li>No travel</li>
+                                  <li>Self-administered treatment</li>
+                                  <li>Compliance with prescribed procedure</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
                 </div>
-                <div class="tab-content" style="display: none;">
-                    <div class="tab-data" id="tab-data-1" style="display: none;">
-                        <div class="popup-txt">
-                            <p>Hemodialysis in a clinic requires:</p>
-                            <ul>
-                                <li>Travel to a clinic serveral times a week</li>
-                                <li>Complex medical equipment</li>
-                                <li>Health professional supervision</li>
-                            </ul>
-                        </div>
+                <div class="image-holder">
+                    <div class="img1" style="display: none;">
+                        <img src="images/m01_t01_p03/Slide_08_image_01.jpg">
+                        <p>Hemodialysis in a hospital</p>
                     </div>
-                    <div class="tab-data" id="tab-data-2" style="display: none;">
-                        <div class="popup-txt">
-                            <p>Peritoneal dialysis at home requires:</p>
-                            <ul>
-                                <li>No travel</li>
-                                <li>Self-administered treatment</li>
-                                <li>Compliance with prescribed procedure</li>
-                            </ul>
-                        </div>
+                    <div class="img2" style="display: none;">
+                        <img src="images/m01_t01_p03/Slide_08_image_02.jpg">
+                        <p>Peritoneal dialysis at home</p>
                     </div>
                 </div>
             </div>
-            <div class="image-holder">
-                <div class="img1" style="display: none;">
-                    <img src="images/m01_t01_p03/Slide_08_image_01.jpg">
-                    <p>Hemodialysis in a hospital</p>
-                </div>
-                <div class="img2" style="display: none;">
-                    <img src="images/m01_t01_p03/Slide_08_image_02.jpg">
-                    <p>Peritoneal dialysis at home</p>
-                </div>
-            </div>
+
         </div>
 
         <div class="main-content">
@@ -58,13 +61,13 @@
 
 <script>
     var imageSwap = false;
-    var qPoints = [2, 5, 14, 22];
+    var qPoints = [41, 81];
     var qPointsExecution = ["this.stopSound()", "this.stopSound()"];
     var playPopSoundFrom = [3, 6];
     var currentCuePointId = 0;
     var startAudioPlay = false;
     var transcript = "After completing this course, you will be able to:";
-    var currentAudioPosition = 0;
+    var globalAudioPosition = 0;
 
     function showTab1 () {
       document.querySelector('.tab-content').style.display = 'block';
@@ -73,7 +76,7 @@
       document.querySelector('.img1').style.display = 'block';
       document.querySelector('.img2').style.display = 'none';
       document.querySelector('.main-content').style.display = 'none';
-      currentAudioPosition = 3;
+      globalAudioPosition = 3;
       startAudioPlay = true;
     }
 
@@ -85,7 +88,7 @@
       document.querySelector('.img1').style.display = 'none';
       document.querySelector('.main-content').style.display = 'none';
       startAudioPlay = true;
-      currentAudioPosition = 6;
+      globalAudioPosition = 22;
     }
 
 
