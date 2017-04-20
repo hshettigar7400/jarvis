@@ -25,32 +25,32 @@
 
   <div class="activity-holder" id="activity1">
     <div class="activity-question">
-      Drag and Drop the Medical Equipment to the correct Medical Application
+      <span>Drag and Drop the Medical Equipment to the correct Medical Application</span>
       <div class="activity-score">Score - 3/16</div>
       <div class="activity-timer">Time - 3/16</div>
     </div>
     <div class="activity-drag__element">
       Medical Equipment
-      <div class="drag-element">Hospital bed</div>
+      <div class="drag-element dragImg">Hospital bed</div>
     </div>
     <div class="activity-drop__container">
       <div class="drop-category">
         Medical Application
       </div>
-      <div class="drop-container1">
+      <div class="drop-container" id="1">
         Kidney dialysis machines
-      <div>
-      <div class="drop-container2">
+      </div>
+      <div class="drop-container" id="2">
         Hospital hardware
-      <div>
-      <div class="drop-container3">
+      </div>
+      <div class="drop-container" id="3">
         Respiratory
-      <div>
-      <div class="drop-container4">
+      </div>
+      <div class="drop-container" id="4">
         Infusion, insulin, and syringe pumps
-      <div>
+      </div>
     </div>
-    <button>Proceed</div>
+    <button class="proceed-button">Proceed</div>
   </div>
 
   <div class="activity-holder" id="activity2">
@@ -150,9 +150,9 @@
 
 
 <script>
+var currentActivityNumber = 0;
 function startActivity() {
   $(".activity-intro-container").fadeOut( "slow", function() {
-    alert("asdas")
     $("#activity1").show();
   })
 
@@ -160,7 +160,24 @@ function startActivity() {
 
 $(function(){
 
-
+  var actvityAns = [
+    [1,3],
+    [2,3],
+    [1],
+    [2],
+    [3],
+    [1],
+    [1],
+    [1],
+    [1],
+    [1],
+    [1],
+    [1],
+    [1],
+    [1],
+    [1],
+    [1]
+  ]
   //Make every clone image unique.
   var counts = [0];
   $(".dragImg").draggable({
@@ -169,20 +186,27 @@ $(function(){
     start: function() { counts[0]++; }
   });
 
-  $("#dropHere").droppable({
+  $(".drop-container").droppable({
     drop: function(e, ui){
-      $(this).append($(ui.helper).clone());
+      if(actvityAns[currentActivityNumber].indexOf(parseInt($(this)[0].id)) !== -1) {
+        $(this).addClass("correct");
+      }
+      else {
+        $(this).addClass("incorrect");
+      }
+
+      //$(this).append($(ui.helper).clone());
       //Pointing to the dragImg class in dropHere and add new class.
-      $("#dropHere .dragImg").addClass("item-"+counts[0]);
+      $(".drop-container .dragImg").addClass("item-"+counts[0]);
       //Remove the current class (ui-draggable and dragImg)
-      $("#dropHere .item-"+counts[0]).removeClass("dragImg ui-draggable ui-draggable-dragging");
+      $(".drop-container .item-"+counts[0]).removeClass("dragImg ui-draggable ui-draggable-dragging");
 
       $(".item-"+counts[0]).dblclick(function() {
         $(this).remove();
       });
 
       //make the div draggable --- Not working???
-      make_draggable($(".item-1"));
+      //make_draggable($(".item-1"));
     }
   });
 

@@ -241,7 +241,7 @@ export default class Dock extends Component {
 
   static defaultProps = {
     position: 'left',
-    zIndex: 99999999,
+    zIndex: 999,
     fluid: true,
     defaultSize: 0.3,
     dimMode: 'opaque',
