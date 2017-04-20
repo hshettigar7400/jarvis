@@ -17,6 +17,7 @@ startCourse() {
 render() {
 if (this.state.isStartCourse) {
   return (
+
     <div>
       <Shell />
     </div>

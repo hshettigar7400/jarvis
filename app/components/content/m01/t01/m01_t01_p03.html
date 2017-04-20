@@ -6,10 +6,10 @@
         <div class="template-holder">
             <div class="template-horizontal-tab">
                 <div class="tabs-nav">
-                    <a class="h-tab" data-index="1" area-expanded="false" role="button" aria-disabled="true">
+                    <a class="h-tab" data-index="1" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab1()">
                         <span class="">Hemodialysis</span>
                     </a>
-                    <a class="h-tab" data-index="2" area-expanded="false" role="button" aria-disabled="true">
+                    <a class="h-tab" data-index="2" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab2()">
                         <span class="">Peritoneal dialysis</span>
                     </a>
                 </div>
@@ -57,10 +57,36 @@
 </div>
 
 <script>
-    var qPoints = [5, 10, 14, 22];
-    var qPointsExecution = ["stopAudio"];
+    var imageSwap = false;
+    var qPoints = [2, 5, 14, 22];
+    var qPointsExecution = ["this.stopSound()", "this.stopSound()"];
+    var playPopSoundFrom = [3, 6];
     var currentCuePointId = 0;
+    var startAudioPlay = false;
     var transcript = "After completing this course, you will be able to:";
+    var currentAudioPosition = 0;
+
+    function showTab1 () {
+      document.querySelector('.tab-content').style.display = 'block';
+      document.querySelector('#tab-data-1').style.display = 'block';
+      document.querySelector('#tab-data-2').style.display = 'none';
+      document.querySelector('.img1').style.display = 'block';
+      document.querySelector('.img2').style.display = 'none';
+      document.querySelector('.main-content').style.display = 'none';
+      currentAudioPosition = 3;
+      startAudioPlay = true;
+    }
+
+    function showTab2 () {
+      document.querySelector('.tab-content').style.display = 'block';
+      document.querySelector('#tab-data-2').style.display = 'block';
+      document.querySelector('#tab-data-1').style.display = 'none';
+      document.querySelector('.img2').style.display = 'block';
+      document.querySelector('.img1').style.display = 'none';
+      document.querySelector('.main-content').style.display = 'none';
+      startAudioPlay = true;
+      currentAudioPosition = 6;
+    }
 
 
 </script>

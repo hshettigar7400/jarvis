@@ -9,7 +9,8 @@ var React = require('react'),
   HelpContent = require('../components/HelpContent.jsx').default,
   Menu = require('react-sidebar').default,
   ToolsMenu = require('react-sidebar').default,
-  HelpDock = require('react-dock');
+  HelpDock = require('react-dock'),
+  $ = require('jquery');
 
 
 var Shell = React.createClass ({
@@ -39,6 +40,31 @@ var Shell = React.createClass ({
     this.setState({sidebarOpen: false});
     this.setState({isPause: false})
   },
+
+  updateDimensions: function() {
+    var w = window,
+      d = document,
+      documentElement = d.documentElement,
+      body = d.getElementsByTagName('body')[0],
+      width = w.innerWidth,
+      height = w.innerHeight;
+      if (width > 680)
+        var contentHeight = height - 60;
+      else
+        var contentHeight = height - 46;
+      $('.page-container').css('height', contentHeight+'px');
+      $('.page-holder').css('height', (contentHeight-46)+'px');
+  },
+
+  componentDidMount: function() {
+    window.addEventListener("resize", this.updateDimensions);
+    this.updateDimensions();
+  },
+
+  componentDidUpdate: function(prevProps, prevState) {
+    window.addEventListener("resize", this.updateDimensions);
+  },
+
 
   setToolsMenuOpen() {
     this.setState({toolsMenuOpen: false});
@@ -85,7 +111,7 @@ var Shell = React.createClass ({
           </a>
         </div>
         <div className="transcript-text-container">
-            
+
         </div>
       </div>
     )
@@ -105,6 +131,7 @@ var Shell = React.createClass ({
     this.setState({isReplayed: !this.state.isReplayed})
   },
 
+
   volumeChange(e) {
     if (this.state.volume === 100) {
       e.currentTarget.classList.add("selected");
@@ -117,9 +144,9 @@ var Shell = React.createClass ({
 
   render() {
     return (
-      <div className="shell-container">
+      <div className="shell-container" style={{position: 'relative'}}>
         <div className="header">
-          <MediaQuery query='(max-width: 800px)'>
+          <MediaQuery query='(max-width: 680px)'>
             <TopNav
               onMenuClick={this.clickOpenMenu.bind(null, this)}
               onToolsMenuClick={this.clickOpenToolsMenu}
@@ -134,19 +161,18 @@ var Shell = React.createClass ({
               isMenuOpened={!this.state.sidebarOpen}
             />
           </MediaQuery>
-          <MediaQuery query='(min-width: 800px)'>
+          <MediaQuery query='(min-width: 680px)'>
             <HeaderTitle />
           </MediaQuery>
         </div>
-
-        <div className="page-container">
+        <div className="page-container" >
           <PageContainer
             PageNum={this.state.currentPageNumber}
             audioState={this.state.isPause}
             replayState={this.state.isReplayed}
             volume={this.state.volume}/>
           <div className="help-container">
-            <HelpDock
+            {this.state.isHelpDockOpen && <HelpDock
               position='top'
               isVisible={this.state.isHelpDockOpen}
               duration={800}
@@ -155,11 +181,11 @@ var Shell = React.createClass ({
               dimStyle={{position: 'relative', height: '102%'}}
               >
               <HelpContent closeHelp={this.clickOpenHelpDock}/>
-            </HelpDock>
+            </HelpDock>}
           </div>
         </div>
 
-        <MediaQuery query='(min-width: 800px)'>
+        <MediaQuery query='(min-width: 680px)'>
           <div className="footer">
             <Footer
               onMenuClick={this.clickOpenMenu.bind(null, this)}

@@ -1,4 +1,4 @@
-.page {
+/*.page {
     margin: 0 auto;
     padding: 0 15px 15px 15px;
     background: #fff;
@@ -60,16 +60,6 @@
 }
 
 @media all and (min-width:320px) and (max-width: 640px) {
-	.page {
-		padding: 0 25px 15px 25px;
-		min-height: auto;
-		min-height: -moz-calc(100% - 40px);
-		min-height: -webkit-calc(100% - 40px);
-		min-height: -moz-calc(100% - 40px);
-		height: -moz-calc(100% - 40px);
-		height: -webkit-calc(100% - 40px);
-		height: calc(100% - 40px);
-	}
 	.screen-bg {
    		background: url(../images/bg.jpg) bottom right no-repeat;
    	}
@@ -80,4 +70,4 @@
 	    margin-top: 10%;
 	    margin-left: 5%;
 	}
-}
+}*/
