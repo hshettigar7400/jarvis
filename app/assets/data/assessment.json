@@ -1,0 +1,226 @@
+{
+    "data": {
+		"defaultAudio": "start",
+		"audio": [
+			{
+				"id":"start",
+				"path": "content/en/audio/assessment/m01_t04_p01.mp3",
+				"transcript": [ 
+					{"qPoint": 0, "text":"Welcome to the Quiz. <br><br>Let's see how well you've understood what we've covered in this module.<br><br>Good luck!"}
+				],
+				"qPoints": [
+					{ "qPoint": 0, "defaultClass":"", "animationType":"addClass", "className":"", "element":""}
+					
+				]
+			},
+
+			{ "id":"result1", "path": "content/en/audio/assessment/m01_t04_p03_2.mp3", "transcript": [
+			{	
+				"qPoint": 0,
+				"text":"Congratulations, you've successfully completed the module."
+			}
+			], "qPoints": [] },
+			{ "id":"result2", "path": "content/en/audio/assessment/m01_t04_p03_1.mp3", "transcript": [
+			{	
+				"qPoint": 0,
+				"text":"Sorry, you did not achieve the passing score. If you would like to improve your score, please select Try Again."
+			}
+			
+			], "qPoints": [] }
+		
+
+		
+		
+		],
+		"images":[
+			"content/images/assessment.png"
+		],
+        "id": "assessment",
+        "title": "Quiz questions",
+        "visitContent": {
+            "label": "Revisit learning",
+            "text": "To go through the module again, select "
+        },
+         "review": {
+            "label": "Review answers",
+			"text": "To go through the answers you selected for the assessment, select "
+        },
+        "tryAgain": {
+            "label": "Try again",
+			"text": "To reattempt the quiz, select "
+			
+        },
+        "exitCourse": {
+            "label": "Exit",
+			 "text": "To exit the module, select "
+        },
+        "certificate": {
+            "label": "Get Your Certificate!"
+        },
+        "exitReview": {
+            "label": "Exit review"
+
+        },
+        "lastQuestion": {
+            "label": "Submit",
+			 "text": "Select the correct option and select <b>Submit</b>."
+
+        },
+        "questionCounter": "#!# of #*#",
+        "startPage": {
+            "id": "start",
+            "text": "",
+            "image": "content/images/assessment_start.jpg",
+            "buttonLabel": "Begin Assessment"
+        },
+        "questionPools": [
+            {
+			 "id": "pool",
+                "poolId": "0",
+                "questions": [
+                    {
+                        "id": "question",
+						"audioID":"p1q1",	
+                        "type": "mcq",
+                        "text": "The time frame for maintenance procedures may be based on:<br>A) Flight hours<br>B) Aircraft cycles<br>C) Age of aircraft<br>D) Pilot experience",
+                        "instruction": "Select the correct option and select <b>Next question</b>.",
+                        "options": [
+                            {
+                                "id": "option",
+                                "correct": 1,
+                                "text": "A, B, and C"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "A, C, and D"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "B, C, and D"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "All"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "question",
+						"audioID":"p1q2",	
+                        "type": "mcq",
+                        "text": "Which MRO service does not involve removing aircraft from service?",
+                        "instruction": "Select the correct option and select <b>Next question</b>.",
+                        "options": [
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "Engine"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "Component"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 1,
+                                "text": "Line"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "Airframe"
+                            }
+							
+                        ]
+                    },
+                    {
+                        "id": "question",
+						"audioID":"p1q3",	
+                        "type": "mcq",
+                        "text": "Independent service providers are formed typically by joining the resources of OEMs and in-country capabilities to build an indigenous capacity. ",
+                        "instruction": "Select the correct option and select <b>Next question</b>.",
+                        "options": [
+                              {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "True"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 1,
+                                "text": "False"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "question",
+						"audioID":"p1q4",	
+                        "type": "mcq",
+                        "text": "OEMs offer maintenance capabilities for their respective aircraft types, engine types, and component parts by utilizing company owned facilities.",
+                        "instruction": "Select the correct option and select <b>Next question</b>.",
+                        "options": [
+                              {
+                                "id": "option",
+                                "correct": 1,
+                                "text": "True"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "False"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "question",
+						"audioID":"p1q5",	
+                        "type": "mcq",
+                        "text": "All MRO activities are documented in English language.",
+                        "instruction": "Select the correct option and select <b>Next question</b>.",
+                        "options": [
+                            {
+                                "id": "option",
+                                "correct": 1,
+                                "text": "True"
+                            },
+                            {
+                                "id": "option",
+                                "correct": 0,
+                                "text": "False"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "resultPage": {
+            "title": "Quiz feedback",
+            "text": "",
+            "messages": [
+                {
+                    "review": false,
+                    "tryAgain": false,
+					"audioID":"result1",
+                    "exitCourse": true,
+                    "passMark": 80,
+                    "header":"<span class='passed'>Congatulations!</span><span> You have successfully completed the module.</span>",
+                    "text": "<div> <p> <span class='right-side-text'>Minimum passing score:</span> <span class='left-side-text'>80%</span> </p> <p> <span class='right-side-text'>Total number of questions:</span> <span class='left-side-text'><<Y>></span> </p> <p> <span class='right-side-text'>Total number of correct answers:</span> <span class='left-side-text'><<X>></span> </p> <p> <span class='right-side-text'>Total number of incorrect answers:</span> <span class='left-side-text'><<I>></span> </p> <p> <span class='right-side-text'>Your score:</span> <span class='left-side-text'><<R>></span> </p> </div>"
+                },
+                {
+                    "review": true,
+                    "tryAgain": true,
+					"audioID":"result2",
+                    "exitCourse": true,
+                    "passMark": 0,
+                    "header":"<span class='failed'>Sorry!</span><span> You did not achieve the passing score. To improve your score, go through the module once again.</span>",                    
+                    "text": "<div> <p> <span class='right-side-text'>Minimum passing score:</span> <span class='left-side-text'>80%</span> </p> <p> <span class='right-side-text'>Total number of questions:</span> <span class='left-side-text'><<Y>></span> </p> <p> <span class='right-side-text'>Total number of correct answers:</span> <span class='left-side-text'><<X>></span> </p> <p> <span class='right-side-text'>Total number of incorrect answers:</span> <span class='left-side-text'><<I>></span> </p> <p> <span class='right-side-text'>Your score:</span> <span class='left-side-text'><<R>></span> </p> </div>"
+                }
+            ]
+        }
+
+    }
+}
