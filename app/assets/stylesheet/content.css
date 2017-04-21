@@ -502,7 +502,7 @@ transform: rotate(-90deg);
 /**
     m01_t01_p07
 **/
-.m01_t01_p07 {background: url(../../images/m01_t01_p07/m01_t01_p07_bg.jpg);background-position: top left;background-repeat: no-repeat;min-width: 100%;background-size: cover; margin: 0;padding: 0;padding-bottom: 25px;}
+.m01_t01_p07 {background: url(../../images/m01_t01_p07/m01_t01_p07_bg.jpg);background-position: bottom left;background-repeat: no-repeat;min-width: 100%;background-size: cover; margin: 0;padding: 0;padding-bottom: 25px;}
 .m01_t01_p07 .template-panel .content-area {padding: 30px; color: #FFF;}
 .m01_t01_p07 .template-panel .content-area ul li {list-style: disc; background: none;padding: 3px;}
 .m01_t01_p07 .template-panel .content-area ol li {padding: 3px;}
