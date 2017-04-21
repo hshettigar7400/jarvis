@@ -27,8 +27,6 @@
     </div>
   </div>
 
-
-
   <div class="activity-holder" id="activity1">
     <div class="activity-question">
       <span>Drag and Drop the Medical Equipment to the correct Medical Application</span>
@@ -67,19 +65,19 @@
       <div class="activity-feedback-score">
         <div>
           <span>Score required</span>
-          <span></span>
+          <span>12/16</span>
         </div>
         <div>
           <span>Score obtained</span>
-          <span></span>
+          <span><span class="score-got"></span>/16</span>
         </div>
         <div>
           <span>Time taken</span>
-          <span></span>
+          <span class="time-taken"></span>
         </div>
         <div>
           <span># attempts</span>
-          <span></span>
+          <span class="attempt"></span>
         </div>
       </div>
       <div class="activity-feedback-action">
@@ -97,25 +95,25 @@
       <div class="activity-feedback-score">
         <div>
           <span>Score required</span>
-          <span></span>
+          <span>12/16</span>
         </div>
         <div>
           <span>Score obtained</span>
-          <span></span>
+          <span><span class="score-got"></span>/16</span>
         </div>
         <div>
           <span>Time taken</span>
-          <span></span>
+          <span class="time-taken"></span>
         </div>
         <div>
           <span># attempts</span>
-          <span></span>
+          <span class="attempt"></span>
         </div>
       </div>
       <div class="activity-feedback-action">
         Select Try Again to reattempt the activity, or select Show Me to view correct answers.
         <button onclick="tryAgainActivity()"> Try Again</button>
-        <button onclick="tryAgainActivity()"> Show me</button>
+        <button onclick="showAns()"> Show me</button>
       </div>
     </div>
   </div>
@@ -128,26 +126,25 @@
       <div class="activity-feedback-score">
         <div>
           <span>Score required</span>
-          <span></span>
+          <span>12/16</span>
         </div>
         <div>
           <span>Score obtained</span>
-          <span></span>
+          <span><span class="score-got"></span>/16</span>
         </div>
         <div>
           <span>Time taken</span>
-          <span></span>
+          <span class="time-taken"></span>
         </div>
         <div>
           <span># attempts</span>
-          <span></span>
+          <span class="attempt"></span>
         </div>
       </div>
       <div class="activity-feedback-action">
         In the next course, “Honeywell Portfolio for Medical Applications,” you will learn how focus medical applications are aligned to different Honeywell product offerings.
-Select Review Responses to review your attempt, or select Next to continue with the course.
-
-        <button onclick="tryAgainActivity()"> Review responses</button>
+      Select Review Responses to review your attempt, or select Next to continue with the course.
+      <button onclick="reviewAns()"> Review responses</button>
       </div>
     </div>
   </div>
@@ -156,16 +153,45 @@ Select Review Responses to review your attempt, or select Next to continue with 
 
 
 <script>
-var currentActivityNumber = 0;
+var currentActivityNumber = 1;
+var activityAttempt = 1;
+var timeTaken = "";
+  var tInterval;
 function startActivity() {
   $(".activity-intro-container").fadeOut( "slow", function() {
     $("#activity1").show();
   })
 }
 
+function tryAgainActivity() {
+  currentActivityNumber = 1;
+  var minutes = 60 * 4,
+  display = document.querySelector('#time');
+  startTimer(minutes, display);
+  correctAns = 0;
+  activityAttempt++;
+  $('.activity-feedback-container__success').hide();
+  $('.activity-feedback-container__failed').hide();
+  $(".activity-feedback-container").fadeOut( "slow", function() {
+    $("#activity1").show();
+  })
+  document.querySelector('#correct-answer').textContent = correctAns;
+  document.querySelector('.drag-element').textContent = dragOption[currentActivityNumber-1];
+  for (var i = 1; i <= 4; i++) {
+    document.querySelector('.drop'+i).classList.remove("correct");
+    document.querySelector('.drop'+i).classList.remove("incorrect");
+    document.querySelector('.drop'+i).textContent = dropOption[currentActivityNumber-1][i-1];
+  }
+  var minutes = 60 * 4,
+  display = document.querySelector('#time');
+  startTimer(minutes, display);
+  //Make every clone image unique.
+  var counts = [0];
+}
+
 function startTimer(duration, display) {
   var timer = duration, minutes, seconds;
-  var tInterval = setInterval(function () {
+  tInterval = setInterval(function () {
     minutes = parseInt(timer / 60, 10)
     seconds = parseInt(timer % 60, 10);
 
@@ -173,13 +199,17 @@ function startTimer(duration, display) {
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
     display.textContent = minutes + ":" + seconds;
+    timeTaken = minutes + ":" + seconds;
 
     if (--timer < 0) {
       clearInterval(tInterval);
       timer = duration;
-      currentActivityNumber = 0;
+      currentActivityNumber = 1;
       $(".activity-holder").fadeOut( "slow", function() {
         $(".activity-feedback-container").show();
+        document.querySelector('.score-got').textContent = correctAns;
+        document.querySelector('.attempt').textContent = activityAttempt;
+        document.querySelector('.time-taken').textContent = timeTaken;
       })
     }
   }, 1000);
@@ -226,11 +256,11 @@ var dragOption= [
 ];
 var correctAns = 0;
 document.querySelector('#correct-answer').textContent = correctAns;
-document.querySelector('.drag-element').textContent = dragOption[currentActivityNumber];
+document.querySelector('.drag-element').textContent = dragOption[currentActivityNumber-1];
 for (var i = 1; i <= 4; i++) {
-  document.querySelector('.drop'+i).textContent = dropOption[currentActivityNumber][i-1];
+  document.querySelector('.drop'+i).textContent = dropOption[currentActivityNumber-1][i-1];
 }
-var minutes = 60 * 1,
+var minutes = 60 * 4,
 display = document.querySelector('#time');
 startTimer(minutes, display);
 //Make every clone image unique.
@@ -243,7 +273,7 @@ $(".dragImg").draggable({
 
 $(".drop-container").droppable({
   drop: function(e, ui){
-    if(actvityAns[currentActivityNumber].indexOf(parseInt($(this)[0].id)) !== -1) {
+    if(actvityAns[currentActivityNumber-1].indexOf(parseInt($(this)[0].id)) !== -1) {
       $(this).addClass("correct");
       correctAns ++;
     }
@@ -263,22 +293,34 @@ $(".drop-container").droppable({
 });
 
 function loadNextActivity() {
-  currentActivityNumber++;
-  document.querySelector('.drag-element').textContent = dragOption[currentActivityNumber];
-  for (var i = 1; i <= 4; i++) {
-    document.querySelector('.drop'+i).classList.remove("correct");
-    document.querySelector('.drop'+i).classList.remove("incorrect");
-    document.querySelector('.drop'+i).textContent = dropOption[currentActivityNumber][i-1];
+  if(currentActivityNumber !== dragOption.length) {
+    currentActivityNumber++;
+    document.querySelector('.drag-element').textContent = dragOption[currentActivityNumber-1];
+    for (var i = 1; i <= 4; i++) {
+      document.querySelector('.drop'+i).classList.remove("correct");
+      document.querySelector('.drop'+i).classList.remove("incorrect");
+      document.querySelector('.drop'+i).textContent = dropOption[currentActivityNumber-1][i-1];
+    }
   }
-  if(currentActivityNumber >= dragOption.length - 1) {
+  else {
     if (correctAns >=12) {
       $(".activity-holder").fadeOut( "slow", function() {
         $(".activity-feedback-container__success").show();
+        debugger;
+        document.querySelector('.activity-feedback-container__success .score-got').textContent = correctAns;
+        document.querySelector('.activity-feedback-container__success .attempt').textContent = activityAttempt;
+        document.querySelector('.activity-feedback-container__success .time-taken').textContent = timeTaken;
+        clearInterval(tInterval);
       })
     }
     else {
       $(".activity-holder").fadeOut( "slow", function() {
         $(".activity-feedback-container__failed").show();
+        debugger;
+        document.querySelector('.activity-feedback-container__failed .score-got').textContent = correctAns;
+        document.querySelector('.activity-feedback-container__failed .attempt').textContent = activityAttempt;
+        document.querySelector('.activity-feedback-container__failed .time-taken').textContent = timeTaken;
+        clearInterval(tInterval);
       })
     }
   }

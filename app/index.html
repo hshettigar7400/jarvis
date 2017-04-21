@@ -193,6 +193,7 @@
   </div>
   <script type="text/javascript" src="assets/scripts/SystemDetect.js"></script>
   <script type="text/javascript" src="assets/scripts/system.js"></script>
+  <script type="text/javascript" src="assets/scripts/scorm_adaptor.js"></script>
   <script>
   function launchCourse() {
     var winwidth = 1010;
@@ -204,6 +205,7 @@
     var is_chrome = sysInfo.browserName === 'chrome';
     var is_safari = sysInfo.browserName === 'safari';
     var isWindows = sysInfo.deviceType === 'windows';
+    var appType = 'scorm';
 
     if (is_chrome) {
         winheight = 650;
@@ -231,6 +233,13 @@
         win = window.open(popuppage, 'course', 'width=' + winwidth + ',height=' + winheight + ',scrollbars=1,screenX=0,screenY=0,resizable=yes,status=no,top=' + yOffset + ',left=' + xOffset + '');
     }
     win.focus();
+
+    window.onload = function () {
+      if (appType != 'standalone') {
+        scormAdaptor_getAPI();
+        scormAdaptor_adlOnload();
+      }
+    }
   }
 </script>
 </body>
