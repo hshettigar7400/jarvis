@@ -1,17 +1,16 @@
 var $ = require("jquery");
-<<<<<<< HEAD
-=======
+
 var topicNamesArray = [
-  'Welcome', 
-  'Course objectives', 
-  'Increase in home therapy options', 
+  'Welcome',
+  'Course objectives',
+  'Increase in home therapy options',
   'Small and portable medical devices',
   'Internet of things—connected medical equipment',
   'Medical appications for Honeywell sensors - Activity',
   'Course Summary',
   'Quiz Introduction'
 ];
->>>>>>> 9f8adcefd1b080125febdb21d77f0e9587831148
+
 function loadPage(pageNumber) {
   if (document.querySelector('.next-button'))
     document.querySelector('.next-button').classList.remove("blinker");

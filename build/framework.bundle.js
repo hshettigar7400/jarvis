@@ -22720,6 +22720,11 @@ exports.default = MenuContent;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _React$createClass;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var React = __webpack_require__(7),
     _require = __webpack_require__(147),
     loadPage = _require.loadPage,
@@ -22730,7 +22735,7 @@ var React = __webpack_require__(7),
 
 var $ = __webpack_require__(68);
 
-var PageContainer = React.createClass({
+var PageContainer = React.createClass((_React$createClass = {
   displayName: 'PageContainer',
 
   propTypes: {
@@ -22779,65 +22784,67 @@ var PageContainer = React.createClass({
   },
   stopSound: function stopSound() {
     this.setState({ stopAudio: true });
-  },
-  onAudioPlaying: function onAudioPlaying(ev) {
-    if (document.querySelector('.transcript-text-container')) {
-      document.querySelector('.transcript-text-container').innerHTML = transcript;
-    }
-    if (qPoints !== null) {
-      var t = millisToMinutesAndSeconds(ev.position);
-      if (t == qPoints[currentCuePointId]) {
-        if (imageSwap && document.querySelector('.sync' + currentCuePointId)) {
-          document.querySelector('.sync' + currentCuePointId).classList.add('hide');
-          document.querySelector('.sync' + (currentCuePointId + 1)).classList.remove('hide');
-        }
-        if (document.querySelector('.sync' + (currentCuePointId + 1))) {
-          document.querySelector('.sync' + (currentCuePointId + 1)).classList.remove('fadeOut');
-          document.querySelector('.sync' + (currentCuePointId + 1)).classList.add('fadeIn');
-        }
-        if (qPointsExecution && qPointsExecution[currentCuePointId]) {
-          eval(qPointsExecution[currentCuePointId]);
-        }
-        currentCuePointId++;
-      }
-    }
-  },
-  render: function render() {
-    var audioPath = "../app/assets/audio/m01_t01_p0" + this.props.PageNum + ".mp3";
-    return React.createElement(
-      'div',
-      { className: 'page-holder' },
-      React.createElement(Sound, {
-        url: audioPath,
-        playStatus: this.props.audioState || this.state.stopAudio ? Sound.status.PAUSED : Sound.status.PLAYING,
-        playFromPosition: this.state.currentAudioPosition,
-        onPlaying: this.onAudioPlaying,
-        volume: this.props.volume,
-        onFinishedPlaying: this.onAudioFinished
-      }),
-      React.createElement(
-        'div',
-        { className: 'page-title__container' },
-        React.createElement(
-          'span',
-          { className: 'topic-title' },
-          'Introduction'
-        ),
-        React.createElement(
-          'span',
-          { className: 'title-seperator acc-prop-background' },
-          '|'
-        ),
-        React.createElement(
-          'span',
-          { className: 'page-title' },
-          'Welcome'
-        )
-      ),
-      React.createElement('div', { ref: 'pageLoader', className: 'page-loader' })
-    );
+    startAudioPlay = false;
+    playAudioInterval = setInterval(this.checkAudioToPlay, 1);
   }
-});
+}, _defineProperty(_React$createClass, 'stopSound', function stopSound() {
+  this.setState({ stopAudio: true });
+}), _defineProperty(_React$createClass, 'onAudioPlaying', function onAudioPlaying(ev) {
+  if (document.querySelector('.transcript-text-container')) {
+    document.querySelector('.transcript-text-container').innerHTML = transcript;
+  }
+  if (qPoints !== null) {
+    var t = millisToMinutesAndSeconds(ev.position);
+    if (t == qPoints[currentCuePointId]) {
+      if (imageSwap && document.querySelector('.sync' + currentCuePointId)) {
+        document.querySelector('.sync' + currentCuePointId).classList.add('hide');
+        document.querySelector('.sync' + (currentCuePointId + 1)).classList.remove('hide');
+      }
+      if (document.querySelector('.sync' + (currentCuePointId + 1))) {
+        document.querySelector('.sync' + (currentCuePointId + 1)).classList.remove('fadeOut');
+        document.querySelector('.sync' + (currentCuePointId + 1)).classList.add('fadeIn');
+      }
+      if (qPointsExecution && qPointsExecution[currentCuePointId]) {
+        eval(qPointsExecution[currentCuePointId]);
+      }
+      currentCuePointId++;
+    }
+  }
+}), _defineProperty(_React$createClass, 'render', function render() {
+  var audioPath = "../app/assets/audio/m01_t01_p0" + this.props.PageNum + ".mp3";
+  return React.createElement(
+    'div',
+    { className: 'page-holder' },
+    React.createElement(Sound, {
+      url: audioPath,
+      playStatus: this.props.audioState || this.state.stopAudio ? Sound.status.PAUSED : Sound.status.PLAYING,
+      playFromPosition: this.state.currentAudioPosition,
+      onPlaying: this.onAudioPlaying,
+      volume: this.props.volume,
+      onFinishedPlaying: this.onAudioFinished
+    }),
+    React.createElement(
+      'div',
+      { className: 'page-title__container' },
+      React.createElement(
+        'span',
+        { className: 'topic-title' },
+        'Introduction'
+      ),
+      React.createElement(
+        'span',
+        { className: 'title-seperator acc-prop-background' },
+        '|'
+      ),
+      React.createElement(
+        'span',
+        { className: 'page-title' },
+        'Welcome'
+      )
+    ),
+    React.createElement('div', { ref: 'pageLoader', className: 'page-loader' })
+  );
+}), _React$createClass));
 
 exports.default = PageContainer;
 
@@ -23482,9 +23489,44 @@ exports.default = MenuList;
 
 /***/ }),
 /* 147 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token (2:1)\n\n\u001b[0m \u001b[90m 1 | \u001b[39m\u001b[36mvar\u001b[39m $ \u001b[33m=\u001b[39m require(\u001b[32m\"jquery\"\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 2 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m   | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 3 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\n \u001b[90m 4 | \u001b[39m\u001b[36mvar\u001b[39m topicNamesArray \u001b[33m=\u001b[39m [\n \u001b[90m 5 | \u001b[39m  \u001b[32m'Welcome'\u001b[39m\u001b[33m,\u001b[39m \u001b[0m\n");
+"use strict";
+
+
+var $ = __webpack_require__(68);
+
+var topicNamesArray = ['Welcome', 'Course objectives', 'Increase in home therapy options', 'Small and portable medical devices', 'Internet of things—connected medical equipment', 'Medical appications for Honeywell sensors - Activity', 'Course Summary', 'Quiz Introduction'];
+
+function loadPage(pageNumber) {
+  if (document.querySelector('.next-button')) document.querySelector('.next-button').classList.remove("blinker");
+  if (document.querySelector('#button-audio')) document.querySelector('#button-audio').classList.remove("disabled");
+  if (document.querySelector('#button-playPause')) document.querySelector('#button-playPause').classList.remove("disabled");
+  $(".page-loader").empty();
+  $(".page-loader").load('components/content/m01/t01/m01_t01_p0' + pageNumber + '.html');
+  window.updatePageStatusList(pageNumber);
+  $(".page-title").html(topicNamesArray[pageNumber - 1]);
+}
+
+function loadSound(filePath) {}
+
+function loadTranscript() {}
+
+function loadMenu() {}
+
+function millisToMinutesAndSeconds(millis) {
+  var minutes = Math.floor(millis / 60000);
+  var seconds = (millis % 60000 / 1000).toFixed(0);
+  var s = minutes * 60 + parseInt(seconds);
+  return s;
+}
+
+module.exports = {
+  loadPage: loadPage,
+  loadSound: loadSound,
+  loadTranscript: loadTranscript,
+  millisToMinutesAndSeconds: millisToMinutesAndSeconds
+};
 
 /***/ }),
 /* 148 */

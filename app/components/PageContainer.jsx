@@ -60,6 +60,12 @@ var PageContainer = React.createClass ({
 
   stopSound () {
     this.setState({stopAudio: true});
+    startAudioPlay = false;
+    playAudioInterval = setInterval(this.checkAudioToPlay, 1);
+  },
+
+  stopSound () {
+    this.setState({stopAudio: true});
   },
 
   onAudioPlaying(ev) {
