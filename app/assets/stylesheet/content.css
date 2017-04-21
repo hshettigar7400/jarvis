@@ -619,10 +619,15 @@ b{font-weight:bold;}
     m01_t01_p07
 **/
 .m01_t01_p07 {background: url(../../images/m01_t01_p07/m01_t01_p07_bg.jpg);background-position: bottom left;background-repeat: no-repeat;min-width: 100%;background-size: cover; margin: 0;padding: 0;padding-bottom: 25px;}
-.m01_t01_p07 .template-panel .content-area {padding: 30px; color: #FFF;}
+.m01_t01_p07 .template-panel .content-area {padding: 10px; color: #FFF;}
+.m01_t01_p07 .template-panel .content-area .content-holder {width: 60%;background: rgba(0, 0, 0, 0.5);padding-left: 15px;}
 .m01_t01_p07 .template-panel .content-area ul li {list-style: disc; background: none;padding: 3px;}
 .m01_t01_p07 .template-panel .content-area ol li {padding: 3px;}
 
+@media all and (max-width: 768px) {
+  .m01_t01_p07 {background: url(../../images/m01_t01_p07/m01_t01_p07_bg.jpg);background-position: right bottom;background-size: cover;}
+  .m01_t01_p07 .template-panel .content-area .content-holder {width: 75%;background: rgba(0, 0, 0, 0.5);padding-left: 15px;}
+}
 @media all and (max-width: 480px) {
     .m01_t01_p07 {background: url(images/m01_t01_p07/m01_t01_p07_bg1.jpg);background-position: top left;background-size: cover;}
 }
@@ -663,9 +668,9 @@ b{font-weight:bold;}
 .final-assessment .text-content > div{max-width:390px}
 .final-assessment .text-content p{display:table;width:100%;margin-bottom:4px}
 .final-assessment .text-content p:last-child{border-top:1px solid #737B85;font-weight:700}
-.final-assessment .text-content p span{display:table-cell;padding:5px;padding-left:0}
+.final-assessment .text-content p span{display:table-cell;padding:0px;padding-left:0}
 .final-assessment .text-content p span:last-child{width:50px;font-weight:700}
-.final-assessment .start-page a{display:inline-block;font-size:1.125em;height:32px;margin-right:50px;padding:7px;text-align:center;width:110px;margin-left: 15px;margin-bottom:30px;color:#333;line-height: 1em;}
+.final-assessment .start-page a{display:inline-block;font-size:1.125em;height:20px;margin-right:50px;padding:7px;text-align:center;width:110px;margin-left: 15px;margin-bottom:30px;color:#333;line-height: 1em;}
 .final-assessment .start-page{display:TABLE;width:100%;background-color:#083451}
 .final-assessment .exitReview.button{padding:10px;display:inline-block}
 .final-assessment .question-page .question ul li:first-child >span:last-child{padding-left:0;display:table-cell;vertical-align: top;}
@@ -695,7 +700,7 @@ b{font-weight:bold;}
 .final-assessment .feedbackQuestion{
     padding: 0 25px;
 }
-  .final-assessment .headerIntro,.final-assessment .contentIntro,.final-assessment .question-page .question{padding-left:25px;padding-right: 220px;}
+  .final-assessment .headerIntro,.final-assessment .contentIntro,.final-assessment .question-page .question{padding-left:25px;padding-right: 125px;}
   .final-assessment .start-page a{margin-left: 25px;}
   .final-assessment .end-page .buttons,.final-assessment .text-content,.final-assessment .end-page .text-content-header,.final-assessment .next-back-container,.assessment .question-page ul>li>a{padding-left:25px;}
   .final-assessment .start-page{background: url(../../images/assessmentBg.png) no-repeat scroll right bottom #083451;position:relative;width:90%;margin:auto;top: 40px;min-height:395px}
@@ -873,7 +878,7 @@ vertical-align: top;}
 .assessment .text-content
 {
     display: block;
-    padding: 1em 1em 0.5em 1em;
+    padding: 1em 1em 0 1em;
     vertical-align: top;
 }
 .assessment .image-content
@@ -968,8 +973,8 @@ vertical-align: top;}
     color: #FFF;
 }
 .assessment .assessment-container .button-container{
-    margin-top: 5px;
-    margin-bottom: 7px;
+    /*margin-top: 5px;
+    margin-bottom: 7px;*/
     line-height: 22px;
 }
 .assessment .exitReview.button,
@@ -1030,6 +1035,7 @@ vertical-align: top;}
 background-color: #EFEFEF;
 color: #333;}
 
+#question-page-5 .options ul li {display: inline-block;width: 46%;}
 .final-assessment  .assessbtnbg.mhover,.final-assessment  .mhover .assessbtnbg{
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ee3124+0,ee3124+44,ee3124+50,ee3124+57,ee3124+100 */
 background-color:  #EE3124; /* Old browsers */
