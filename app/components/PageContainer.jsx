@@ -54,6 +54,10 @@ var PageContainer = React.createClass ({
     document.querySelector('#button-playPause').classList.add("disabled");
   },
 
+  changeFontSize() {
+    document.querySelector('.text-1-large').style.fontSize = '1em';
+  },
+
   stopSound () {
     this.setState({stopAudio: true});
   },
