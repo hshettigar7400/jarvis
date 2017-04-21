@@ -48,12 +48,25 @@ var Shell = React.createClass ({
       body = d.getElementsByTagName('body')[0],
       width = w.innerWidth,
       height = w.innerHeight;
-      if (width > 680)
-        var contentHeight = height - 85;
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        var contentHeight = height - 65;
+        $('#root').css({
+          'min-width': '320px'
+        })
+      } else {
+        var contentHeight = height - 65;
+        $('#root').css({
+        'max-width': '1010px',
+        'max-height': '650px'
+        })
+      }
+      /*if (width > 680)
+        var contentHeight = height - 65;
       else
-        var contentHeight = height - 46;
+        var contentHeight = height - 46;*/
+        //alert('contentHeight: '+contentHeight);
       $('.page-container').css('height', contentHeight+'px');
-      $('.page-holder').css('height', (contentHeight-46)+'px');
+      $('.page-loader').css('height', (contentHeight-40)+'px');
   },
 
   componentDidMount: function() {
