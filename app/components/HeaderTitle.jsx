@@ -15,11 +15,11 @@ var HeaderTitle = React.createClass ({
         </div>
         <div className="title-holder clearfix">
           <div id="courseTitle" className="course-title title">
-            <p>Introduction to aerospace MRO</p>
+            <p>Medical Device Industry Overview</p>
           </div>
         </div>
         <div className="courseProgress">
-          <span></span>
+          <span id="courseProgressUpdate"></span>
         </div>
       </div>
     )
