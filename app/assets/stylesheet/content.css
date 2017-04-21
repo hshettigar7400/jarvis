@@ -195,7 +195,7 @@ b{font-weight:bold;}
 
 .m01_t01_p03 .template-panel .template-holder {display: flex;}
 
-.m01_t01_p03 .template-horizontal-tab {margin-top:5px;height:auto; margin-right: 10%;display: flex;}
+.m01_t01_p03 .template-horizontal-tab {margin-top:5px;height:auto; margin-right: 10%;display: flex;flex-wrap: wrap;}
 .m01_t01_p03 .template-horizontal-tab .tabs-nav{height:40px;display: flex;}
 .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab{background-color:#1792E5;text-align: justify;margin-right: 10px;}
 .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab span {display: block;width: 174px;text-align: center;line-height: 40px;font-size: 18px;}
@@ -204,13 +204,26 @@ b{font-weight:bold;}
 .m01_t01_p03 .template-horizontal-tab .tab-content .tab-data .popup-txt {padding-left: 30px; padding-top: 30px;}
 .m01_t01_p03 .template-panel .main-content div {padding-top: 15px;font-size: 18px;}
 .m01_t01_p03 .template-panel .image-holder div p {margin-top: -38px;text-align: center;color: #fff;font-size: 16px;font-weight: normal;}
-.m01_t01_p03 .template-panel .image-holder {position: absolute; right: 10%;}
+.m01_t01_p03 .template-panel .image-holder {position: absolute; left: 55%;}
+.m01_t01_p03 .template-panel .image-holder div img {width: 90%;}
 .popup-txt ul {
   margin-top: 20px;
 }
 @media all and (max-width: 680px) {
-  .m01_t01_p03 .template-panel {padding: 25px 0 0 15px;}
-  .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab span {width: 135px;font-size: 16px;}
+  .m01_t01_p03 .template-panel {padding: 25px 0 0 0px;}
+  .m01_t01_p03 .template-panel .instruction {margin-left: 15px !important;}
+  .m01_t01_p03 .template-horizontal-tab {margin-right: 0;}
+  .m01_t01_p03 .template-horizontal-tab .tab-content .tab-data {width: 100%;}
+  .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab {margin-left: 3%}
+  .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab span {font-size: 16px;}
+  .m01_t01_p03 .template-horizontal-tab .tab-content .tab-data {margin-left: 3%;}
+  .m01_t01_p03 .template-panel .image-holder {position: relative;left:0;}
+  .m01_t01_p03 .template-panel .image-holder div img {width: 100%;}
+}
+
+@media all and (max-width: 360px) {
+  .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab span {display: block;width: 135px;text-align: center;line-height: 40px;font-size: 18px;}
+  .m01_t01_p03 .template-horizontal-tab .tab-content .tab-data {width: 100%;}
 }
 
 /*.m01_t01_p03 .template-panel .intro-text {padding: 0;padding-bottom: 5px;padding-top: 20px;margin-bottom: 10px;font-size: 18px;font-weight: 700;}
