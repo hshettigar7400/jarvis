@@ -4,8 +4,11 @@ body {
   color: #FFF;
   font-size: 1em;
   font-weight: 300;
-  height: 100%;
-  width: 100%;
+}
+
+#root {
+  max-width: 1010px;
+  max-height: 650px;
   overflow: hidden;
 }
 

@@ -76,7 +76,7 @@ else {
   					<div className="text">
   						<div>
   							<p className="btnIconBlank btnIcon1"><span className="icon-btn"></span></p>
-  							<p>Course duration: 45 minutes</p>
+  							<p>Course duration: 10 minutes</p>
   						</div>
   					</div>
   				</div>

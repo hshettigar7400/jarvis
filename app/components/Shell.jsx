@@ -49,7 +49,7 @@ var Shell = React.createClass ({
       width = w.innerWidth,
       height = w.innerHeight;
       if (width > 680)
-        var contentHeight = height - 60;
+        var contentHeight = height - 85;
       else
         var contentHeight = height - 46;
       $('.page-container').css('height', contentHeight+'px');

@@ -306,7 +306,6 @@ function loadNextActivity() {
     if (correctAns >=12) {
       $(".activity-holder").fadeOut( "slow", function() {
         $(".activity-feedback-container__success").show();
-        debugger;
         document.querySelector('.activity-feedback-container__success .score-got').textContent = correctAns;
         document.querySelector('.activity-feedback-container__success .attempt').textContent = activityAttempt;
         document.querySelector('.activity-feedback-container__success .time-taken').textContent = timeTaken;
@@ -316,7 +315,6 @@ function loadNextActivity() {
     else {
       $(".activity-holder").fadeOut( "slow", function() {
         $(".activity-feedback-container__failed").show();
-        debugger;
         document.querySelector('.activity-feedback-container__failed .score-got').textContent = correctAns;
         document.querySelector('.activity-feedback-container__failed .attempt').textContent = activityAttempt;
         document.querySelector('.activity-feedback-container__failed .time-taken').textContent = timeTaken;

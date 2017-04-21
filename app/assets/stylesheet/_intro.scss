@@ -4,6 +4,8 @@ body {
   height: 100%;
   line-height: $base-line-height;
   overflow: hidden;
+  max-width: 1010px;
+  max-height: 650px;
 }
 
 .wrapper {
