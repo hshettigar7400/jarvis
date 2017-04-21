@@ -91,7 +91,7 @@ render() {
           </div>
         </div>
         <div className="button-box">
-          <a href="#" id="button-next" onClick={this.props.onNextButtonClick} className={this.props.isMenuOpened ? "tabindex next-button" : "tabindex disabled next-button"} aria-label="next" role="button" aria-disabled="false">
+          <a href="#" id="button-next" onClick={this.props.onNextButtonClick} className={this.props.isMenuOpened && this.props.currentPageNumber !== this.props.totalPages ? "tabindex next-button" : "tabindex disabled next-button"} aria-label="next" role="button" aria-disabled="false">
             <span className="button-label"></span>
             <span className="icon-next"></span>
           </a>

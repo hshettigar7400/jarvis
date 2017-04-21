@@ -22,7 +22,7 @@
       </div>
       <div class="activity-action">
         Select start to begin
-        <a role="button" onclick="startActivity()" class="disabled start-button"> Start</a>
+        <a role="button" onclick="startActivity()" class=" start-button"> Start</a>
       </div>
     </div>
   </div>
@@ -54,7 +54,7 @@
         <span></span>
       </div>
     </div>
-    <button class="proceed-button" onclick="loadNextActivity()">Proceed</button>
+    <button class="proceed-button" onclick="loadNextActivity()" style="display:none;">Proceed</button>
   </div>
 
   <div class="activity-feedback-container">
@@ -147,6 +147,47 @@
       </div>
     </div>
   </div>
+
+  <div id="accordion" class="show-answer-container">
+    <ul id="nav">
+    <li>
+      <span class="plus">1</span>
+      <a href="#company">What we say</a>
+      <ul>
+        <li>
+          <p>This is what we say</p>
+          <p>This is what we say</p>
+          <p>This is what we say</p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <span class="plus">2</span>
+      <a href="#reviews">Reviews</a>
+      <ul>
+        <li class="box">
+          <p>These are our reviews</p>
+          <p>These are our reviews</p>
+          <p>These are our reviews</p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <span class="plus">3</span>
+      <a href="#stuff">Stuff</a>
+      <ul>
+        <li class="box">
+          <p>Lots of stuff here</p>
+          <p>Lots of stuff here</p>
+          <p>Lots of stuff here</p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  </div>
+
+
 </div>
 
 
@@ -158,9 +199,15 @@ var timeTaken = "";
 var tInterval;
 
 function startActivity() {
+  clearInterval(tInterval);
   $(".activity-intro-container").fadeOut( "slow", function() {
     $("#activity1").show();
   })
+  var minutes = 60 * 4,
+  display = document.querySelector('#time');
+  startTimer(minutes, display);
+  //Make every clone image unique.
+  var counts = [0];
 }
 
 function tryAgainActivity() {
@@ -182,8 +229,7 @@ function tryAgainActivity() {
     document.querySelector('.drop'+i).classList.remove("incorrect");
     document.querySelector('.drop'+i).textContent = dropOption[currentActivityNumber-1][i-1];
   }
-  //Make every clone image unique.
-  var counts = [0];
+
 }
 
 function startTimer(duration, display) {
@@ -258,10 +304,7 @@ document.querySelector('.drag-element').textContent = dragOption[currentActivity
 for (var i = 1; i <= 4; i++) {
   document.querySelector('.drop'+i).textContent = dropOption[currentActivityNumber-1][i-1];
 }
-var minutes = 60 * 4,
-display = document.querySelector('#time');
-startTimer(minutes, display);
-//Make every clone image unique.
+
 var counts = [0];
 $(".dragImg").draggable({
   helper: "clone",
@@ -279,7 +322,8 @@ $(".drop-container").droppable({
     else {
       $(this).addClass("incorrect");
     }
-    $(".dragImg").disableSelection();
+    $(".proceed-button").show();
+    $('.dragImg').css("pointer-events", "none")
     document.querySelector('#correct-answer').textContent = correctAns;
 
     //$(this).append($(ui.helper).clone());
@@ -294,6 +338,8 @@ $(".drop-container").droppable({
 });
 
 function loadNextActivity() {
+  $('.dragImg').css("pointer-events", "auto")
+  $(".proceed-button").hide();
   if(currentActivityNumber !== dragOption.length) {
     currentActivityNumber++;
     document.querySelector('.drag-element').textContent = dragOption[currentActivityNumber-1];
@@ -325,6 +371,14 @@ function loadNextActivity() {
   }
 }
 
+function showAns() {
+  $(".activity-holder").hide();
+  $(".activity-feedback-container__failed").fadeOut( "slow", function() {
+
+    $(".show-answer-container").show();
+  })
+}
+
 var zIndex = 0;
 function make_draggable(elements)
 {
@@ -335,4 +389,34 @@ function make_draggable(elements)
     }
   });
 }
+
+
+$.fn.slideUp = function(){
+    this.velocity("slideUp",  400, function() {
+        $(this).parent().removeClass("active");
+        $(this).prev().prev().removeClass("minus").addClass("plus");
+    });
+};
+
+$.fn.slideDown = function(){
+    this.velocity("slideDown",  400, function() {
+        $(this).parent().addClass("active");
+        $(this).prev().prev().removeClass("plus").addClass("minus");
+    });
+};
+
+$('#nav li').on('click', function (event) {
+    var $panel = $(this),
+        $panelContents = $panel.find("ul"),
+        $activePanelContents = $(".active").find("ul");
+
+    if($panel.hasClass("active")){
+        $panelContents.slideUp();
+    } else {
+        $activePanelContents.slideUp();
+        $panelContents.slideDown();
+    }
+
+    event.stopPropagation();
+});
 </script>

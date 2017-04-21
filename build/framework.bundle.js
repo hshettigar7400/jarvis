@@ -22017,7 +22017,7 @@ var Footer = React.createClass({
           { className: 'button-box' },
           React.createElement(
             'a',
-            { href: '#', id: 'button-next', onClick: this.props.onNextButtonClick, className: this.props.isMenuOpened ? "tabindex next-button" : "tabindex disabled next-button", 'aria-label': 'next', role: 'button', 'aria-disabled': 'false' },
+            { href: '#', id: 'button-next', onClick: this.props.onNextButtonClick, className: this.props.isMenuOpened && this.props.currentPageNumber !== this.props.totalPages ? "tabindex next-button" : "tabindex disabled next-button", 'aria-label': 'next', role: 'button', 'aria-disabled': 'false' },
             React.createElement('span', { className: 'button-label' }),
             React.createElement(
               'span',
