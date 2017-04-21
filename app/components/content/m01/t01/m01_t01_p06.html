@@ -1,20 +1,24 @@
 <link rel="stylesheet" type="text/css" href="assets/stylesheet/content.css">
 
 <div class="m01_t01_p06">
-`  <div class="activity-intro-container" id="intro">
-`    <div class="activity-intro">
+  <div class="activity-intro-container" id="intro">
+    <div class="activity-intro">
       <div class="activity-title">
         Medical applications for Honeywell sensors—Activity
       </div>
       <div class="activity-instruction">
         Drag and drop each medical equipment label on to the correct medical application in which Honeywell sensors are used. After making a drop, select Proceed to view the next medical application label and its drop options.
-    Select Start to begin.
+        Select Start to begin.
       </div>
       <div class="activity-condition">
-        <span>Total opportunities: 16</span>
-        <span>Minimum required score: 12</span>
-        <span>Duration per attempt: 4 minutes</sapn>
-        <span>Number of attempts: unlimited</span>
+        <div>
+          <span>Total opportunities: 16</span>
+          <span>Minimum required score: 12</span>
+        </div>
+        <div>
+          <span>Duration per attempt: 4 minutes</span>
+          <span>Number of attempts: unlimited</span>
+        </div>
       </div>
       <div class="activity-action">
         Select start to begin
@@ -23,129 +27,131 @@
     </div>
   </div>
 
+
+
   <div class="activity-holder" id="activity1">
     <div class="activity-question">
       <span>Drag and Drop the Medical Equipment to the correct Medical Application</span>
-      <div class="activity-score">Score - 3/16</div>
-      <div class="activity-timer">Time - 3/16</div>
+      <div class="activity-score">Score - <span id="correct-answer"></span>/16</div>
+      <div class="activity-timer">Time - <span id="time">0:15</span></div>
     </div>
     <div class="activity-drag__element">
       Medical Equipment
-      <div class="drag-element dragImg">Hospital bed</div>
+      <div class="drag-element dragImg"></div>
     </div>
     <div class="activity-drop__container">
       <div class="drop-category">
-        Medical Application
+        <span>Medical Application</span>
       </div>
-      <div class="drop-container" id="1">
-        Kidney dialysis machines
+      <div class="drop-container drop1" id="1">
+        <span></span>
       </div>
-      <div class="drop-container" id="2">
-        Hospital hardware
+      <div class="drop-container drop2" id="2">
+        <span></span>
       </div>
-      <div class="drop-container" id="3">
-        Respiratory
+      <div class="drop-container drop3" id="3">
+        <span></span>
       </div>
-      <div class="drop-container" id="4">
-        Infusion, insulin, and syringe pumps
+      <div class="drop-container drop4" id="4">
+        <span></span>
       </div>
     </div>
-    <button class="proceed-button">Proceed</div>
+    <button class="proceed-button" onclick="loadNextActivity()">Proceed</button>
   </div>
 
-  <div class="activity-holder" id="activity2">
-    <div class="activity-question">
-      Drag and Drop the Medical Equipment to the correct Medical Application
-      <div class="activity-score">Score - 3/16</div>
-      <div class="activity-timer">Time - 3/16</div>
-    </div>
-    <div class="activity-drag__element">
-      Medical Equipment
-      <div class="drag-element">Hospital bed</div>
-    </div>
-    <div class="activity-drop__container">
-      <div class="drop-category">
-        Medical Application
+  <div class="activity-feedback-container">
+    <div class="activity-feedback">
+      <div class="activity-feedback-title">
+        Times up! You have not completed the activity within the given duration.
       </div>
-      <div class="drop-container1">
-        Kidney dialysis machines
-      <div>
-      <div class="drop-container2">
-        Hospital hardware
-      <div>
-      <div class="drop-container3">
-        Respiratory
-      <div>
-      <div class="drop-container4">
-        Infusion, insulin, and syringe pumps
-      <div>
+      <div class="activity-feedback-score">
+        <div>
+          <span>Score required</span>
+          <span></span>
+        </div>
+        <div>
+          <span>Score obtained</span>
+          <span></span>
+        </div>
+        <div>
+          <span>Time taken</span>
+          <span></span>
+        </div>
+        <div>
+          <span># attempts</span>
+          <span></span>
+        </div>
+      </div>
+      <div class="activity-feedback-action">
+        Select try again and reattempt the activity
+        <button onclick="tryAgainActivity()"> Try Again</button>
+      </div>
     </div>
-    <button>Proceed</div>
   </div>
 
-  <div class="activity-holder" id="activity3">
-    <div class="activity-question">
-      Drag and Drop the Medical Equipment to the correct Medical Application
-      <div class="activity-score">Score - 3/16</div>
-      <div class="activity-timer">Time - 3/16</div>
-    </div>
-    <div class="activity-drag__element">
-      Medical Equipment
-      <div class="drag-element">Hospital bed</div>
-    </div>
-    <div class="activity-drop__container">
-      <div class="drop-category">
-        Medical Application
+  <div class="activity-feedback-container__failed">
+    <div class="activity-feedback">
+      <div class="activity-feedback-title">
+        Nice try, but you have not obtained the score required to complete this activity in the given duration.
       </div>
-      <div class="drop-container1">
-        Kidney dialysis machines
-      <div>
-      <div class="drop-container2">
-        Hospital hardware
-      <div>
-      <div class="drop-container3">
-        Respiratory
-      <div>
-      <div class="drop-container4">
-        Infusion, insulin, and syringe pumps
-      <div>
+      <div class="activity-feedback-score">
+        <div>
+          <span>Score required</span>
+          <span></span>
+        </div>
+        <div>
+          <span>Score obtained</span>
+          <span></span>
+        </div>
+        <div>
+          <span>Time taken</span>
+          <span></span>
+        </div>
+        <div>
+          <span># attempts</span>
+          <span></span>
+        </div>
+      </div>
+      <div class="activity-feedback-action">
+        Select Try Again to reattempt the activity, or select Show Me to view correct answers.
+        <button onclick="tryAgainActivity()"> Try Again</button>
+        <button onclick="tryAgainActivity()"> Show me</button>
+      </div>
     </div>
-    <button>Proceed</div>
   </div>
 
-  <div class="activity-holder" id="activity4">
-    <div class="activity-question">
-      Drag and Drop the Medical Equipment to the correct Medical Application
-      <div class="activity-score">Score - 3/16</div>
-      <div class="activity-timer">Time - 3/16</div>
-    </div>
-    <div class="activity-drag__element">
-      Medical Equipment
-      <div class="drag-element">Hospital bed</div>
-    </div>
-    <div class="activity-drop__container">
-      <div class="drop-category">
-        Medical Application
+  <div class="activity-feedback-container__success">
+    <div class="activity-feedback">
+      <div class="activity-feedback-title">
+      Well done! You have successfully completed this activity.
       </div>
-      <div class="drop-container1">
-        Kidney dialysis machines
-      <div>
-      <div class="drop-container2">
-        Hospital hardware
-      <div>
-      <div class="drop-container3">
-        Respiratory
-      <div>
-      <div class="drop-container4">
-        Infusion, insulin, and syringe pumps
-      <div>
-    </div>
-    <button>Proceed</div>
-  </div>
+      <div class="activity-feedback-score">
+        <div>
+          <span>Score required</span>
+          <span></span>
+        </div>
+        <div>
+          <span>Score obtained</span>
+          <span></span>
+        </div>
+        <div>
+          <span>Time taken</span>
+          <span></span>
+        </div>
+        <div>
+          <span># attempts</span>
+          <span></span>
+        </div>
+      </div>
+      <div class="activity-feedback-action">
+        In the next course, “Honeywell Portfolio for Medical Applications,” you will learn how focus medical applications are aligned to different Honeywell product offerings.
+Select Review Responses to review your attempt, or select Next to continue with the course.
 
+        <button onclick="tryAgainActivity()"> Review responses</button>
+      </div>
+    </div>
+  </div>
 </div>
-
-
 
 
 
@@ -155,70 +161,137 @@ function startActivity() {
   $(".activity-intro-container").fadeOut( "slow", function() {
     $("#activity1").show();
   })
-
 }
 
-$(function(){
+function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  var tInterval = setInterval(function () {
+    minutes = parseInt(timer / 60, 10)
+    seconds = parseInt(timer % 60, 10);
 
-  var actvityAns = [
-    [1,3],
-    [2,3],
-    [1],
-    [2],
-    [3],
-    [1],
-    [1],
-    [1],
-    [1],
-    [1],
-    [1],
-    [1],
-    [1],
-    [1],
-    [1],
-    [1]
-  ]
-  //Make every clone image unique.
-  var counts = [0];
-  $(".dragImg").draggable({
-    helper: "clone",
-    //Create counter
-    start: function() { counts[0]++; }
-  });
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
 
-  $(".drop-container").droppable({
-    drop: function(e, ui){
-      if(actvityAns[currentActivityNumber].indexOf(parseInt($(this)[0].id)) !== -1) {
-        $(this).addClass("correct");
-      }
-      else {
-        $(this).addClass("incorrect");
-      }
+    display.textContent = minutes + ":" + seconds;
 
-      //$(this).append($(ui.helper).clone());
-      //Pointing to the dragImg class in dropHere and add new class.
-      $(".drop-container .dragImg").addClass("item-"+counts[0]);
-      //Remove the current class (ui-draggable and dragImg)
-      $(".drop-container .item-"+counts[0]).removeClass("dragImg ui-draggable ui-draggable-dragging");
-
-      $(".item-"+counts[0]).dblclick(function() {
-        $(this).remove();
-      });
-
-      //make the div draggable --- Not working???
-      //make_draggable($(".item-1"));
+    if (--timer < 0) {
+      clearInterval(tInterval);
+      timer = duration;
+      currentActivityNumber = 0;
+      $(".activity-holder").fadeOut( "slow", function() {
+        $(".activity-feedback-container").show();
+      })
     }
-  });
+  }, 1000);
+}
 
-  var zIndex = 0;
-  function make_draggable(elements)
-  {
-    elements.draggable({
-      containment:'parent',
-      start:function(e,ui){ ui.helper.css('z-index',++zIndex); },
-      stop:function(e,ui){
-      }
+
+var actvityAns = [[2],[3],[1],[1],[3],[2],[4],[3],[3],[4],[3],[4],[2],[2],[1],[1]];
+var dropOption= [
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion, insulin, and syringe pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Surgical equipment", "Infusion, insulin, and syringe pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Kidney dialysis machines"],
+  ["Dental equipment", "Hospital hardware", "Respiratory", "Infusion, insulin, and syringe pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion, insulin, and syringe pumps"],
+  ["Kidney dialysis machines", "Patient monitoring system", "Respiratory", "Infusion, insulin, and syringe pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Diagnostic/analytical equipment"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion, insulin, and syringe pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion, insulin, and syringe pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion, insulin, and syringe pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion, insulin, and syringe pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Surgical equipment"],
+  ["Kidney dialysis machines", "Diagnostic/analytical equipment", "Respiratory", "Infusion, insulin, and syringe pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion, insulin, and syringe pumps"],
+  ["Patient monitoring system", "Hospital hardware", "Respiratory", "Infusion, insulin, and syringe pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion, insulin, and syringe pumps"],
+];
+
+var dragOption= [
+  "Hospital bed",
+  "Surgical fluid management system",
+  "Anesthesia delivery system",
+  "Pressure-operated dental instrument",
+  "Ventilator",
+  "Blood glucose monitoring",
+  "Blood analyzer",
+  "High velocity nasal insufflation (treatment of COPD)",
+  "Spirometer",
+  "Disposable insulin pump",
+  "CPAP machine",
+  "Cardiac cryoablation",
+  "Hematology analyzer",
+  "Medication dispensing system",
+  "Non invasive blood pressure",
+  "Peritoneal dialysis (PD)"
+];
+var correctAns = 0;
+document.querySelector('#correct-answer').textContent = correctAns;
+document.querySelector('.drag-element').textContent = dragOption[currentActivityNumber];
+for (var i = 1; i <= 4; i++) {
+  document.querySelector('.drop'+i).textContent = dropOption[currentActivityNumber][i-1];
+}
+var minutes = 60 * 1,
+display = document.querySelector('#time');
+startTimer(minutes, display);
+//Make every clone image unique.
+var counts = [0];
+$(".dragImg").draggable({
+  helper: "clone",
+  //Create counter
+  start: function() { counts[0]++; }
+});
+
+$(".drop-container").droppable({
+  drop: function(e, ui){
+    if(actvityAns[currentActivityNumber].indexOf(parseInt($(this)[0].id)) !== -1) {
+      $(this).addClass("correct");
+      correctAns ++;
+    }
+    else {
+      $(this).addClass("incorrect");
+    }
+    document.querySelector('#correct-answer').textContent = correctAns;
+
+    //$(this).append($(ui.helper).clone());
+    $(".drop-container .dragImg").addClass("item-"+counts[0]);
+    $(".drop-container .item-"+counts[0]).removeClass("dragImg ui-draggable ui-draggable-dragging");
+
+    $(".item-"+counts[0]).dblclick(function() {
+      $(this).remove();
     });
   }
 });
+
+function loadNextActivity() {
+  currentActivityNumber++;
+  document.querySelector('.drag-element').textContent = dragOption[currentActivityNumber];
+  for (var i = 1; i <= 4; i++) {
+    document.querySelector('.drop'+i).classList.remove("correct");
+    document.querySelector('.drop'+i).classList.remove("incorrect");
+    document.querySelector('.drop'+i).textContent = dropOption[currentActivityNumber][i-1];
+  }
+  if(currentActivityNumber >= dragOption.length - 1) {
+    if (correctAns >=12) {
+      $(".activity-holder").fadeOut( "slow", function() {
+        $(".activity-feedback-container__success").show();
+      })
+    }
+    else {
+      $(".activity-holder").fadeOut( "slow", function() {
+        $(".activity-feedback-container__failed").show();
+      })
+    }
+  }
+}
+
+var zIndex = 0;
+function make_draggable(elements)
+{
+  elements.draggable({
+    containment:'parent',
+    start:function(e,ui){ ui.helper.css('z-index',++zIndex); },
+    stop:function(e,ui){
+    }
+  });
+}
 </script>
