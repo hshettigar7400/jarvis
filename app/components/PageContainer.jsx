@@ -1,9 +1,9 @@
 var React = require('react'),
 {loadPage, millisToMinutesAndSeconds} = require('../components/Navigate.js'),
-Sound = require('react-sound');
+Sound = require('react-sound'),
+ReactInterval = require("react-interval");
+
 var $ = require("jquery");
-var playAudioInterval;
-var checkAudioPositionInterval;
 
 var PageContainer = React.createClass ({
   propTypes: {
@@ -22,7 +22,7 @@ var PageContainer = React.createClass ({
   },
 
   componentDidMount() {
-    loadPage(this.props.PageNum)
+    loadPage(this.props.PageNum);
   },
 
   componentDidUpdate(prevProps, prevState) {
@@ -37,8 +37,12 @@ var PageContainer = React.createClass ({
     }
   },
 
+  showTab1(){
+    console.log("sadfsdfsd")
+  },
+
   shouldComponentUpdate: function(nextProps, nextState) {
-    if(this.props.PageNum !== nextProps.PageNum || this.props.volume !== nextProps.volume || this.props.audioState !== nextProps.audioState)
+    if(this.props.PageNum !== nextProps.PageNum || this.props.volume !== nextProps.volume || this.props.audioState !== nextProps.audioState || this.state.stopAudio !== nextState.stopAudio)
       return true;
     else
       return false;
@@ -52,24 +56,14 @@ var PageContainer = React.createClass ({
 
   stopSound () {
     this.setState({stopAudio: true});
-    startAudioPlay = false;
-    playAudioInterval = setInterval(this.checkAudioToPlay, 1);
   },
 
-  checkAudioToPlay () {
-    if (startAudioPlay) {
-      this.setState({stopAudio: false});
-      clearInterval(playAudioInterval)
-    }
-  },
-
-  onAudioPlaying(position) {
-    //console.log(position);
+  onAudioPlaying(ev) {
     if(document.querySelector('.transcript-text-container')) {
       document.querySelector('.transcript-text-container').innerHTML = transcript;
     }
     if (qPoints !== null) {
-      var t = millisToMinutesAndSeconds(position);
+      var t = millisToMinutesAndSeconds(ev.position);
       if (t == qPoints[currentCuePointId]) {
         if (imageSwap &&  document.querySelector('.sync'+(currentCuePointId))){
           document.querySelector('.sync'+(currentCuePointId)).classList.add('hide');
@@ -88,10 +82,19 @@ var PageContainer = React.createClass ({
     }
   },
 
+
   render() {
     let audioPath = "../app/assets/audio/m01_t01_p0"+this.props.PageNum+".mp3";
     return (
       <div className="page-holder">
+        <Sound
+        url={audioPath}
+        playStatus={(this.props.audioState || this.state.stopAudio) ? Sound.status.PAUSED : Sound.status.PLAYING}
+        playFromPosition={this.state.currentAudioPosition}
+        onPlaying={this.onAudioPlaying}
+        volume={this.props.volume}
+        onFinishedPlaying={this.onAudioFinished}
+        />
         <div className="page-title__container">
           <span className="topic-title">
             Introduction
@@ -101,14 +104,7 @@ var PageContainer = React.createClass ({
         </div>
         <div ref="pageLoader" className="page-loader">
         </div>
-        <Sound
-        url={audioPath}
-        playStatus={(this.props.audioState || this.state.stopAudio) ? Sound.status.PAUSED : Sound.status.PLAYING}
-        playFromPosition={this.state.currentAudioPosition}
-        onPlaying={({position}) => this.onAudioPlaying(position)}
-        volume={this.props.volume}
-        onFinishedPlaying={this.onAudioFinished}
-        />
+
       </div>
     )
   }

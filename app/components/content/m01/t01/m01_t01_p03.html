@@ -2,11 +2,11 @@
 
 <div id="m01_t01_p03" class="page m01_t01_p03">
     <div class="template-panel">
-        <div class="instruction sync1">Select each category to learn more.</div>
+        <div class="instruction fadeOut sync1">Select each category to learn more.</div>
         <div class="template-holder">
             <div class="template-horizontal-tab">
                 <div>
-                  <div class="tabs-nav">
+                  <div class="tabs-nav fadeOut sync2">
                       <a class="h-tab" data-index="1" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab1()">
                           <span class="">Hemodialysis</span>
                       </a>
@@ -52,22 +52,21 @@
         </div>
 
         <div class="main-content">
-            <div class="text-1">For the dialysis treatment:</div>
-            <div class="text-2">Would you prefer taking it in a hospital or at home?</div>
-            <div class="text-3">Would you prefer the use of needles or a surgically implanted catheter?</div>
+            <div class="text-1 fadeOut sync3">Would you prefer taking it in a hospital or at home?</div>
+            <div class="text-2 fadeOut sync4">Would you prefer travelling to a facility multiple times every week for treatment?</div>
+            <div class="text-3 fadeOut sync5">Would you prefer the use of needles or a surgically implanted catheter?</div>
         </div>
     </div>
 </div>
 
 <script>
     var imageSwap = false;
-    var qPoints = [41, 81];
-    var qPointsExecution = ["this.stopSound()", "this.stopSound()"];
-    var playPopSoundFrom = [3, 6];
+    var qPoints = [0, 3, 29, 34, 38, 41, 56];
+    var qPointsExecution = ["", "this.stopSound()", "", "", "", ""];
     var currentCuePointId = 0;
+    var globalAudioPosition = 0
     var startAudioPlay = false;
-    var transcript = "After completing this course, you will be able to:";
-    var globalAudioPosition = 0;
+    var transcript = "Select each label shown on the screen to learn more.Treatment models that were once limited to facilities are now available in other settings, thanks to technology. As a result, medical devices are becoming more portable and accessible for everyone. For example, look at dialysis. Dialysis removes impurities from blood when a patient's kidneys are unable to perform this critical, life-sustaining function. Now, would you prefer dialysis treatment in a hospital or at home?Would you prefer travelling to a facility multiple times every week for treatment?Would you prefer needles or a surgically implanted catheter? Historically, the primary dialysis method was hemodialysis. In this process, a needle and tubing connect the patient to a machine; the patient's blood circulates through the machine, which cleans and then returns the blood to the patient. Hemodialysis requires patients to spend three to five hours in facility up to three times a week.People " + + "often " + "nervous and uncomfortable when they hear about removal and return of blood.";
 
     function showTab1 () {
       document.querySelector('.tab-content').style.display = 'block';
@@ -76,7 +75,7 @@
       document.querySelector('.img1').style.display = 'block';
       document.querySelector('.img2').style.display = 'none';
       document.querySelector('.main-content').style.display = 'none';
-      globalAudioPosition = 3;
+      globalAudioPosition = 3000;
       startAudioPlay = true;
     }
 
@@ -88,7 +87,7 @@
       document.querySelector('.img1').style.display = 'none';
       document.querySelector('.main-content').style.display = 'none';
       startAudioPlay = true;
-      globalAudioPosition = 22;
+      globalAudioPosition = 5000;
     }
 
 
