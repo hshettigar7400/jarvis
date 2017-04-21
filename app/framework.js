@@ -23,6 +23,18 @@ window.getCourseProgress = function() {
 	return (cnt/pageStatusList.length) * 100 + '%';
 }
 
+window.reloadFromStart = function () {
+	if (document.querySelector('.next-button'))
+    document.querySelector('.next-button').classList.remove("blinker");
+  if (document.querySelector('#button-audio'))
+    document.querySelector('#button-audio').classList.remove("disabled");
+  if (document.querySelector('#button-playPause'))
+    document.querySelector('#button-playPause').classList.remove("disabled");
+  $(".page-loader").empty();
+  $(".page-loader").load('components/content/m01/t01/m01_t01_p01.html');
+  window.updatePageStatusList(1);
+}
+
 ReactDOM.render(
   <Instruction data={appData} />, document.getElementById('root')
 );

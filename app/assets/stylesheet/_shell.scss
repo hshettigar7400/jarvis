@@ -62,7 +62,8 @@ body {
 .page-title__container {
   min-height: 40px;
   line-height: 20px;
-  display: table;
+  display: flex;
+  align-items: baseline;
   width: 100%;
   color: #FFF;
   font-weight: 700;
@@ -79,6 +80,10 @@ body {
   padding: 0 5px;
 }
 
+.page-title__container .page-title {
+  align-self: center;
+  padding-top: 2px;
+}
 .page-loader {
 
 }
