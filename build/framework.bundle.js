@@ -22775,7 +22775,7 @@ var PageContainer = React.createClass((_React$createClass = {
   },
 
   onAudioFinished: function onAudioFinished() {
-    document.querySelector('.next-button').classList.add("blinker");
+    if (this.props.PageNum !== 6) document.querySelector('.next-button').classList.add("blinker");
     document.querySelector('#button-audio').classList.add("disabled");
     document.querySelector('#button-playPause').classList.add("disabled");
     if (document.querySelector('.start-button')) {

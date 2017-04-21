@@ -49,6 +49,7 @@ var PageContainer = React.createClass ({
   },
 
   onAudioFinished() {
+    if(this.props.PageNum !== 6 )
     document.querySelector('.next-button').classList.add("blinker");
     document.querySelector('#button-audio').classList.add("disabled");
     document.querySelector('#button-playPause').classList.add("disabled");

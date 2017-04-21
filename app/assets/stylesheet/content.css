@@ -374,12 +374,14 @@ b{font-weight:bold;}
 .activity-intro-container,
 .activity-feedback-container,
 .activity-feedback-container__failed,
-.activity-feedback-container__success  {
+.activity-feedback-container__success,
+.show-answer-container  {
   padding-top: 75px;
 }
 
 .activity-intro,
-.activity-feedback {
+.activity-feedback,
+.answer-container {
   width: 70%;
   height: auto;
   margin: 0 auto;
@@ -603,6 +605,13 @@ b{font-weight:bold;}
   padding: 15px 50px;
   display: table;
   width: 100%;
+}
+
+.answer-container {
+  background-color: #004465;
+  padding: 15px 50px;
+  display: table;
+  width: 80%;
 }
 
 .activity-feedback-score div {

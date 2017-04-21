@@ -22,7 +22,7 @@
       </div>
       <div class="activity-action">
         Select start to begin
-        <a role="button" onclick="startActivity()" class=" start-button"> Start</a>
+        <a role="button" onclick="startActivity()" class="disabled start-button"> Start</a>
       </div>
     </div>
   </div>
@@ -82,7 +82,7 @@
       </div>
       <div class="activity-feedback-action">
         Select try again and reattempt the activity
-        <a role="button" onclick="tryAgainActivity()"> Try Again</button>
+        <a role="button" onclick="tryAgainActivity()"> Try Again</a>
       </div>
     </div>
   </div>
@@ -111,9 +111,8 @@
         </div>
       </div>
       <div class="activity-feedback-action">
-        Select Try Again to reattempt the activity, or select Show Me to view correct answers.
+        Select Try Again to reattempt the activity.
         <button onclick="tryAgainActivity()"> Try Again</button>
-        <button onclick="showAns()"> Show me</button>
       </div>
     </div>
   </div>
@@ -149,42 +148,49 @@
   </div>
 
   <div id="accordion" class="show-answer-container">
-    <ul id="nav">
-    <li>
-      <span class="plus">1</span>
-      <a href="#company">What we say</a>
-      <ul>
-        <li>
-          <p>This is what we say</p>
-          <p>This is what we say</p>
-          <p>This is what we say</p>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <span class="plus">2</span>
-      <a href="#reviews">Reviews</a>
-      <ul>
-        <li class="box">
-          <p>These are our reviews</p>
-          <p>These are our reviews</p>
-          <p>These are our reviews</p>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <span class="plus">3</span>
-      <a href="#stuff">Stuff</a>
-      <ul>
-        <li class="box">
-          <p>Lots of stuff here</p>
-          <p>Lots of stuff here</p>
-          <p>Lots of stuff here</p>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
+    <div class="answer-container">
+      <div class="activity-feedback-title">
+        Activity Answer
+      </div>
+      <div class="answer-container">
+        <p>Select each medical application to view its examples.</p>
+        <ul id="nav">
+          <li>
+            <span class="plus">1</span>
+            <a href="#company">What we say</a>
+            <ul>
+              <li>
+                <p>This is what we say</p>
+                <p>This is what we say</p>
+                <p>This is what we say</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="plus">2</span>
+            <a href="#reviews">Reviews</a>
+            <ul>
+              <li class="box">
+                <p>These are our reviews</p>
+                <p>These are our reviews</p>
+                <p>These are our reviews</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="plus">3</span>
+            <a href="#stuff">Stuff</a>
+            <ul>
+              <li class="box">
+                <p>Lots of stuff here</p>
+                <p>Lots of stuff here</p>
+                <p>Lots of stuff here</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 
 
@@ -198,16 +204,19 @@ var activityAttempt = 1;
 var timeTaken = "";
 var tInterval;
 
+var minutes = 60 * 4,
+display = document.querySelector('#time');
+
+//Make every clone image unique.
+var counts = [0];
+
 function startActivity() {
   clearInterval(tInterval);
   $(".activity-intro-container").fadeOut( "slow", function() {
     $("#activity1").show();
+    startTimer(minutes, display);
   })
-  var minutes = 60 * 4,
-  display = document.querySelector('#time');
-  startTimer(minutes, display);
-  //Make every clone image unique.
-  var counts = [0];
+
 }
 
 function tryAgainActivity() {
@@ -357,6 +366,7 @@ function loadNextActivity() {
         document.querySelector('.activity-feedback-container__success .attempt').textContent = activityAttempt;
         document.querySelector('.activity-feedback-container__success .time-taken').textContent = timeTaken;
         clearInterval(tInterval);
+        document.querySelector('.next-button').classList.add("blinker");
       })
     }
     else {
@@ -366,6 +376,7 @@ function loadNextActivity() {
         document.querySelector('.activity-feedback-container__failed .attempt').textContent = activityAttempt;
         document.querySelector('.activity-feedback-container__failed .time-taken').textContent = timeTaken;
         clearInterval(tInterval);
+        document.querySelector('.next-button').classList.add("blinker");
       })
     }
   }
