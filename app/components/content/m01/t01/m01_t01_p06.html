@@ -22,7 +22,7 @@
       </div>
       <div class="activity-action">
         Select start to begin
-        <a role="button" onclick="startActivity()"> Start</a>
+        <a role="button" onclick="startActivity()" class="disabled start-button"> Start</a>
       </div>
     </div>
   </div>
@@ -143,8 +143,7 @@
       </div>
       <div class="activity-feedback-action">
         In the next course, “Honeywell Portfolio for Medical Applications,” you will learn how focus medical applications are aligned to different Honeywell product offerings.
-      Select Review Responses to review your attempt, or select Next to continue with the course.
-      <button onclick="reviewAns()"> Review responses</button>
+
       </div>
     </div>
   </div>
@@ -156,7 +155,8 @@
 var currentActivityNumber = 1;
 var activityAttempt = 1;
 var timeTaken = "";
-  var tInterval;
+var tInterval;
+
 function startActivity() {
   $(".activity-intro-container").fadeOut( "slow", function() {
     $("#activity1").show();
@@ -265,6 +265,7 @@ startTimer(minutes, display);
 var counts = [0];
 $(".dragImg").draggable({
   helper: "clone",
+  revert: "invalid",
   //Create counter
   start: function() { counts[0]++; }
 });
@@ -278,11 +279,13 @@ $(".drop-container").droppable({
     else {
       $(this).addClass("incorrect");
     }
+    $(".dragImg").disableSelection();
     document.querySelector('#correct-answer').textContent = correctAns;
 
     //$(this).append($(ui.helper).clone());
     $(".drop-container .dragImg").addClass("item-"+counts[0]);
     $(".drop-container .item-"+counts[0]).removeClass("dragImg ui-draggable ui-draggable-dragging");
+
 
     $(".item-"+counts[0]).dblclick(function() {
       $(this).remove();

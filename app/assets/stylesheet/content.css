@@ -434,9 +434,14 @@ b{font-weight:bold;}
   text-align: right;
 }
 
-.activity-action a {
+.disabled {
+  pointer-events: none;
+}
+
+.activity-action a,
+.activity-feedback-action a {
   height: 30px;
-  width: 60px;
+  width: 75px;
   font-size: 14px;
   margin-left: 10px;
   cursor: pointer;
@@ -539,7 +544,7 @@ b{font-weight:bold;}
 .proceed-button {
   position: absolute;
   right: 60px;
-  bottom: 150px;
+  bottom: 80px;
   background: #0097e1;
   border: none;
   color: #fff;

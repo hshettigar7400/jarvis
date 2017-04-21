@@ -52,10 +52,14 @@ var PageContainer = React.createClass ({
     document.querySelector('.next-button').classList.add("blinker");
     document.querySelector('#button-audio').classList.add("disabled");
     document.querySelector('#button-playPause').classList.add("disabled");
+    if (document.querySelector('.start-button')) {
+      document.querySelector('.start-button').classList.remove("disabled");
+    }
   },
 
   changeFontSize() {
-    document.querySelector('.text-1-large').style.fontSize = '1em';
+    if (document.querySelector('.text-1-large') !== null)
+      document.querySelector('.text-1-large').style.fontSize = '1em';
   },
 
   stopSound () {
