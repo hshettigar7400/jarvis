@@ -22,7 +22,7 @@
       </div>
       <div class="activity-action">
         Select start to begin
-        <button onclick="startActivity()"> Start</button>
+        <a role="button" onclick="startActivity()"> Start</a>
       </div>
     </div>
   </div>
@@ -82,7 +82,7 @@
       </div>
       <div class="activity-feedback-action">
         Select try again and reattempt the activity
-        <button onclick="tryAgainActivity()"> Try Again</button>
+        <a role="button" onclick="tryAgainActivity()"> Try Again</button>
       </div>
     </div>
   </div>
@@ -182,9 +182,6 @@ function tryAgainActivity() {
     document.querySelector('.drop'+i).classList.remove("incorrect");
     document.querySelector('.drop'+i).textContent = dropOption[currentActivityNumber-1][i-1];
   }
-  var minutes = 60 * 4,
-  display = document.querySelector('#time');
-  startTimer(minutes, display);
   //Make every clone image unique.
   var counts = [0];
 }
@@ -202,6 +199,7 @@ function startTimer(duration, display) {
     timeTaken = minutes + ":" + seconds;
 
     if (--timer < 0) {
+      console.log(timer)
       clearInterval(tInterval);
       timer = duration;
       currentActivityNumber = 1;

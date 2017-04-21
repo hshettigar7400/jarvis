@@ -22737,6 +22737,9 @@ var PageContainer = React.createClass({
     document.querySelector('#button-audio').classList.add("disabled");
     document.querySelector('#button-playPause').classList.add("disabled");
   },
+  changeFontSize: function changeFontSize() {
+    document.querySelector('.text-1-large').style.fontSize = '1em';
+  },
   stopSound: function stopSound() {
     this.setState({ stopAudio: true });
     startAudioPlay = false;
