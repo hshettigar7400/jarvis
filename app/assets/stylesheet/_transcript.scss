@@ -2,7 +2,7 @@
   width: 320px;
   max-height: 240px;
   margin: 0 auto;
-  bottom: 50px;
+  bottom: 73px;
   left: 30%;
   z-index: 99999;
   position: absolute;
@@ -40,4 +40,5 @@
   padding: 10px;
   text-align: left;
   color: #333333;
+  overflow-y: auto;
 }
