@@ -2,9 +2,12 @@
   position: relative;
   top: -2px;
   margin: 0;
-  overflow-y: auto;
+  overflow-y: hidden;
   width: 100%;
   z-index: 9;
+  @media all and (max-width: 680px) {
+    overflow-y: auto;
+  }
 }
 
 .page-container .page-holder {

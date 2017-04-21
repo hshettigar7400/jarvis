@@ -16,6 +16,10 @@ var TopNav = React.createClass ({
     isMenuOpened: React.PropTypes.bool
   },
 
+  getDoubleDigit (num) {
+    return (num > 9) ? num : ('0'+num);
+  },
+
   render() {
     return (
       <div className="top-nav">
@@ -44,9 +48,9 @@ var TopNav = React.createClass ({
           </div>
           <div className="nav-comp-container">
             <div className="page-counter clearfix">
-              <span className="page-number">{this.props.currentPageNumber}</span>
+              <span className="page-number">{this.getDoubleDigit(this.props.currentPageNumber)}</span>
               <span className="page-separator">|</span>
-              <span className="total-pages">{this.props.totalPages}</span>
+              <span className="total-pages">{this.getDoubleDigit(this.props.totalPages)}</span>
             </div>
           </div>
           <div className="button-box">
