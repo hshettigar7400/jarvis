@@ -1,17 +1,87 @@
 var React = require('react');
 var Shell = require('./Shell.jsx').default;
-var Sound = require('react-sound');
+import Preloader from 'preloader.js';
 
 var Instruction = React.createClass ({
 
 getInitialState() {
+  var uagent = navigator.userAgent.toLowerCase();
   return {
-  isStartCourse: false
+  isStartCourse: false,
+  isMobile: uagent.search("mobile") > -1,
+  isLoading: true,
   };
+},
+
+componentDidMount() {
+  var self = this;
+  var preloader = new Preloader({
+    resources: [
+      'images/m01_t01_p02/m01_t01_p02_img1.png',
+      'images/m01_t01_p03/Slide_08_image_01.jpg',
+      'images/m01_t01_p03/Slide_08_image_02.jpg',
+      'images/m01_t01_p04/m01_t01_p04_01_large.jpg',
+      'images/m01_t01_p04/m01_t01_p04_03_large.jpg',
+      'images/m01_t01_p04/m01_t01_p04_02_large.jpg',
+      'images/m01_t01_p04/m01_t01_p04_04_large.jpg',
+      'images/m01_t01_p04/icon1.png',
+      'images/m01_t01_p04/icon2.png',
+      'images/m01_t01_p04/icon3.png',
+      'images/m01_t01_p04/arrow.png',
+      'images/m01_t01_p05/m01_t01_p05_img1.jpg',
+      'images/m01_t01_p05/arrow.png',
+      'images/m01_t01_p07/m01_t01_p07_bg.jpg',
+      'images/m01_t01_p07/m01_t01_p07_bg1.jpg',
+      '../app/assets/audio/Instruction_audio.mp3',
+      '../app/assets/audio/m01_t01_p01.mp3',
+      '../app/assets/audio/m01_t01_p02.mp3',
+      '../app/assets/audio/m01_t01_p03.mp3',
+      '../app/assets/audio/m01_t01_p04.mp3',
+      '../app/assets/audio/m01_t01_p05.mp3',
+      '../app/assets/audio/m01_t01_p06_01.mp3',
+      '../app/assets/audio/m01_t01_p06_02.mp3',
+      '../app/assets/audio/m01_t01_p06_03.mp3',
+      '../app/assets/audio/m01_t01_p06_04.mp3',
+      '../app/assets/audio/m01_t01_p06.mp3',
+      '../app/assets/audio/m01_t01_p07.mp3',
+      '../app/assets/audio/m01_t01_p08_01.mp3',
+      '../app/assets/audio/m01_t01_p08_02.mp3',
+      '../app/assets/audio/m01_t01_p08.mp3'
+      ],
+    concurrency: 0
+  });
+
+  console.log('preloader: ', preloader);
+
+  preloader.addProgressListener(function (loaded, length) {
+      console.log('loading ', loaded, length, loaded / length)
+  });
+
+  preloader.addCompletionListener(function () {
+    jarvisAudio.play();
+    $('#html5Loader').css('display', 'none');
+    self.setState({
+      isLoading: false
+    });
+  });
+
+  preloader.start();
 },
 
 startCourse() {
   this.setState({isStartCourse: true});
+},
+
+playInstructionAudio() {
+  $('.playAudioParent').hide()
+  soundManager.createSound({
+    url: '../app/assets/audio/course_instruction.mp3',
+    autoLoad: true,
+    autoPlay: true,
+    onload: function() {
+    },
+    volume: 100
+  });
 },
 
 render() {
@@ -24,14 +94,21 @@ if (this.state.isStartCourse) {
   )
 }
 else {
+  if (this.state.isLoading) {
+    return (
+    <div className="loading">Loading&#8230;</div>
+    )
+  }
   return (
   <div className="instruction-container">
-    <Sound
-    url="../app/assets/audio/course_instruction.mp3"
-    playStatus={Sound.status.PLAYING}
-    playFromPosition={0 /* in milliseconds */}
-    />
-
+    {this.state.isMobile &&
+    <div className="playAudioParent">
+      <div className="playBlinkBlack"></div>
+      <div className="playBlink" onClick={this.playInstructionAudio.bind(null, this)}>
+           <a className="button-autoPlay" href="#"></a>
+      </div>
+    </div>
+    }
     <div className="cover-page">
       <div className="logo-container">
         <img src="../app/assets/images/coverPage_logo.png" />
@@ -103,6 +180,7 @@ else {
             </div>
           </div>
           <div className="invisible-container"></div>
+          <div className="dis_img1"></div>
     </div>
   </div>
   )

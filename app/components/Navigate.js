@@ -12,6 +12,7 @@ var topicNamesArray = [
 ];
 
 function loadPage(pageNumber) {
+  $(".page-number").html(pageNumber);
   if (document.querySelector('.next-button'))
     document.querySelector('.next-button').classList.remove("blinker");
   if (document.querySelector('#button-audio'))
@@ -36,16 +37,9 @@ function loadMenu() {
 
 }
 
-function millisToMinutesAndSeconds(millis) {
-  var minutes = Math.floor(millis / 60000);
-  var seconds = ((millis % 60000) / 1000).toFixed(0);
-  var s = ((minutes * 60) + parseInt(seconds));
-  return s;
-}
 
 module.exports = {
   loadPage,
   loadSound,
-  loadTranscript,
-  millisToMinutesAndSeconds
+  loadTranscript
 }

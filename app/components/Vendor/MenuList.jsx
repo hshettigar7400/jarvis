@@ -44,7 +44,7 @@ var MenuList = React.createClass({
     return {
       transitionTime: 400,
       easing: 'linear',
-      open: false,
+      open: true,
       classParentString: 'menu-list',
       triggerDisabled: false,
       lazyRender: false,
@@ -212,6 +212,10 @@ var MenuList = React.createClass({
     return null;
   },
 
+  getProgressColor() {
+    return "#f00";
+  },
+
   render: function () {
 
     var dropdownStyle = {
@@ -247,7 +251,7 @@ var MenuList = React.createClass({
         <span className={triggerClassName.trim()} onClick={this.handleTriggerClick}>
           <span className="icon icon-tree"></span>
           {trigger}
-          <span className="menu-page-progress"></span>
+          <span className="menu-page-progress" id="topic-progress" style={{backgroundColor:this.getProgressColor()}}></span>
         </span>
 
         {this.renderNonClickableTriggerElement()}

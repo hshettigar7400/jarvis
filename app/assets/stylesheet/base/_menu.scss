@@ -25,14 +25,27 @@
   margin: 0;
 }
 
+@media all and (max-width: 768px) {
+
+}
+
 @media (min-width: 320px) {
   .menu-style {
-      width: 102%;
+      width: 100%;
   }
+
 }
 
 @media (min-width: 650px) {
   .menu-style {
       width: 460px;
   }
+}
+
+.menu-list__trigger {
+  display: none !important;
+}
+
+.disable-event {
+  pointer-events: none;
 }

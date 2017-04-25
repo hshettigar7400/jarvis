@@ -17,6 +17,14 @@ propTypes: {
   isMenuOpened: React.PropTypes.bool
 },
 
+getInitialState() {
+   var uagent = navigator.userAgent.toLowerCase();
+   return {
+     isiPad:uagent.search("ipad") > -1
+   }
+
+},
+
 getDoubleDigit (num) {
   return (num > 9) ? num : ('0'+num);
 },
@@ -59,12 +67,14 @@ render() {
             <span className="icon-transcript"></span>
           </a>
         </div>
+        {!this.state.isiPad &&
         <div className="button-box">
           <a href="#" id="button-audio" onClick={this.props.onVolumeClick} className={this.props.isMenuOpened ? "tabindex" : "tabindex disabled"} aria-label="audio" role="button" aria-disabled="false" aria-pressed="true">
             <span className="button-label"></span>
             <span className="icon-audio"></span>
           </a>
         </div>
+        }
         <div className="button-box">
           <a href="#" id="button-replay" onClick={this.props.onReplayClick} className={this.props.isMenuOpened ? "tabindex" : "tabindex disabled"} aria-label="replay" role="button" aria-disabled="false">
             <span className="button-label"></span>

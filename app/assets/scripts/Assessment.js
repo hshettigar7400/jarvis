@@ -72,8 +72,8 @@ function Assessment() {
 	        });
 	        $('.player-module-0').hide()
         });
-        
-        
+
+
     }
 
     function dataLoadComplete() {
@@ -225,7 +225,7 @@ function Assessment() {
 	            $(this).removeClass(Selectors.focus)
 	        })
     	}
-    	
+
         $(selectors.wrapper).on('click', '.options a', function() {
             if ($(this).hasClass(Selectors.disabled)) return;
             if (defaults.isMobileFirst) currentQuestion = Number($(this).parents().eq(5).attr("id").split("-")[2]);
@@ -280,6 +280,25 @@ function Assessment() {
         });
         if (defaults.revisitContent) $(Selectors.player).on('click', selectors.visitContentButton, function() {
             $('.lastQuestion').html('Submit');
+            $(".page-loader").empty();
+            $(".page-loader").load('components/content/m01/t01/m01_t01_p01.html');
+            $(".page-number").html(01);
+            $.getJSON( "../app/assets/data/transcript.json", function( data ) {
+                $(".transcript-text-container").html(data.transcript[0].text)
+            });
+            document.querySelector('.next-button').classList.remove("disabled");
+            soundManager.stopAll();
+            jarvisAudio = soundManager.createSound({
+              url: '../app/assets/audio/m01_t01_p01.mp3',
+              autoLoad: true,
+              autoPlay: true,
+              onload: function() {
+              },
+              onfinish: function() {
+              },
+              whileplaying() {
+              }
+            });
             //window.reloadFromStart();
             /*if (document.querySelector('.next-button'))
                 document.querySelector('.next-button').classList.remove("blinker");
@@ -535,7 +554,7 @@ function Assessment() {
         FRED.player.disableButton(FRED.player.playPauseName);
         FRED.player.disableButton(FRED.player.nextName);
         FRED.player.disableButton(FRED.player.backName);*/
-        //SUMANTH DISABLE REQUIRED UI BUTTONS 
+        //SUMANTH DISABLE REQUIRED UI BUTTONS
         currentQuestion = id;
         if (defaults.exitReview) {
             if (!reviewMode || id == totalQuestions) {

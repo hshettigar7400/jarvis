@@ -7,6 +7,22 @@ propTypes: {
   onPageLinkClick: React.PropTypes.func
 },
 
+getInitialState() {
+  return {
+    pageStatus: []
+  }
+},
+
+componentDidMount() {
+  this.setState({pageStatus: pageStatusList})
+  },
+
+getProgressColor(id) {
+  if (this.state.pageStatus[id-1] == 1) {
+    return  "#EE3124";
+  }
+},
+
 render() {
   return (
     <div>
@@ -21,39 +37,39 @@ render() {
         </div>
       </div>
       <div>
-        <MenuList trigger="Introduction">
+        <MenuList>
           <ul>
-            <li>
-              <a onClick={this.props.onPageLinkClick} data-page-id={1}>Welcome</a>
-              <span className="menu-page-progress"></span>
+            <li  onClick={this.props.onPageLinkClick} data-page-id={1}>
+              <a className="disable-event">Welcome</a>
+              <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(1)}}></span>
             </li>
-            <li>
-              <a onClick={this.props.onPageLinkClick} data-page-id={2}>Course Objectives</a>
-              <span className="menu-page-progress"></span>
+            <li  onClick={this.props.onPageLinkClick} data-page-id={2}>
+              <a className="disable-event">Course Objectives</a>
+              <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(2)}}></span>
             </li>
-            <li>
-              <a onClick={this.props.onPageLinkClick} data-page-id={3}>Increase in home therapy options</a>
-              <span className="menu-page-progress"></span>
+            <li  onClick={this.props.onPageLinkClick} data-page-id={3}>
+              <a className="disable-event">Increase in home therapy options</a>
+              <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(3)}}></span>
             </li>
-            <li>
-              <a onClick={this.props.onPageLinkClick} data-page-id={4}>Small and portable medical devices</a>
-              <span className="menu-page-progress"></span>
+            <li  onClick={this.props.onPageLinkClick} data-page-id={4}>
+              <a className="disable-event">Small and portable medical devices</a>
+              <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(4)}}></span>
             </li>
-            <li>
-              <a onClick={this.props.onPageLinkClick} data-page-id={5}>Internet of things—connected medical equipment</a>
-              <span className="menu-page-progress"></span>
+            <li  onClick={this.props.onPageLinkClick} data-page-id={5}>
+              <a className="disable-event">Internet of things—connected medical equipment</a>
+              <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(5)}}></span>
             </li>
-            <li>
-              <a onClick={this.props.onPageLinkClick} data-page-id={6}>Medical appications for Honeywell sensors - Activity</a>
-              <span className="menu-page-progress"></span>
+            <li  onClick={this.props.onPageLinkClick} data-page-id={6}>
+              <a className="disable-event">Medical appications for Honeywell sensors - Activity</a>
+              <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(6)}}></span>
             </li>
-            <li>
-              <a onClick={this.props.onPageLinkClick} data-page-id={7}>Course Summary</a>
-              <span className="menu-page-progress"></span>
+            <li  onClick={this.props.onPageLinkClick} data-page-id={7}>
+              <a className="disable-event">Course Summary</a>
+              <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(7)}}></span>
             </li>
-            <li>
-              <a onClick={this.props.onPageLinkClick} data-page-id={8}>Welcome to the quiz</a>
-              <span className="menu-page-progress"></span>
+            <li  onClick={this.props.onPageLinkClick} data-page-id={8}>
+              <a className="disable-event">Welcome to the quiz</a>
+              <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(8)}}></span>
             </li>
           </ul>
         </MenuList>

@@ -118,6 +118,9 @@ b{font-weight:bold;}
     vertical-align: middle;
 	display:none;
 }
+@media all and (min-width:320px){
+  .m01_t01_p01{padding: 0;height: 100%;}
+}
 
 @media all and (min-width:650px){
 	.m01_t01_p01{padding: 0;height: 100%;}
@@ -177,7 +180,7 @@ b{font-weight:bold;}
 }
 
 @media all and (min-width: 1100px) {
-.m01_t01_p02 .img1 {right: 30%;margin-top: 20px;position: absolute;}
+.m01_t01_p02 .img1 {margin-top: 20px;position: absolute;}
 }
 
 
@@ -198,11 +201,11 @@ b{font-weight:bold;}
 .m01_t01_p03 .template-horizontal-tab {margin-top:5px;height:auto; margin-right: 10%;display: flex;flex-wrap: wrap;}
 .m01_t01_p03 .template-horizontal-tab .tabs-nav{height:40px;display: flex;}
 .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab{background-color:#1792E5;text-align: justify;margin-right: 10px;}
-.m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab span {display: block;width: 174px;text-align: center;line-height: 40px;font-size: 18px;}
-.m01_t01_p03 .template-horizontal-tab .tab-content {height: 200px;}
+.m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab span {display: block;width: 200px;text-align: center;line-height: 40px;font-size: 18px;}
+.m01_t01_p03 .template-horizontal-tab .tab-content {height: 250px;}
 .m01_t01_p03 .template-horizontal-tab .tab-content .tab-data {height: 100%;background-color: rgba(255,255,255,0.85);border-top: 4px solid #EE3124;color: #333;}
-.m01_t01_p03 .template-horizontal-tab .tab-content .tab-data .popup-txt {padding-left: 30px; padding-top: 30px;}
-.m01_t01_p03 .template-panel .main-content div {padding-top: 15px;font-size: 18px;}
+.m01_t01_p03 .template-horizontal-tab .tab-content .tab-data .popup-txt {padding-left: 30px; padding-top: 30px; max-width: 360px;}
+.m01_t01_p03 .template-panel .main-content div {padding-top: 15px;font-size: 1em;}
 .m01_t01_p03 .template-panel .image-holder div p {margin-top: -38px;text-align: center;color: #fff;font-size: 16px;font-weight: normal;}
 .m01_t01_p03 .template-panel .image-holder {position: absolute; left: 55%;}
 .m01_t01_p03 .template-panel .image-holder div img {width: 90%;}
@@ -375,13 +378,14 @@ b{font-weight:bold;}
 .activity-feedback-container,
 .activity-feedback-container__failed,
 .activity-feedback-container__success,
+.show-answer-container,
 .show-answer-container  {
   padding-top: 75px;
 }
 
 .activity-intro,
 .activity-feedback,
-.answer-container {
+.answer--inner-container {
   width: 70%;
   height: auto;
   margin: 0 auto;
@@ -403,6 +407,7 @@ b{font-weight:bold;}
   background-color: #fff;
   color: #333333;
   padding: 10px;
+  position: relative;
 }
 
 .activity-instruction {
@@ -463,10 +468,19 @@ b{font-weight:bold;}
   height: 100%;
   width: 95%;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
 .activity-question {
   background-color: #ffffff;
+  color: #ee3124;
+  display: block;
+  padding: 20px;
+  position: relative;
+}
+
+.activity-option {
   color: #ee3124;
   display: block;
   padding: 20px;
@@ -509,6 +523,14 @@ b{font-weight:bold;}
   .activity-drop__container {display: inherit !important;}
 
   .drop-container {float: left;margin-left: 14%;margin-top: 15px;}
+
+  .activity-slider {
+    width: 100%;
+  }
+
+  .activity-option {
+    display: inline-table;
+  }
 }
 
 .drag-element {
@@ -521,6 +543,7 @@ b{font-weight:bold;}
   height: 60px;
   z-index: 999999;
   cursor: move;
+  font-weight: 600;
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center;
@@ -542,6 +565,7 @@ b{font-weight:bold;}
   max-width: 180px;
   height: 60px;
   position: relative;
+  font-weight: 600;
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center;
@@ -561,19 +585,20 @@ b{font-weight:bold;}
   vertical-align: middle;
 }
 
-.proceed-button {
+.proceed-button,
+.activity-nav-button {
   position: absolute;
   right: 60px;
   bottom: 80px;
   background: #0097e1;
   border: none;
   color: #fff;
-  padding: 15px 30px;
+  padding: 10px 30px;
   font-size: 1em;
   cursor: pointer;
 }
 
-.correct:after {
+.activity-correct:after {
   font-family: 'icomoon';
   content: "";
   position: absolute;
@@ -583,7 +608,7 @@ b{font-weight:bold;}
   font-weight: 700;
 }
 
-.incorrect:after {
+.activity-incorrect:after {
   font-family: 'icomoon';
   content: "";
   position: absolute;
@@ -611,7 +636,17 @@ b{font-weight:bold;}
   background-color: #004465;
   padding: 15px 50px;
   display: table;
-  width: 80%;
+  width: 100%;
+  min-height: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.answer-container ul {
+  width: 65%;
+  max-height: 256px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .activity-feedback-score div {
@@ -654,11 +689,17 @@ b{font-weight:bold;}
     padding:0;
     margin: 0;
 }
+
+.show-answer-container .icon-close {
+  cursor: pointer;
+}
 .show-answer-container ul#nav > li{
     border-top: solid 1px;
     border-right: solid 1px;
     border-left: solid 1px;
-    padding: 15px;
+    background: #fff;
+    color: #333333;
+    position: relative;
 }
 .show-answer-container ul#nav > li:last-child{
     border-bottom: 1px solid;
@@ -666,30 +707,56 @@ b{font-weight:bold;}
 .show-answer-container ul > li {
    list-style: none;
 }
+.show-answer-container ul > li p {
+   padding: 5px 15px;
+   margin: 0;
+   font-size: 0.92em;
+}
 .show-answer-container ul > li a{
     display: inline-block;
-    width: 95%;
+    width: 100%;
     text-decoration: none;
-    text-transform: uppercase;
+    background-color: #c5c5c5;
+    color: #333333;
+    padding: 5px;
+    font-size: 0.96em;
 }
 .show-answer-container ul ul {
     display: none;
 }
 .show-answer-container span {
-    float: right;
-    position: relative;
-    top: -3px;
+    position: absolute;
+    right: 10px;
 }
 
-.show-answer-container .plus {
-    background-color:red;
-    padding:5px;
-    text-align: center;
+.show-answer-container .active .fa-arrow::before {
+  font-family: 'FontAwesome';
+  content: "\f0d7";
+  font-style: normal !important;
 }
-.show-answer-container .minus {
-    background-color:blue;
-    padding:5px;
-    text-align: center;
+.show-answer-container .fa-arrow::before {
+  font-family: 'FontAwesome';
+  content: "\f0d9";
+  ont-style: normal !important;
+}
+
+.activity-slider {
+  display: flex;
+  position: absolute;
+}
+
+.activity-review-button {
+  width: 150px !important;
+}
+
+.activity-result-fail {
+  color: red;
+  font-weight: 700;
+}
+
+.activity-result-success {
+  color: green;
+  font-weight: 700;
 }
 /**
     m01_t01_p07

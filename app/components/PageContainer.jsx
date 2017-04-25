@@ -1,9 +1,5 @@
 var React = require('react'),
-{loadPage, millisToMinutesAndSeconds} = require('../components/Navigate.js'),
-Sound = require('react-sound'),
-ReactInterval = require("react-interval");
-
-var $ = require("jquery");
+{loadPage} = require('../components/Navigate.js');
 
 var PageContainer = React.createClass ({
   propTypes: {
@@ -31,16 +27,6 @@ var PageContainer = React.createClass ({
     }
   },
 
-  componentWillReceiveProps(nextProps) {
-    if(this.props.PageNum !== nextProps.PageNum) {
-        this.setState({stopAudio: false});
-    }
-  },
-
-  showTab1(){
-    console.log("sadfsdfsd")
-  },
-
   shouldComponentUpdate: function(nextProps, nextState) {
     if(this.props.PageNum !== nextProps.PageNum || this.props.volume !== nextProps.volume || this.props.audioState !== nextProps.audioState || this.state.stopAudio !== nextState.stopAudio)
       return true;
@@ -48,73 +34,14 @@ var PageContainer = React.createClass ({
       return false;
   },
 
-  onAudioFinished() {
-    if(this.props.PageNum !== 6 )
-    document.querySelector('.next-button').classList.add("blinker");
-    document.querySelector('#button-audio').classList.add("disabled");
-    document.querySelector('#button-playPause').classList.add("disabled");
-    if (document.querySelector('.start-button')) {
-      document.querySelector('.start-button').classList.remove("disabled");
-    }
-  },
-
-  changeFontSize() {
-    if (document.querySelector('.text-1-large') !== null)
-      document.querySelector('.text-1-large').style.fontSize = '1em';
-  },
-
-  stopSound () {
-    this.setState({stopAudio: true});
-    startAudioPlay = false;
-    playAudioInterval = setInterval(this.checkAudioToPlay, 1);
-  },
-
-  stopSound () {
-    this.setState({stopAudio: true});
-  },
-
-  onAudioPlaying(ev) {
-    if(document.querySelector('.transcript-text-container')) {
-      document.querySelector('.transcript-text-container').innerHTML = transcript;
-    }
-    if (qPoints !== null) {
-      var t = millisToMinutesAndSeconds(ev.position);
-      if (t == qPoints[currentCuePointId]) {
-        if (imageSwap &&  document.querySelector('.sync'+(currentCuePointId))){
-          document.querySelector('.sync'+(currentCuePointId)).classList.add('hide');
-          document.querySelector('.sync'+(currentCuePointId + 1)).classList.remove('hide');
-        }
-        if (document.querySelector('.sync'+(currentCuePointId+1))) {
-          document.querySelector('.sync'+(currentCuePointId+1)).classList.remove('fadeOut');
-          document.querySelector('.sync'+(currentCuePointId+1)).classList.add('fadeIn');
-        }
-        if(qPointsExecution && qPointsExecution[currentCuePointId])
-        {
-          eval(qPointsExecution[currentCuePointId]);
-        }
-        currentCuePointId++;
-      }
-    }
-  },
-
-
   render() {
     let audioPath = "../app/assets/audio/m01_t01_p0"+this.props.PageNum+".mp3";
     return (
       <div className="page-holder">
-        <Sound
-        url={audioPath}
-        playStatus={(this.props.audioState || this.state.stopAudio) ? Sound.status.PAUSED : Sound.status.PLAYING}
-        playFromPosition={this.state.currentAudioPosition}
-        onPlaying={this.onAudioPlaying}
-        volume={this.props.volume}
-        onFinishedPlaying={this.onAudioFinished}
-        />
         <div className="page-title__container">
           <span className="topic-title">
-            Introduction
+
           </span>
-          <span className="title-seperator acc-prop-background">|</span>
           <span className="page-title">Welcome</span>
         </div>
         <div ref="pageLoader" className="page-loader">

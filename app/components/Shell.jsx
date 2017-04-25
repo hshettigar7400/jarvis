@@ -10,6 +10,8 @@ var React = require('react'),
   Menu = require('react-sidebar').default,
   ToolsMenu = require('react-sidebar').default,
   HelpDock = require('react-dock'),
+  {toggleSoundVolume, togglePlayPuase, loadAudio, toggleButtonState} = require('../assets/scripts/AudioManager.js'),
+  {loadPage} = require('../components/Navigate.js'),
   $ = require('jquery');
 
 
@@ -27,9 +29,9 @@ var Shell = React.createClass ({
     };
   },
 
-  clickOpenMenu: function() {
+  clickOpenMenu: function(e) {
     this.setState({sidebarOpen: !this.state.sidebarOpen});
-    this.setState({isPause: !this.state.sidebarOpen})
+    togglePlayPuase()
   },
 
   clickOpenToolsMenu: function() {
@@ -38,7 +40,7 @@ var Shell = React.createClass ({
 
   setOpen() {
     this.setState({sidebarOpen: false});
-    this.setState({isPause: false})
+    togglePlayPuase()
   },
 
   updateDimensions: function() {
@@ -72,6 +74,7 @@ var Shell = React.createClass ({
   componentDidMount: function() {
     window.addEventListener("resize", this.updateDimensions);
     this.updateDimensions();
+    loadAudio(1);
   },
 
   componentDidUpdate: function(prevProps, prevState) {
@@ -84,27 +87,36 @@ var Shell = React.createClass ({
   },
 
   loadNextPage() {
+    if(this.state.currentPageNumber + 1 > 8) {
+      this.setState({currentPageNumber: 2});
+    }
+    else {
     this.setState({currentPageNumber: this.state.currentPageNumber + 1});
+  }
     this.setState({isPause: false})
+    loadAudio(this.state.currentPageNumber + 1);
   },
 
   loadPreviousPage() {
     this.setState({currentPageNumber: this.state.currentPageNumber - 1});
     this.setState({isPause: false})
+    loadAudio(this.state.currentPageNumber - 1);
   },
 
   menuItemClicked(e){
     var pageId = e.target.dataset.pageId;
     this.setState({currentPageNumber: parseInt(pageId)});
     this.setState({sidebarOpen: !this.state.sidebarOpen});
+    loadAudio(pageId);
   },
 
   clickOpenHelpDock() {
     this.setState({isHelpDockOpen: !this.state.isHelpDockOpen});
-    this.setState({isPause: !this.state.isHelpDockOpen})
+    togglePlayPuase();
   },
 
   enableTranscript(e) {
+    var _self =this;
     if (!this.state.transcriptVisible) {
       $("#button-transcript").addClass("selected");
     }
@@ -112,6 +124,9 @@ var Shell = React.createClass ({
       $("#button-transcript").removeClass("selected");
     }
     this.setState({transcriptVisible: !this.state.transcriptVisible});
+    $.getJSON( "../app/assets/data/transcript.json", function( data ) {
+        $(".transcript-text-container").html(data.transcript[_self.state.currentPageNumber-1].text)
+    });
   },
 
   showTranscript() {
@@ -131,28 +146,19 @@ var Shell = React.createClass ({
   },
 
   audioPlayPause(e) {
-    if (!this.state.isPause) {
-      e.currentTarget.classList.add("selected");
-    }
-    else {
-      e.currentTarget.classList.remove("selected");
-    }
-    this.setState({isPause: !this.state.isPause})
+    togglePlayPuase();
+    toggleButtonState(e);
   },
 
   replayScreen() {
-    this.setState({isReplayed: !this.state.isReplayed})
+    loadPage(this.state.currentPageNumber);
+    loadAudio(this.state.currentPageNumber);
   },
 
 
   volumeChange(e) {
-    if (this.state.volume === 100) {
-      e.currentTarget.classList.add("selected");
-    }
-    else {
-      e.currentTarget.classList.remove("selected");
-    }
-    this.setState({volume: this.state.volume === 100 ? 0 : 100})
+    toggleSoundVolume();
+    toggleButtonState(e);
   },
 
   render() {

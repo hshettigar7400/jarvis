@@ -1205,7 +1205,7 @@ module.exports = emptyFunction;
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var store      = __webpack_require__(62)('wks')
+var store      = __webpack_require__(63)('wks')
   , uid        = __webpack_require__(43)
   , Symbol     = __webpack_require__(17).Symbol
   , USE_SYMBOL = typeof Symbol == 'function';
@@ -1790,7 +1790,7 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 
 var global    = __webpack_require__(17)
   , core      = __webpack_require__(8)
-  , ctx       = __webpack_require__(52)
+  , ctx       = __webpack_require__(53)
   , hide      = __webpack_require__(28)
   , PROTOTYPE = 'prototype';
 
@@ -1864,8 +1864,8 @@ if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject       = __webpack_require__(26)
-  , IE8_DOM_DEFINE = __webpack_require__(95)
-  , toPrimitive    = __webpack_require__(64)
+  , IE8_DOM_DEFINE = __webpack_require__(93)
+  , toPrimitive    = __webpack_require__(65)
   , dP             = Object.defineProperty;
 
 exports.f = __webpack_require__(21) ? Object.defineProperty : function defineProperty(O, P, Attributes){
@@ -1885,8 +1885,8 @@ exports.f = __webpack_require__(21) ? Object.defineProperty : function definePro
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(96)
-  , defined = __webpack_require__(53);
+var IObject = __webpack_require__(94)
+  , defined = __webpack_require__(54);
 module.exports = function(it){
   return IObject(defined(it));
 };
@@ -2265,10 +2265,10 @@ var _assign = __webpack_require__(4);
 var ReactCurrentOwner = __webpack_require__(14);
 
 var warning = __webpack_require__(2);
-var canDefineProperty = __webpack_require__(87);
+var canDefineProperty = __webpack_require__(51);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-var REACT_ELEMENT_TYPE = __webpack_require__(132);
+var REACT_ELEMENT_TYPE = __webpack_require__(131);
 
 var RESERVED_PROPS = {
   key: true,
@@ -2674,8 +2674,8 @@ module.exports = __webpack_require__(21) ? function(object, key, value){
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys       = __webpack_require__(100)
-  , enumBugKeys = __webpack_require__(54);
+var $keys       = __webpack_require__(98)
+  , enumBugKeys = __webpack_require__(55);
 
 module.exports = Object.keys || function keys(O){
   return $keys(O, enumBugKeys);
@@ -2999,14 +2999,14 @@ var _assign = __webpack_require__(4);
 
 var ReactChildren = __webpack_require__(327);
 var ReactComponent = __webpack_require__(84);
-var ReactPureComponent = __webpack_require__(331);
+var ReactPureComponent = __webpack_require__(332);
 var ReactClass = __webpack_require__(328);
 var ReactDOMFactories = __webpack_require__(329);
 var ReactElement = __webpack_require__(24);
 var ReactPropTypes = __webpack_require__(330);
-var ReactVersion = __webpack_require__(332);
+var ReactVersion = __webpack_require__(333);
 
-var onlyChild = __webpack_require__(334);
+var onlyChild = __webpack_require__(335);
 var warning = __webpack_require__(2);
 
 var createElement = ReactElement.createElement;
@@ -3014,8 +3014,8 @@ var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
-  var canDefineProperty = __webpack_require__(87);
-  var ReactElementValidator = __webpack_require__(133);
+  var canDefineProperty = __webpack_require__(51);
+  var ReactElementValidator = __webpack_require__(132);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
@@ -3120,7 +3120,7 @@ module.exports = function(bitmap, value){
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.13 ToObject(argument)
-var defined = __webpack_require__(53);
+var defined = __webpack_require__(54);
 module.exports = function(it){
   return Object(defined(it));
 };
@@ -5467,6 +5467,38 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }),
 /* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+
+
+
+var canDefineProperty = false;
+if (process.env.NODE_ENV !== 'production') {
+  try {
+    // $FlowFixMe https://github.com/facebook/flow/issues/285
+    Object.defineProperty({}, 'x', { get: function () {} });
+    canDefineProperty = true;
+  } catch (x) {
+    // IE will fail on defineProperty
+  }
+}
+
+module.exports = canDefineProperty;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 52 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -5476,7 +5508,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
@@ -5501,7 +5533,7 @@ module.exports = function(fn, that, length){
 };
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports) {
 
 // 7.2.1 RequireObjectCoercible(argument)
@@ -5511,7 +5543,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -5520,27 +5552,27 @@ module.exports = (
 ).split(',');
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports) {
 
 module.exports = true;
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject    = __webpack_require__(26)
   , dPs         = __webpack_require__(198)
-  , enumBugKeys = __webpack_require__(54)
-  , IE_PROTO    = __webpack_require__(61)('IE_PROTO')
+  , enumBugKeys = __webpack_require__(55)
+  , IE_PROTO    = __webpack_require__(62)('IE_PROTO')
   , Empty       = function(){ /* empty */ }
   , PROTOTYPE   = 'prototype';
 
 // Create object with fake `null` prototype: use iframe Object with cleared prototype
 var createDict = function(){
   // Thrash, waste and sodomy: IE GC bug
-  var iframe = __webpack_require__(94)('iframe')
+  var iframe = __webpack_require__(92)('iframe')
     , i      = enumBugKeys.length
     , lt     = '<'
     , gt     = '>'
@@ -5573,15 +5605,15 @@ module.exports = Object.create || function create(O, Properties){
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var pIE            = __webpack_require__(42)
   , createDesc     = __webpack_require__(35)
   , toIObject      = __webpack_require__(19)
-  , toPrimitive    = __webpack_require__(64)
+  , toPrimitive    = __webpack_require__(65)
   , has            = __webpack_require__(22)
-  , IE8_DOM_DEFINE = __webpack_require__(95)
+  , IE8_DOM_DEFINE = __webpack_require__(93)
   , gOPD           = Object.getOwnPropertyDescriptor;
 
 exports.f = __webpack_require__(21) ? gOPD : function getOwnPropertyDescriptor(O, P){
@@ -5594,13 +5626,13 @@ exports.f = __webpack_require__(21) ? gOPD : function getOwnPropertyDescriptor(O
 };
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports) {
 
 exports.f = Object.getOwnPropertySymbols;
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // most Object methods by ES6 should accept primitives
@@ -5615,7 +5647,7 @@ module.exports = function(KEY, exec){
 };
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var def = __webpack_require__(18).f
@@ -5627,17 +5659,17 @@ module.exports = function(it, tag, stat){
 };
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(62)('keys')
+var shared = __webpack_require__(63)('keys')
   , uid    = __webpack_require__(43);
 module.exports = function(key){
   return shared[key] || (shared[key] = uid(key));
 };
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(17)
@@ -5648,7 +5680,7 @@ module.exports = function(key){
 };
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports) {
 
 // 7.1.4 ToInteger
@@ -5659,7 +5691,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.1 ToPrimitive(input [, PreferredType])
@@ -5676,13 +5708,13 @@ module.exports = function(it, S){
 };
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global         = __webpack_require__(17)
   , core           = __webpack_require__(8)
-  , LIBRARY        = __webpack_require__(55)
-  , wksExt         = __webpack_require__(66)
+  , LIBRARY        = __webpack_require__(56)
+  , wksExt         = __webpack_require__(67)
   , defineProperty = __webpack_require__(18).f;
 module.exports = function(name){
   var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
@@ -5690,13 +5722,13 @@ module.exports = function(name){
 };
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports.f = __webpack_require__(12);
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5769,7 +5801,2583 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 68 */
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var DOMLazyTree = __webpack_require__(30);
+var Danger = __webpack_require__(258);
+var ReactDOMComponentTree = __webpack_require__(5);
+var ReactInstrumentation = __webpack_require__(10);
+
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(77);
+var setInnerHTML = __webpack_require__(49);
+var setTextContent = __webpack_require__(128);
+
+function getNodeAfter(parentNode, node) {
+  // Special case for text components, which return [open, close] comments
+  // from getHostNode.
+  if (Array.isArray(node)) {
+    node = node[1];
+  }
+  return node ? node.nextSibling : parentNode.firstChild;
+}
+
+/**
+ * Inserts `childNode` as a child of `parentNode` at the `index`.
+ *
+ * @param {DOMElement} parentNode Parent node in which to insert.
+ * @param {DOMElement} childNode Child node to insert.
+ * @param {number} index Index at which to insert the child.
+ * @internal
+ */
+var insertChildAt = createMicrosoftUnsafeLocalFunction(function (parentNode, childNode, referenceNode) {
+  // We rely exclusively on `insertBefore(node, null)` instead of also using
+  // `appendChild(node)`. (Using `undefined` is not allowed by all browsers so
+  // we are careful to use `null`.)
+  parentNode.insertBefore(childNode, referenceNode);
+});
+
+function insertLazyTreeChildAt(parentNode, childTree, referenceNode) {
+  DOMLazyTree.insertTreeBefore(parentNode, childTree, referenceNode);
+}
+
+function moveChild(parentNode, childNode, referenceNode) {
+  if (Array.isArray(childNode)) {
+    moveDelimitedText(parentNode, childNode[0], childNode[1], referenceNode);
+  } else {
+    insertChildAt(parentNode, childNode, referenceNode);
+  }
+}
+
+function removeChild(parentNode, childNode) {
+  if (Array.isArray(childNode)) {
+    var closingComment = childNode[1];
+    childNode = childNode[0];
+    removeDelimitedText(parentNode, childNode, closingComment);
+    parentNode.removeChild(closingComment);
+  }
+  parentNode.removeChild(childNode);
+}
+
+function moveDelimitedText(parentNode, openingComment, closingComment, referenceNode) {
+  var node = openingComment;
+  while (true) {
+    var nextNode = node.nextSibling;
+    insertChildAt(parentNode, node, referenceNode);
+    if (node === closingComment) {
+      break;
+    }
+    node = nextNode;
+  }
+}
+
+function removeDelimitedText(parentNode, startNode, closingComment) {
+  while (true) {
+    var node = startNode.nextSibling;
+    if (node === closingComment) {
+      // The closing comment is removed by ReactMultiChild.
+      break;
+    } else {
+      parentNode.removeChild(node);
+    }
+  }
+}
+
+function replaceDelimitedText(openingComment, closingComment, stringText) {
+  var parentNode = openingComment.parentNode;
+  var nodeAfterComment = openingComment.nextSibling;
+  if (nodeAfterComment === closingComment) {
+    // There are no text nodes between the opening and closing comments; insert
+    // a new one if stringText isn't empty.
+    if (stringText) {
+      insertChildAt(parentNode, document.createTextNode(stringText), nodeAfterComment);
+    }
+  } else {
+    if (stringText) {
+      // Set the text content of the first node after the opening comment, and
+      // remove all following nodes up until the closing comment.
+      setTextContent(nodeAfterComment, stringText);
+      removeDelimitedText(parentNode, nodeAfterComment, closingComment);
+    } else {
+      removeDelimitedText(parentNode, openingComment, closingComment);
+    }
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    ReactInstrumentation.debugTool.onHostOperation({
+      instanceID: ReactDOMComponentTree.getInstanceFromNode(openingComment)._debugID,
+      type: 'replace text',
+      payload: stringText
+    });
+  }
+}
+
+var dangerouslyReplaceNodeWithMarkup = Danger.dangerouslyReplaceNodeWithMarkup;
+if (process.env.NODE_ENV !== 'production') {
+  dangerouslyReplaceNodeWithMarkup = function (oldChild, markup, prevInstance) {
+    Danger.dangerouslyReplaceNodeWithMarkup(oldChild, markup);
+    if (prevInstance._debugID !== 0) {
+      ReactInstrumentation.debugTool.onHostOperation({
+        instanceID: prevInstance._debugID,
+        type: 'replace with',
+        payload: markup.toString()
+      });
+    } else {
+      var nextInstance = ReactDOMComponentTree.getInstanceFromNode(markup.node);
+      if (nextInstance._debugID !== 0) {
+        ReactInstrumentation.debugTool.onHostOperation({
+          instanceID: nextInstance._debugID,
+          type: 'mount',
+          payload: markup.toString()
+        });
+      }
+    }
+  };
+}
+
+/**
+ * Operations for updating with DOM children.
+ */
+var DOMChildrenOperations = {
+
+  dangerouslyReplaceNodeWithMarkup: dangerouslyReplaceNodeWithMarkup,
+
+  replaceDelimitedText: replaceDelimitedText,
+
+  /**
+   * Updates a component's children by processing a series of updates. The
+   * update configurations are each expected to have a `parentNode` property.
+   *
+   * @param {array<object>} updates List of update configurations.
+   * @internal
+   */
+  processUpdates: function (parentNode, updates) {
+    if (process.env.NODE_ENV !== 'production') {
+      var parentNodeDebugID = ReactDOMComponentTree.getInstanceFromNode(parentNode)._debugID;
+    }
+
+    for (var k = 0; k < updates.length; k++) {
+      var update = updates[k];
+      switch (update.type) {
+        case 'INSERT_MARKUP':
+          insertLazyTreeChildAt(parentNode, update.content, getNodeAfter(parentNode, update.afterNode));
+          if (process.env.NODE_ENV !== 'production') {
+            ReactInstrumentation.debugTool.onHostOperation({
+              instanceID: parentNodeDebugID,
+              type: 'insert child',
+              payload: { toIndex: update.toIndex, content: update.content.toString() }
+            });
+          }
+          break;
+        case 'MOVE_EXISTING':
+          moveChild(parentNode, update.fromNode, getNodeAfter(parentNode, update.afterNode));
+          if (process.env.NODE_ENV !== 'production') {
+            ReactInstrumentation.debugTool.onHostOperation({
+              instanceID: parentNodeDebugID,
+              type: 'move child',
+              payload: { fromIndex: update.fromIndex, toIndex: update.toIndex }
+            });
+          }
+          break;
+        case 'SET_MARKUP':
+          setInnerHTML(parentNode, update.content);
+          if (process.env.NODE_ENV !== 'production') {
+            ReactInstrumentation.debugTool.onHostOperation({
+              instanceID: parentNodeDebugID,
+              type: 'replace children',
+              payload: update.content.toString()
+            });
+          }
+          break;
+        case 'TEXT_CONTENT':
+          setTextContent(parentNode, update.content);
+          if (process.env.NODE_ENV !== 'production') {
+            ReactInstrumentation.debugTool.onHostOperation({
+              instanceID: parentNodeDebugID,
+              type: 'replace text',
+              payload: update.content.toString()
+            });
+          }
+          break;
+        case 'REMOVE_NODE':
+          removeChild(parentNode, update.fromNode);
+          if (process.env.NODE_ENV !== 'production') {
+            ReactInstrumentation.debugTool.onHostOperation({
+              instanceID: parentNodeDebugID,
+              type: 'remove child',
+              payload: { fromIndex: update.fromIndex }
+            });
+          }
+          break;
+      }
+    }
+  }
+
+};
+
+module.exports = DOMChildrenOperations;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var DOMNamespaces = {
+  html: 'http://www.w3.org/1999/xhtml',
+  mathml: 'http://www.w3.org/1998/Math/MathML',
+  svg: 'http://www.w3.org/2000/svg'
+};
+
+module.exports = DOMNamespaces;
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var _prodInvariant = __webpack_require__(3);
+
+var ReactErrorUtils = __webpack_require__(75);
+
+var invariant = __webpack_require__(1);
+var warning = __webpack_require__(2);
+
+/**
+ * Injected dependencies:
+ */
+
+/**
+ * - `ComponentTree`: [required] Module that can convert between React instances
+ *   and actual node references.
+ */
+var ComponentTree;
+var TreeTraversal;
+var injection = {
+  injectComponentTree: function (Injected) {
+    ComponentTree = Injected;
+    if (process.env.NODE_ENV !== 'production') {
+      process.env.NODE_ENV !== 'production' ? warning(Injected && Injected.getNodeFromInstance && Injected.getInstanceFromNode, 'EventPluginUtils.injection.injectComponentTree(...): Injected ' + 'module is missing getNodeFromInstance or getInstanceFromNode.') : void 0;
+    }
+  },
+  injectTreeTraversal: function (Injected) {
+    TreeTraversal = Injected;
+    if (process.env.NODE_ENV !== 'production') {
+      process.env.NODE_ENV !== 'production' ? warning(Injected && Injected.isAncestor && Injected.getLowestCommonAncestor, 'EventPluginUtils.injection.injectTreeTraversal(...): Injected ' + 'module is missing isAncestor or getLowestCommonAncestor.') : void 0;
+    }
+  }
+};
+
+function isEndish(topLevelType) {
+  return topLevelType === 'topMouseUp' || topLevelType === 'topTouchEnd' || topLevelType === 'topTouchCancel';
+}
+
+function isMoveish(topLevelType) {
+  return topLevelType === 'topMouseMove' || topLevelType === 'topTouchMove';
+}
+function isStartish(topLevelType) {
+  return topLevelType === 'topMouseDown' || topLevelType === 'topTouchStart';
+}
+
+var validateEventDispatches;
+if (process.env.NODE_ENV !== 'production') {
+  validateEventDispatches = function (event) {
+    var dispatchListeners = event._dispatchListeners;
+    var dispatchInstances = event._dispatchInstances;
+
+    var listenersIsArr = Array.isArray(dispatchListeners);
+    var listenersLen = listenersIsArr ? dispatchListeners.length : dispatchListeners ? 1 : 0;
+
+    var instancesIsArr = Array.isArray(dispatchInstances);
+    var instancesLen = instancesIsArr ? dispatchInstances.length : dispatchInstances ? 1 : 0;
+
+    process.env.NODE_ENV !== 'production' ? warning(instancesIsArr === listenersIsArr && instancesLen === listenersLen, 'EventPluginUtils: Invalid `event`.') : void 0;
+  };
+}
+
+/**
+ * Dispatch the event to the listener.
+ * @param {SyntheticEvent} event SyntheticEvent to handle
+ * @param {boolean} simulated If the event is simulated (changes exn behavior)
+ * @param {function} listener Application-level callback
+ * @param {*} inst Internal component instance
+ */
+function executeDispatch(event, simulated, listener, inst) {
+  var type = event.type || 'unknown-event';
+  event.currentTarget = EventPluginUtils.getNodeFromInstance(inst);
+  if (simulated) {
+    ReactErrorUtils.invokeGuardedCallbackWithCatch(type, listener, event);
+  } else {
+    ReactErrorUtils.invokeGuardedCallback(type, listener, event);
+  }
+  event.currentTarget = null;
+}
+
+/**
+ * Standard/simple iteration through an event's collected dispatches.
+ */
+function executeDispatchesInOrder(event, simulated) {
+  var dispatchListeners = event._dispatchListeners;
+  var dispatchInstances = event._dispatchInstances;
+  if (process.env.NODE_ENV !== 'production') {
+    validateEventDispatches(event);
+  }
+  if (Array.isArray(dispatchListeners)) {
+    for (var i = 0; i < dispatchListeners.length; i++) {
+      if (event.isPropagationStopped()) {
+        break;
+      }
+      // Listeners and Instances are two parallel arrays that are always in sync.
+      executeDispatch(event, simulated, dispatchListeners[i], dispatchInstances[i]);
+    }
+  } else if (dispatchListeners) {
+    executeDispatch(event, simulated, dispatchListeners, dispatchInstances);
+  }
+  event._dispatchListeners = null;
+  event._dispatchInstances = null;
+}
+
+/**
+ * Standard/simple iteration through an event's collected dispatches, but stops
+ * at the first dispatch execution returning true, and returns that id.
+ *
+ * @return {?string} id of the first dispatch execution who's listener returns
+ * true, or null if no listener returned true.
+ */
+function executeDispatchesInOrderStopAtTrueImpl(event) {
+  var dispatchListeners = event._dispatchListeners;
+  var dispatchInstances = event._dispatchInstances;
+  if (process.env.NODE_ENV !== 'production') {
+    validateEventDispatches(event);
+  }
+  if (Array.isArray(dispatchListeners)) {
+    for (var i = 0; i < dispatchListeners.length; i++) {
+      if (event.isPropagationStopped()) {
+        break;
+      }
+      // Listeners and Instances are two parallel arrays that are always in sync.
+      if (dispatchListeners[i](event, dispatchInstances[i])) {
+        return dispatchInstances[i];
+      }
+    }
+  } else if (dispatchListeners) {
+    if (dispatchListeners(event, dispatchInstances)) {
+      return dispatchInstances;
+    }
+  }
+  return null;
+}
+
+/**
+ * @see executeDispatchesInOrderStopAtTrueImpl
+ */
+function executeDispatchesInOrderStopAtTrue(event) {
+  var ret = executeDispatchesInOrderStopAtTrueImpl(event);
+  event._dispatchInstances = null;
+  event._dispatchListeners = null;
+  return ret;
+}
+
+/**
+ * Execution of a "direct" dispatch - there must be at most one dispatch
+ * accumulated on the event or it is considered an error. It doesn't really make
+ * sense for an event with multiple dispatches (bubbled) to keep track of the
+ * return values at each dispatch execution, but it does tend to make sense when
+ * dealing with "direct" dispatches.
+ *
+ * @return {*} The return value of executing the single dispatch.
+ */
+function executeDirectDispatch(event) {
+  if (process.env.NODE_ENV !== 'production') {
+    validateEventDispatches(event);
+  }
+  var dispatchListener = event._dispatchListeners;
+  var dispatchInstance = event._dispatchInstances;
+  !!Array.isArray(dispatchListener) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'executeDirectDispatch(...): Invalid `event`.') : _prodInvariant('103') : void 0;
+  event.currentTarget = dispatchListener ? EventPluginUtils.getNodeFromInstance(dispatchInstance) : null;
+  var res = dispatchListener ? dispatchListener(event) : null;
+  event.currentTarget = null;
+  event._dispatchListeners = null;
+  event._dispatchInstances = null;
+  return res;
+}
+
+/**
+ * @param {SyntheticEvent} event
+ * @return {boolean} True iff number of dispatches accumulated is greater than 0.
+ */
+function hasDispatches(event) {
+  return !!event._dispatchListeners;
+}
+
+/**
+ * General utilities that are useful in creating custom Event Plugins.
+ */
+var EventPluginUtils = {
+  isEndish: isEndish,
+  isMoveish: isMoveish,
+  isStartish: isStartish,
+
+  executeDirectDispatch: executeDirectDispatch,
+  executeDispatchesInOrder: executeDispatchesInOrder,
+  executeDispatchesInOrderStopAtTrue: executeDispatchesInOrderStopAtTrue,
+  hasDispatches: hasDispatches,
+
+  getInstanceFromNode: function (node) {
+    return ComponentTree.getInstanceFromNode(node);
+  },
+  getNodeFromInstance: function (node) {
+    return ComponentTree.getNodeFromInstance(node);
+  },
+  isAncestor: function (a, b) {
+    return TreeTraversal.isAncestor(a, b);
+  },
+  getLowestCommonAncestor: function (a, b) {
+    return TreeTraversal.getLowestCommonAncestor(a, b);
+  },
+  getParentInstance: function (inst) {
+    return TreeTraversal.getParentInstance(inst);
+  },
+  traverseTwoPhase: function (target, fn, arg) {
+    return TreeTraversal.traverseTwoPhase(target, fn, arg);
+  },
+  traverseEnterLeave: function (from, to, fn, argFrom, argTo) {
+    return TreeTraversal.traverseEnterLeave(from, to, fn, argFrom, argTo);
+  },
+
+  injection: injection
+};
+
+module.exports = EventPluginUtils;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+
+
+
+/**
+ * Escape and wrap key so it is safe to use as a reactid
+ *
+ * @param {string} key to be escaped.
+ * @return {string} the escaped key.
+ */
+
+function escape(key) {
+  var escapeRegex = /[=:]/g;
+  var escaperLookup = {
+    '=': '=0',
+    ':': '=2'
+  };
+  var escapedString = ('' + key).replace(escapeRegex, function (match) {
+    return escaperLookup[match];
+  });
+
+  return '$' + escapedString;
+}
+
+/**
+ * Unescape and unwrap key for human-readable display
+ *
+ * @param {string} key to unescape.
+ * @return {string} the unescaped key.
+ */
+function unescape(key) {
+  var unescapeRegex = /(=0|=2)/g;
+  var unescaperLookup = {
+    '=0': '=',
+    '=2': ':'
+  };
+  var keySubstring = key[0] === '.' && key[1] === '$' ? key.substring(2) : key.substring(1);
+
+  return ('' + keySubstring).replace(unescapeRegex, function (match) {
+    return unescaperLookup[match];
+  });
+}
+
+var KeyEscapeUtils = {
+  escape: escape,
+  unescape: unescape
+};
+
+module.exports = KeyEscapeUtils;
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var _prodInvariant = __webpack_require__(3);
+
+var React = __webpack_require__(32);
+var ReactPropTypesSecret = __webpack_require__(120);
+
+var invariant = __webpack_require__(1);
+var warning = __webpack_require__(2);
+
+var hasReadOnlyValue = {
+  'button': true,
+  'checkbox': true,
+  'image': true,
+  'hidden': true,
+  'radio': true,
+  'reset': true,
+  'submit': true
+};
+
+function _assertSingleLink(inputProps) {
+  !(inputProps.checkedLink == null || inputProps.valueLink == null) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Cannot provide a checkedLink and a valueLink. If you want to use checkedLink, you probably don\'t want to use valueLink and vice versa.') : _prodInvariant('87') : void 0;
+}
+function _assertValueLink(inputProps) {
+  _assertSingleLink(inputProps);
+  !(inputProps.value == null && inputProps.onChange == null) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Cannot provide a valueLink and a value or onChange event. If you want to use value or onChange, you probably don\'t want to use valueLink.') : _prodInvariant('88') : void 0;
+}
+
+function _assertCheckedLink(inputProps) {
+  _assertSingleLink(inputProps);
+  !(inputProps.checked == null && inputProps.onChange == null) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Cannot provide a checkedLink and a checked property or onChange event. If you want to use checked or onChange, you probably don\'t want to use checkedLink') : _prodInvariant('89') : void 0;
+}
+
+var propTypes = {
+  value: function (props, propName, componentName) {
+    if (!props[propName] || hasReadOnlyValue[props.type] || props.onChange || props.readOnly || props.disabled) {
+      return null;
+    }
+    return new Error('You provided a `value` prop to a form field without an ' + '`onChange` handler. This will render a read-only field. If ' + 'the field should be mutable use `defaultValue`. Otherwise, ' + 'set either `onChange` or `readOnly`.');
+  },
+  checked: function (props, propName, componentName) {
+    if (!props[propName] || props.onChange || props.readOnly || props.disabled) {
+      return null;
+    }
+    return new Error('You provided a `checked` prop to a form field without an ' + '`onChange` handler. This will render a read-only field. If ' + 'the field should be mutable use `defaultChecked`. Otherwise, ' + 'set either `onChange` or `readOnly`.');
+  },
+  onChange: React.PropTypes.func
+};
+
+var loggedTypeFailures = {};
+function getDeclarationErrorAddendum(owner) {
+  if (owner) {
+    var name = owner.getName();
+    if (name) {
+      return ' Check the render method of `' + name + '`.';
+    }
+  }
+  return '';
+}
+
+/**
+ * Provide a linked `value` attribute for controlled forms. You should not use
+ * this outside of the ReactDOM controlled form components.
+ */
+var LinkedValueUtils = {
+  checkPropTypes: function (tagName, props, owner) {
+    for (var propName in propTypes) {
+      if (propTypes.hasOwnProperty(propName)) {
+        var error = propTypes[propName](props, propName, tagName, 'prop', null, ReactPropTypesSecret);
+      }
+      if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+        // Only monitor this failure once because there tends to be a lot of the
+        // same error.
+        loggedTypeFailures[error.message] = true;
+
+        var addendum = getDeclarationErrorAddendum(owner);
+        process.env.NODE_ENV !== 'production' ? warning(false, 'Failed form propType: %s%s', error.message, addendum) : void 0;
+      }
+    }
+  },
+
+  /**
+   * @param {object} inputProps Props for form component
+   * @return {*} current value of the input either from value prop or link.
+   */
+  getValue: function (inputProps) {
+    if (inputProps.valueLink) {
+      _assertValueLink(inputProps);
+      return inputProps.valueLink.value;
+    }
+    return inputProps.value;
+  },
+
+  /**
+   * @param {object} inputProps Props for form component
+   * @return {*} current checked status of the input either from checked prop
+   *             or link.
+   */
+  getChecked: function (inputProps) {
+    if (inputProps.checkedLink) {
+      _assertCheckedLink(inputProps);
+      return inputProps.checkedLink.value;
+    }
+    return inputProps.checked;
+  },
+
+  /**
+   * @param {object} inputProps Props for form component
+   * @param {SyntheticEvent} event change event to handle
+   */
+  executeOnChange: function (inputProps, event) {
+    if (inputProps.valueLink) {
+      _assertValueLink(inputProps);
+      return inputProps.valueLink.requestChange(event.target.value);
+    } else if (inputProps.checkedLink) {
+      _assertCheckedLink(inputProps);
+      return inputProps.checkedLink.requestChange(event.target.checked);
+    } else if (inputProps.onChange) {
+      return inputProps.onChange.call(undefined, event);
+    }
+  }
+};
+
+module.exports = LinkedValueUtils;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2014-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+
+
+
+var _prodInvariant = __webpack_require__(3);
+
+var invariant = __webpack_require__(1);
+
+var injected = false;
+
+var ReactComponentEnvironment = {
+
+  /**
+   * Optionally injectable hook for swapping out mount images in the middle of
+   * the tree.
+   */
+  replaceNodeWithMarkup: null,
+
+  /**
+   * Optionally injectable hook for processing a queue of child updates. Will
+   * later move into MultiChildComponents.
+   */
+  processChildrenUpdates: null,
+
+  injection: {
+    injectEnvironment: function (environment) {
+      !!injected ? process.env.NODE_ENV !== 'production' ? invariant(false, 'ReactCompositeComponent: injectEnvironment() can only be called once.') : _prodInvariant('104') : void 0;
+      ReactComponentEnvironment.replaceNodeWithMarkup = environment.replaceNodeWithMarkup;
+      ReactComponentEnvironment.processChildrenUpdates = environment.processChildrenUpdates;
+      injected = true;
+    }
+  }
+
+};
+
+module.exports = ReactComponentEnvironment;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+
+
+
+var caughtError = null;
+
+/**
+ * Call a function while guarding against errors that happens within it.
+ *
+ * @param {String} name of the guard to use for logging or debugging
+ * @param {Function} func The function to invoke
+ * @param {*} a First argument
+ * @param {*} b Second argument
+ */
+function invokeGuardedCallback(name, func, a) {
+  try {
+    func(a);
+  } catch (x) {
+    if (caughtError === null) {
+      caughtError = x;
+    }
+  }
+}
+
+var ReactErrorUtils = {
+  invokeGuardedCallback: invokeGuardedCallback,
+
+  /**
+   * Invoked by ReactTestUtils.Simulate so that any errors thrown by the event
+   * handler are sure to be rethrown by rethrowCaughtError.
+   */
+  invokeGuardedCallbackWithCatch: invokeGuardedCallback,
+
+  /**
+   * During execution of guarded functions we will capture the first error which
+   * we will rethrow to be handled by the top level error handler.
+   */
+  rethrowCaughtError: function () {
+    if (caughtError) {
+      var error = caughtError;
+      caughtError = null;
+      throw error;
+    }
+  }
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  /**
+   * To help development we can get better devtools integration by simulating a
+   * real browser event.
+   */
+  if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function' && typeof document !== 'undefined' && typeof document.createEvent === 'function') {
+    var fakeNode = document.createElement('react');
+    ReactErrorUtils.invokeGuardedCallback = function (name, func, a) {
+      var boundFunc = func.bind(null, a);
+      var evtType = 'react-' + name;
+      fakeNode.addEventListener(evtType, boundFunc, false);
+      var evt = document.createEvent('Event');
+      // $FlowFixMe https://github.com/facebook/flow/issues/2336
+      evt.initEvent(evtType, false, false);
+      fakeNode.dispatchEvent(evt);
+      fakeNode.removeEventListener(evtType, boundFunc, false);
+    };
+  }
+}
+
+module.exports = ReactErrorUtils;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var _prodInvariant = __webpack_require__(3);
+
+var ReactCurrentOwner = __webpack_require__(14);
+var ReactInstanceMap = __webpack_require__(40);
+var ReactInstrumentation = __webpack_require__(10);
+var ReactUpdates = __webpack_require__(13);
+
+var invariant = __webpack_require__(1);
+var warning = __webpack_require__(2);
+
+function enqueueUpdate(internalInstance) {
+  ReactUpdates.enqueueUpdate(internalInstance);
+}
+
+function formatUnexpectedArgument(arg) {
+  var type = typeof arg;
+  if (type !== 'object') {
+    return type;
+  }
+  var displayName = arg.constructor && arg.constructor.name || type;
+  var keys = Object.keys(arg);
+  if (keys.length > 0 && keys.length < 20) {
+    return displayName + ' (keys: ' + keys.join(', ') + ')';
+  }
+  return displayName;
+}
+
+function getInternalInstanceReadyForUpdate(publicInstance, callerName) {
+  var internalInstance = ReactInstanceMap.get(publicInstance);
+  if (!internalInstance) {
+    if (process.env.NODE_ENV !== 'production') {
+      var ctor = publicInstance.constructor;
+      // Only warn when we have a callerName. Otherwise we should be silent.
+      // We're probably calling from enqueueCallback. We don't want to warn
+      // there because we already warned for the corresponding lifecycle method.
+      process.env.NODE_ENV !== 'production' ? warning(!callerName, '%s(...): Can only update a mounted or mounting component. ' + 'This usually means you called %s() on an unmounted component. ' + 'This is a no-op. Please check the code for the %s component.', callerName, callerName, ctor && (ctor.displayName || ctor.name) || 'ReactClass') : void 0;
+    }
+    return null;
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    process.env.NODE_ENV !== 'production' ? warning(ReactCurrentOwner.current == null, '%s(...): Cannot update during an existing state transition (such as ' + 'within `render` or another component\'s constructor). Render methods ' + 'should be a pure function of props and state; constructor ' + 'side-effects are an anti-pattern, but can be moved to ' + '`componentWillMount`.', callerName) : void 0;
+  }
+
+  return internalInstance;
+}
+
+/**
+ * ReactUpdateQueue allows for state updates to be scheduled into a later
+ * reconciliation step.
+ */
+var ReactUpdateQueue = {
+
+  /**
+   * Checks whether or not this composite component is mounted.
+   * @param {ReactClass} publicInstance The instance we want to test.
+   * @return {boolean} True if mounted, false otherwise.
+   * @protected
+   * @final
+   */
+  isMounted: function (publicInstance) {
+    if (process.env.NODE_ENV !== 'production') {
+      var owner = ReactCurrentOwner.current;
+      if (owner !== null) {
+        process.env.NODE_ENV !== 'production' ? warning(owner._warnedAboutRefsInRender, '%s is accessing isMounted inside its render() function. ' + 'render() should be a pure function of props and state. It should ' + 'never access something that requires stale data from the previous ' + 'render, such as refs. Move this logic to componentDidMount and ' + 'componentDidUpdate instead.', owner.getName() || 'A component') : void 0;
+        owner._warnedAboutRefsInRender = true;
+      }
+    }
+    var internalInstance = ReactInstanceMap.get(publicInstance);
+    if (internalInstance) {
+      // During componentWillMount and render this will still be null but after
+      // that will always render to something. At least for now. So we can use
+      // this hack.
+      return !!internalInstance._renderedComponent;
+    } else {
+      return false;
+    }
+  },
+
+  /**
+   * Enqueue a callback that will be executed after all the pending updates
+   * have processed.
+   *
+   * @param {ReactClass} publicInstance The instance to use as `this` context.
+   * @param {?function} callback Called after state is updated.
+   * @param {string} callerName Name of the calling function in the public API.
+   * @internal
+   */
+  enqueueCallback: function (publicInstance, callback, callerName) {
+    ReactUpdateQueue.validateCallback(callback, callerName);
+    var internalInstance = getInternalInstanceReadyForUpdate(publicInstance);
+
+    // Previously we would throw an error if we didn't have an internal
+    // instance. Since we want to make it a no-op instead, we mirror the same
+    // behavior we have in other enqueue* methods.
+    // We also need to ignore callbacks in componentWillMount. See
+    // enqueueUpdates.
+    if (!internalInstance) {
+      return null;
+    }
+
+    if (internalInstance._pendingCallbacks) {
+      internalInstance._pendingCallbacks.push(callback);
+    } else {
+      internalInstance._pendingCallbacks = [callback];
+    }
+    // TODO: The callback here is ignored when setState is called from
+    // componentWillMount. Either fix it or disallow doing so completely in
+    // favor of getInitialState. Alternatively, we can disallow
+    // componentWillMount during server-side rendering.
+    enqueueUpdate(internalInstance);
+  },
+
+  enqueueCallbackInternal: function (internalInstance, callback) {
+    if (internalInstance._pendingCallbacks) {
+      internalInstance._pendingCallbacks.push(callback);
+    } else {
+      internalInstance._pendingCallbacks = [callback];
+    }
+    enqueueUpdate(internalInstance);
+  },
+
+  /**
+   * Forces an update. This should only be invoked when it is known with
+   * certainty that we are **not** in a DOM transaction.
+   *
+   * You may want to call this when you know that some deeper aspect of the
+   * component's state has changed but `setState` was not called.
+   *
+   * This will not invoke `shouldComponentUpdate`, but it will invoke
+   * `componentWillUpdate` and `componentDidUpdate`.
+   *
+   * @param {ReactClass} publicInstance The instance that should rerender.
+   * @internal
+   */
+  enqueueForceUpdate: function (publicInstance) {
+    var internalInstance = getInternalInstanceReadyForUpdate(publicInstance, 'forceUpdate');
+
+    if (!internalInstance) {
+      return;
+    }
+
+    internalInstance._pendingForceUpdate = true;
+
+    enqueueUpdate(internalInstance);
+  },
+
+  /**
+   * Replaces all of the state. Always use this or `setState` to mutate state.
+   * You should treat `this.state` as immutable.
+   *
+   * There is no guarantee that `this.state` will be immediately updated, so
+   * accessing `this.state` after calling this method may return the old value.
+   *
+   * @param {ReactClass} publicInstance The instance that should rerender.
+   * @param {object} completeState Next state.
+   * @internal
+   */
+  enqueueReplaceState: function (publicInstance, completeState) {
+    var internalInstance = getInternalInstanceReadyForUpdate(publicInstance, 'replaceState');
+
+    if (!internalInstance) {
+      return;
+    }
+
+    internalInstance._pendingStateQueue = [completeState];
+    internalInstance._pendingReplaceState = true;
+
+    enqueueUpdate(internalInstance);
+  },
+
+  /**
+   * Sets a subset of the state. This only exists because _pendingState is
+   * internal. This provides a merging strategy that is not available to deep
+   * properties which is confusing. TODO: Expose pendingState or don't use it
+   * during the merge.
+   *
+   * @param {ReactClass} publicInstance The instance that should rerender.
+   * @param {object} partialState Next partial state to be merged with state.
+   * @internal
+   */
+  enqueueSetState: function (publicInstance, partialState) {
+    if (process.env.NODE_ENV !== 'production') {
+      ReactInstrumentation.debugTool.onSetState();
+      process.env.NODE_ENV !== 'production' ? warning(partialState != null, 'setState(...): You passed an undefined or null state object; ' + 'instead, use forceUpdate().') : void 0;
+    }
+
+    var internalInstance = getInternalInstanceReadyForUpdate(publicInstance, 'setState');
+
+    if (!internalInstance) {
+      return;
+    }
+
+    var queue = internalInstance._pendingStateQueue || (internalInstance._pendingStateQueue = []);
+    queue.push(partialState);
+
+    enqueueUpdate(internalInstance);
+  },
+
+  enqueueElementInternal: function (internalInstance, nextElement, nextContext) {
+    internalInstance._pendingElement = nextElement;
+    // TODO: introduce _pendingContext instead of setting it directly.
+    internalInstance._context = nextContext;
+    enqueueUpdate(internalInstance);
+  },
+
+  validateCallback: function (callback, callerName) {
+    !(!callback || typeof callback === 'function') ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s(...): Expected the last optional `callback` argument to be a function. Instead received: %s.', callerName, formatUnexpectedArgument(callback)) : _prodInvariant('122', callerName, formatUnexpectedArgument(callback)) : void 0;
+  }
+
+};
+
+module.exports = ReactUpdateQueue;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+/* globals MSApp */
+
+
+
+/**
+ * Create a function which has 'unsafe' privileges (required by windows8 apps)
+ */
+
+var createMicrosoftUnsafeLocalFunction = function (func) {
+  if (typeof MSApp !== 'undefined' && MSApp.execUnsafeLocalFunction) {
+    return function (arg0, arg1, arg2, arg3) {
+      MSApp.execUnsafeLocalFunction(function () {
+        return func(arg0, arg1, arg2, arg3);
+      });
+    };
+  } else {
+    return func;
+  }
+};
+
+module.exports = createMicrosoftUnsafeLocalFunction;
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+/**
+ * `charCode` represents the actual "character code" and is safe to use with
+ * `String.fromCharCode`. As such, only keys that correspond to printable
+ * characters produce a valid `charCode`, the only exception to this is Enter.
+ * The Tab-key is considered non-printable and does not have a `charCode`,
+ * presumably because it does not produce a tab-character in browsers.
+ *
+ * @param {object} nativeEvent Native browser event.
+ * @return {number} Normalized `charCode` property.
+ */
+
+function getEventCharCode(nativeEvent) {
+  var charCode;
+  var keyCode = nativeEvent.keyCode;
+
+  if ('charCode' in nativeEvent) {
+    charCode = nativeEvent.charCode;
+
+    // FF does not set `charCode` for the Enter-key, check against `keyCode`.
+    if (charCode === 0 && keyCode === 13) {
+      charCode = 13;
+    }
+  } else {
+    // IE8 does not implement `charCode`, but `keyCode` has the correct value.
+    charCode = keyCode;
+  }
+
+  // Some non-printable keys are reported in `charCode`/`keyCode`, discard them.
+  // Must not discard the (non-)printable Enter-key.
+  if (charCode >= 32 || charCode === 13) {
+    return charCode;
+  }
+
+  return 0;
+}
+
+module.exports = getEventCharCode;
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+/**
+ * Translation from modifier key to the associated property in the event.
+ * @see http://www.w3.org/TR/DOM-Level-3-Events/#keys-Modifiers
+ */
+
+var modifierKeyToProp = {
+  'Alt': 'altKey',
+  'Control': 'ctrlKey',
+  'Meta': 'metaKey',
+  'Shift': 'shiftKey'
+};
+
+// IE8 does not implement getModifierState so we simply map it to the only
+// modifier keys exposed by the event itself, does not support Lock-keys.
+// Currently, all major browsers except Chrome seems to support Lock-keys.
+function modifierStateGetter(keyArg) {
+  var syntheticEvent = this;
+  var nativeEvent = syntheticEvent.nativeEvent;
+  if (nativeEvent.getModifierState) {
+    return nativeEvent.getModifierState(keyArg);
+  }
+  var keyProp = modifierKeyToProp[keyArg];
+  return keyProp ? !!nativeEvent[keyProp] : false;
+}
+
+function getEventModifierState(nativeEvent) {
+  return modifierStateGetter;
+}
+
+module.exports = getEventModifierState;
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+/**
+ * Gets the target node from a native browser event by accounting for
+ * inconsistencies in browser DOM APIs.
+ *
+ * @param {object} nativeEvent Native browser event.
+ * @return {DOMEventTarget} Target node.
+ */
+
+function getEventTarget(nativeEvent) {
+  var target = nativeEvent.target || nativeEvent.srcElement || window;
+
+  // Normalize SVG <use> element events #4963
+  if (target.correspondingUseElement) {
+    target = target.correspondingUseElement;
+  }
+
+  // Safari may fire events on text nodes (Node.TEXT_NODE is 3).
+  // @see http://www.quirksmode.org/js/events_properties.html
+  return target.nodeType === 3 ? target.parentNode : target;
+}
+
+module.exports = getEventTarget;
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var ExecutionEnvironment = __webpack_require__(6);
+
+var useHasFeature;
+if (ExecutionEnvironment.canUseDOM) {
+  useHasFeature = document.implementation && document.implementation.hasFeature &&
+  // always returns true in newer browsers as per the standard.
+  // @see http://dom.spec.whatwg.org/#dom-domimplementation-hasfeature
+  document.implementation.hasFeature('', '') !== true;
+}
+
+/**
+ * Checks if an event is supported in the current execution environment.
+ *
+ * NOTE: This will not work correctly for non-generic events such as `change`,
+ * `reset`, `load`, `error`, and `select`.
+ *
+ * Borrows from Modernizr.
+ *
+ * @param {string} eventNameSuffix Event name, e.g. "click".
+ * @param {?boolean} capture Check if the capture phase is supported.
+ * @return {boolean} True if the event is supported.
+ * @internal
+ * @license Modernizr 3.0.0pre (Custom Build) | MIT
+ */
+function isEventSupported(eventNameSuffix, capture) {
+  if (!ExecutionEnvironment.canUseDOM || capture && !('addEventListener' in document)) {
+    return false;
+  }
+
+  var eventName = 'on' + eventNameSuffix;
+  var isSupported = eventName in document;
+
+  if (!isSupported) {
+    var element = document.createElement('div');
+    element.setAttribute(eventName, 'return;');
+    isSupported = typeof element[eventName] === 'function';
+  }
+
+  if (!isSupported && useHasFeature && eventNameSuffix === 'wheel') {
+    // This is the only way to test support for the `wheel` event in IE9+.
+    isSupported = document.implementation.hasFeature('Events.wheel', '3.0');
+  }
+
+  return isSupported;
+}
+
+module.exports = isEventSupported;
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+/**
+ * Given a `prevElement` and `nextElement`, determines if the existing
+ * instance should be updated as opposed to being destroyed or replaced by a new
+ * instance. Both arguments are elements. This ensures that this logic can
+ * operate on stateless trees without any backing instance.
+ *
+ * @param {?object} prevElement
+ * @param {?object} nextElement
+ * @return {boolean} True if the existing instance should be updated.
+ * @protected
+ */
+
+function shouldUpdateReactComponent(prevElement, nextElement) {
+  var prevEmpty = prevElement === null || prevElement === false;
+  var nextEmpty = nextElement === null || nextElement === false;
+  if (prevEmpty || nextEmpty) {
+    return prevEmpty === nextEmpty;
+  }
+
+  var prevType = typeof prevElement;
+  var nextType = typeof nextElement;
+  if (prevType === 'string' || prevType === 'number') {
+    return nextType === 'string' || nextType === 'number';
+  } else {
+    return nextType === 'object' && prevElement.type === nextElement.type && prevElement.key === nextElement.key;
+  }
+}
+
+module.exports = shouldUpdateReactComponent;
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var _assign = __webpack_require__(4);
+
+var emptyFunction = __webpack_require__(11);
+var warning = __webpack_require__(2);
+
+var validateDOMNesting = emptyFunction;
+
+if (process.env.NODE_ENV !== 'production') {
+  // This validation code was written based on the HTML5 parsing spec:
+  // https://html.spec.whatwg.org/multipage/syntax.html#has-an-element-in-scope
+  //
+  // Note: this does not catch all invalid nesting, nor does it try to (as it's
+  // not clear what practical benefit doing so provides); instead, we warn only
+  // for cases where the parser will give a parse tree differing from what React
+  // intended. For example, <b><div></div></b> is invalid but we don't warn
+  // because it still parses correctly; we do warn for other cases like nested
+  // <p> tags where the beginning of the second element implicitly closes the
+  // first, causing a confusing mess.
+
+  // https://html.spec.whatwg.org/multipage/syntax.html#special
+  var specialTags = ['address', 'applet', 'area', 'article', 'aside', 'base', 'basefont', 'bgsound', 'blockquote', 'body', 'br', 'button', 'caption', 'center', 'col', 'colgroup', 'dd', 'details', 'dir', 'div', 'dl', 'dt', 'embed', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'frame', 'frameset', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 'iframe', 'img', 'input', 'isindex', 'li', 'link', 'listing', 'main', 'marquee', 'menu', 'menuitem', 'meta', 'nav', 'noembed', 'noframes', 'noscript', 'object', 'ol', 'p', 'param', 'plaintext', 'pre', 'script', 'section', 'select', 'source', 'style', 'summary', 'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'title', 'tr', 'track', 'ul', 'wbr', 'xmp'];
+
+  // https://html.spec.whatwg.org/multipage/syntax.html#has-an-element-in-scope
+  var inScopeTags = ['applet', 'caption', 'html', 'table', 'td', 'th', 'marquee', 'object', 'template',
+
+  // https://html.spec.whatwg.org/multipage/syntax.html#html-integration-point
+  // TODO: Distinguish by namespace here -- for <title>, including it here
+  // errs on the side of fewer warnings
+  'foreignObject', 'desc', 'title'];
+
+  // https://html.spec.whatwg.org/multipage/syntax.html#has-an-element-in-button-scope
+  var buttonScopeTags = inScopeTags.concat(['button']);
+
+  // https://html.spec.whatwg.org/multipage/syntax.html#generate-implied-end-tags
+  var impliedEndTags = ['dd', 'dt', 'li', 'option', 'optgroup', 'p', 'rp', 'rt'];
+
+  var emptyAncestorInfo = {
+    current: null,
+
+    formTag: null,
+    aTagInScope: null,
+    buttonTagInScope: null,
+    nobrTagInScope: null,
+    pTagInButtonScope: null,
+
+    listItemTagAutoclosing: null,
+    dlItemTagAutoclosing: null
+  };
+
+  var updatedAncestorInfo = function (oldInfo, tag, instance) {
+    var ancestorInfo = _assign({}, oldInfo || emptyAncestorInfo);
+    var info = { tag: tag, instance: instance };
+
+    if (inScopeTags.indexOf(tag) !== -1) {
+      ancestorInfo.aTagInScope = null;
+      ancestorInfo.buttonTagInScope = null;
+      ancestorInfo.nobrTagInScope = null;
+    }
+    if (buttonScopeTags.indexOf(tag) !== -1) {
+      ancestorInfo.pTagInButtonScope = null;
+    }
+
+    // See rules for 'li', 'dd', 'dt' start tags in
+    // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-inbody
+    if (specialTags.indexOf(tag) !== -1 && tag !== 'address' && tag !== 'div' && tag !== 'p') {
+      ancestorInfo.listItemTagAutoclosing = null;
+      ancestorInfo.dlItemTagAutoclosing = null;
+    }
+
+    ancestorInfo.current = info;
+
+    if (tag === 'form') {
+      ancestorInfo.formTag = info;
+    }
+    if (tag === 'a') {
+      ancestorInfo.aTagInScope = info;
+    }
+    if (tag === 'button') {
+      ancestorInfo.buttonTagInScope = info;
+    }
+    if (tag === 'nobr') {
+      ancestorInfo.nobrTagInScope = info;
+    }
+    if (tag === 'p') {
+      ancestorInfo.pTagInButtonScope = info;
+    }
+    if (tag === 'li') {
+      ancestorInfo.listItemTagAutoclosing = info;
+    }
+    if (tag === 'dd' || tag === 'dt') {
+      ancestorInfo.dlItemTagAutoclosing = info;
+    }
+
+    return ancestorInfo;
+  };
+
+  /**
+   * Returns whether
+   */
+  var isTagValidWithParent = function (tag, parentTag) {
+    // First, let's check if we're in an unusual parsing mode...
+    switch (parentTag) {
+      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-inselect
+      case 'select':
+        return tag === 'option' || tag === 'optgroup' || tag === '#text';
+      case 'optgroup':
+        return tag === 'option' || tag === '#text';
+      // Strictly speaking, seeing an <option> doesn't mean we're in a <select>
+      // but
+      case 'option':
+        return tag === '#text';
+
+      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-intd
+      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-incaption
+      // No special behavior since these rules fall back to "in body" mode for
+      // all except special table nodes which cause bad parsing behavior anyway.
+
+      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-intr
+      case 'tr':
+        return tag === 'th' || tag === 'td' || tag === 'style' || tag === 'script' || tag === 'template';
+
+      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-intbody
+      case 'tbody':
+      case 'thead':
+      case 'tfoot':
+        return tag === 'tr' || tag === 'style' || tag === 'script' || tag === 'template';
+
+      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-incolgroup
+      case 'colgroup':
+        return tag === 'col' || tag === 'template';
+
+      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-intable
+      case 'table':
+        return tag === 'caption' || tag === 'colgroup' || tag === 'tbody' || tag === 'tfoot' || tag === 'thead' || tag === 'style' || tag === 'script' || tag === 'template';
+
+      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-inhead
+      case 'head':
+        return tag === 'base' || tag === 'basefont' || tag === 'bgsound' || tag === 'link' || tag === 'meta' || tag === 'title' || tag === 'noscript' || tag === 'noframes' || tag === 'style' || tag === 'script' || tag === 'template';
+
+      // https://html.spec.whatwg.org/multipage/semantics.html#the-html-element
+      case 'html':
+        return tag === 'head' || tag === 'body';
+      case '#document':
+        return tag === 'html';
+    }
+
+    // Probably in the "in body" parsing mode, so we outlaw only tag combos
+    // where the parsing rules cause implicit opens or closes to be added.
+    // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-inbody
+    switch (tag) {
+      case 'h1':
+      case 'h2':
+      case 'h3':
+      case 'h4':
+      case 'h5':
+      case 'h6':
+        return parentTag !== 'h1' && parentTag !== 'h2' && parentTag !== 'h3' && parentTag !== 'h4' && parentTag !== 'h5' && parentTag !== 'h6';
+
+      case 'rp':
+      case 'rt':
+        return impliedEndTags.indexOf(parentTag) === -1;
+
+      case 'body':
+      case 'caption':
+      case 'col':
+      case 'colgroup':
+      case 'frame':
+      case 'head':
+      case 'html':
+      case 'tbody':
+      case 'td':
+      case 'tfoot':
+      case 'th':
+      case 'thead':
+      case 'tr':
+        // These tags are only valid with a few parents that have special child
+        // parsing rules -- if we're down here, then none of those matched and
+        // so we allow it only if we don't know what the parent is, as all other
+        // cases are invalid.
+        return parentTag == null;
+    }
+
+    return true;
+  };
+
+  /**
+   * Returns whether
+   */
+  var findInvalidAncestorForTag = function (tag, ancestorInfo) {
+    switch (tag) {
+      case 'address':
+      case 'article':
+      case 'aside':
+      case 'blockquote':
+      case 'center':
+      case 'details':
+      case 'dialog':
+      case 'dir':
+      case 'div':
+      case 'dl':
+      case 'fieldset':
+      case 'figcaption':
+      case 'figure':
+      case 'footer':
+      case 'header':
+      case 'hgroup':
+      case 'main':
+      case 'menu':
+      case 'nav':
+      case 'ol':
+      case 'p':
+      case 'section':
+      case 'summary':
+      case 'ul':
+
+      case 'pre':
+      case 'listing':
+
+      case 'table':
+
+      case 'hr':
+
+      case 'xmp':
+
+      case 'h1':
+      case 'h2':
+      case 'h3':
+      case 'h4':
+      case 'h5':
+      case 'h6':
+        return ancestorInfo.pTagInButtonScope;
+
+      case 'form':
+        return ancestorInfo.formTag || ancestorInfo.pTagInButtonScope;
+
+      case 'li':
+        return ancestorInfo.listItemTagAutoclosing;
+
+      case 'dd':
+      case 'dt':
+        return ancestorInfo.dlItemTagAutoclosing;
+
+      case 'button':
+        return ancestorInfo.buttonTagInScope;
+
+      case 'a':
+        // Spec says something about storing a list of markers, but it sounds
+        // equivalent to this check.
+        return ancestorInfo.aTagInScope;
+
+      case 'nobr':
+        return ancestorInfo.nobrTagInScope;
+    }
+
+    return null;
+  };
+
+  /**
+   * Given a ReactCompositeComponent instance, return a list of its recursive
+   * owners, starting at the root and ending with the instance itself.
+   */
+  var findOwnerStack = function (instance) {
+    if (!instance) {
+      return [];
+    }
+
+    var stack = [];
+    do {
+      stack.push(instance);
+    } while (instance = instance._currentElement._owner);
+    stack.reverse();
+    return stack;
+  };
+
+  var didWarn = {};
+
+  validateDOMNesting = function (childTag, childText, childInstance, ancestorInfo) {
+    ancestorInfo = ancestorInfo || emptyAncestorInfo;
+    var parentInfo = ancestorInfo.current;
+    var parentTag = parentInfo && parentInfo.tag;
+
+    if (childText != null) {
+      process.env.NODE_ENV !== 'production' ? warning(childTag == null, 'validateDOMNesting: when childText is passed, childTag should be null') : void 0;
+      childTag = '#text';
+    }
+
+    var invalidParent = isTagValidWithParent(childTag, parentTag) ? null : parentInfo;
+    var invalidAncestor = invalidParent ? null : findInvalidAncestorForTag(childTag, ancestorInfo);
+    var problematic = invalidParent || invalidAncestor;
+
+    if (problematic) {
+      var ancestorTag = problematic.tag;
+      var ancestorInstance = problematic.instance;
+
+      var childOwner = childInstance && childInstance._currentElement._owner;
+      var ancestorOwner = ancestorInstance && ancestorInstance._currentElement._owner;
+
+      var childOwners = findOwnerStack(childOwner);
+      var ancestorOwners = findOwnerStack(ancestorOwner);
+
+      var minStackLen = Math.min(childOwners.length, ancestorOwners.length);
+      var i;
+
+      var deepestCommon = -1;
+      for (i = 0; i < minStackLen; i++) {
+        if (childOwners[i] === ancestorOwners[i]) {
+          deepestCommon = i;
+        } else {
+          break;
+        }
+      }
+
+      var UNKNOWN = '(unknown)';
+      var childOwnerNames = childOwners.slice(deepestCommon + 1).map(function (inst) {
+        return inst.getName() || UNKNOWN;
+      });
+      var ancestorOwnerNames = ancestorOwners.slice(deepestCommon + 1).map(function (inst) {
+        return inst.getName() || UNKNOWN;
+      });
+      var ownerInfo = [].concat(
+      // If the parent and child instances have a common owner ancestor, start
+      // with that -- otherwise we just start with the parent's owners.
+      deepestCommon !== -1 ? childOwners[deepestCommon].getName() || UNKNOWN : [], ancestorOwnerNames, ancestorTag,
+      // If we're warning about an invalid (non-parent) ancestry, add '...'
+      invalidAncestor ? ['...'] : [], childOwnerNames, childTag).join(' > ');
+
+      var warnKey = !!invalidParent + '|' + childTag + '|' + ancestorTag + '|' + ownerInfo;
+      if (didWarn[warnKey]) {
+        return;
+      }
+      didWarn[warnKey] = true;
+
+      var tagDisplayName = childTag;
+      var whitespaceInfo = '';
+      if (childTag === '#text') {
+        if (/\S/.test(childText)) {
+          tagDisplayName = 'Text nodes';
+        } else {
+          tagDisplayName = 'Whitespace text nodes';
+          whitespaceInfo = ' Make sure you don\'t have any extra whitespace between tags on ' + 'each line of your source code.';
+        }
+      } else {
+        tagDisplayName = '<' + childTag + '>';
+      }
+
+      if (invalidParent) {
+        var info = '';
+        if (ancestorTag === 'table' && childTag === 'tr') {
+          info += ' Add a <tbody> to your code to match the DOM tree generated by ' + 'the browser.';
+        }
+        process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a child of <%s>.%s ' + 'See %s.%s', tagDisplayName, ancestorTag, whitespaceInfo, ownerInfo, info) : void 0;
+      } else {
+        process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a descendant of ' + '<%s>. See %s.', tagDisplayName, ancestorTag, ownerInfo) : void 0;
+      }
+    }
+  };
+
+  validateDOMNesting.updatedAncestorInfo = updatedAncestorInfo;
+
+  // For testing
+  validateDOMNesting.isTagValidInContext = function (tag, ancestorInfo) {
+    ancestorInfo = ancestorInfo || emptyAncestorInfo;
+    var parentInfo = ancestorInfo.current;
+    var parentTag = parentInfo && parentInfo.tag;
+    return isTagValidWithParent(tag, parentTag) && !findInvalidAncestorForTag(tag, ancestorInfo);
+  };
+}
+
+module.exports = validateDOMNesting;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var _prodInvariant = __webpack_require__(25);
+
+var ReactNoopUpdateQueue = __webpack_require__(85);
+
+var canDefineProperty = __webpack_require__(51);
+var emptyObject = __webpack_require__(37);
+var invariant = __webpack_require__(1);
+var warning = __webpack_require__(2);
+
+/**
+ * Base class helpers for the updating state of a component.
+ */
+function ReactComponent(props, context, updater) {
+  this.props = props;
+  this.context = context;
+  this.refs = emptyObject;
+  // We initialize the default updater but the real one gets injected by the
+  // renderer.
+  this.updater = updater || ReactNoopUpdateQueue;
+}
+
+ReactComponent.prototype.isReactComponent = {};
+
+/**
+ * Sets a subset of the state. Always use this to mutate
+ * state. You should treat `this.state` as immutable.
+ *
+ * There is no guarantee that `this.state` will be immediately updated, so
+ * accessing `this.state` after calling this method may return the old value.
+ *
+ * There is no guarantee that calls to `setState` will run synchronously,
+ * as they may eventually be batched together.  You can provide an optional
+ * callback that will be executed when the call to setState is actually
+ * completed.
+ *
+ * When a function is provided to setState, it will be called at some point in
+ * the future (not synchronously). It will be called with the up to date
+ * component arguments (state, props, context). These values can be different
+ * from this.* because your function may be called after receiveProps but before
+ * shouldComponentUpdate, and this new state, props, and context will not yet be
+ * assigned to this.
+ *
+ * @param {object|function} partialState Next partial state or function to
+ *        produce next partial state to be merged with current state.
+ * @param {?function} callback Called after state is updated.
+ * @final
+ * @protected
+ */
+ReactComponent.prototype.setState = function (partialState, callback) {
+  !(typeof partialState === 'object' || typeof partialState === 'function' || partialState == null) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'setState(...): takes an object of state variables to update or a function which returns an object of state variables.') : _prodInvariant('85') : void 0;
+  this.updater.enqueueSetState(this, partialState);
+  if (callback) {
+    this.updater.enqueueCallback(this, callback, 'setState');
+  }
+};
+
+/**
+ * Forces an update. This should only be invoked when it is known with
+ * certainty that we are **not** in a DOM transaction.
+ *
+ * You may want to call this when you know that some deeper aspect of the
+ * component's state has changed but `setState` was not called.
+ *
+ * This will not invoke `shouldComponentUpdate`, but it will invoke
+ * `componentWillUpdate` and `componentDidUpdate`.
+ *
+ * @param {?function} callback Called after update is complete.
+ * @final
+ * @protected
+ */
+ReactComponent.prototype.forceUpdate = function (callback) {
+  this.updater.enqueueForceUpdate(this);
+  if (callback) {
+    this.updater.enqueueCallback(this, callback, 'forceUpdate');
+  }
+};
+
+/**
+ * Deprecated APIs. These APIs used to exist on classic React classes but since
+ * we would like to deprecate them, we're not going to move them over to this
+ * modern base class. Instead, we define a getter that warns if it's accessed.
+ */
+if (process.env.NODE_ENV !== 'production') {
+  var deprecatedAPIs = {
+    isMounted: ['isMounted', 'Instead, make sure to clean up subscriptions and pending requests in ' + 'componentWillUnmount to prevent memory leaks.'],
+    replaceState: ['replaceState', 'Refactor your code to use setState instead (see ' + 'https://github.com/facebook/react/issues/3236).']
+  };
+  var defineDeprecationWarning = function (methodName, info) {
+    if (canDefineProperty) {
+      Object.defineProperty(ReactComponent.prototype, methodName, {
+        get: function () {
+          process.env.NODE_ENV !== 'production' ? warning(false, '%s(...) is deprecated in plain JavaScript React classes. %s', info[0], info[1]) : void 0;
+          return undefined;
+        }
+      });
+    }
+  };
+  for (var fnName in deprecatedAPIs) {
+    if (deprecatedAPIs.hasOwnProperty(fnName)) {
+      defineDeprecationWarning(fnName, deprecatedAPIs[fnName]);
+    }
+  }
+}
+
+module.exports = ReactComponent;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2015-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var warning = __webpack_require__(2);
+
+function warnNoop(publicInstance, callerName) {
+  if (process.env.NODE_ENV !== 'production') {
+    var constructor = publicInstance.constructor;
+    process.env.NODE_ENV !== 'production' ? warning(false, '%s(...): Can only update a mounted or mounting component. ' + 'This usually means you called %s() on an unmounted component. ' + 'This is a no-op. Please check the code for the %s component.', callerName, callerName, constructor && (constructor.displayName || constructor.name) || 'ReactClass') : void 0;
+  }
+}
+
+/**
+ * This is the abstract API for an update queue.
+ */
+var ReactNoopUpdateQueue = {
+
+  /**
+   * Checks whether or not this composite component is mounted.
+   * @param {ReactClass} publicInstance The instance we want to test.
+   * @return {boolean} True if mounted, false otherwise.
+   * @protected
+   * @final
+   */
+  isMounted: function (publicInstance) {
+    return false;
+  },
+
+  /**
+   * Enqueue a callback that will be executed after all the pending updates
+   * have processed.
+   *
+   * @param {ReactClass} publicInstance The instance to use as `this` context.
+   * @param {?function} callback Called after state is updated.
+   * @internal
+   */
+  enqueueCallback: function (publicInstance, callback) {},
+
+  /**
+   * Forces an update. This should only be invoked when it is known with
+   * certainty that we are **not** in a DOM transaction.
+   *
+   * You may want to call this when you know that some deeper aspect of the
+   * component's state has changed but `setState` was not called.
+   *
+   * This will not invoke `shouldComponentUpdate`, but it will invoke
+   * `componentWillUpdate` and `componentDidUpdate`.
+   *
+   * @param {ReactClass} publicInstance The instance that should rerender.
+   * @internal
+   */
+  enqueueForceUpdate: function (publicInstance) {
+    warnNoop(publicInstance, 'forceUpdate');
+  },
+
+  /**
+   * Replaces all of the state. Always use this or `setState` to mutate state.
+   * You should treat `this.state` as immutable.
+   *
+   * There is no guarantee that `this.state` will be immediately updated, so
+   * accessing `this.state` after calling this method may return the old value.
+   *
+   * @param {ReactClass} publicInstance The instance that should rerender.
+   * @param {object} completeState Next state.
+   * @internal
+   */
+  enqueueReplaceState: function (publicInstance, completeState) {
+    warnNoop(publicInstance, 'replaceState');
+  },
+
+  /**
+   * Sets a subset of the state. This only exists because _pendingState is
+   * internal. This provides a merging strategy that is not available to deep
+   * properties which is confusing. TODO: Expose pendingState or don't use it
+   * during the merge.
+   *
+   * @param {ReactClass} publicInstance The instance that should rerender.
+   * @param {object} partialState Next partial state to be merged with state.
+   * @internal
+   */
+  enqueueSetState: function (publicInstance, partialState) {
+    warnNoop(publicInstance, 'setState');
+  }
+};
+
+module.exports = ReactNoopUpdateQueue;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(266);
+
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var React = __webpack_require__(7),
+    MediaQuery = __webpack_require__(50).default;
+
+var TopNav = React.createClass({
+  displayName: 'TopNav',
+
+
+  propTypes: {
+    onMenuClick: React.PropTypes.func,
+    onToolsMenuClick: React.PropTypes.func,
+    onNextButtonClick: React.PropTypes.func,
+    onBackButtonClick: React.PropTypes.func,
+    onTranscriptButtonClick: React.PropTypes.func,
+    onPlayPauseClick: React.PropTypes.func,
+    totalPages: React.PropTypes.number,
+    currentPageNumber: React.PropTypes.number,
+    onReplayClick: React.PropTypes.func,
+    isMenuOpened: React.PropTypes.bool
+  },
+
+  getDoubleDigit: function getDoubleDigit(num) {
+    return num > 9 ? num : '0' + num;
+  },
+  render: function render() {
+    return React.createElement(
+      'div',
+      { className: 'top-nav' },
+      React.createElement('div', { className: 'leftButtons' }),
+      React.createElement(
+        'div',
+        { className: 'middleButtons' },
+        React.createElement(
+          'div',
+          { className: 'button-box' },
+          React.createElement(
+            'a',
+            { href: '#', id: 'button-tool', onClick: this.props.onToolsMenuClick, className: 'tabindex', 'aria-label': 'menu', role: 'button', 'aria-disabled': 'false', 'aria-pressed': 'false' },
+            React.createElement('span', { className: 'button-label' }),
+            React.createElement(
+              'span',
+              { className: 'icon-tools' },
+              '\uE627'
+            )
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'button-box' },
+          React.createElement(
+            'a',
+            { href: '#', id: 'button-pause', onClick: this.props.onPlayPauseClick, className: 'tabindex', 'aria-label': 'menu', role: 'button', 'aria-disabled': 'false', 'aria-pressed': 'false' },
+            React.createElement('span', { className: 'button-label' }),
+            React.createElement('span', { className: 'icon-playPause' })
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'button-box' },
+          React.createElement(
+            'a',
+            { href: '#', id: 'button-back', onClick: this.props.onBackButtonClick, className: 'tabindex', 'aria-label': 'menu', role: 'button', 'aria-disabled': 'false', 'aria-pressed': 'false' },
+            React.createElement('span', { className: 'button-label' }),
+            React.createElement(
+              'span',
+              { className: 'icon-back' },
+              '\uE607'
+            )
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'nav-comp-container' },
+          React.createElement(
+            'div',
+            { className: 'page-counter clearfix' },
+            React.createElement(
+              'span',
+              { className: 'page-number' },
+              this.getDoubleDigit(this.props.currentPageNumber)
+            ),
+            React.createElement(
+              'span',
+              { className: 'page-separator' },
+              '|'
+            ),
+            React.createElement(
+              'span',
+              { className: 'total-pages' },
+              this.getDoubleDigit(this.props.totalPages)
+            )
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'button-box' },
+          React.createElement(
+            'a',
+            { href: '#', id: 'button-next', onClick: this.props.onNextButtonClick, className: 'tabindex', 'aria-label': 'next', role: 'button', 'aria-disabled': 'false' },
+            React.createElement('span', { className: 'button-label' }),
+            React.createElement(
+              'span',
+              { className: 'icon-next' },
+              '\uE617'
+            )
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'button-box' },
+          React.createElement(
+            'a',
+            { href: '#', id: 'button-transcript', onClick: this.props.onTranscriptButtonClick, className: 'tabindex', 'aria-label': 'transcript', role: 'button', 'aria-disabled': 'false', 'aria-pressed': 'false' },
+            React.createElement('span', { className: 'button-label' }),
+            React.createElement('span', { className: 'icon-transcript' })
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'button-box' },
+          React.createElement(
+            'a',
+            { href: '#', id: 'button-menu', onClick: this.props.onMenuClick, className: 'tabindex', 'aria-label': 'menu', role: 'button', 'aria-disabled': 'false', 'aria-pressed': 'false' },
+            React.createElement('span', { className: 'button-label' }),
+            React.createElement(
+              'span',
+              { className: 'icon-menu' },
+              '\uE616'
+            )
+          )
+        )
+      ),
+      React.createElement('div', { className: 'rightButtons' })
+    );
+  }
+});
+
+exports.default = TopNav;
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(107);
+
+var topicNamesArray = ['Welcome', 'Course objectives', 'Increase in home therapy options', 'Small and portable medical devices', 'Internet of things—connected medical equipment', 'Medical appications for Honeywell sensors - Activity', 'Course Summary', 'Quiz Introduction'];
+
+function loadPage(pageNumber) {
+  $(".page-number").html(pageNumber);
+  if (document.querySelector('.next-button')) document.querySelector('.next-button').classList.remove("blinker");
+  if (document.querySelector('#button-audio')) document.querySelector('#button-audio').classList.remove("disabled");
+  if (document.querySelector('#button-playPause')) document.querySelector('#button-playPause').classList.remove("disabled");
+  $(".page-loader").empty();
+  $(".page-loader").load('components/content/m01/t01/m01_t01_p0' + pageNumber + '.html');
+  window.updatePageStatusList(pageNumber);
+  $(".page-title").html(topicNamesArray[pageNumber - 1]);
+}
+
+function loadSound(filePath) {}
+
+function loadTranscript() {}
+
+function loadMenu() {}
+
+module.exports = {
+  loadPage: loadPage,
+  loadSound: loadSound,
+  loadTranscript: loadTranscript
+};
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(178), __esModule: true };
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _assign = __webpack_require__(151);
+
+var _assign2 = _interopRequireDefault(_assign);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _assign2.default || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(165);
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(33)
+  , document = __webpack_require__(17).document
+  // in old IE typeof document.createElement is 'object'
+  , is = isObject(document) && isObject(document.createElement);
+module.exports = function(it){
+  return is ? document.createElement(it) : {};
+};
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = !__webpack_require__(21) && !__webpack_require__(27)(function(){
+  return Object.defineProperty(__webpack_require__(92)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+});
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__(52);
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var LIBRARY        = __webpack_require__(56)
+  , $export        = __webpack_require__(16)
+  , redefine       = __webpack_require__(99)
+  , hide           = __webpack_require__(28)
+  , has            = __webpack_require__(22)
+  , Iterators      = __webpack_require__(34)
+  , $iterCreate    = __webpack_require__(192)
+  , setToStringTag = __webpack_require__(61)
+  , getPrototypeOf = __webpack_require__(97)
+  , ITERATOR       = __webpack_require__(12)('iterator')
+  , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
+  , FF_ITERATOR    = '@@iterator'
+  , KEYS           = 'keys'
+  , VALUES         = 'values';
+
+var returnThis = function(){ return this; };
+
+module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED){
+  $iterCreate(Constructor, NAME, next);
+  var getMethod = function(kind){
+    if(!BUGGY && kind in proto)return proto[kind];
+    switch(kind){
+      case KEYS: return function keys(){ return new Constructor(this, kind); };
+      case VALUES: return function values(){ return new Constructor(this, kind); };
+    } return function entries(){ return new Constructor(this, kind); };
+  };
+  var TAG        = NAME + ' Iterator'
+    , DEF_VALUES = DEFAULT == VALUES
+    , VALUES_BUG = false
+    , proto      = Base.prototype
+    , $native    = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT]
+    , $default   = $native || getMethod(DEFAULT)
+    , $entries   = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined
+    , $anyNative = NAME == 'Array' ? proto.entries || $native : $native
+    , methods, key, IteratorPrototype;
+  // Fix native
+  if($anyNative){
+    IteratorPrototype = getPrototypeOf($anyNative.call(new Base));
+    if(IteratorPrototype !== Object.prototype){
+      // Set @@toStringTag to native iterators
+      setToStringTag(IteratorPrototype, TAG, true);
+      // fix for some old engines
+      if(!LIBRARY && !has(IteratorPrototype, ITERATOR))hide(IteratorPrototype, ITERATOR, returnThis);
+    }
+  }
+  // fix Array#{values, @@iterator}.name in V8 / FF
+  if(DEF_VALUES && $native && $native.name !== VALUES){
+    VALUES_BUG = true;
+    $default = function values(){ return $native.call(this); };
+  }
+  // Define iterator
+  if((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])){
+    hide(proto, ITERATOR, $default);
+  }
+  // Plug for library
+  Iterators[NAME] = $default;
+  Iterators[TAG]  = returnThis;
+  if(DEFAULT){
+    methods = {
+      values:  DEF_VALUES ? $default : getMethod(VALUES),
+      keys:    IS_SET     ? $default : getMethod(KEYS),
+      entries: $entries
+    };
+    if(FORCED)for(key in methods){
+      if(!(key in proto))redefine(proto, key, methods[key]);
+    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
+  }
+  return methods;
+};
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
+var $keys      = __webpack_require__(98)
+  , hiddenKeys = __webpack_require__(55).concat('length', 'prototype');
+
+exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
+  return $keys(O, hiddenKeys);
+};
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
+var has         = __webpack_require__(22)
+  , toObject    = __webpack_require__(36)
+  , IE_PROTO    = __webpack_require__(62)('IE_PROTO')
+  , ObjectProto = Object.prototype;
+
+module.exports = Object.getPrototypeOf || function(O){
+  O = toObject(O);
+  if(has(O, IE_PROTO))return O[IE_PROTO];
+  if(typeof O.constructor == 'function' && O instanceof O.constructor){
+    return O.constructor.prototype;
+  } return O instanceof Object ? ObjectProto : null;
+};
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var has          = __webpack_require__(22)
+  , toIObject    = __webpack_require__(19)
+  , arrayIndexOf = __webpack_require__(184)(false)
+  , IE_PROTO     = __webpack_require__(62)('IE_PROTO');
+
+module.exports = function(object, names){
+  var O      = toIObject(object)
+    , i      = 0
+    , result = []
+    , key;
+  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while(names.length > i)if(has(O, key = names[i++])){
+    ~arrayIndexOf(result, key) || result.push(key);
+  }
+  return result;
+};
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(28);
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.15 ToLength
+var toInteger = __webpack_require__(64)
+  , min       = Math.min;
+module.exports = function(it){
+  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+};
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $at  = __webpack_require__(201)(true);
+
+// 21.1.3.27 String.prototype[@@iterator]()
+__webpack_require__(95)(String, 'String', function(iterated){
+  this._t = String(iterated); // target
+  this._i = 0;                // next index
+// 21.1.5.2.1 %StringIteratorPrototype%.next()
+}, function(){
+  var O     = this._t
+    , index = this._i
+    , point;
+  if(index >= O.length)return {value: undefined, done: true};
+  point = $at(O, index);
+  this._i += point.length;
+  return {value: point, done: false};
+});
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @typechecks
+ */
+
+var emptyFunction = __webpack_require__(11);
+
+/**
+ * Upstream version of event listener. Does not take into account specific
+ * nature of platform.
+ */
+var EventListener = {
+  /**
+   * Listen to DOM events during the bubble phase.
+   *
+   * @param {DOMEventTarget} target DOM element to register listener on.
+   * @param {string} eventType Event type, e.g. 'click' or 'mouseover'.
+   * @param {function} callback Callback function.
+   * @return {object} Object with a `remove` method.
+   */
+  listen: function listen(target, eventType, callback) {
+    if (target.addEventListener) {
+      target.addEventListener(eventType, callback, false);
+      return {
+        remove: function remove() {
+          target.removeEventListener(eventType, callback, false);
+        }
+      };
+    } else if (target.attachEvent) {
+      target.attachEvent('on' + eventType, callback);
+      return {
+        remove: function remove() {
+          target.detachEvent('on' + eventType, callback);
+        }
+      };
+    }
+  },
+
+  /**
+   * Listen to DOM events during the capture phase.
+   *
+   * @param {DOMEventTarget} target DOM element to register listener on.
+   * @param {string} eventType Event type, e.g. 'click' or 'mouseover'.
+   * @param {function} callback Callback function.
+   * @return {object} Object with a `remove` method.
+   */
+  capture: function capture(target, eventType, callback) {
+    if (target.addEventListener) {
+      target.addEventListener(eventType, callback, true);
+      return {
+        remove: function remove() {
+          target.removeEventListener(eventType, callback, true);
+        }
+      };
+    } else {
+      if (process.env.NODE_ENV !== 'production') {
+        console.error('Attempted to listen to events during the capture phase on a ' + 'browser that does not support the capture phase. Your application ' + 'will not receive some events.');
+      }
+      return {
+        remove: emptyFunction
+      };
+    }
+  },
+
+  registerDefault: function registerDefault() {}
+};
+
+module.exports = EventListener;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+/**
+ * @param {DOMElement} node input/textarea to focus
+ */
+
+function focusNode(node) {
+  // IE8 can throw "Can't move focus to the control because it is invisible,
+  // not enabled, or of a type that does not accept the focus." for all kinds of
+  // reasons that are too expensive and fragile to test.
+  try {
+    node.focus();
+  } catch (e) {}
+}
+
+module.exports = focusNode;
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * @typechecks
+ */
+
+/* eslint-disable fb-www/typeof-undefined */
+
+/**
+ * Same as document.activeElement but wraps in a try-catch block. In IE it is
+ * not safe to call document.activeElement if there is nothing focused.
+ *
+ * The activeElement will be null only if the document or document body is not
+ * yet defined.
+ *
+ * @param {?DOMDocument} doc Defaults to current document.
+ * @return {?DOMElement}
+ */
+function getActiveElement(doc) /*?DOMElement*/{
+  doc = doc || global.document;
+  if (typeof doc === 'undefined') {
+    return null;
+  }
+  try {
+    return doc.activeElement || doc.body;
+  } catch (e) {
+    return doc.body;
+  }
+}
+
+module.exports = getActiveElement;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(136)))
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "assets/fonts/Lato-Light.eot";
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "assets/fonts/lato-regular-webfont.eot";
+
+/***/ }),
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -16029,2655 +18637,25 @@ return jQuery;
 
 
 /***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var DOMLazyTree = __webpack_require__(30);
-var Danger = __webpack_require__(258);
-var ReactDOMComponentTree = __webpack_require__(5);
-var ReactInstrumentation = __webpack_require__(10);
-
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(77);
-var setInnerHTML = __webpack_require__(49);
-var setTextContent = __webpack_require__(128);
-
-function getNodeAfter(parentNode, node) {
-  // Special case for text components, which return [open, close] comments
-  // from getHostNode.
-  if (Array.isArray(node)) {
-    node = node[1];
-  }
-  return node ? node.nextSibling : parentNode.firstChild;
-}
-
-/**
- * Inserts `childNode` as a child of `parentNode` at the `index`.
- *
- * @param {DOMElement} parentNode Parent node in which to insert.
- * @param {DOMElement} childNode Child node to insert.
- * @param {number} index Index at which to insert the child.
- * @internal
- */
-var insertChildAt = createMicrosoftUnsafeLocalFunction(function (parentNode, childNode, referenceNode) {
-  // We rely exclusively on `insertBefore(node, null)` instead of also using
-  // `appendChild(node)`. (Using `undefined` is not allowed by all browsers so
-  // we are careful to use `null`.)
-  parentNode.insertBefore(childNode, referenceNode);
-});
-
-function insertLazyTreeChildAt(parentNode, childTree, referenceNode) {
-  DOMLazyTree.insertTreeBefore(parentNode, childTree, referenceNode);
-}
-
-function moveChild(parentNode, childNode, referenceNode) {
-  if (Array.isArray(childNode)) {
-    moveDelimitedText(parentNode, childNode[0], childNode[1], referenceNode);
-  } else {
-    insertChildAt(parentNode, childNode, referenceNode);
-  }
-}
-
-function removeChild(parentNode, childNode) {
-  if (Array.isArray(childNode)) {
-    var closingComment = childNode[1];
-    childNode = childNode[0];
-    removeDelimitedText(parentNode, childNode, closingComment);
-    parentNode.removeChild(closingComment);
-  }
-  parentNode.removeChild(childNode);
-}
-
-function moveDelimitedText(parentNode, openingComment, closingComment, referenceNode) {
-  var node = openingComment;
-  while (true) {
-    var nextNode = node.nextSibling;
-    insertChildAt(parentNode, node, referenceNode);
-    if (node === closingComment) {
-      break;
-    }
-    node = nextNode;
-  }
-}
-
-function removeDelimitedText(parentNode, startNode, closingComment) {
-  while (true) {
-    var node = startNode.nextSibling;
-    if (node === closingComment) {
-      // The closing comment is removed by ReactMultiChild.
-      break;
-    } else {
-      parentNode.removeChild(node);
-    }
-  }
-}
-
-function replaceDelimitedText(openingComment, closingComment, stringText) {
-  var parentNode = openingComment.parentNode;
-  var nodeAfterComment = openingComment.nextSibling;
-  if (nodeAfterComment === closingComment) {
-    // There are no text nodes between the opening and closing comments; insert
-    // a new one if stringText isn't empty.
-    if (stringText) {
-      insertChildAt(parentNode, document.createTextNode(stringText), nodeAfterComment);
-    }
-  } else {
-    if (stringText) {
-      // Set the text content of the first node after the opening comment, and
-      // remove all following nodes up until the closing comment.
-      setTextContent(nodeAfterComment, stringText);
-      removeDelimitedText(parentNode, nodeAfterComment, closingComment);
-    } else {
-      removeDelimitedText(parentNode, openingComment, closingComment);
-    }
-  }
-
-  if (process.env.NODE_ENV !== 'production') {
-    ReactInstrumentation.debugTool.onHostOperation({
-      instanceID: ReactDOMComponentTree.getInstanceFromNode(openingComment)._debugID,
-      type: 'replace text',
-      payload: stringText
-    });
-  }
-}
-
-var dangerouslyReplaceNodeWithMarkup = Danger.dangerouslyReplaceNodeWithMarkup;
-if (process.env.NODE_ENV !== 'production') {
-  dangerouslyReplaceNodeWithMarkup = function (oldChild, markup, prevInstance) {
-    Danger.dangerouslyReplaceNodeWithMarkup(oldChild, markup);
-    if (prevInstance._debugID !== 0) {
-      ReactInstrumentation.debugTool.onHostOperation({
-        instanceID: prevInstance._debugID,
-        type: 'replace with',
-        payload: markup.toString()
-      });
-    } else {
-      var nextInstance = ReactDOMComponentTree.getInstanceFromNode(markup.node);
-      if (nextInstance._debugID !== 0) {
-        ReactInstrumentation.debugTool.onHostOperation({
-          instanceID: nextInstance._debugID,
-          type: 'mount',
-          payload: markup.toString()
-        });
-      }
-    }
-  };
-}
-
-/**
- * Operations for updating with DOM children.
- */
-var DOMChildrenOperations = {
-
-  dangerouslyReplaceNodeWithMarkup: dangerouslyReplaceNodeWithMarkup,
-
-  replaceDelimitedText: replaceDelimitedText,
-
-  /**
-   * Updates a component's children by processing a series of updates. The
-   * update configurations are each expected to have a `parentNode` property.
-   *
-   * @param {array<object>} updates List of update configurations.
-   * @internal
-   */
-  processUpdates: function (parentNode, updates) {
-    if (process.env.NODE_ENV !== 'production') {
-      var parentNodeDebugID = ReactDOMComponentTree.getInstanceFromNode(parentNode)._debugID;
-    }
-
-    for (var k = 0; k < updates.length; k++) {
-      var update = updates[k];
-      switch (update.type) {
-        case 'INSERT_MARKUP':
-          insertLazyTreeChildAt(parentNode, update.content, getNodeAfter(parentNode, update.afterNode));
-          if (process.env.NODE_ENV !== 'production') {
-            ReactInstrumentation.debugTool.onHostOperation({
-              instanceID: parentNodeDebugID,
-              type: 'insert child',
-              payload: { toIndex: update.toIndex, content: update.content.toString() }
-            });
-          }
-          break;
-        case 'MOVE_EXISTING':
-          moveChild(parentNode, update.fromNode, getNodeAfter(parentNode, update.afterNode));
-          if (process.env.NODE_ENV !== 'production') {
-            ReactInstrumentation.debugTool.onHostOperation({
-              instanceID: parentNodeDebugID,
-              type: 'move child',
-              payload: { fromIndex: update.fromIndex, toIndex: update.toIndex }
-            });
-          }
-          break;
-        case 'SET_MARKUP':
-          setInnerHTML(parentNode, update.content);
-          if (process.env.NODE_ENV !== 'production') {
-            ReactInstrumentation.debugTool.onHostOperation({
-              instanceID: parentNodeDebugID,
-              type: 'replace children',
-              payload: update.content.toString()
-            });
-          }
-          break;
-        case 'TEXT_CONTENT':
-          setTextContent(parentNode, update.content);
-          if (process.env.NODE_ENV !== 'production') {
-            ReactInstrumentation.debugTool.onHostOperation({
-              instanceID: parentNodeDebugID,
-              type: 'replace text',
-              payload: update.content.toString()
-            });
-          }
-          break;
-        case 'REMOVE_NODE':
-          removeChild(parentNode, update.fromNode);
-          if (process.env.NODE_ENV !== 'production') {
-            ReactInstrumentation.debugTool.onHostOperation({
-              instanceID: parentNodeDebugID,
-              type: 'remove child',
-              payload: { fromIndex: update.fromIndex }
-            });
-          }
-          break;
-      }
-    }
-  }
-
-};
-
-module.exports = DOMChildrenOperations;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var DOMNamespaces = {
-  html: 'http://www.w3.org/1999/xhtml',
-  mathml: 'http://www.w3.org/1998/Math/MathML',
-  svg: 'http://www.w3.org/2000/svg'
-};
-
-module.exports = DOMNamespaces;
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var _prodInvariant = __webpack_require__(3);
-
-var ReactErrorUtils = __webpack_require__(75);
-
-var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
-
-/**
- * Injected dependencies:
- */
-
-/**
- * - `ComponentTree`: [required] Module that can convert between React instances
- *   and actual node references.
- */
-var ComponentTree;
-var TreeTraversal;
-var injection = {
-  injectComponentTree: function (Injected) {
-    ComponentTree = Injected;
-    if (process.env.NODE_ENV !== 'production') {
-      process.env.NODE_ENV !== 'production' ? warning(Injected && Injected.getNodeFromInstance && Injected.getInstanceFromNode, 'EventPluginUtils.injection.injectComponentTree(...): Injected ' + 'module is missing getNodeFromInstance or getInstanceFromNode.') : void 0;
-    }
-  },
-  injectTreeTraversal: function (Injected) {
-    TreeTraversal = Injected;
-    if (process.env.NODE_ENV !== 'production') {
-      process.env.NODE_ENV !== 'production' ? warning(Injected && Injected.isAncestor && Injected.getLowestCommonAncestor, 'EventPluginUtils.injection.injectTreeTraversal(...): Injected ' + 'module is missing isAncestor or getLowestCommonAncestor.') : void 0;
-    }
-  }
-};
-
-function isEndish(topLevelType) {
-  return topLevelType === 'topMouseUp' || topLevelType === 'topTouchEnd' || topLevelType === 'topTouchCancel';
-}
-
-function isMoveish(topLevelType) {
-  return topLevelType === 'topMouseMove' || topLevelType === 'topTouchMove';
-}
-function isStartish(topLevelType) {
-  return topLevelType === 'topMouseDown' || topLevelType === 'topTouchStart';
-}
-
-var validateEventDispatches;
-if (process.env.NODE_ENV !== 'production') {
-  validateEventDispatches = function (event) {
-    var dispatchListeners = event._dispatchListeners;
-    var dispatchInstances = event._dispatchInstances;
-
-    var listenersIsArr = Array.isArray(dispatchListeners);
-    var listenersLen = listenersIsArr ? dispatchListeners.length : dispatchListeners ? 1 : 0;
-
-    var instancesIsArr = Array.isArray(dispatchInstances);
-    var instancesLen = instancesIsArr ? dispatchInstances.length : dispatchInstances ? 1 : 0;
-
-    process.env.NODE_ENV !== 'production' ? warning(instancesIsArr === listenersIsArr && instancesLen === listenersLen, 'EventPluginUtils: Invalid `event`.') : void 0;
-  };
-}
-
-/**
- * Dispatch the event to the listener.
- * @param {SyntheticEvent} event SyntheticEvent to handle
- * @param {boolean} simulated If the event is simulated (changes exn behavior)
- * @param {function} listener Application-level callback
- * @param {*} inst Internal component instance
- */
-function executeDispatch(event, simulated, listener, inst) {
-  var type = event.type || 'unknown-event';
-  event.currentTarget = EventPluginUtils.getNodeFromInstance(inst);
-  if (simulated) {
-    ReactErrorUtils.invokeGuardedCallbackWithCatch(type, listener, event);
-  } else {
-    ReactErrorUtils.invokeGuardedCallback(type, listener, event);
-  }
-  event.currentTarget = null;
-}
-
-/**
- * Standard/simple iteration through an event's collected dispatches.
- */
-function executeDispatchesInOrder(event, simulated) {
-  var dispatchListeners = event._dispatchListeners;
-  var dispatchInstances = event._dispatchInstances;
-  if (process.env.NODE_ENV !== 'production') {
-    validateEventDispatches(event);
-  }
-  if (Array.isArray(dispatchListeners)) {
-    for (var i = 0; i < dispatchListeners.length; i++) {
-      if (event.isPropagationStopped()) {
-        break;
-      }
-      // Listeners and Instances are two parallel arrays that are always in sync.
-      executeDispatch(event, simulated, dispatchListeners[i], dispatchInstances[i]);
-    }
-  } else if (dispatchListeners) {
-    executeDispatch(event, simulated, dispatchListeners, dispatchInstances);
-  }
-  event._dispatchListeners = null;
-  event._dispatchInstances = null;
-}
-
-/**
- * Standard/simple iteration through an event's collected dispatches, but stops
- * at the first dispatch execution returning true, and returns that id.
- *
- * @return {?string} id of the first dispatch execution who's listener returns
- * true, or null if no listener returned true.
- */
-function executeDispatchesInOrderStopAtTrueImpl(event) {
-  var dispatchListeners = event._dispatchListeners;
-  var dispatchInstances = event._dispatchInstances;
-  if (process.env.NODE_ENV !== 'production') {
-    validateEventDispatches(event);
-  }
-  if (Array.isArray(dispatchListeners)) {
-    for (var i = 0; i < dispatchListeners.length; i++) {
-      if (event.isPropagationStopped()) {
-        break;
-      }
-      // Listeners and Instances are two parallel arrays that are always in sync.
-      if (dispatchListeners[i](event, dispatchInstances[i])) {
-        return dispatchInstances[i];
-      }
-    }
-  } else if (dispatchListeners) {
-    if (dispatchListeners(event, dispatchInstances)) {
-      return dispatchInstances;
-    }
-  }
-  return null;
-}
-
-/**
- * @see executeDispatchesInOrderStopAtTrueImpl
- */
-function executeDispatchesInOrderStopAtTrue(event) {
-  var ret = executeDispatchesInOrderStopAtTrueImpl(event);
-  event._dispatchInstances = null;
-  event._dispatchListeners = null;
-  return ret;
-}
-
-/**
- * Execution of a "direct" dispatch - there must be at most one dispatch
- * accumulated on the event or it is considered an error. It doesn't really make
- * sense for an event with multiple dispatches (bubbled) to keep track of the
- * return values at each dispatch execution, but it does tend to make sense when
- * dealing with "direct" dispatches.
- *
- * @return {*} The return value of executing the single dispatch.
- */
-function executeDirectDispatch(event) {
-  if (process.env.NODE_ENV !== 'production') {
-    validateEventDispatches(event);
-  }
-  var dispatchListener = event._dispatchListeners;
-  var dispatchInstance = event._dispatchInstances;
-  !!Array.isArray(dispatchListener) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'executeDirectDispatch(...): Invalid `event`.') : _prodInvariant('103') : void 0;
-  event.currentTarget = dispatchListener ? EventPluginUtils.getNodeFromInstance(dispatchInstance) : null;
-  var res = dispatchListener ? dispatchListener(event) : null;
-  event.currentTarget = null;
-  event._dispatchListeners = null;
-  event._dispatchInstances = null;
-  return res;
-}
-
-/**
- * @param {SyntheticEvent} event
- * @return {boolean} True iff number of dispatches accumulated is greater than 0.
- */
-function hasDispatches(event) {
-  return !!event._dispatchListeners;
-}
-
-/**
- * General utilities that are useful in creating custom Event Plugins.
- */
-var EventPluginUtils = {
-  isEndish: isEndish,
-  isMoveish: isMoveish,
-  isStartish: isStartish,
-
-  executeDirectDispatch: executeDirectDispatch,
-  executeDispatchesInOrder: executeDispatchesInOrder,
-  executeDispatchesInOrderStopAtTrue: executeDispatchesInOrderStopAtTrue,
-  hasDispatches: hasDispatches,
-
-  getInstanceFromNode: function (node) {
-    return ComponentTree.getInstanceFromNode(node);
-  },
-  getNodeFromInstance: function (node) {
-    return ComponentTree.getNodeFromInstance(node);
-  },
-  isAncestor: function (a, b) {
-    return TreeTraversal.isAncestor(a, b);
-  },
-  getLowestCommonAncestor: function (a, b) {
-    return TreeTraversal.getLowestCommonAncestor(a, b);
-  },
-  getParentInstance: function (inst) {
-    return TreeTraversal.getParentInstance(inst);
-  },
-  traverseTwoPhase: function (target, fn, arg) {
-    return TreeTraversal.traverseTwoPhase(target, fn, arg);
-  },
-  traverseEnterLeave: function (from, to, fn, argFrom, argTo) {
-    return TreeTraversal.traverseEnterLeave(from, to, fn, argFrom, argTo);
-  },
-
-  injection: injection
-};
-
-module.exports = EventPluginUtils;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 72 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
-
-
-/**
- * Escape and wrap key so it is safe to use as a reactid
- *
- * @param {string} key to be escaped.
- * @return {string} the escaped key.
- */
-
-function escape(key) {
-  var escapeRegex = /[=:]/g;
-  var escaperLookup = {
-    '=': '=0',
-    ':': '=2'
-  };
-  var escapedString = ('' + key).replace(escapeRegex, function (match) {
-    return escaperLookup[match];
-  });
-
-  return '$' + escapedString;
-}
-
-/**
- * Unescape and unwrap key for human-readable display
- *
- * @param {string} key to unescape.
- * @return {string} the unescaped key.
- */
-function unescape(key) {
-  var unescapeRegex = /(=0|=2)/g;
-  var unescaperLookup = {
-    '=0': '=',
-    '=2': ':'
-  };
-  var keySubstring = key[0] === '.' && key[1] === '$' ? key.substring(2) : key.substring(1);
-
-  return ('' + keySubstring).replace(unescapeRegex, function (match) {
-    return unescaperLookup[match];
-  });
-}
-
-var KeyEscapeUtils = {
-  escape: escape,
-  unescape: unescape
-};
-
-module.exports = KeyEscapeUtils;
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var _prodInvariant = __webpack_require__(3);
-
-var React = __webpack_require__(32);
-var ReactPropTypesSecret = __webpack_require__(120);
-
-var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
-
-var hasReadOnlyValue = {
-  'button': true,
-  'checkbox': true,
-  'image': true,
-  'hidden': true,
-  'radio': true,
-  'reset': true,
-  'submit': true
-};
-
-function _assertSingleLink(inputProps) {
-  !(inputProps.checkedLink == null || inputProps.valueLink == null) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Cannot provide a checkedLink and a valueLink. If you want to use checkedLink, you probably don\'t want to use valueLink and vice versa.') : _prodInvariant('87') : void 0;
-}
-function _assertValueLink(inputProps) {
-  _assertSingleLink(inputProps);
-  !(inputProps.value == null && inputProps.onChange == null) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Cannot provide a valueLink and a value or onChange event. If you want to use value or onChange, you probably don\'t want to use valueLink.') : _prodInvariant('88') : void 0;
-}
-
-function _assertCheckedLink(inputProps) {
-  _assertSingleLink(inputProps);
-  !(inputProps.checked == null && inputProps.onChange == null) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Cannot provide a checkedLink and a checked property or onChange event. If you want to use checked or onChange, you probably don\'t want to use checkedLink') : _prodInvariant('89') : void 0;
-}
-
-var propTypes = {
-  value: function (props, propName, componentName) {
-    if (!props[propName] || hasReadOnlyValue[props.type] || props.onChange || props.readOnly || props.disabled) {
-      return null;
-    }
-    return new Error('You provided a `value` prop to a form field without an ' + '`onChange` handler. This will render a read-only field. If ' + 'the field should be mutable use `defaultValue`. Otherwise, ' + 'set either `onChange` or `readOnly`.');
-  },
-  checked: function (props, propName, componentName) {
-    if (!props[propName] || props.onChange || props.readOnly || props.disabled) {
-      return null;
-    }
-    return new Error('You provided a `checked` prop to a form field without an ' + '`onChange` handler. This will render a read-only field. If ' + 'the field should be mutable use `defaultChecked`. Otherwise, ' + 'set either `onChange` or `readOnly`.');
-  },
-  onChange: React.PropTypes.func
-};
-
-var loggedTypeFailures = {};
-function getDeclarationErrorAddendum(owner) {
-  if (owner) {
-    var name = owner.getName();
-    if (name) {
-      return ' Check the render method of `' + name + '`.';
-    }
-  }
-  return '';
-}
-
-/**
- * Provide a linked `value` attribute for controlled forms. You should not use
- * this outside of the ReactDOM controlled form components.
- */
-var LinkedValueUtils = {
-  checkPropTypes: function (tagName, props, owner) {
-    for (var propName in propTypes) {
-      if (propTypes.hasOwnProperty(propName)) {
-        var error = propTypes[propName](props, propName, tagName, 'prop', null, ReactPropTypesSecret);
-      }
-      if (error instanceof Error && !(error.message in loggedTypeFailures)) {
-        // Only monitor this failure once because there tends to be a lot of the
-        // same error.
-        loggedTypeFailures[error.message] = true;
-
-        var addendum = getDeclarationErrorAddendum(owner);
-        process.env.NODE_ENV !== 'production' ? warning(false, 'Failed form propType: %s%s', error.message, addendum) : void 0;
-      }
-    }
-  },
-
-  /**
-   * @param {object} inputProps Props for form component
-   * @return {*} current value of the input either from value prop or link.
-   */
-  getValue: function (inputProps) {
-    if (inputProps.valueLink) {
-      _assertValueLink(inputProps);
-      return inputProps.valueLink.value;
-    }
-    return inputProps.value;
-  },
-
-  /**
-   * @param {object} inputProps Props for form component
-   * @return {*} current checked status of the input either from checked prop
-   *             or link.
-   */
-  getChecked: function (inputProps) {
-    if (inputProps.checkedLink) {
-      _assertCheckedLink(inputProps);
-      return inputProps.checkedLink.value;
-    }
-    return inputProps.checked;
-  },
-
-  /**
-   * @param {object} inputProps Props for form component
-   * @param {SyntheticEvent} event change event to handle
-   */
-  executeOnChange: function (inputProps, event) {
-    if (inputProps.valueLink) {
-      _assertValueLink(inputProps);
-      return inputProps.valueLink.requestChange(event.target.value);
-    } else if (inputProps.checkedLink) {
-      _assertCheckedLink(inputProps);
-      return inputProps.checkedLink.requestChange(event.target.checked);
-    } else if (inputProps.onChange) {
-      return inputProps.onChange.call(undefined, event);
-    }
-  }
-};
-
-module.exports = LinkedValueUtils;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2014-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
-
-
-var _prodInvariant = __webpack_require__(3);
-
-var invariant = __webpack_require__(1);
-
-var injected = false;
-
-var ReactComponentEnvironment = {
-
-  /**
-   * Optionally injectable hook for swapping out mount images in the middle of
-   * the tree.
-   */
-  replaceNodeWithMarkup: null,
-
-  /**
-   * Optionally injectable hook for processing a queue of child updates. Will
-   * later move into MultiChildComponents.
-   */
-  processChildrenUpdates: null,
-
-  injection: {
-    injectEnvironment: function (environment) {
-      !!injected ? process.env.NODE_ENV !== 'production' ? invariant(false, 'ReactCompositeComponent: injectEnvironment() can only be called once.') : _prodInvariant('104') : void 0;
-      ReactComponentEnvironment.replaceNodeWithMarkup = environment.replaceNodeWithMarkup;
-      ReactComponentEnvironment.processChildrenUpdates = environment.processChildrenUpdates;
-      injected = true;
-    }
-  }
-
-};
-
-module.exports = ReactComponentEnvironment;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
-
-
-var caughtError = null;
-
-/**
- * Call a function while guarding against errors that happens within it.
- *
- * @param {String} name of the guard to use for logging or debugging
- * @param {Function} func The function to invoke
- * @param {*} a First argument
- * @param {*} b Second argument
- */
-function invokeGuardedCallback(name, func, a) {
-  try {
-    func(a);
-  } catch (x) {
-    if (caughtError === null) {
-      caughtError = x;
-    }
-  }
-}
-
-var ReactErrorUtils = {
-  invokeGuardedCallback: invokeGuardedCallback,
-
-  /**
-   * Invoked by ReactTestUtils.Simulate so that any errors thrown by the event
-   * handler are sure to be rethrown by rethrowCaughtError.
-   */
-  invokeGuardedCallbackWithCatch: invokeGuardedCallback,
-
-  /**
-   * During execution of guarded functions we will capture the first error which
-   * we will rethrow to be handled by the top level error handler.
-   */
-  rethrowCaughtError: function () {
-    if (caughtError) {
-      var error = caughtError;
-      caughtError = null;
-      throw error;
-    }
-  }
-};
-
-if (process.env.NODE_ENV !== 'production') {
-  /**
-   * To help development we can get better devtools integration by simulating a
-   * real browser event.
-   */
-  if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function' && typeof document !== 'undefined' && typeof document.createEvent === 'function') {
-    var fakeNode = document.createElement('react');
-    ReactErrorUtils.invokeGuardedCallback = function (name, func, a) {
-      var boundFunc = func.bind(null, a);
-      var evtType = 'react-' + name;
-      fakeNode.addEventListener(evtType, boundFunc, false);
-      var evt = document.createEvent('Event');
-      // $FlowFixMe https://github.com/facebook/flow/issues/2336
-      evt.initEvent(evtType, false, false);
-      fakeNode.dispatchEvent(evt);
-      fakeNode.removeEventListener(evtType, boundFunc, false);
-    };
-  }
-}
-
-module.exports = ReactErrorUtils;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var _prodInvariant = __webpack_require__(3);
-
-var ReactCurrentOwner = __webpack_require__(14);
-var ReactInstanceMap = __webpack_require__(40);
-var ReactInstrumentation = __webpack_require__(10);
-var ReactUpdates = __webpack_require__(13);
-
-var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
-
-function enqueueUpdate(internalInstance) {
-  ReactUpdates.enqueueUpdate(internalInstance);
-}
-
-function formatUnexpectedArgument(arg) {
-  var type = typeof arg;
-  if (type !== 'object') {
-    return type;
-  }
-  var displayName = arg.constructor && arg.constructor.name || type;
-  var keys = Object.keys(arg);
-  if (keys.length > 0 && keys.length < 20) {
-    return displayName + ' (keys: ' + keys.join(', ') + ')';
-  }
-  return displayName;
-}
-
-function getInternalInstanceReadyForUpdate(publicInstance, callerName) {
-  var internalInstance = ReactInstanceMap.get(publicInstance);
-  if (!internalInstance) {
-    if (process.env.NODE_ENV !== 'production') {
-      var ctor = publicInstance.constructor;
-      // Only warn when we have a callerName. Otherwise we should be silent.
-      // We're probably calling from enqueueCallback. We don't want to warn
-      // there because we already warned for the corresponding lifecycle method.
-      process.env.NODE_ENV !== 'production' ? warning(!callerName, '%s(...): Can only update a mounted or mounting component. ' + 'This usually means you called %s() on an unmounted component. ' + 'This is a no-op. Please check the code for the %s component.', callerName, callerName, ctor && (ctor.displayName || ctor.name) || 'ReactClass') : void 0;
-    }
-    return null;
-  }
-
-  if (process.env.NODE_ENV !== 'production') {
-    process.env.NODE_ENV !== 'production' ? warning(ReactCurrentOwner.current == null, '%s(...): Cannot update during an existing state transition (such as ' + 'within `render` or another component\'s constructor). Render methods ' + 'should be a pure function of props and state; constructor ' + 'side-effects are an anti-pattern, but can be moved to ' + '`componentWillMount`.', callerName) : void 0;
-  }
-
-  return internalInstance;
-}
-
-/**
- * ReactUpdateQueue allows for state updates to be scheduled into a later
- * reconciliation step.
- */
-var ReactUpdateQueue = {
-
-  /**
-   * Checks whether or not this composite component is mounted.
-   * @param {ReactClass} publicInstance The instance we want to test.
-   * @return {boolean} True if mounted, false otherwise.
-   * @protected
-   * @final
-   */
-  isMounted: function (publicInstance) {
-    if (process.env.NODE_ENV !== 'production') {
-      var owner = ReactCurrentOwner.current;
-      if (owner !== null) {
-        process.env.NODE_ENV !== 'production' ? warning(owner._warnedAboutRefsInRender, '%s is accessing isMounted inside its render() function. ' + 'render() should be a pure function of props and state. It should ' + 'never access something that requires stale data from the previous ' + 'render, such as refs. Move this logic to componentDidMount and ' + 'componentDidUpdate instead.', owner.getName() || 'A component') : void 0;
-        owner._warnedAboutRefsInRender = true;
-      }
-    }
-    var internalInstance = ReactInstanceMap.get(publicInstance);
-    if (internalInstance) {
-      // During componentWillMount and render this will still be null but after
-      // that will always render to something. At least for now. So we can use
-      // this hack.
-      return !!internalInstance._renderedComponent;
-    } else {
-      return false;
-    }
-  },
-
-  /**
-   * Enqueue a callback that will be executed after all the pending updates
-   * have processed.
-   *
-   * @param {ReactClass} publicInstance The instance to use as `this` context.
-   * @param {?function} callback Called after state is updated.
-   * @param {string} callerName Name of the calling function in the public API.
-   * @internal
-   */
-  enqueueCallback: function (publicInstance, callback, callerName) {
-    ReactUpdateQueue.validateCallback(callback, callerName);
-    var internalInstance = getInternalInstanceReadyForUpdate(publicInstance);
-
-    // Previously we would throw an error if we didn't have an internal
-    // instance. Since we want to make it a no-op instead, we mirror the same
-    // behavior we have in other enqueue* methods.
-    // We also need to ignore callbacks in componentWillMount. See
-    // enqueueUpdates.
-    if (!internalInstance) {
-      return null;
-    }
-
-    if (internalInstance._pendingCallbacks) {
-      internalInstance._pendingCallbacks.push(callback);
-    } else {
-      internalInstance._pendingCallbacks = [callback];
-    }
-    // TODO: The callback here is ignored when setState is called from
-    // componentWillMount. Either fix it or disallow doing so completely in
-    // favor of getInitialState. Alternatively, we can disallow
-    // componentWillMount during server-side rendering.
-    enqueueUpdate(internalInstance);
-  },
-
-  enqueueCallbackInternal: function (internalInstance, callback) {
-    if (internalInstance._pendingCallbacks) {
-      internalInstance._pendingCallbacks.push(callback);
-    } else {
-      internalInstance._pendingCallbacks = [callback];
-    }
-    enqueueUpdate(internalInstance);
-  },
-
-  /**
-   * Forces an update. This should only be invoked when it is known with
-   * certainty that we are **not** in a DOM transaction.
-   *
-   * You may want to call this when you know that some deeper aspect of the
-   * component's state has changed but `setState` was not called.
-   *
-   * This will not invoke `shouldComponentUpdate`, but it will invoke
-   * `componentWillUpdate` and `componentDidUpdate`.
-   *
-   * @param {ReactClass} publicInstance The instance that should rerender.
-   * @internal
-   */
-  enqueueForceUpdate: function (publicInstance) {
-    var internalInstance = getInternalInstanceReadyForUpdate(publicInstance, 'forceUpdate');
-
-    if (!internalInstance) {
-      return;
-    }
-
-    internalInstance._pendingForceUpdate = true;
-
-    enqueueUpdate(internalInstance);
-  },
-
-  /**
-   * Replaces all of the state. Always use this or `setState` to mutate state.
-   * You should treat `this.state` as immutable.
-   *
-   * There is no guarantee that `this.state` will be immediately updated, so
-   * accessing `this.state` after calling this method may return the old value.
-   *
-   * @param {ReactClass} publicInstance The instance that should rerender.
-   * @param {object} completeState Next state.
-   * @internal
-   */
-  enqueueReplaceState: function (publicInstance, completeState) {
-    var internalInstance = getInternalInstanceReadyForUpdate(publicInstance, 'replaceState');
-
-    if (!internalInstance) {
-      return;
-    }
-
-    internalInstance._pendingStateQueue = [completeState];
-    internalInstance._pendingReplaceState = true;
-
-    enqueueUpdate(internalInstance);
-  },
-
-  /**
-   * Sets a subset of the state. This only exists because _pendingState is
-   * internal. This provides a merging strategy that is not available to deep
-   * properties which is confusing. TODO: Expose pendingState or don't use it
-   * during the merge.
-   *
-   * @param {ReactClass} publicInstance The instance that should rerender.
-   * @param {object} partialState Next partial state to be merged with state.
-   * @internal
-   */
-  enqueueSetState: function (publicInstance, partialState) {
-    if (process.env.NODE_ENV !== 'production') {
-      ReactInstrumentation.debugTool.onSetState();
-      process.env.NODE_ENV !== 'production' ? warning(partialState != null, 'setState(...): You passed an undefined or null state object; ' + 'instead, use forceUpdate().') : void 0;
-    }
-
-    var internalInstance = getInternalInstanceReadyForUpdate(publicInstance, 'setState');
-
-    if (!internalInstance) {
-      return;
-    }
-
-    var queue = internalInstance._pendingStateQueue || (internalInstance._pendingStateQueue = []);
-    queue.push(partialState);
-
-    enqueueUpdate(internalInstance);
-  },
-
-  enqueueElementInternal: function (internalInstance, nextElement, nextContext) {
-    internalInstance._pendingElement = nextElement;
-    // TODO: introduce _pendingContext instead of setting it directly.
-    internalInstance._context = nextContext;
-    enqueueUpdate(internalInstance);
-  },
-
-  validateCallback: function (callback, callerName) {
-    !(!callback || typeof callback === 'function') ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s(...): Expected the last optional `callback` argument to be a function. Instead received: %s.', callerName, formatUnexpectedArgument(callback)) : _prodInvariant('122', callerName, formatUnexpectedArgument(callback)) : void 0;
-  }
-
-};
-
-module.exports = ReactUpdateQueue;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-/* globals MSApp */
-
-
-
-/**
- * Create a function which has 'unsafe' privileges (required by windows8 apps)
- */
-
-var createMicrosoftUnsafeLocalFunction = function (func) {
-  if (typeof MSApp !== 'undefined' && MSApp.execUnsafeLocalFunction) {
-    return function (arg0, arg1, arg2, arg3) {
-      MSApp.execUnsafeLocalFunction(function () {
-        return func(arg0, arg1, arg2, arg3);
-      });
-    };
-  } else {
-    return func;
-  }
-};
-
-module.exports = createMicrosoftUnsafeLocalFunction;
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-/**
- * `charCode` represents the actual "character code" and is safe to use with
- * `String.fromCharCode`. As such, only keys that correspond to printable
- * characters produce a valid `charCode`, the only exception to this is Enter.
- * The Tab-key is considered non-printable and does not have a `charCode`,
- * presumably because it does not produce a tab-character in browsers.
- *
- * @param {object} nativeEvent Native browser event.
- * @return {number} Normalized `charCode` property.
- */
-
-function getEventCharCode(nativeEvent) {
-  var charCode;
-  var keyCode = nativeEvent.keyCode;
-
-  if ('charCode' in nativeEvent) {
-    charCode = nativeEvent.charCode;
-
-    // FF does not set `charCode` for the Enter-key, check against `keyCode`.
-    if (charCode === 0 && keyCode === 13) {
-      charCode = 13;
-    }
-  } else {
-    // IE8 does not implement `charCode`, but `keyCode` has the correct value.
-    charCode = keyCode;
-  }
-
-  // Some non-printable keys are reported in `charCode`/`keyCode`, discard them.
-  // Must not discard the (non-)printable Enter-key.
-  if (charCode >= 32 || charCode === 13) {
-    return charCode;
-  }
-
-  return 0;
-}
-
-module.exports = getEventCharCode;
-
-/***/ }),
-/* 79 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-/**
- * Translation from modifier key to the associated property in the event.
- * @see http://www.w3.org/TR/DOM-Level-3-Events/#keys-Modifiers
- */
-
-var modifierKeyToProp = {
-  'Alt': 'altKey',
-  'Control': 'ctrlKey',
-  'Meta': 'metaKey',
-  'Shift': 'shiftKey'
-};
-
-// IE8 does not implement getModifierState so we simply map it to the only
-// modifier keys exposed by the event itself, does not support Lock-keys.
-// Currently, all major browsers except Chrome seems to support Lock-keys.
-function modifierStateGetter(keyArg) {
-  var syntheticEvent = this;
-  var nativeEvent = syntheticEvent.nativeEvent;
-  if (nativeEvent.getModifierState) {
-    return nativeEvent.getModifierState(keyArg);
-  }
-  var keyProp = modifierKeyToProp[keyArg];
-  return keyProp ? !!nativeEvent[keyProp] : false;
-}
-
-function getEventModifierState(nativeEvent) {
-  return modifierStateGetter;
-}
-
-module.exports = getEventModifierState;
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-/**
- * Gets the target node from a native browser event by accounting for
- * inconsistencies in browser DOM APIs.
- *
- * @param {object} nativeEvent Native browser event.
- * @return {DOMEventTarget} Target node.
- */
-
-function getEventTarget(nativeEvent) {
-  var target = nativeEvent.target || nativeEvent.srcElement || window;
-
-  // Normalize SVG <use> element events #4963
-  if (target.correspondingUseElement) {
-    target = target.correspondingUseElement;
-  }
-
-  // Safari may fire events on text nodes (Node.TEXT_NODE is 3).
-  // @see http://www.quirksmode.org/js/events_properties.html
-  return target.nodeType === 3 ? target.parentNode : target;
-}
-
-module.exports = getEventTarget;
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var ExecutionEnvironment = __webpack_require__(6);
-
-var useHasFeature;
-if (ExecutionEnvironment.canUseDOM) {
-  useHasFeature = document.implementation && document.implementation.hasFeature &&
-  // always returns true in newer browsers as per the standard.
-  // @see http://dom.spec.whatwg.org/#dom-domimplementation-hasfeature
-  document.implementation.hasFeature('', '') !== true;
-}
-
-/**
- * Checks if an event is supported in the current execution environment.
- *
- * NOTE: This will not work correctly for non-generic events such as `change`,
- * `reset`, `load`, `error`, and `select`.
- *
- * Borrows from Modernizr.
- *
- * @param {string} eventNameSuffix Event name, e.g. "click".
- * @param {?boolean} capture Check if the capture phase is supported.
- * @return {boolean} True if the event is supported.
- * @internal
- * @license Modernizr 3.0.0pre (Custom Build) | MIT
- */
-function isEventSupported(eventNameSuffix, capture) {
-  if (!ExecutionEnvironment.canUseDOM || capture && !('addEventListener' in document)) {
-    return false;
-  }
-
-  var eventName = 'on' + eventNameSuffix;
-  var isSupported = eventName in document;
-
-  if (!isSupported) {
-    var element = document.createElement('div');
-    element.setAttribute(eventName, 'return;');
-    isSupported = typeof element[eventName] === 'function';
-  }
-
-  if (!isSupported && useHasFeature && eventNameSuffix === 'wheel') {
-    // This is the only way to test support for the `wheel` event in IE9+.
-    isSupported = document.implementation.hasFeature('Events.wheel', '3.0');
-  }
-
-  return isSupported;
-}
-
-module.exports = isEventSupported;
-
-/***/ }),
-/* 82 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-/**
- * Given a `prevElement` and `nextElement`, determines if the existing
- * instance should be updated as opposed to being destroyed or replaced by a new
- * instance. Both arguments are elements. This ensures that this logic can
- * operate on stateless trees without any backing instance.
- *
- * @param {?object} prevElement
- * @param {?object} nextElement
- * @return {boolean} True if the existing instance should be updated.
- * @protected
- */
-
-function shouldUpdateReactComponent(prevElement, nextElement) {
-  var prevEmpty = prevElement === null || prevElement === false;
-  var nextEmpty = nextElement === null || nextElement === false;
-  if (prevEmpty || nextEmpty) {
-    return prevEmpty === nextEmpty;
-  }
-
-  var prevType = typeof prevElement;
-  var nextType = typeof nextElement;
-  if (prevType === 'string' || prevType === 'number') {
-    return nextType === 'string' || nextType === 'number';
-  } else {
-    return nextType === 'object' && prevElement.type === nextElement.type && prevElement.key === nextElement.key;
-  }
-}
-
-module.exports = shouldUpdateReactComponent;
-
-/***/ }),
-/* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var _assign = __webpack_require__(4);
-
-var emptyFunction = __webpack_require__(11);
-var warning = __webpack_require__(2);
-
-var validateDOMNesting = emptyFunction;
-
-if (process.env.NODE_ENV !== 'production') {
-  // This validation code was written based on the HTML5 parsing spec:
-  // https://html.spec.whatwg.org/multipage/syntax.html#has-an-element-in-scope
-  //
-  // Note: this does not catch all invalid nesting, nor does it try to (as it's
-  // not clear what practical benefit doing so provides); instead, we warn only
-  // for cases where the parser will give a parse tree differing from what React
-  // intended. For example, <b><div></div></b> is invalid but we don't warn
-  // because it still parses correctly; we do warn for other cases like nested
-  // <p> tags where the beginning of the second element implicitly closes the
-  // first, causing a confusing mess.
-
-  // https://html.spec.whatwg.org/multipage/syntax.html#special
-  var specialTags = ['address', 'applet', 'area', 'article', 'aside', 'base', 'basefont', 'bgsound', 'blockquote', 'body', 'br', 'button', 'caption', 'center', 'col', 'colgroup', 'dd', 'details', 'dir', 'div', 'dl', 'dt', 'embed', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'frame', 'frameset', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 'iframe', 'img', 'input', 'isindex', 'li', 'link', 'listing', 'main', 'marquee', 'menu', 'menuitem', 'meta', 'nav', 'noembed', 'noframes', 'noscript', 'object', 'ol', 'p', 'param', 'plaintext', 'pre', 'script', 'section', 'select', 'source', 'style', 'summary', 'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'title', 'tr', 'track', 'ul', 'wbr', 'xmp'];
-
-  // https://html.spec.whatwg.org/multipage/syntax.html#has-an-element-in-scope
-  var inScopeTags = ['applet', 'caption', 'html', 'table', 'td', 'th', 'marquee', 'object', 'template',
-
-  // https://html.spec.whatwg.org/multipage/syntax.html#html-integration-point
-  // TODO: Distinguish by namespace here -- for <title>, including it here
-  // errs on the side of fewer warnings
-  'foreignObject', 'desc', 'title'];
-
-  // https://html.spec.whatwg.org/multipage/syntax.html#has-an-element-in-button-scope
-  var buttonScopeTags = inScopeTags.concat(['button']);
-
-  // https://html.spec.whatwg.org/multipage/syntax.html#generate-implied-end-tags
-  var impliedEndTags = ['dd', 'dt', 'li', 'option', 'optgroup', 'p', 'rp', 'rt'];
-
-  var emptyAncestorInfo = {
-    current: null,
-
-    formTag: null,
-    aTagInScope: null,
-    buttonTagInScope: null,
-    nobrTagInScope: null,
-    pTagInButtonScope: null,
-
-    listItemTagAutoclosing: null,
-    dlItemTagAutoclosing: null
-  };
-
-  var updatedAncestorInfo = function (oldInfo, tag, instance) {
-    var ancestorInfo = _assign({}, oldInfo || emptyAncestorInfo);
-    var info = { tag: tag, instance: instance };
-
-    if (inScopeTags.indexOf(tag) !== -1) {
-      ancestorInfo.aTagInScope = null;
-      ancestorInfo.buttonTagInScope = null;
-      ancestorInfo.nobrTagInScope = null;
-    }
-    if (buttonScopeTags.indexOf(tag) !== -1) {
-      ancestorInfo.pTagInButtonScope = null;
-    }
-
-    // See rules for 'li', 'dd', 'dt' start tags in
-    // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-inbody
-    if (specialTags.indexOf(tag) !== -1 && tag !== 'address' && tag !== 'div' && tag !== 'p') {
-      ancestorInfo.listItemTagAutoclosing = null;
-      ancestorInfo.dlItemTagAutoclosing = null;
-    }
-
-    ancestorInfo.current = info;
-
-    if (tag === 'form') {
-      ancestorInfo.formTag = info;
-    }
-    if (tag === 'a') {
-      ancestorInfo.aTagInScope = info;
-    }
-    if (tag === 'button') {
-      ancestorInfo.buttonTagInScope = info;
-    }
-    if (tag === 'nobr') {
-      ancestorInfo.nobrTagInScope = info;
-    }
-    if (tag === 'p') {
-      ancestorInfo.pTagInButtonScope = info;
-    }
-    if (tag === 'li') {
-      ancestorInfo.listItemTagAutoclosing = info;
-    }
-    if (tag === 'dd' || tag === 'dt') {
-      ancestorInfo.dlItemTagAutoclosing = info;
-    }
-
-    return ancestorInfo;
-  };
-
-  /**
-   * Returns whether
-   */
-  var isTagValidWithParent = function (tag, parentTag) {
-    // First, let's check if we're in an unusual parsing mode...
-    switch (parentTag) {
-      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-inselect
-      case 'select':
-        return tag === 'option' || tag === 'optgroup' || tag === '#text';
-      case 'optgroup':
-        return tag === 'option' || tag === '#text';
-      // Strictly speaking, seeing an <option> doesn't mean we're in a <select>
-      // but
-      case 'option':
-        return tag === '#text';
-
-      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-intd
-      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-incaption
-      // No special behavior since these rules fall back to "in body" mode for
-      // all except special table nodes which cause bad parsing behavior anyway.
-
-      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-intr
-      case 'tr':
-        return tag === 'th' || tag === 'td' || tag === 'style' || tag === 'script' || tag === 'template';
-
-      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-intbody
-      case 'tbody':
-      case 'thead':
-      case 'tfoot':
-        return tag === 'tr' || tag === 'style' || tag === 'script' || tag === 'template';
-
-      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-incolgroup
-      case 'colgroup':
-        return tag === 'col' || tag === 'template';
-
-      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-intable
-      case 'table':
-        return tag === 'caption' || tag === 'colgroup' || tag === 'tbody' || tag === 'tfoot' || tag === 'thead' || tag === 'style' || tag === 'script' || tag === 'template';
-
-      // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-inhead
-      case 'head':
-        return tag === 'base' || tag === 'basefont' || tag === 'bgsound' || tag === 'link' || tag === 'meta' || tag === 'title' || tag === 'noscript' || tag === 'noframes' || tag === 'style' || tag === 'script' || tag === 'template';
-
-      // https://html.spec.whatwg.org/multipage/semantics.html#the-html-element
-      case 'html':
-        return tag === 'head' || tag === 'body';
-      case '#document':
-        return tag === 'html';
-    }
-
-    // Probably in the "in body" parsing mode, so we outlaw only tag combos
-    // where the parsing rules cause implicit opens or closes to be added.
-    // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-inbody
-    switch (tag) {
-      case 'h1':
-      case 'h2':
-      case 'h3':
-      case 'h4':
-      case 'h5':
-      case 'h6':
-        return parentTag !== 'h1' && parentTag !== 'h2' && parentTag !== 'h3' && parentTag !== 'h4' && parentTag !== 'h5' && parentTag !== 'h6';
-
-      case 'rp':
-      case 'rt':
-        return impliedEndTags.indexOf(parentTag) === -1;
-
-      case 'body':
-      case 'caption':
-      case 'col':
-      case 'colgroup':
-      case 'frame':
-      case 'head':
-      case 'html':
-      case 'tbody':
-      case 'td':
-      case 'tfoot':
-      case 'th':
-      case 'thead':
-      case 'tr':
-        // These tags are only valid with a few parents that have special child
-        // parsing rules -- if we're down here, then none of those matched and
-        // so we allow it only if we don't know what the parent is, as all other
-        // cases are invalid.
-        return parentTag == null;
-    }
-
-    return true;
-  };
-
-  /**
-   * Returns whether
-   */
-  var findInvalidAncestorForTag = function (tag, ancestorInfo) {
-    switch (tag) {
-      case 'address':
-      case 'article':
-      case 'aside':
-      case 'blockquote':
-      case 'center':
-      case 'details':
-      case 'dialog':
-      case 'dir':
-      case 'div':
-      case 'dl':
-      case 'fieldset':
-      case 'figcaption':
-      case 'figure':
-      case 'footer':
-      case 'header':
-      case 'hgroup':
-      case 'main':
-      case 'menu':
-      case 'nav':
-      case 'ol':
-      case 'p':
-      case 'section':
-      case 'summary':
-      case 'ul':
-
-      case 'pre':
-      case 'listing':
-
-      case 'table':
-
-      case 'hr':
-
-      case 'xmp':
-
-      case 'h1':
-      case 'h2':
-      case 'h3':
-      case 'h4':
-      case 'h5':
-      case 'h6':
-        return ancestorInfo.pTagInButtonScope;
-
-      case 'form':
-        return ancestorInfo.formTag || ancestorInfo.pTagInButtonScope;
-
-      case 'li':
-        return ancestorInfo.listItemTagAutoclosing;
-
-      case 'dd':
-      case 'dt':
-        return ancestorInfo.dlItemTagAutoclosing;
-
-      case 'button':
-        return ancestorInfo.buttonTagInScope;
-
-      case 'a':
-        // Spec says something about storing a list of markers, but it sounds
-        // equivalent to this check.
-        return ancestorInfo.aTagInScope;
-
-      case 'nobr':
-        return ancestorInfo.nobrTagInScope;
-    }
-
-    return null;
-  };
-
-  /**
-   * Given a ReactCompositeComponent instance, return a list of its recursive
-   * owners, starting at the root and ending with the instance itself.
-   */
-  var findOwnerStack = function (instance) {
-    if (!instance) {
-      return [];
-    }
-
-    var stack = [];
-    do {
-      stack.push(instance);
-    } while (instance = instance._currentElement._owner);
-    stack.reverse();
-    return stack;
-  };
-
-  var didWarn = {};
-
-  validateDOMNesting = function (childTag, childText, childInstance, ancestorInfo) {
-    ancestorInfo = ancestorInfo || emptyAncestorInfo;
-    var parentInfo = ancestorInfo.current;
-    var parentTag = parentInfo && parentInfo.tag;
-
-    if (childText != null) {
-      process.env.NODE_ENV !== 'production' ? warning(childTag == null, 'validateDOMNesting: when childText is passed, childTag should be null') : void 0;
-      childTag = '#text';
-    }
-
-    var invalidParent = isTagValidWithParent(childTag, parentTag) ? null : parentInfo;
-    var invalidAncestor = invalidParent ? null : findInvalidAncestorForTag(childTag, ancestorInfo);
-    var problematic = invalidParent || invalidAncestor;
-
-    if (problematic) {
-      var ancestorTag = problematic.tag;
-      var ancestorInstance = problematic.instance;
-
-      var childOwner = childInstance && childInstance._currentElement._owner;
-      var ancestorOwner = ancestorInstance && ancestorInstance._currentElement._owner;
-
-      var childOwners = findOwnerStack(childOwner);
-      var ancestorOwners = findOwnerStack(ancestorOwner);
-
-      var minStackLen = Math.min(childOwners.length, ancestorOwners.length);
-      var i;
-
-      var deepestCommon = -1;
-      for (i = 0; i < minStackLen; i++) {
-        if (childOwners[i] === ancestorOwners[i]) {
-          deepestCommon = i;
-        } else {
-          break;
-        }
-      }
-
-      var UNKNOWN = '(unknown)';
-      var childOwnerNames = childOwners.slice(deepestCommon + 1).map(function (inst) {
-        return inst.getName() || UNKNOWN;
-      });
-      var ancestorOwnerNames = ancestorOwners.slice(deepestCommon + 1).map(function (inst) {
-        return inst.getName() || UNKNOWN;
-      });
-      var ownerInfo = [].concat(
-      // If the parent and child instances have a common owner ancestor, start
-      // with that -- otherwise we just start with the parent's owners.
-      deepestCommon !== -1 ? childOwners[deepestCommon].getName() || UNKNOWN : [], ancestorOwnerNames, ancestorTag,
-      // If we're warning about an invalid (non-parent) ancestry, add '...'
-      invalidAncestor ? ['...'] : [], childOwnerNames, childTag).join(' > ');
-
-      var warnKey = !!invalidParent + '|' + childTag + '|' + ancestorTag + '|' + ownerInfo;
-      if (didWarn[warnKey]) {
-        return;
-      }
-      didWarn[warnKey] = true;
-
-      var tagDisplayName = childTag;
-      var whitespaceInfo = '';
-      if (childTag === '#text') {
-        if (/\S/.test(childText)) {
-          tagDisplayName = 'Text nodes';
-        } else {
-          tagDisplayName = 'Whitespace text nodes';
-          whitespaceInfo = ' Make sure you don\'t have any extra whitespace between tags on ' + 'each line of your source code.';
-        }
-      } else {
-        tagDisplayName = '<' + childTag + '>';
-      }
-
-      if (invalidParent) {
-        var info = '';
-        if (ancestorTag === 'table' && childTag === 'tr') {
-          info += ' Add a <tbody> to your code to match the DOM tree generated by ' + 'the browser.';
-        }
-        process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a child of <%s>.%s ' + 'See %s.%s', tagDisplayName, ancestorTag, whitespaceInfo, ownerInfo, info) : void 0;
-      } else {
-        process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a descendant of ' + '<%s>. See %s.', tagDisplayName, ancestorTag, ownerInfo) : void 0;
-      }
-    }
-  };
-
-  validateDOMNesting.updatedAncestorInfo = updatedAncestorInfo;
-
-  // For testing
-  validateDOMNesting.isTagValidInContext = function (tag, ancestorInfo) {
-    ancestorInfo = ancestorInfo || emptyAncestorInfo;
-    var parentInfo = ancestorInfo.current;
-    var parentTag = parentInfo && parentInfo.tag;
-    return isTagValidWithParent(tag, parentTag) && !findInvalidAncestorForTag(tag, ancestorInfo);
-  };
-}
-
-module.exports = validateDOMNesting;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 84 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var _prodInvariant = __webpack_require__(25);
-
-var ReactNoopUpdateQueue = __webpack_require__(85);
-
-var canDefineProperty = __webpack_require__(87);
-var emptyObject = __webpack_require__(37);
-var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
-
-/**
- * Base class helpers for the updating state of a component.
- */
-function ReactComponent(props, context, updater) {
-  this.props = props;
-  this.context = context;
-  this.refs = emptyObject;
-  // We initialize the default updater but the real one gets injected by the
-  // renderer.
-  this.updater = updater || ReactNoopUpdateQueue;
-}
-
-ReactComponent.prototype.isReactComponent = {};
-
-/**
- * Sets a subset of the state. Always use this to mutate
- * state. You should treat `this.state` as immutable.
- *
- * There is no guarantee that `this.state` will be immediately updated, so
- * accessing `this.state` after calling this method may return the old value.
- *
- * There is no guarantee that calls to `setState` will run synchronously,
- * as they may eventually be batched together.  You can provide an optional
- * callback that will be executed when the call to setState is actually
- * completed.
- *
- * When a function is provided to setState, it will be called at some point in
- * the future (not synchronously). It will be called with the up to date
- * component arguments (state, props, context). These values can be different
- * from this.* because your function may be called after receiveProps but before
- * shouldComponentUpdate, and this new state, props, and context will not yet be
- * assigned to this.
- *
- * @param {object|function} partialState Next partial state or function to
- *        produce next partial state to be merged with current state.
- * @param {?function} callback Called after state is updated.
- * @final
- * @protected
- */
-ReactComponent.prototype.setState = function (partialState, callback) {
-  !(typeof partialState === 'object' || typeof partialState === 'function' || partialState == null) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'setState(...): takes an object of state variables to update or a function which returns an object of state variables.') : _prodInvariant('85') : void 0;
-  this.updater.enqueueSetState(this, partialState);
-  if (callback) {
-    this.updater.enqueueCallback(this, callback, 'setState');
-  }
-};
-
-/**
- * Forces an update. This should only be invoked when it is known with
- * certainty that we are **not** in a DOM transaction.
- *
- * You may want to call this when you know that some deeper aspect of the
- * component's state has changed but `setState` was not called.
- *
- * This will not invoke `shouldComponentUpdate`, but it will invoke
- * `componentWillUpdate` and `componentDidUpdate`.
- *
- * @param {?function} callback Called after update is complete.
- * @final
- * @protected
- */
-ReactComponent.prototype.forceUpdate = function (callback) {
-  this.updater.enqueueForceUpdate(this);
-  if (callback) {
-    this.updater.enqueueCallback(this, callback, 'forceUpdate');
-  }
-};
-
-/**
- * Deprecated APIs. These APIs used to exist on classic React classes but since
- * we would like to deprecate them, we're not going to move them over to this
- * modern base class. Instead, we define a getter that warns if it's accessed.
- */
-if (process.env.NODE_ENV !== 'production') {
-  var deprecatedAPIs = {
-    isMounted: ['isMounted', 'Instead, make sure to clean up subscriptions and pending requests in ' + 'componentWillUnmount to prevent memory leaks.'],
-    replaceState: ['replaceState', 'Refactor your code to use setState instead (see ' + 'https://github.com/facebook/react/issues/3236).']
-  };
-  var defineDeprecationWarning = function (methodName, info) {
-    if (canDefineProperty) {
-      Object.defineProperty(ReactComponent.prototype, methodName, {
-        get: function () {
-          process.env.NODE_ENV !== 'production' ? warning(false, '%s(...) is deprecated in plain JavaScript React classes. %s', info[0], info[1]) : void 0;
-          return undefined;
-        }
-      });
-    }
-  };
-  for (var fnName in deprecatedAPIs) {
-    if (deprecatedAPIs.hasOwnProperty(fnName)) {
-      defineDeprecationWarning(fnName, deprecatedAPIs[fnName]);
-    }
-  }
-}
-
-module.exports = ReactComponent;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 85 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var warning = __webpack_require__(2);
-
-function warnNoop(publicInstance, callerName) {
-  if (process.env.NODE_ENV !== 'production') {
-    var constructor = publicInstance.constructor;
-    process.env.NODE_ENV !== 'production' ? warning(false, '%s(...): Can only update a mounted or mounting component. ' + 'This usually means you called %s() on an unmounted component. ' + 'This is a no-op. Please check the code for the %s component.', callerName, callerName, constructor && (constructor.displayName || constructor.name) || 'ReactClass') : void 0;
-  }
-}
-
-/**
- * This is the abstract API for an update queue.
- */
-var ReactNoopUpdateQueue = {
-
-  /**
-   * Checks whether or not this composite component is mounted.
-   * @param {ReactClass} publicInstance The instance we want to test.
-   * @return {boolean} True if mounted, false otherwise.
-   * @protected
-   * @final
-   */
-  isMounted: function (publicInstance) {
-    return false;
-  },
-
-  /**
-   * Enqueue a callback that will be executed after all the pending updates
-   * have processed.
-   *
-   * @param {ReactClass} publicInstance The instance to use as `this` context.
-   * @param {?function} callback Called after state is updated.
-   * @internal
-   */
-  enqueueCallback: function (publicInstance, callback) {},
-
-  /**
-   * Forces an update. This should only be invoked when it is known with
-   * certainty that we are **not** in a DOM transaction.
-   *
-   * You may want to call this when you know that some deeper aspect of the
-   * component's state has changed but `setState` was not called.
-   *
-   * This will not invoke `shouldComponentUpdate`, but it will invoke
-   * `componentWillUpdate` and `componentDidUpdate`.
-   *
-   * @param {ReactClass} publicInstance The instance that should rerender.
-   * @internal
-   */
-  enqueueForceUpdate: function (publicInstance) {
-    warnNoop(publicInstance, 'forceUpdate');
-  },
-
-  /**
-   * Replaces all of the state. Always use this or `setState` to mutate state.
-   * You should treat `this.state` as immutable.
-   *
-   * There is no guarantee that `this.state` will be immediately updated, so
-   * accessing `this.state` after calling this method may return the old value.
-   *
-   * @param {ReactClass} publicInstance The instance that should rerender.
-   * @param {object} completeState Next state.
-   * @internal
-   */
-  enqueueReplaceState: function (publicInstance, completeState) {
-    warnNoop(publicInstance, 'replaceState');
-  },
-
-  /**
-   * Sets a subset of the state. This only exists because _pendingState is
-   * internal. This provides a merging strategy that is not available to deep
-   * properties which is confusing. TODO: Expose pendingState or don't use it
-   * during the merge.
-   *
-   * @param {ReactClass} publicInstance The instance that should rerender.
-   * @param {object} partialState Next partial state to be merged with state.
-   * @internal
-   */
-  enqueueSetState: function (publicInstance, partialState) {
-    warnNoop(publicInstance, 'setState');
-  }
-};
-
-module.exports = ReactNoopUpdateQueue;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 86 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
-
-
-var ReactPropTypeLocationNames = {};
-
-if (process.env.NODE_ENV !== 'production') {
-  ReactPropTypeLocationNames = {
-    prop: 'prop',
-    context: 'context',
-    childContext: 'child context'
-  };
-}
-
-module.exports = ReactPropTypeLocationNames;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
-
-
-var canDefineProperty = false;
-if (process.env.NODE_ENV !== 'production') {
-  try {
-    // $FlowFixMe https://github.com/facebook/flow/issues/285
-    Object.defineProperty({}, 'x', { get: function () {} });
-    canDefineProperty = true;
-  } catch (x) {
-    // IE will fail on defineProperty
-  }
-}
-
-module.exports = canDefineProperty;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
-
-
-/* global Symbol */
-
-var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
-var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
-
-/**
- * Returns the iterator method function contained on the iterable object.
- *
- * Be sure to invoke the function with the iterable as context:
- *
- *     var iteratorFn = getIteratorFn(myIterable);
- *     if (iteratorFn) {
- *       var iterator = iteratorFn.call(myIterable);
- *       ...
- *     }
- *
- * @param {?object} maybeIterable
- * @return {?function}
- */
-function getIteratorFn(maybeIterable) {
-  var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
-  if (typeof iteratorFn === 'function') {
-    return iteratorFn;
-  }
-}
-
-module.exports = getIteratorFn;
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(266);
-
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var React = __webpack_require__(7),
-    MediaQuery = __webpack_require__(50).default;
-
-var TopNav = React.createClass({
-  displayName: 'TopNav',
-
-
-  propTypes: {
-    onMenuClick: React.PropTypes.func,
-    onToolsMenuClick: React.PropTypes.func,
-    onNextButtonClick: React.PropTypes.func,
-    onBackButtonClick: React.PropTypes.func,
-    onTranscriptButtonClick: React.PropTypes.func,
-    onPlayPauseClick: React.PropTypes.func,
-    totalPages: React.PropTypes.number,
-    currentPageNumber: React.PropTypes.number,
-    onReplayClick: React.PropTypes.func,
-    isMenuOpened: React.PropTypes.bool
-  },
-
-  getDoubleDigit: function getDoubleDigit(num) {
-    return num > 9 ? num : '0' + num;
-  },
-  render: function render() {
-    return React.createElement(
-      'div',
-      { className: 'top-nav' },
-      React.createElement('div', { className: 'leftButtons' }),
-      React.createElement(
-        'div',
-        { className: 'middleButtons' },
-        React.createElement(
-          'div',
-          { className: 'button-box' },
-          React.createElement(
-            'a',
-            { href: '#', id: 'button-tool', onClick: this.props.onToolsMenuClick, className: 'tabindex', 'aria-label': 'menu', role: 'button', 'aria-disabled': 'false', 'aria-pressed': 'false' },
-            React.createElement('span', { className: 'button-label' }),
-            React.createElement(
-              'span',
-              { className: 'icon-tools' },
-              '\uE627'
-            )
-          )
-        ),
-        React.createElement(
-          'div',
-          { className: 'button-box' },
-          React.createElement(
-            'a',
-            { href: '#', id: 'button-pause', onClick: this.props.onPlayPauseClick, className: 'tabindex', 'aria-label': 'menu', role: 'button', 'aria-disabled': 'false', 'aria-pressed': 'false' },
-            React.createElement('span', { className: 'button-label' }),
-            React.createElement('span', { className: 'icon-playPause' })
-          )
-        ),
-        React.createElement(
-          'div',
-          { className: 'button-box' },
-          React.createElement(
-            'a',
-            { href: '#', id: 'button-back', onClick: this.props.onBackButtonClick, className: 'tabindex', 'aria-label': 'menu', role: 'button', 'aria-disabled': 'false', 'aria-pressed': 'false' },
-            React.createElement('span', { className: 'button-label' }),
-            React.createElement(
-              'span',
-              { className: 'icon-back' },
-              '\uE607'
-            )
-          )
-        ),
-        React.createElement(
-          'div',
-          { className: 'nav-comp-container' },
-          React.createElement(
-            'div',
-            { className: 'page-counter clearfix' },
-            React.createElement(
-              'span',
-              { className: 'page-number' },
-              this.getDoubleDigit(this.props.currentPageNumber)
-            ),
-            React.createElement(
-              'span',
-              { className: 'page-separator' },
-              '|'
-            ),
-            React.createElement(
-              'span',
-              { className: 'total-pages' },
-              this.getDoubleDigit(this.props.totalPages)
-            )
-          )
-        ),
-        React.createElement(
-          'div',
-          { className: 'button-box' },
-          React.createElement(
-            'a',
-            { href: '#', id: 'button-next', onClick: this.props.onNextButtonClick, className: 'tabindex', 'aria-label': 'next', role: 'button', 'aria-disabled': 'false' },
-            React.createElement('span', { className: 'button-label' }),
-            React.createElement(
-              'span',
-              { className: 'icon-next' },
-              '\uE617'
-            )
-          )
-        ),
-        React.createElement(
-          'div',
-          { className: 'button-box' },
-          React.createElement(
-            'a',
-            { href: '#', id: 'button-transcript', onClick: this.props.onTranscriptButtonClick, className: 'tabindex', 'aria-label': 'transcript', role: 'button', 'aria-disabled': 'false', 'aria-pressed': 'false' },
-            React.createElement('span', { className: 'button-label' }),
-            React.createElement('span', { className: 'icon-transcript' })
-          )
-        ),
-        React.createElement(
-          'div',
-          { className: 'button-box' },
-          React.createElement(
-            'a',
-            { href: '#', id: 'button-menu', onClick: this.props.onMenuClick, className: 'tabindex', 'aria-label': 'menu', role: 'button', 'aria-disabled': 'false', 'aria-pressed': 'false' },
-            React.createElement('span', { className: 'button-label' }),
-            React.createElement(
-              'span',
-              { className: 'icon-menu' },
-              '\uE616'
-            )
-          )
-        )
-      ),
-      React.createElement('div', { className: 'rightButtons' })
-    );
-  }
-});
-
-exports.default = TopNav;
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(178), __esModule: true };
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _assign = __webpack_require__(151);
-
-var _assign2 = _interopRequireDefault(_assign);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _assign2.default || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }
-
-  return target;
-};
-
-/***/ }),
-/* 93 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(165);
-
-/***/ }),
-/* 94 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isObject = __webpack_require__(33)
-  , document = __webpack_require__(17).document
-  // in old IE typeof document.createElement is 'object'
-  , is = isObject(document) && isObject(document.createElement);
-module.exports = function(it){
-  return is ? document.createElement(it) : {};
-};
-
-/***/ }),
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = !__webpack_require__(21) && !__webpack_require__(27)(function(){
-  return Object.defineProperty(__webpack_require__(94)('div'), 'a', {get: function(){ return 7; }}).a != 7;
-});
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// fallback for non-array-like ES3 and non-enumerable old V8 strings
-var cof = __webpack_require__(51);
-module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
-  return cof(it) == 'String' ? it.split('') : Object(it);
-};
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var LIBRARY        = __webpack_require__(55)
-  , $export        = __webpack_require__(16)
-  , redefine       = __webpack_require__(101)
-  , hide           = __webpack_require__(28)
-  , has            = __webpack_require__(22)
-  , Iterators      = __webpack_require__(34)
-  , $iterCreate    = __webpack_require__(192)
-  , setToStringTag = __webpack_require__(60)
-  , getPrototypeOf = __webpack_require__(99)
-  , ITERATOR       = __webpack_require__(12)('iterator')
-  , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
-  , FF_ITERATOR    = '@@iterator'
-  , KEYS           = 'keys'
-  , VALUES         = 'values';
-
-var returnThis = function(){ return this; };
-
-module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED){
-  $iterCreate(Constructor, NAME, next);
-  var getMethod = function(kind){
-    if(!BUGGY && kind in proto)return proto[kind];
-    switch(kind){
-      case KEYS: return function keys(){ return new Constructor(this, kind); };
-      case VALUES: return function values(){ return new Constructor(this, kind); };
-    } return function entries(){ return new Constructor(this, kind); };
-  };
-  var TAG        = NAME + ' Iterator'
-    , DEF_VALUES = DEFAULT == VALUES
-    , VALUES_BUG = false
-    , proto      = Base.prototype
-    , $native    = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT]
-    , $default   = $native || getMethod(DEFAULT)
-    , $entries   = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined
-    , $anyNative = NAME == 'Array' ? proto.entries || $native : $native
-    , methods, key, IteratorPrototype;
-  // Fix native
-  if($anyNative){
-    IteratorPrototype = getPrototypeOf($anyNative.call(new Base));
-    if(IteratorPrototype !== Object.prototype){
-      // Set @@toStringTag to native iterators
-      setToStringTag(IteratorPrototype, TAG, true);
-      // fix for some old engines
-      if(!LIBRARY && !has(IteratorPrototype, ITERATOR))hide(IteratorPrototype, ITERATOR, returnThis);
-    }
-  }
-  // fix Array#{values, @@iterator}.name in V8 / FF
-  if(DEF_VALUES && $native && $native.name !== VALUES){
-    VALUES_BUG = true;
-    $default = function values(){ return $native.call(this); };
-  }
-  // Define iterator
-  if((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])){
-    hide(proto, ITERATOR, $default);
-  }
-  // Plug for library
-  Iterators[NAME] = $default;
-  Iterators[TAG]  = returnThis;
-  if(DEFAULT){
-    methods = {
-      values:  DEF_VALUES ? $default : getMethod(VALUES),
-      keys:    IS_SET     ? $default : getMethod(KEYS),
-      entries: $entries
-    };
-    if(FORCED)for(key in methods){
-      if(!(key in proto))redefine(proto, key, methods[key]);
-    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
-  }
-  return methods;
-};
-
-/***/ }),
-/* 98 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-var $keys      = __webpack_require__(100)
-  , hiddenKeys = __webpack_require__(54).concat('length', 'prototype');
-
-exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
-  return $keys(O, hiddenKeys);
-};
-
-/***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-var has         = __webpack_require__(22)
-  , toObject    = __webpack_require__(36)
-  , IE_PROTO    = __webpack_require__(61)('IE_PROTO')
-  , ObjectProto = Object.prototype;
-
-module.exports = Object.getPrototypeOf || function(O){
-  O = toObject(O);
-  if(has(O, IE_PROTO))return O[IE_PROTO];
-  if(typeof O.constructor == 'function' && O instanceof O.constructor){
-    return O.constructor.prototype;
-  } return O instanceof Object ? ObjectProto : null;
-};
-
-/***/ }),
-/* 100 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var has          = __webpack_require__(22)
-  , toIObject    = __webpack_require__(19)
-  , arrayIndexOf = __webpack_require__(184)(false)
-  , IE_PROTO     = __webpack_require__(61)('IE_PROTO');
-
-module.exports = function(object, names){
-  var O      = toIObject(object)
-    , i      = 0
-    , result = []
-    , key;
-  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
-  // Don't enum bug & hidden keys
-  while(names.length > i)if(has(O, key = names[i++])){
-    ~arrayIndexOf(result, key) || result.push(key);
-  }
-  return result;
-};
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(28);
-
-/***/ }),
-/* 102 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.15 ToLength
-var toInteger = __webpack_require__(63)
-  , min       = Math.min;
-module.exports = function(it){
-  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
-};
-
-/***/ }),
-/* 103 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var $at  = __webpack_require__(201)(true);
-
-// 21.1.3.27 String.prototype[@@iterator]()
-__webpack_require__(97)(String, 'String', function(iterated){
-  this._t = String(iterated); // target
-  this._i = 0;                // next index
-// 21.1.5.2.1 %StringIteratorPrototype%.next()
-}, function(){
-  var O     = this._t
-    , index = this._i
-    , point;
-  if(index >= O.length)return {value: undefined, done: true};
-  point = $at(O, index);
-  this._i += point.length;
-  return {value: point, done: false};
-});
-
-/***/ }),
-/* 104 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * @typechecks
- */
-
-var emptyFunction = __webpack_require__(11);
-
-/**
- * Upstream version of event listener. Does not take into account specific
- * nature of platform.
- */
-var EventListener = {
-  /**
-   * Listen to DOM events during the bubble phase.
-   *
-   * @param {DOMEventTarget} target DOM element to register listener on.
-   * @param {string} eventType Event type, e.g. 'click' or 'mouseover'.
-   * @param {function} callback Callback function.
-   * @return {object} Object with a `remove` method.
-   */
-  listen: function listen(target, eventType, callback) {
-    if (target.addEventListener) {
-      target.addEventListener(eventType, callback, false);
-      return {
-        remove: function remove() {
-          target.removeEventListener(eventType, callback, false);
-        }
-      };
-    } else if (target.attachEvent) {
-      target.attachEvent('on' + eventType, callback);
-      return {
-        remove: function remove() {
-          target.detachEvent('on' + eventType, callback);
-        }
-      };
-    }
-  },
-
-  /**
-   * Listen to DOM events during the capture phase.
-   *
-   * @param {DOMEventTarget} target DOM element to register listener on.
-   * @param {string} eventType Event type, e.g. 'click' or 'mouseover'.
-   * @param {function} callback Callback function.
-   * @return {object} Object with a `remove` method.
-   */
-  capture: function capture(target, eventType, callback) {
-    if (target.addEventListener) {
-      target.addEventListener(eventType, callback, true);
-      return {
-        remove: function remove() {
-          target.removeEventListener(eventType, callback, true);
-        }
-      };
-    } else {
-      if (process.env.NODE_ENV !== 'production') {
-        console.error('Attempted to listen to events during the capture phase on a ' + 'browser that does not support the capture phase. Your application ' + 'will not receive some events.');
-      }
-      return {
-        remove: emptyFunction
-      };
-    }
-  },
-
-  registerDefault: function registerDefault() {}
-};
-
-module.exports = EventListener;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 105 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-/**
- * @param {DOMElement} node input/textarea to focus
- */
-
-function focusNode(node) {
-  // IE8 can throw "Can't move focus to the control because it is invisible,
-  // not enabled, or of a type that does not accept the focus." for all kinds of
-  // reasons that are too expensive and fragile to test.
-  try {
-    node.focus();
-  } catch (e) {}
-}
-
-module.exports = focusNode;
-
-/***/ }),
-/* 106 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * @typechecks
- */
-
-/* eslint-disable fb-www/typeof-undefined */
-
-/**
- * Same as document.activeElement but wraps in a try-catch block. In IE it is
- * not safe to call document.activeElement if there is nothing focused.
- *
- * The activeElement will be null only if the document or document body is not
- * yet defined.
- *
- * @param {?DOMDocument} doc Defaults to current document.
- * @return {?DOMElement}
- */
-function getActiveElement(doc) /*?DOMElement*/{
-  doc = doc || global.document;
-  if (typeof doc === 'undefined') {
-    return null;
-  }
-  try {
-    return doc.activeElement || doc.body;
-  } catch (e) {
-    return doc.body;
-  }
-}
-
-module.exports = getActiveElement;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(136)))
-
-/***/ }),
-/* 107 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/fonts/Lato-Light.eot";
-
-/***/ }),
 /* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/lato-regular-webfont.eot";
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+module.exports = ReactPropTypesSecret;
+
 
 /***/ }),
 /* 109 */
@@ -19585,8 +19563,8 @@ module.exports = ReactHostComponent;
 var ReactDOMSelection = __webpack_require__(276);
 
 var containsNode = __webpack_require__(222);
-var focusNode = __webpack_require__(105);
-var getActiveElement = __webpack_require__(106);
+var focusNode = __webpack_require__(103);
+var getActiveElement = __webpack_require__(104);
 
 function isInDocument(node) {
   return containsNode(document.documentElement, node);
@@ -20964,240 +20942,6 @@ exports.default = _sidebar2.default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-var _react = __webpack_require__(7);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _soundmanager2 = __webpack_require__(336);
-
-var pendingCalls = [];
-var initialized = false;
-
-function _createSound(options, cb) {
-  if (_soundmanager2.soundManager.ok()) {
-    cb(_soundmanager2.soundManager.createSound(options));
-    return function () {};
-  } else {
-    var _ret = (function () {
-      if (!initialized) {
-        initialized = true;
-        _soundmanager2.soundManager.beginDelayedInit();
-      }
-
-      var call = function call() {
-        cb(_soundmanager2.soundManager.createSound(options));
-      };
-
-      pendingCalls.push(call);
-
-      return {
-        v: function () {
-          pendingCalls.splice(pendingCalls.indexOf(call), 1);
-        }
-      };
-    })();
-
-    if (typeof _ret === 'object') return _ret.v;
-  }
-}
-
-_soundmanager2.soundManager.onready(function () {
-  pendingCalls.slice().forEach(function (cb) {
-    return cb();
-  });
-});
-
-function noop() {}
-
-var playStatuses = {
-  PLAYING: 'PLAYING',
-  STOPPED: 'STOPPED',
-  PAUSED: 'PAUSED'
-};
-
-var Sound = (function (_React$Component) {
-  function Sound() {
-    _classCallCheck(this, Sound);
-
-    _get(Object.getPrototypeOf(Sound.prototype), 'constructor', this).apply(this, arguments);
-  }
-
-  _inherits(Sound, _React$Component);
-
-  _createClass(Sound, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this = this;
-
-      this.createSound(function (sound) {
-        if (_this.props.playStatus === playStatuses.PLAYING) {
-          sound.play();
-        }
-      });
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.removeSound();
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate(prevProps) {
-      var _this2 = this;
-
-      var withSound = function withSound(sound) {
-        if (!sound) {
-          return;
-        }
-
-        if (_this2.props.playStatus === playStatuses.PLAYING) {
-          if (sound.playState === 0) {
-            sound.play();
-          }
-
-          if (sound.paused) {
-            sound.resume();
-          }
-        } else if (_this2.props.playStatus === playStatuses.STOPPED) {
-          if (sound.playState !== 0) {
-            sound.stop();
-          }
-        } else {
-          // this.props.playStatus === playStatuses.PAUSED
-          if (!sound.paused) {
-            sound.pause();
-          }
-        }
-
-        if (_this2.props.playFromPosition !== prevProps.playFromPosition) {
-          sound.setPosition(_this2.props.playFromPosition);
-        }
-
-        if (_this2.props.position != null) {
-          if (sound.position !== _this2.props.position && Math.round(sound.position) !== Math.round(_this2.props.position)) {
-
-            sound.setPosition(_this2.props.position);
-          }
-        }
-
-        if (_this2.props.volume !== prevProps.volume) {
-          sound.setVolume(_this2.props.volume);
-        }
-      };
-
-      if (this.props.url !== prevProps.url) {
-        this.createSound(withSound);
-      } else {
-        withSound(this.sound);
-      }
-    }
-  }, {
-    key: 'createSound',
-    value: function createSound(callback) {
-      var _this3 = this;
-
-      this.removeSound();
-
-      var props = this.props;
-
-      if (!props.url) {
-        return;
-      }
-
-      this.stopCreatingSound = _createSound({
-        url: this.props.url,
-        volume: props.volume,
-        whileloading: function whileloading() {
-          props.onLoading(this);
-        },
-        whileplaying: function whileplaying() {
-          props.onPlaying(this);
-        },
-        onfinish: function onfinish() {
-          props.onFinishedPlaying();
-        }
-      }, function (sound) {
-        _this3.sound = sound;
-        callback(sound);
-      });
-    }
-  }, {
-    key: 'removeSound',
-    value: function removeSound() {
-      if (this.stopCreatingSound) {
-        this.stopCreatingSound();
-        delete this.stopCreatingSound;
-      }
-
-      if (this.sound) {
-        try {
-          this.sound.destruct();
-        } catch (e) {} // eslint-disable-line
-
-        delete this.sound;
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return null;
-    }
-  }], [{
-    key: 'status',
-    value: playStatuses,
-    enumerable: true
-  }, {
-    key: 'propTypes',
-    value: {
-      url: _react.PropTypes.string.isRequired,
-      playStatus: _react.PropTypes.oneOf(Object.keys(playStatuses)).isRequired,
-      position: _react.PropTypes.number,
-      playFromPosition: _react.PropTypes.number,
-      volume: _react.PropTypes.number,
-      onLoading: _react.PropTypes.func,
-      onPlaying: _react.PropTypes.func,
-      onFinishedPlaying: _react.PropTypes.func
-    },
-    enumerable: true
-  }, {
-    key: 'defaultProps',
-    value: {
-      playFromPosition: 0,
-      volume: 100,
-      onLoading: noop,
-      onPlaying: noop,
-      onFinishedPlaying: noop
-    },
-    enumerable: true
-  }]);
-
-  return Sound;
-})(_react2['default'].Component);
-
-exports['default'] = Sound;
-module.exports = exports['default'];
-
-/***/ }),
-/* 132 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -21219,7 +20963,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 133 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21246,10 +20990,10 @@ var ReactCurrentOwner = __webpack_require__(14);
 var ReactComponentTreeHook = __webpack_require__(9);
 var ReactElement = __webpack_require__(24);
 
-var checkReactTypeSpec = __webpack_require__(333);
+var checkReactTypeSpec = __webpack_require__(334);
 
-var canDefineProperty = __webpack_require__(87);
-var getIteratorFn = __webpack_require__(88);
+var canDefineProperty = __webpack_require__(51);
+var getIteratorFn = __webpack_require__(134);
 var warning = __webpack_require__(2);
 
 function getDeclarationErrorAddendum() {
@@ -21478,6 +21222,37 @@ module.exports = ReactElementValidator;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+/* 133 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+
+
+
+var ReactPropTypeLocationNames = {};
+
+if (process.env.NODE_ENV !== 'production') {
+  ReactPropTypeLocationNames = {
+    prop: 'prop',
+    context: 'context',
+    childContext: 'child context'
+  };
+}
+
+module.exports = ReactPropTypeLocationNames;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21495,9 +21270,33 @@ module.exports = ReactElementValidator;
 
 
 
-var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+/* global Symbol */
 
-module.exports = ReactPropTypesSecret;
+var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+/**
+ * Returns the iterator method function contained on the iterable object.
+ *
+ * Be sure to invoke the function with the iterable as context:
+ *
+ *     var iteratorFn = getIteratorFn(myIterable);
+ *     if (iteratorFn) {
+ *       var iterator = iteratorFn.call(myIterable);
+ *       ...
+ *     }
+ *
+ * @param {?object} maybeIterable
+ * @return {?function}
+ */
+function getIteratorFn(maybeIterable) {
+  var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+  if (typeof iteratorFn === 'function') {
+    return iteratorFn;
+  }
+}
+
+module.exports = getIteratorFn;
 
 /***/ }),
 /* 135 */
@@ -21542,19 +21341,62 @@ module.exports = g;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _preloader = __webpack_require__(346);
+
+var _preloader2 = _interopRequireDefault(_preloader);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var React = __webpack_require__(7);
 var Shell = __webpack_require__(144).default;
-var Sound = __webpack_require__(131);
+
 
 var Instruction = React.createClass({
   displayName: 'Instruction',
   getInitialState: function getInitialState() {
+    var uagent = navigator.userAgent.toLowerCase();
     return {
-      isStartCourse: false
+      isStartCourse: false,
+      isMobile: uagent.search("mobile") > -1,
+      isLoading: true
     };
+  },
+  componentDidMount: function componentDidMount() {
+    var self = this;
+    var preloader = new _preloader2.default({
+      resources: ['images/m01_t01_p02/m01_t01_p02_img1.png', 'images/m01_t01_p03/Slide_08_image_01.jpg', 'images/m01_t01_p03/Slide_08_image_02.jpg', 'images/m01_t01_p04/m01_t01_p04_01_large.jpg', 'images/m01_t01_p04/m01_t01_p04_03_large.jpg', 'images/m01_t01_p04/m01_t01_p04_02_large.jpg', 'images/m01_t01_p04/m01_t01_p04_04_large.jpg', 'images/m01_t01_p04/icon1.png', 'images/m01_t01_p04/icon2.png', 'images/m01_t01_p04/icon3.png', 'images/m01_t01_p04/arrow.png', 'images/m01_t01_p05/m01_t01_p05_img1.jpg', 'images/m01_t01_p05/arrow.png', 'images/m01_t01_p07/m01_t01_p07_bg.jpg', 'images/m01_t01_p07/m01_t01_p07_bg1.jpg', '../app/assets/audio/Instruction_audio.mp3', '../app/assets/audio/m01_t01_p01.mp3', '../app/assets/audio/m01_t01_p02.mp3', '../app/assets/audio/m01_t01_p03.mp3', '../app/assets/audio/m01_t01_p04.mp3', '../app/assets/audio/m01_t01_p05.mp3', '../app/assets/audio/m01_t01_p06_01.mp3', '../app/assets/audio/m01_t01_p06_02.mp3', '../app/assets/audio/m01_t01_p06_03.mp3', '../app/assets/audio/m01_t01_p06_04.mp3', '../app/assets/audio/m01_t01_p06.mp3', '../app/assets/audio/m01_t01_p07.mp3', '../app/assets/audio/m01_t01_p08_01.mp3', '../app/assets/audio/m01_t01_p08_02.mp3', '../app/assets/audio/m01_t01_p08.mp3'],
+      concurrency: 0
+    });
+
+    console.log('preloader: ', preloader);
+
+    preloader.addProgressListener(function (loaded, length) {
+      console.log('loading ', loaded, length, loaded / length);
+    });
+
+    preloader.addCompletionListener(function () {
+      jarvisAudio.play();
+      $('#html5Loader').css('display', 'none');
+      self.setState({
+        isLoading: false
+      });
+    });
+
+    preloader.start();
   },
   startCourse: function startCourse() {
     this.setState({ isStartCourse: true });
+  },
+  playInstructionAudio: function playInstructionAudio() {
+    $('.playAudioParent').hide();
+    soundManager.createSound({
+      url: '../app/assets/audio/course_instruction.mp3',
+      autoLoad: true,
+      autoPlay: true,
+      onload: function onload() {},
+      volume: 100
+    });
   },
   render: function render() {
     if (this.state.isStartCourse) {
@@ -21564,14 +21406,26 @@ var Instruction = React.createClass({
         React.createElement(Shell, null)
       );
     } else {
+      if (this.state.isLoading) {
+        return React.createElement(
+          'div',
+          { className: 'loading' },
+          'Loading\u2026'
+        );
+      }
       return React.createElement(
         'div',
         { className: 'instruction-container' },
-        React.createElement(Sound, {
-          url: '../app/assets/audio/course_instruction.mp3',
-          playStatus: Sound.status.PLAYING,
-          playFromPosition: 0 /* in milliseconds */
-        }),
+        this.state.isMobile && React.createElement(
+          'div',
+          { className: 'playAudioParent' },
+          React.createElement('div', { className: 'playBlinkBlack' }),
+          React.createElement(
+            'div',
+            { className: 'playBlink', onClick: this.playInstructionAudio.bind(null, this) },
+            React.createElement('a', { className: 'button-autoPlay', href: '#' })
+          )
+        ),
         React.createElement(
           'div',
           { className: 'cover-page' },
@@ -21798,7 +21652,8 @@ var Instruction = React.createClass({
               )
             )
           ),
-          React.createElement('div', { className: 'invisible-container' })
+          React.createElement('div', { className: 'invisible-container' }),
+          React.createElement('div', { className: 'dis_img1' })
         )
       );
     }
@@ -21844,7 +21699,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var React = __webpack_require__(7),
-    ReactDOM = __webpack_require__(89);
+    ReactDOM = __webpack_require__(86);
 
 var Footer = React.createClass({
   displayName: 'Footer',
@@ -21863,6 +21718,12 @@ var Footer = React.createClass({
     isMenuOpened: React.PropTypes.bool
   },
 
+  getInitialState: function getInitialState() {
+    var uagent = navigator.userAgent.toLowerCase();
+    return {
+      isiPad: uagent.search("ipad") > -1
+    };
+  },
   getDoubleDigit: function getDoubleDigit(num) {
     return num > 9 ? num : '0' + num;
   },
@@ -21941,7 +21802,7 @@ var Footer = React.createClass({
             React.createElement('span', { className: 'icon-transcript' })
           )
         ),
-        React.createElement(
+        !this.state.isiPad && React.createElement(
           'div',
           { className: 'button-box' },
           React.createElement(
@@ -22045,7 +21906,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var React = __webpack_require__(7),
     MediaQuery = __webpack_require__(50),
-    TopNav = __webpack_require__(90).default;
+    TopNav = __webpack_require__(87).default;
 
 var HeaderTitle = React.createClass({
   displayName: 'HeaderTitle',
@@ -22582,6 +22443,19 @@ var MenuContent = React.createClass({
     onPageLinkClick: React.PropTypes.func
   },
 
+  getInitialState: function getInitialState() {
+    return {
+      pageStatus: []
+    };
+  },
+  componentDidMount: function componentDidMount() {
+    this.setState({ pageStatus: pageStatusList });
+  },
+  getProgressColor: function getProgressColor(id) {
+    if (this.state.pageStatus[id - 1] == 1) {
+      return "#EE3124";
+    }
+  },
   render: function render() {
     return React.createElement(
       'div',
@@ -22617,89 +22491,89 @@ var MenuContent = React.createClass({
         null,
         React.createElement(
           MenuList,
-          { trigger: 'Introduction' },
+          null,
           React.createElement(
             'ul',
             null,
             React.createElement(
               'li',
-              null,
+              { onClick: this.props.onPageLinkClick, 'data-page-id': 1 },
               React.createElement(
                 'a',
-                { onClick: this.props.onPageLinkClick, 'data-page-id': 1 },
+                { className: 'disable-event' },
                 'Welcome'
               ),
-              React.createElement('span', { className: 'menu-page-progress' })
+              React.createElement('span', { className: 'menu-page-progress', style: { backgroundColor: this.getProgressColor(1) } })
             ),
             React.createElement(
               'li',
-              null,
+              { onClick: this.props.onPageLinkClick, 'data-page-id': 2 },
               React.createElement(
                 'a',
-                { onClick: this.props.onPageLinkClick, 'data-page-id': 2 },
+                { className: 'disable-event' },
                 'Course Objectives'
               ),
-              React.createElement('span', { className: 'menu-page-progress' })
+              React.createElement('span', { className: 'menu-page-progress', style: { backgroundColor: this.getProgressColor(2) } })
             ),
             React.createElement(
               'li',
-              null,
+              { onClick: this.props.onPageLinkClick, 'data-page-id': 3 },
               React.createElement(
                 'a',
-                { onClick: this.props.onPageLinkClick, 'data-page-id': 3 },
+                { className: 'disable-event' },
                 'Increase in home therapy options'
               ),
-              React.createElement('span', { className: 'menu-page-progress' })
+              React.createElement('span', { className: 'menu-page-progress', style: { backgroundColor: this.getProgressColor(3) } })
             ),
             React.createElement(
               'li',
-              null,
+              { onClick: this.props.onPageLinkClick, 'data-page-id': 4 },
               React.createElement(
                 'a',
-                { onClick: this.props.onPageLinkClick, 'data-page-id': 4 },
+                { className: 'disable-event' },
                 'Small and portable medical devices'
               ),
-              React.createElement('span', { className: 'menu-page-progress' })
+              React.createElement('span', { className: 'menu-page-progress', style: { backgroundColor: this.getProgressColor(4) } })
             ),
             React.createElement(
               'li',
-              null,
+              { onClick: this.props.onPageLinkClick, 'data-page-id': 5 },
               React.createElement(
                 'a',
-                { onClick: this.props.onPageLinkClick, 'data-page-id': 5 },
+                { className: 'disable-event' },
                 'Internet of things\u2014connected medical equipment'
               ),
-              React.createElement('span', { className: 'menu-page-progress' })
+              React.createElement('span', { className: 'menu-page-progress', style: { backgroundColor: this.getProgressColor(5) } })
             ),
             React.createElement(
               'li',
-              null,
+              { onClick: this.props.onPageLinkClick, 'data-page-id': 6 },
               React.createElement(
                 'a',
-                { onClick: this.props.onPageLinkClick, 'data-page-id': 6 },
+                { className: 'disable-event' },
                 'Medical appications for Honeywell sensors - Activity'
               ),
-              React.createElement('span', { className: 'menu-page-progress' })
+              React.createElement('span', { className: 'menu-page-progress', style: { backgroundColor: this.getProgressColor(6) } })
             ),
             React.createElement(
               'li',
-              null,
+              { onClick: this.props.onPageLinkClick, 'data-page-id': 7 },
               React.createElement(
                 'a',
-                { onClick: this.props.onPageLinkClick, 'data-page-id': 7 },
+                { className: 'disable-event' },
                 'Course Summary'
               ),
-              React.createElement('span', { className: 'menu-page-progress' })
+              React.createElement('span', { className: 'menu-page-progress', style: { backgroundColor: this.getProgressColor(7) } })
             ),
             React.createElement(
               'li',
-              null,
+              { onClick: this.props.onPageLinkClick, 'data-page-id': 8 },
               React.createElement(
                 'a',
-                { onClick: this.props.onPageLinkClick, 'data-page-id': 8 },
+                { className: 'disable-event' },
                 'Welcome to the quiz'
               ),
-              React.createElement('span', { className: 'menu-page-progress' })
+              React.createElement('span', { className: 'menu-page-progress', style: { backgroundColor: this.getProgressColor(8) } })
             )
           )
         )
@@ -22720,22 +22594,12 @@ exports.default = MenuContent;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _React$createClass;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var React = __webpack_require__(7),
-    _require = __webpack_require__(147),
-    loadPage = _require.loadPage,
-    millisToMinutesAndSeconds = _require.millisToMinutesAndSeconds,
-    Sound = __webpack_require__(131),
-    ReactInterval = __webpack_require__(347);
+    _require = __webpack_require__(88),
+    loadPage = _require.loadPage;
 
 
-var $ = __webpack_require__(68);
-
-var PageContainer = React.createClass((_React$createClass = {
+var PageContainer = React.createClass({
   displayName: 'PageContainer',
 
   propTypes: {
@@ -22760,94 +22624,31 @@ var PageContainer = React.createClass((_React$createClass = {
       loadPage(this.props.PageNum);
     }
   },
-  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-    if (this.props.PageNum !== nextProps.PageNum) {
-      this.setState({ stopAudio: false });
-    }
-  },
-  showTab1: function showTab1() {
-    console.log("sadfsdfsd");
-  },
 
 
   shouldComponentUpdate: function shouldComponentUpdate(nextProps, nextState) {
     if (this.props.PageNum !== nextProps.PageNum || this.props.volume !== nextProps.volume || this.props.audioState !== nextProps.audioState || this.state.stopAudio !== nextState.stopAudio) return true;else return false;
   },
 
-  onAudioFinished: function onAudioFinished() {
-    if (this.props.PageNum !== 6) document.querySelector('.next-button').classList.add("blinker");
-    document.querySelector('#button-audio').classList.add("disabled");
-    document.querySelector('#button-playPause').classList.add("disabled");
-    if (document.querySelector('.start-button')) {
-      document.querySelector('.start-button').classList.remove("disabled");
-    }
-  },
-  changeFontSize: function changeFontSize() {
-    if (document.querySelector('.text-1-large') !== null) document.querySelector('.text-1-large').style.fontSize = '1em';
-  },
-  stopSound: function stopSound() {
-    this.setState({ stopAudio: true });
-    startAudioPlay = false;
-    playAudioInterval = setInterval(this.checkAudioToPlay, 1);
-  }
-}, _defineProperty(_React$createClass, 'stopSound', function stopSound() {
-  this.setState({ stopAudio: true });
-}), _defineProperty(_React$createClass, 'onAudioPlaying', function onAudioPlaying(ev) {
-  if (document.querySelector('.transcript-text-container')) {
-    document.querySelector('.transcript-text-container').innerHTML = transcript;
-  }
-  if (qPoints !== null) {
-    var t = millisToMinutesAndSeconds(ev.position);
-    if (t == qPoints[currentCuePointId]) {
-      if (imageSwap && document.querySelector('.sync' + currentCuePointId)) {
-        document.querySelector('.sync' + currentCuePointId).classList.add('hide');
-        document.querySelector('.sync' + (currentCuePointId + 1)).classList.remove('hide');
-      }
-      if (document.querySelector('.sync' + (currentCuePointId + 1))) {
-        document.querySelector('.sync' + (currentCuePointId + 1)).classList.remove('fadeOut');
-        document.querySelector('.sync' + (currentCuePointId + 1)).classList.add('fadeIn');
-      }
-      if (qPointsExecution && qPointsExecution[currentCuePointId]) {
-        eval(qPointsExecution[currentCuePointId]);
-      }
-      currentCuePointId++;
-    }
-  }
-}), _defineProperty(_React$createClass, 'render', function render() {
-  var audioPath = "../app/assets/audio/m01_t01_p0" + this.props.PageNum + ".mp3";
-  return React.createElement(
-    'div',
-    { className: 'page-holder' },
-    React.createElement(Sound, {
-      url: audioPath,
-      playStatus: this.props.audioState || this.state.stopAudio ? Sound.status.PAUSED : Sound.status.PLAYING,
-      playFromPosition: this.state.currentAudioPosition,
-      onPlaying: this.onAudioPlaying,
-      volume: this.props.volume,
-      onFinishedPlaying: this.onAudioFinished
-    }),
-    React.createElement(
+  render: function render() {
+    var audioPath = "../app/assets/audio/m01_t01_p0" + this.props.PageNum + ".mp3";
+    return React.createElement(
       'div',
-      { className: 'page-title__container' },
+      { className: 'page-holder' },
       React.createElement(
-        'span',
-        { className: 'topic-title' },
-        'Introduction'
+        'div',
+        { className: 'page-title__container' },
+        React.createElement('span', { className: 'topic-title' }),
+        React.createElement(
+          'span',
+          { className: 'page-title' },
+          'Welcome'
+        )
       ),
-      React.createElement(
-        'span',
-        { className: 'title-seperator acc-prop-background' },
-        '|'
-      ),
-      React.createElement(
-        'span',
-        { className: 'page-title' },
-        'Welcome'
-      )
-    ),
-    React.createElement('div', { ref: 'pageLoader', className: 'page-loader' })
-  );
-}), _React$createClass));
+      React.createElement('div', { ref: 'pageLoader', className: 'page-loader' })
+    );
+  }
+});
 
 exports.default = PageContainer;
 
@@ -22871,12 +22672,20 @@ var React = __webpack_require__(7),
     MenuContent = __webpack_require__(142).default,
     ToolsMenuContent = __webpack_require__(145).default,
     MediaQuery = __webpack_require__(50),
-    TopNav = __webpack_require__(90).default,
+    TopNav = __webpack_require__(87).default,
     HelpContent = __webpack_require__(141).default,
     Menu = __webpack_require__(130).default,
     ToolsMenu = __webpack_require__(130).default,
     HelpDock = __webpack_require__(252),
-    $ = __webpack_require__(68);
+    _require = __webpack_require__(147),
+    toggleSoundVolume = _require.toggleSoundVolume,
+    togglePlayPuase = _require.togglePlayPuase,
+    loadAudio = _require.loadAudio,
+    toggleButtonState = _require.toggleButtonState,
+    _require2 = __webpack_require__(88),
+    loadPage = _require2.loadPage,
+    $ = __webpack_require__(107);
+
 
 var Shell = React.createClass({
   displayName: 'Shell',
@@ -22894,9 +22703,9 @@ var Shell = React.createClass({
     };
   },
 
-  clickOpenMenu: function clickOpenMenu() {
+  clickOpenMenu: function clickOpenMenu(e) {
     this.setState({ sidebarOpen: !this.state.sidebarOpen });
-    this.setState({ isPause: !this.state.sidebarOpen });
+    togglePlayPuase();
   },
 
   clickOpenToolsMenu: function clickOpenToolsMenu() {
@@ -22905,7 +22714,7 @@ var Shell = React.createClass({
 
   setOpen: function setOpen() {
     this.setState({ sidebarOpen: false });
-    this.setState({ isPause: false });
+    togglePlayPuase();
   },
 
 
@@ -22940,6 +22749,7 @@ var Shell = React.createClass({
   componentDidMount: function componentDidMount() {
     window.addEventListener("resize", this.updateDimensions);
     this.updateDimensions();
+    loadAudio(1);
   },
 
   componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
@@ -22950,29 +22760,40 @@ var Shell = React.createClass({
     this.setState({ toolsMenuOpen: false });
   },
   loadNextPage: function loadNextPage() {
-    this.setState({ currentPageNumber: this.state.currentPageNumber + 1 });
+    if (this.state.currentPageNumber + 1 > 8) {
+      this.setState({ currentPageNumber: 2 });
+    } else {
+      this.setState({ currentPageNumber: this.state.currentPageNumber + 1 });
+    }
     this.setState({ isPause: false });
+    loadAudio(this.state.currentPageNumber + 1);
   },
   loadPreviousPage: function loadPreviousPage() {
     this.setState({ currentPageNumber: this.state.currentPageNumber - 1 });
     this.setState({ isPause: false });
+    loadAudio(this.state.currentPageNumber - 1);
   },
   menuItemClicked: function menuItemClicked(e) {
     var pageId = e.target.dataset.pageId;
     this.setState({ currentPageNumber: parseInt(pageId) });
     this.setState({ sidebarOpen: !this.state.sidebarOpen });
+    loadAudio(pageId);
   },
   clickOpenHelpDock: function clickOpenHelpDock() {
     this.setState({ isHelpDockOpen: !this.state.isHelpDockOpen });
-    this.setState({ isPause: !this.state.isHelpDockOpen });
+    togglePlayPuase();
   },
   enableTranscript: function enableTranscript(e) {
+    var _self = this;
     if (!this.state.transcriptVisible) {
       $("#button-transcript").addClass("selected");
     } else {
       $("#button-transcript").removeClass("selected");
     }
     this.setState({ transcriptVisible: !this.state.transcriptVisible });
+    $.getJSON("../app/assets/data/transcript.json", function (data) {
+      $(".transcript-text-container").html(data.transcript[_self.state.currentPageNumber - 1].text);
+    });
   },
   showTranscript: function showTranscript() {
     return React.createElement(
@@ -23000,23 +22821,16 @@ var Shell = React.createClass({
     );
   },
   audioPlayPause: function audioPlayPause(e) {
-    if (!this.state.isPause) {
-      e.currentTarget.classList.add("selected");
-    } else {
-      e.currentTarget.classList.remove("selected");
-    }
-    this.setState({ isPause: !this.state.isPause });
+    togglePlayPuase();
+    toggleButtonState(e);
   },
   replayScreen: function replayScreen() {
-    this.setState({ isReplayed: !this.state.isReplayed });
+    loadPage(this.state.currentPageNumber);
+    loadAudio(this.state.currentPageNumber);
   },
   volumeChange: function volumeChange(e) {
-    if (this.state.volume === 100) {
-      e.currentTarget.classList.add("selected");
-    } else {
-      e.currentTarget.classList.remove("selected");
-    }
-    this.setState({ volume: this.state.volume === 100 ? 0 : 100 });
+    toggleSoundVolume();
+    toggleButtonState(e);
   },
   render: function render() {
     var _React$createElement, _React$createElement2;
@@ -23269,7 +23083,7 @@ var MenuList = React.createClass({
     return {
       transitionTime: 400,
       easing: 'linear',
-      open: false,
+      open: true,
       classParentString: 'menu-list',
       triggerDisabled: false,
       lazyRender: false,
@@ -23436,6 +23250,11 @@ var MenuList = React.createClass({
     return null;
   },
 
+  getProgressColor: function getProgressColor() {
+    return "#f00";
+  },
+
+
   render: function render() {
 
     var dropdownStyle = {
@@ -23472,7 +23291,7 @@ var MenuList = React.createClass({
         { className: triggerClassName.trim(), onClick: this.handleTriggerClick },
         React.createElement('span', { className: 'icon icon-tree' }),
         trigger,
-        React.createElement('span', { className: 'menu-page-progress' })
+        React.createElement('span', { className: 'menu-page-progress', id: 'topic-progress', style: { backgroundColor: this.getProgressColor() } })
       ),
       this.renderNonClickableTriggerElement(),
       React.createElement(
@@ -23497,25 +23316,54 @@ exports.default = MenuList;
 "use strict";
 
 
-var $ = __webpack_require__(68);
-
-var topicNamesArray = ['Welcome', 'Course objectives', 'Increase in home therapy options', 'Small and portable medical devices', 'Internet of things—connected medical equipment', 'Medical appications for Honeywell sensors - Activity', 'Course Summary', 'Quiz Introduction'];
-
-function loadPage(pageNumber) {
-  if (document.querySelector('.next-button')) document.querySelector('.next-button').classList.remove("blinker");
-  if (document.querySelector('#button-audio')) document.querySelector('#button-audio').classList.remove("disabled");
-  if (document.querySelector('#button-playPause')) document.querySelector('#button-playPause').classList.remove("disabled");
-  $(".page-loader").empty();
-  $(".page-loader").load('components/content/m01/t01/m01_t01_p0' + pageNumber + '.html');
-  window.updatePageStatusList(pageNumber);
-  $(".page-title").html(topicNamesArray[pageNumber - 1]);
+function loadAudio(pageNum) {
+  soundManager.stopAll();
+  console.log(pageNum);
+  jarvisAudio = soundManager.createSound({
+    url: '../app/assets/audio/m01_t01_p0' + pageNum + '.mp3',
+    autoLoad: true,
+    autoPlay: true,
+    onload: function onload() {
+      enableButtons();
+      $.getJSON("../app/assets/data/transcript.json", function (data) {
+        //  $(".transcript-text-container").html(data.transcript[pageNum-1].text)
+      });
+    },
+    onfinish: function onfinish() {
+      jarvisAudio.unload();
+      disableButtons();
+      $(".start-button").removeClass("disabled");
+      if (PageNum !== 6) document.querySelector('.next-button').classList.add("blinker");
+    },
+    whileplaying: function whileplaying() {
+      syncPageText(jarvisAudio.position);
+    }
+  });
 }
 
-function loadSound(filePath) {}
+function toggleSoundVolume() {
+  jarvisAudio.toggleMute();
+}
 
-function loadTranscript() {}
+function togglePlayPuase() {
+  if (jarvisAudio.playState !== 0) jarvisAudio.togglePause();
+}
 
-function loadMenu() {}
+function toggleButtonState(e) {
+  if (e) {
+    e.currentTarget.classList.toggle('selected');
+  }
+}
+
+function disableButtons() {
+  document.getElementById('button-playPause').classList.add("disabled");
+  document.getElementById('button-audio').classList.add("disabled");
+}
+
+function enableButtons() {
+  document.getElementById('button-playPause').classList.remove("disabled");
+  document.getElementById('button-audio').classList.remove("disabled");
+}
 
 function millisToMinutesAndSeconds(millis) {
   var minutes = Math.floor(millis / 60000);
@@ -23524,11 +23372,43 @@ function millisToMinutesAndSeconds(millis) {
   return s;
 }
 
+function pauseSound() {
+  jarvisAudio.pause();
+}
+
+function changeFontSize() {
+  if (document.querySelector('.text-1-large') !== null) document.querySelector('.text-1-large').style.fontSize = '1em';
+}
+
+function changeText(element) {
+  $("." + element).hide();
+}
+
+function syncPageText(position) {
+  if (qPoints !== null) {
+    var t = millisToMinutesAndSeconds(position);
+    if (t == qPoints[currentCuePointId]) {
+      if (imageSwap && document.querySelector('.sync' + currentCuePointId)) {
+        document.querySelector('.sync' + currentCuePointId).classList.add('hide');
+        document.querySelector('.sync' + (currentCuePointId + 1)).classList.remove('hide');
+      }
+      if (document.querySelector('.sync' + (currentCuePointId + 1))) {
+        document.querySelector('.sync' + (currentCuePointId + 1)).classList.remove('fadeOut');
+        document.querySelector('.sync' + (currentCuePointId + 1)).classList.add('fadeIn');
+      }
+      if (qPointsExecution && qPointsExecution[currentCuePointId]) {
+        eval(qPointsExecution[currentCuePointId]);
+      }
+      currentCuePointId++;
+    }
+  }
+}
+
 module.exports = {
-  loadPage: loadPage,
-  loadSound: loadSound,
-  loadTranscript: loadTranscript,
-  millisToMinutesAndSeconds: millisToMinutesAndSeconds
+  toggleSoundVolume: toggleSoundVolume,
+  togglePlayPuase: togglePlayPuase,
+  loadAudio: loadAudio,
+  toggleButtonState: toggleButtonState
 };
 
 /***/ }),
@@ -23547,7 +23427,7 @@ function _interopRequireDefault(obj) {
 }
 
 var React = __webpack_require__(7),
-    ReactDOM = __webpack_require__(89),
+    ReactDOM = __webpack_require__(86),
     Instruction = __webpack_require__(137).default;
 
 var appData = {
@@ -23991,7 +23871,7 @@ function fromByteArray (uint8) {
 
 
 var base64 = __webpack_require__(169)
-var ieee754 = __webpack_require__(247)
+var ieee754 = __webpack_require__(244)
 var isArray = __webpack_require__(171)
 
 exports.Buffer = Buffer
@@ -25787,7 +25667,7 @@ module.exports = Array.isArray || function (arr) {
 /* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(103);
+__webpack_require__(101);
 __webpack_require__(204);
 module.exports = __webpack_require__(8).Array.from;
 
@@ -25863,9 +25743,9 @@ module.exports = __webpack_require__(8).Symbol;
 /* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(103);
+__webpack_require__(101);
 __webpack_require__(217);
-module.exports = __webpack_require__(66).f('iterator');
+module.exports = __webpack_require__(67).f('iterator');
 
 /***/ }),
 /* 182 */
@@ -25889,7 +25769,7 @@ module.exports = function(){ /* empty */ };
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = __webpack_require__(19)
-  , toLength  = __webpack_require__(102)
+  , toLength  = __webpack_require__(100)
   , toIndex   = __webpack_require__(202);
 module.exports = function(IS_INCLUDES){
   return function($this, el, fromIndex){
@@ -25913,7 +25793,7 @@ module.exports = function(IS_INCLUDES){
 /***/ (function(module, exports, __webpack_require__) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
-var cof = __webpack_require__(51)
+var cof = __webpack_require__(52)
   , TAG = __webpack_require__(12)('toStringTag')
   // ES3 wrong here
   , ARG = cof(function(){ return arguments; }()) == 'Arguments';
@@ -25956,7 +25836,7 @@ module.exports = function(object, index, value){
 
 // all enumerable object keys, includes symbols
 var getKeys = __webpack_require__(29)
-  , gOPS    = __webpack_require__(58)
+  , gOPS    = __webpack_require__(59)
   , pIE     = __webpack_require__(42);
 module.exports = function(it){
   var result     = getKeys(it)
@@ -25994,7 +25874,7 @@ module.exports = function(it){
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
-var cof = __webpack_require__(51);
+var cof = __webpack_require__(52);
 module.exports = Array.isArray || function isArray(arg){
   return cof(arg) == 'Array';
 };
@@ -26022,9 +25902,9 @@ module.exports = function(iterator, fn, value, entries){
 
 "use strict";
 
-var create         = __webpack_require__(56)
+var create         = __webpack_require__(57)
   , descriptor     = __webpack_require__(35)
-  , setToStringTag = __webpack_require__(60)
+  , setToStringTag = __webpack_require__(61)
   , IteratorPrototype = {};
 
 // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
@@ -26150,10 +26030,10 @@ var meta = module.exports = {
 
 // 19.1.2.1 Object.assign(target, source, ...)
 var getKeys  = __webpack_require__(29)
-  , gOPS     = __webpack_require__(58)
+  , gOPS     = __webpack_require__(59)
   , pIE      = __webpack_require__(42)
   , toObject = __webpack_require__(36)
-  , IObject  = __webpack_require__(96)
+  , IObject  = __webpack_require__(94)
   , $assign  = Object.assign;
 
 // should work with symbols and should have deterministic property order (V8 bug)
@@ -26205,7 +26085,7 @@ module.exports = __webpack_require__(21) ? Object.defineProperties : function de
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
 var toIObject = __webpack_require__(19)
-  , gOPN      = __webpack_require__(98).f
+  , gOPN      = __webpack_require__(96).f
   , toString  = {}.toString;
 
 var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
@@ -26240,7 +26120,7 @@ module.exports = {
   set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
     function(test, buggy, set){
       try {
-        set = __webpack_require__(52)(Function.call, __webpack_require__(57).f(Object.prototype, '__proto__').set, 2);
+        set = __webpack_require__(53)(Function.call, __webpack_require__(58).f(Object.prototype, '__proto__').set, 2);
         set(test, []);
         buggy = !(test instanceof Array);
       } catch(e){ buggy = true; }
@@ -26258,8 +26138,8 @@ module.exports = {
 /* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(63)
-  , defined   = __webpack_require__(53);
+var toInteger = __webpack_require__(64)
+  , defined   = __webpack_require__(54);
 // true  -> String#at
 // false -> String#codePointAt
 module.exports = function(TO_STRING){
@@ -26280,7 +26160,7 @@ module.exports = function(TO_STRING){
 /* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(63)
+var toInteger = __webpack_require__(64)
   , max       = Math.max
   , min       = Math.min;
 module.exports = function(index, length){
@@ -26307,12 +26187,12 @@ module.exports = __webpack_require__(8).getIteratorMethod = function(it){
 
 "use strict";
 
-var ctx            = __webpack_require__(52)
+var ctx            = __webpack_require__(53)
   , $export        = __webpack_require__(16)
   , toObject       = __webpack_require__(36)
   , call           = __webpack_require__(191)
   , isArrayIter    = __webpack_require__(189)
-  , toLength       = __webpack_require__(102)
+  , toLength       = __webpack_require__(100)
   , createProperty = __webpack_require__(186)
   , getIterFn      = __webpack_require__(203);
 
@@ -26360,7 +26240,7 @@ var addToUnscopables = __webpack_require__(183)
 // 22.1.3.13 Array.prototype.keys()
 // 22.1.3.29 Array.prototype.values()
 // 22.1.3.30 Array.prototype[@@iterator]()
-module.exports = __webpack_require__(97)(Array, 'Array', function(iterated, kind){
+module.exports = __webpack_require__(95)(Array, 'Array', function(iterated, kind){
   this._t = toIObject(iterated); // target
   this._i = 0;                   // next index
   this._k = kind;                // kind
@@ -26400,7 +26280,7 @@ $export($export.S + $export.F, 'Object', {assign: __webpack_require__(197)});
 
 var $export = __webpack_require__(16)
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-$export($export.S, 'Object', {create: __webpack_require__(56)});
+$export($export.S, 'Object', {create: __webpack_require__(57)});
 
 /***/ }),
 /* 208 */
@@ -26416,9 +26296,9 @@ $export($export.S + $export.F * !__webpack_require__(21), 'Object', {definePrope
 
 // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
 var toIObject                 = __webpack_require__(19)
-  , $getOwnPropertyDescriptor = __webpack_require__(57).f;
+  , $getOwnPropertyDescriptor = __webpack_require__(58).f;
 
-__webpack_require__(59)('getOwnPropertyDescriptor', function(){
+__webpack_require__(60)('getOwnPropertyDescriptor', function(){
   return function getOwnPropertyDescriptor(it, key){
     return $getOwnPropertyDescriptor(toIObject(it), key);
   };
@@ -26430,9 +26310,9 @@ __webpack_require__(59)('getOwnPropertyDescriptor', function(){
 
 // 19.1.2.9 Object.getPrototypeOf(O)
 var toObject        = __webpack_require__(36)
-  , $getPrototypeOf = __webpack_require__(99);
+  , $getPrototypeOf = __webpack_require__(97);
 
-__webpack_require__(59)('getPrototypeOf', function(){
+__webpack_require__(60)('getPrototypeOf', function(){
   return function getPrototypeOf(it){
     return $getPrototypeOf(toObject(it));
   };
@@ -26446,7 +26326,7 @@ __webpack_require__(59)('getPrototypeOf', function(){
 var toObject = __webpack_require__(36)
   , $keys    = __webpack_require__(29);
 
-__webpack_require__(59)('keys', function(){
+__webpack_require__(60)('keys', function(){
   return function keys(it){
     return $keys(toObject(it));
   };
@@ -26477,25 +26357,25 @@ var global         = __webpack_require__(17)
   , has            = __webpack_require__(22)
   , DESCRIPTORS    = __webpack_require__(21)
   , $export        = __webpack_require__(16)
-  , redefine       = __webpack_require__(101)
+  , redefine       = __webpack_require__(99)
   , META           = __webpack_require__(196).KEY
   , $fails         = __webpack_require__(27)
-  , shared         = __webpack_require__(62)
-  , setToStringTag = __webpack_require__(60)
+  , shared         = __webpack_require__(63)
+  , setToStringTag = __webpack_require__(61)
   , uid            = __webpack_require__(43)
   , wks            = __webpack_require__(12)
-  , wksExt         = __webpack_require__(66)
-  , wksDefine      = __webpack_require__(65)
+  , wksExt         = __webpack_require__(67)
+  , wksDefine      = __webpack_require__(66)
   , keyOf          = __webpack_require__(195)
   , enumKeys       = __webpack_require__(187)
   , isArray        = __webpack_require__(190)
   , anObject       = __webpack_require__(26)
   , toIObject      = __webpack_require__(19)
-  , toPrimitive    = __webpack_require__(64)
+  , toPrimitive    = __webpack_require__(65)
   , createDesc     = __webpack_require__(35)
-  , _create        = __webpack_require__(56)
+  , _create        = __webpack_require__(57)
   , gOPNExt        = __webpack_require__(199)
-  , $GOPD          = __webpack_require__(57)
+  , $GOPD          = __webpack_require__(58)
   , $DP            = __webpack_require__(18)
   , $keys          = __webpack_require__(29)
   , gOPD           = $GOPD.f
@@ -26620,11 +26500,11 @@ if(!USE_NATIVE){
 
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f   = $defineProperty;
-  __webpack_require__(98).f = gOPNExt.f = $getOwnPropertyNames;
+  __webpack_require__(96).f = gOPNExt.f = $getOwnPropertyNames;
   __webpack_require__(42).f  = $propertyIsEnumerable;
-  __webpack_require__(58).f = $getOwnPropertySymbols;
+  __webpack_require__(59).f = $getOwnPropertySymbols;
 
-  if(DESCRIPTORS && !__webpack_require__(55)){
+  if(DESCRIPTORS && !__webpack_require__(56)){
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
   }
 
@@ -26711,13 +26591,13 @@ setToStringTag(global.JSON, 'JSON', true);
 /* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(65)('asyncIterator');
+__webpack_require__(66)('asyncIterator');
 
 /***/ }),
 /* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(65)('observable');
+__webpack_require__(66)('observable');
 
 /***/ }),
 /* 217 */
@@ -26746,7 +26626,7 @@ exports = module.exports = __webpack_require__(219)(undefined);
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n@font-face {\n  font-family: 'Lato';\n  src: url(" + __webpack_require__(108) + ");\n  src: url(" + __webpack_require__(108) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(246) + ") format(\"woff2\"), url(" + __webpack_require__(245) + ") format(\"woff\"), url(" + __webpack_require__(244) + ") format(\"truetype\"), url(" + __webpack_require__(243) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'Lato-Light';\n  src: url(" + __webpack_require__(107) + ");\n  src: url(" + __webpack_require__(107) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(237) + ") format(\"woff2\"), url(" + __webpack_require__(236) + ") format(\"woff\"), url(" + __webpack_require__(235) + ") format(\"truetype\"), url(" + __webpack_require__(234) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'icomoon';\n  src: url(" + __webpack_require__(239) + ");\n  src: url(" + __webpack_require__(238) + "?#iefixc92yby) format(\"embedded-opentype\"), url(" + __webpack_require__(242) + ") format(\"woff\"), url(" + __webpack_require__(241) + ") format(\"truetype\"), url(" + __webpack_require__(240) + "#icomoon) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n[class^=\"icon-\"], [class*=\" icon-\"] {\n  font-family: 'icomoon';\n  speak: none;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  letter-spacing: 0;\n  -webkit-font-feature-settings: \"liga\";\n  -moz-font-feature-settings: \"liga=1\";\n  -moz-font-feature-settings: \"liga\";\n  -ms-font-feature-settings: \"liga\" 1;\n  font-feature-settings: \"liga\";\n  -webkit-font-variant-ligatures: discretionary-ligatures;\n  font-variant-ligatures: discretionary-ligatures;\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\n.menu-overlay-style {\n  position: absolute !important; }\n\n.menu-custom-style {\n  bottom: 44px !important;\n  top: 64px !important; }\n\n.menu-overlay-style {\n  background-color: rgba(0, 0, 0, 0.498039) !important; }\n\n.menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  z-index: 99 !important; }\n\n.menu-header h1 {\n  font: inherit;\n  margin: 0; }\n\n@media (min-width: 320px) {\n  .menu-style {\n    width: 102%; } }\n\n@media (min-width: 650px) {\n  .menu-style {\n    width: 460px; } }\n\nbody {\n  background: #5B6770;\n  font-family: 'Arial', Calibri, Arial, sans-serif;\n  height: 100%;\n  line-height: 1.4;\n  overflow: hidden;\n  max-width: 1010px;\n  max-height: 650px; }\n\n.wrapper {\n  bottom: 0;\n  display: table;\n  height: 100%;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  width: 100%; }\n\n.launcher {\n  display: table-cell;\n  padding-bottom: 40px;\n  vertical-align: top; }\n\n.whitePatch {\n  background-color: #FFFFFF;\n  height: 231px;\n  position: relative;\n  width: 100%; }\n\n.td1 {\n  align-items: center;\n  padding: 25px 25px 15px 25px;\n  position: relative;\n  top: 10px;\n  text-align: left; }\n\n.td2 {\n  align-items: center;\n  padding: 0;\n  position: relative;\n  top: 18px;\n  width: auto; }\n\n.divSeparator {\n  background-color: #CBCBCB;\n  height: 1px;\n  margin: 0 auto;\n  width: 100%; }\n\n.td3 {\n  align-items: center;\n  color: #5B6770;\n  font-size: 1.5em;\n  padding: 24px 25px;\n  position: relative;\n  text-align: left;\n  top: 5px;\n  vertical-align: middle; }\n\n.launch_btn {\n  background-image: url(" + __webpack_require__(135) + ");\n  background-repeat: no-repeat;\n  background-position: 0 0;\n  width: 88px;\n  height: 96px;\n  display: block;\n  color: #5B6770;\n  position: absolute;\n  right: 25px;\n  font-size: 0.6em;\n  text-align: center;\n  top: 57px;\n  font-weight: bold; }\n\n.launch_btn:hover {\n  background-image: url(" + __webpack_require__(135) + ");\n  background-position: -120px 0 !important;\n  color: #FFFFFF; }\n\n.launch_btn span {\n  vertical-align: middle;\n  line-height: 99px; }\n\na {\n  text-decoration: none; }\n\n@media (min-width: 768px) {\n  .launcher {\n    vertical-align: middle; }\n  .whitePatch {\n    display: table;\n    height: 120px;\n    position: static;\n    text-align: center;\n    vertical-align: middle;\n    width: 100%; }\n  .td1 {\n    display: table-cell;\n    height: 73px;\n    padding: 0;\n    padding-top: 5px;\n    position: static;\n    text-align: right;\n    vertical-align: middle;\n    width: 40%; }\n  .td2 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: static;\n    vertical-align: middle;\n    width: 4%; }\n  .divSeparator {\n    background-color: #CBCBCB;\n    height: 80px;\n    width: 1px; }\n  .td3 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: relative;\n    text-align: left;\n    top: 0;\n    vertical-align: middle;\n    width: 56%; }\n  .launch_btn {\n    font-size: 0.6em;\n    font-weight: bold;\n    left: 65%;\n    position: absolute;\n    text-align: center;\n    top: 71px; } }\n\nbody {\n  background: #ffffff !important;\n  margin: 0 auto;\n  overflow-y: auto;\n  font-family: 'Arial' !important;\n  max-width: 1024px;\n  max-height: 650px; }\n\n.cover-page {\n  height: auto;\n  color: #FFF;\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  overflow: hidden;\n  background-color: #0A4166; }\n\n.cover-page .btnIcon {\n  background: url(" + __webpack_require__(339) + ") repeat-x scroll 0 0 transparent;\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em; }\n\n.instruction-container {\n  height: 100%;\n  display: table;\n  width: 100%;\n  position: relative;\n  margin-top: 0;\n  overflow-y: auto; }\n\n.logo-container {\n  background-color: #FFF;\n  display: block;\n  padding: 35px 15px 24px; }\n\n.instruction-title .title {\n  color: rgba(0, 0, 0, 0.68);\n  font-size: 2em;\n  font-weight: 100;\n  margin: 0; }\n\n.text-container {\n  padding: 15px 10px 0px; }\n\n.cover-page .text-container p {\n  display: table-cell;\n  vertical-align: middle;\n  padding-right: 20px;\n  font-size: 1.35em; }\n\n.cover-page .btnIconBlank {\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em;\n  color: #FFFF; }\n\n.cover-page .text-container .text {\n  font-size: 0.875em;\n  padding: 4px; }\n\n.cover-page .text-container .text > div {\n  display: table;\n  width: 100%; }\n\n.cover-page .text-container .btnIcon {\n  padding-right: 0px; }\n\n.cover-page .text-container .btnIconBlank {\n  padding-right: 0px;\n  color: #fff;\n  font-size: 1.65em; }\n\n.cover-page .text-container .btnIcon1 span {\n  font-size: 1.3em; }\n\n.cover-page .text-container p:nth-child(2) {\n  padding-left: 20px;\n  font-size: 1.07em; }\n\n.cover-page .text {\n  color: #FFF;\n  height: 40px;\n  display: table;\n  width: 100%;\n  padding: 0 15px;\n  margin-bottom: 4px;\n  font-size: 1.1em; }\n\n.cover-page .dis_sys_check {\n  position: relative;\n  top: 7px;\n  z-index: 101; }\n\n.cover-page .container {\n  height: 100%;\n  position: relative;\n  display: table; }\n\n.cover-page .startbtn {\n  display: table-cell;\n  width: 100%; }\n\n.cover-page .instruction {\n  color: #FFF;\n  max-height: 40px;\n  margin: 0;\n  padding: 10px 0 10px 12px;\n  position: relative;\n  background-color: #083451;\n  font-size: 0.9375em; }\n\n.cover-page .instruction span {\n  font-weight: normal; }\n\n.cover-page .startbtn_a {\n  /* background: url(\"../../images/btnstrip2.png\") repeat-x scroll 0 0 rgba(0, 0, 0, 0); */\n  color: #ffffff;\n  display: inline-block;\n  float: right;\n  font-size: 1.5625em;\n  height: 40px;\n  margin-top: 0;\n  position: relative;\n  text-decoration: none;\n  top: 25px;\n  vertical-align: middle;\n  width: 100px;\n  margin-left: 10px;\n  z-index: 101;\n  background-color: #1792E5; }\n\n.cover-page .btnContent {\n  display: table;\n  width: 100%;\n  padding: 0;\n  height: 40px; }\n\n.cover-page .btnContent:hover {\n  background-color: #ee3124; }\n\n.cover-page .btnContent span {\n  vertical-align: middle;\n  display: table-cell;\n  text-align: center; }\n\n.cover-page .instruction .fontBold {\n  font-weight: bold; }\n\n.cover-page .sys_container {\n  display: none; }\n\n.text-container a {\n  color: #ffffff; }\n\n.cover-page .invisible-container {\n  height: 70px; }\n\n@media (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px;\n    font-size: 1.35; }\n  .cover-page .text-container p {\n    font-size: 1em;\n    font-weight: bold; }\n  .cover-page .text-container p:nth-child(2) {\n    padding-left: 20px;\n    font-size: 1.07em; }\n  .cover-page .instruction {\n    font-size: 1.07em; } }\n\n@media all and (min-width: 320px) {\n  .cover-page .dis_container {\n    /* padding: 10px 15px 0; */ }\n  .cover-page .dis_sys_check {\n    padding: 0 15px; } }\n\n@media all and (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px; } }\n\n@media all and (min-width: 480px) {\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media all and (min-width: 600px) {\n  .cover-page .cover-page {\n    padding: 0; }\n  .cover-page .dis_container {\n    max-width: 100%; }\n  .cover-page .dis_text .title {\n    font-size: 2em;\n    font-weight: 100; }\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media (min-width: 768px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .text-container {\n    padding: 25px 25px 0; }\n  .cover-page .text-container p {\n    font-weight: normal !important; }\n  .cover-page .holder_text_mobile .desc {\n    padding: 0 0 0 22px; }\n  .cover-page .dis_logo {\n    width: auto; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .text {\n    font-size: 1.15em !important;\n    padding: 2px 4px; }\n  .cover-page .text > div {\n    width: 85%; }\n  .cover-page .dis_logo {\n    float: none;\n    top: 0; }\n  .cover-page .startbtn_a {\n    float: none;\n    top: 0;\n    right: -1px; }\n  .cover-page .startbtn {\n    width: 80%;\n    display: block; }\n  .cover-page .instruction {\n    padding: 0 0 0 15px;\n    display: table-cell;\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    padding-left: 25px; }\n  .cover-page .holder_text_mobile {\n    display: block; }\n  .cover-page .support-image {\n    position: absolute;\n    right: 0;\n    z-index: 102;\n    bottom: 0;\n    height: 100%; }\n  .cover-page .holder_text {\n    display: table-cell;\n    width: 80%;\n    position: static;\n    padding-right: 10px; }\n  .cover-page .text {\n    color: #FFF;\n    font-weight: 700;\n    height: 40px;\n    display: table;\n    width: 100%;\n    padding: 0 15px;\n    margin-bottom: 10px;\n    padding-right: 115px; }\n  .cover-page .icon-arrow {\n    margin-right: 10px; }\n  .cover-page .icon-btn {\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    z-index: 101; }\n  .cover-page .dis_img1 {\n    background: url(" + __webpack_require__(340) + ") no-repeat scroll 0 0 transparent;\n    position: absolute;\n    right: -210px;\n    bottom: -50px;\n    display: block;\n    width: 878px;\n    height: 588px; }\n  .cover-page .dis_logo {\n    margin-bottom: 5px; }\n  .cover-page .dis_logo_bg {\n    bottom: 35px;\n    padding: 0;\n    position: absolute;\n    right: 35px; }\n  .cover-page .dis_text .title {\n    margin-left: 10px; }\n  .cover-page .holder_text_mobile .btnIcon {\n    font-size: 0.9em; }\n  .cover-page .holder_text_mobile p:nth-child(2) {\n    padding-left: 15px;\n    font-size: 1em;\n    font-weight: normal;\n    line-height: 1em; } }\n\n@media (min-width: 995px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .dis_img1 {\n    right: -360px;\n    bottom: 0px; } }\n\nbody {\n  margin: 0 auto;\n  font-family: Arial;\n  color: #FFF;\n  font-size: 1em;\n  font-weight: 300; }\n\n#root {\n  overflow: hidden; }\n\n.shell-container {\n  position: relative;\n  overflow: hidden; }\n\n.header {\n  background-color: #E9ECED;\n  position: relative;\n  width: 100%;\n  z-index: 100;\n  max-height: 61px; }\n\n.courseProgress {\n  width: 100%;\n  height: 4px;\n  top: -10px;\n  position: relative;\n  /* border: 0.1em solid #ccc; */\n  background: #c5cdcf; }\n\n.courseProgress span {\n  width: 0%;\n  background: #ee3124;\n  height: 4px;\n  display: block;\n  color: #000;\n  text-align: center; }\n\n.title-holder {\n  display: table;\n  color: #5C6670;\n  font-weight: 700;\n  height: 100%;\n  font-size: 1.3em; }\n\n.title-holder > div {\n  display: table-cell;\n  padding: 0 10px;\n  vertical-align: middle; }\n\n.course-logo {\n  float: left; }\n\n.page-title__container {\n  min-height: 40px;\n  line-height: 20px;\n  display: flex;\n  align-items: baseline;\n  width: 100%;\n  color: #FFF;\n  font-weight: 700;\n  background-color: #5C6670; }\n\n.page-title__container .topic-title {\n  color: #C1C6C9;\n  padding: 10px 5px 0 5px;\n  display: inline-block; }\n\n.title-seperator {\n  padding: 0 5px; }\n\n.page-title__container .page-title {\n  align-self: center;\n  padding-top: 2px; }\n\n.footer {\n  position: absolute;\n  height: 46px;\n  width: 100%;\n  background-color: #707c89;\n  bottom: 0px;\n  z-index: 999999999999; }\n\n.right-column {\n  text-align: right;\n  width: 100%;\n  border-right: 0px solid #C1C6C9; }\n\n.button-box {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: middle;\n  height: 45px;\n  width: 41px; }\n\n.button-box a {\n  color: #5C6670;\n  display: block;\n  text-align: center;\n  width: 40px;\n  height: 44px;\n  line-height: 42px;\n  margin-top: 1px; }\n\n.footer .button-box a, .footer .nav-comp-container .page-counter, .footer .button-box a.disabled, .footer .button-box a.selected {\n  background: #ffffff;\n  /* Old browsers */\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 );\n  /* IE6-8 */ }\n\n.footer .button-box a:hover {\n  color: #fff !important;\n  background: #ee3124;\n  /* Old browsers */\n  border-top: 1px solid #ee3124;\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n  /* IE6-8 */ }\n\n.nav-comp-container {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 44px;\n  padding: 1px 1px 0px 0;\n  color: #5C6670;\n  height: 44px; }\n\n.nav-comp-container .page-counter {\n  padding: 0 10px; }\n\n.button-box a.disabled {\n  color: #AAB1B9;\n  cursor: default;\n  pointer-events: none; }\n\n@media (min-width: 650px) {\n  .footer .button-box, .nav-comp-container {\n    background-color: #C1C6C9;\n    border-bottom: 1px solid #C1C6C9; } }\n\n.blinker {\n  -webkit-animation: blink 1s infinite;\n  /* Safari 4+ */\n  -moz-animation: blink 1s infinite;\n  /* Fx 5+ */\n  -o-animation: blink 1s infinite;\n  /* Opera 12+ */\n  animation: blink 1s infinite;\n  /* IE 10+, Fx 29+ */ }\n\n@-webkit-keyframes blink {\n  0%, 49% {\n    background: #ffffff;\n    /* Old browsers */\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 );\n    /* IE6-8 */ }\n  50%, 100% {\n    color: #ffffff !important;\n    background: #ee3124;\n    /* Old browsers */\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n    /* IE6-8 */ } }\n\n.page-container {\n  position: relative;\n  top: -2px;\n  margin: 0;\n  overflow-y: hidden;\n  width: 100%;\n  z-index: 9; }\n  @media all and (max-width: 680px) {\n    .page-container {\n      overflow-y: auto; } }\n\n.page-container .page-holder {\n  height: 100%; }\n\n.page-loader {\n  height: 100%;\n  z-index: 99; }\n\n.help-container > div:first-child {\n  position: static !important;\n  width: 100% !important;\n  height: 100% !important;\n  z-index: 1 !important; }\n\n.fadeOut {\n  opacity: 0; }\n\n.fadeIn {\n  opacity: 1;\n  transition: .5s; }\n\n.icon-transcript::before {\n  content: \"\\E629\"; }\n\n.icon-audio:before {\n  content: \"\\E606\"; }\n\n.icon-playPause:before {\n  content: \"\\E619\"; }\n\n.selected .icon-transcript:before {\n  content: \"\\E628\"; }\n\n.selected .icon-audio:before {\n  content: \"\\E605\"; }\n\n.selected .icon-playPause:before {\n  content: \"\\E61B\"; }\n\n.hide {\n  display: none; }\n\n/*.page {\n    margin: 0 auto;\n    padding: 0 15px 15px 15px;\n    background: #fff;\n    color: #000;\n}\n\n.screen-holder {\n    width: 100%;\n    height: 100%;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n\n.screen-bg {\n    background: url('../images/bg.jpg') left bottom no-repeat;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 0;\n}\n\n.objective-holder {\n    width: 55%;\n    background-color: #FFF;\n    margin-top: 10%;\n}\n\n.objective-title {\n    width: 75%;\n    color: #ed3125;\n    border-bottom: 1px solid #f18b86;\n    padding: 5px 0;\n    margin-left: 10px;\n    margin-bottom: 5px;\n    font-size: 1.5em;\n}\n\n.objective-content {\n    margin-left: 10px;\n    margin-bottom: 5px;\n}\n\n.heading {\n    font-size: 1em;\n    font-weight: 700;\n}\n\n.objective-content ul {\n    list-style: none;\n    padding-bottom: 20px;\n}\n\n.objective-content li {\n    background: url(../images/li_red.png) no-repeat scroll 0px 4px transparent;\n    padding: 0px 0 0px 15px;\n    margin-top: 7px;\n    line-height: 1.3em;\n    margin-left: -30px;\n}\n\n@media all and (min-width:320px) and (max-width: 640px) {\n\t.screen-bg {\n   \t\tbackground: url(../images/bg.jpg) bottom right no-repeat;\n   \t}\n\n   \t.objective-holder {\n\t    width: 88%;\n\t    background-color: #FFF;\n\t    margin-top: 10%;\n\t    margin-left: 5%;\n\t}\n}*/\n.top-nav .middleButtons {\n  text-align: center; }\n\n.top-nav a,\n.top-nav .page-counter {\n  font-size: 1.2em; }\n\n.top-nav .nav-comp-container {\n  vertical-align: inherit; }\n\n.tool-menu-custom-style {\n  height: auto;\n  max-height: 50px;\n  top: 49px !important; }\n\n.tool-menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  width: 300px; }\n\n.help-header {\n  display: table;\n  width: 100%;\n  height: 40px;\n  background: #EE3124;\n  font-size: 1.25em; }\n  .help-header h1 {\n    margin: 0;\n    font-size: 1.35em; }\n\n.help-header .title-container {\n  display: table-cell;\n  width: 100%;\n  vertical-align: middle;\n  padding: 5px 15px;\n  color: #FFF;\n  font-weight: 400; }\n\n.help-header .button-container {\n  display: table-cell;\n  width: 50px;\n  vertical-align: middle; }\n\n.help-close-button {\n  height: 40px;\n  width: 40px;\n  line-height: 40px;\n  display: block;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.elements-container {\n  display: table;\n  width: 100%;\n  height: 37px; }\n\n.elements-container .title-container {\n  display: table-cell;\n  width: 145px;\n  vertical-align: middle;\n  padding: 3px 5px 2px 15px;\n  border: 1px solid #999999;\n  border-top: none;\n  background-color: #dadada;\n  font-size: 1.05em; }\n\n.elements-container .button-container {\n  display: table-cell;\n  vertical-align: middle;\n  padding: 2px 5px;\n  border: 1px solid #999999;\n  border-left: none;\n  border-top: none;\n  background-color: #e9e9e9; }\n\n.iconbg {\n  color: #5C6670;\n  border: 1px solid #CCC;\n  height: 25px;\n  display: inline-block;\n  float: right; }\n\n.btnbg {\n  background: #ffffff;\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 ); }\n\n.iconbg .pagecounter {\n  width: 41px;\n  color: #5C6670;\n  font-weight: bold; }\n\n.iconbg span {\n  vertical-align: middle;\n  font-size: 0.8em;\n  height: 26px;\n  display: table-cell;\n  text-align: center;\n  width: 25px; }\n\n.elements-container .title-container p {\n  width: 75px;\n  padding-top: 0px;\n  display: inline-block;\n  float: left;\n  padding-left: 4px;\n  margin: 0; }\n\n.button-container p {\n  margin: 0; }\n\n.help-content {\n  color: #333333; }\n\n@media (min-width: 750px) {\n  .elements-container .title-container p {\n    width: auto;\n    padding-top: 5px;\n    display: inline-block;\n    float: left;\n    padding-left: 5px; }\n  .elements-container .title-container {\n    width: 190px; } }\n\n.transcript-container {\n  width: 320px;\n  max-height: 240px;\n  margin: 0 auto;\n  bottom: 73px;\n  left: 30%;\n  z-index: 99999;\n  position: absolute; }\n\n.transcript-container .transcript-header {\n  font-size: 1.25em;\n  background-color: #EE3124;\n  color: #FFF;\n  font-weight: 400;\n  cursor: move; }\n\n.transcript-container .transcript-title {\n  display: inline-block;\n  padding: 10px 8px 10px 16px; }\n\n.transcript-container .transcript-close-button {\n  display: block;\n  float: right;\n  font-size: 1.25em;\n  height: 44px;\n  width: 44px;\n  line-height: 44px;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.transcript-text-container {\n  height: 198px;\n  text-align: center;\n  background-color: #e9e9e9;\n  padding: 10px;\n  text-align: left;\n  color: #333333;\n  overflow-y: auto; }\n\n.menu-header {\n  background-color: #EE3124;\n  display: table;\n  font-size: 1.25em;\n  height: 40px;\n  width: 100%; }\n\n.menu-header-title {\n  color: #ffffff;\n  display: table-cell;\n  font-size: 1.15em;\n  height: 100%;\n  padding-left: 14px;\n  vertical-align: middle; }\n\n.menu-close-button-container {\n  color: #FFFFFF;\n  cursor: pointer;\n  display: table-cell;\n  height: 100%;\n  vertical-align: middle;\n  width: 40px; }\n\n.collapse-menu .collapse-menu-header h1 {\n  padding: 6px 14px; }\n\n/* Style for list view expand componen t */\n.menu-list {\n  background-color: #e9e9e9; }\n\n.menu-list__contentInner {\n  border: 1px solid #ebebeb;\n  border-top: 0;\n  position: relative; }\n\n.menu-list__contentInner ul {\n  padding: 0;\n  margin: 0; }\n\n.menu-list__contentInner ul li {\n  box-shadow: inset 0 -1px #BABABA;\n  cursor: pointer;\n  list-style: none;\n  padding: 10px 10px 10px 30px;\n  font-size: 16px;\n  color: #333333; }\n\n.menu-list__contentInner ul li:hover,\n.menu-list__contentInner ul li:active {\n  background-color: #bababa; }\n\n.menu-list__contentInner p:last-child {\n  margin-bottom: 0; }\n\n.menu-list__trigger {\n  box-shadow: inset 0 -1px #BABABA;\n  display: block;\n  font-weight: 400;\n  text-decoration: none;\n  text-indent: 8px;\n  position: relative;\n  border: 1px solid white;\n  padding: 10px;\n  background-color: #e9e9e9;\n  color: #333333;\n  cursor: pointer;\n  font-size: 16px; }\n\n.menu-list__trigger:hover {\n  background-color: #bababa; }\n\n.is-closed .icon-tree::before {\n  content: \"\\E603\";\n  font-size: 1.3em; }\n\n.is-open .icon-tree::before {\n  content: \"\\E601\";\n  font-size: 1.3em; }\n\n.icon-tree {\n  vertical-align: middle; }\n\n.menu-list__trigger.is-disabled {\n  opacity: 0.5;\n  background-color: grey; }\n\n.menu-page-progress {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  border: 1px solid #EE3124;\n  vertical-align: sub;\n  right: 18px;\n  position: absolute; }\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n@font-face {\n  font-family: 'Lato';\n  src: url(" + __webpack_require__(106) + ");\n  src: url(" + __webpack_require__(106) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(243) + ") format(\"woff2\"), url(" + __webpack_require__(242) + ") format(\"woff\"), url(" + __webpack_require__(241) + ") format(\"truetype\"), url(" + __webpack_require__(345) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'Lato-Light';\n  src: url(" + __webpack_require__(105) + ");\n  src: url(" + __webpack_require__(105) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(236) + ") format(\"woff2\"), url(" + __webpack_require__(235) + ") format(\"woff\"), url(" + __webpack_require__(234) + ") format(\"truetype\"), url(" + __webpack_require__(343) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'icomoon';\n  src: url(" + __webpack_require__(238) + ");\n  src: url(" + __webpack_require__(237) + "?#iefixc92yby) format(\"embedded-opentype\"), url(" + __webpack_require__(240) + ") format(\"woff\"), url(" + __webpack_require__(239) + ") format(\"truetype\"), url(" + __webpack_require__(344) + "#icomoon) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n[class^=\"icon-\"], [class*=\" icon-\"] {\n  font-family: 'icomoon';\n  speak: none;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  letter-spacing: 0;\n  -webkit-font-feature-settings: \"liga\";\n  -moz-font-feature-settings: \"liga=1\";\n  -moz-font-feature-settings: \"liga\";\n  -ms-font-feature-settings: \"liga\" 1;\n  font-feature-settings: \"liga\";\n  -webkit-font-variant-ligatures: discretionary-ligatures;\n  font-variant-ligatures: discretionary-ligatures;\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\n.menu-overlay-style {\n  position: absolute !important; }\n\n.menu-custom-style {\n  bottom: 44px !important;\n  top: 64px !important; }\n\n.menu-overlay-style {\n  background-color: rgba(0, 0, 0, 0.498039) !important; }\n\n.menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  z-index: 99 !important; }\n\n.menu-header h1 {\n  font: inherit;\n  margin: 0; }\n\n@media (min-width: 320px) {\n  .menu-style {\n    width: 100%; } }\n\n@media (min-width: 650px) {\n  .menu-style {\n    width: 460px; } }\n\n.menu-list__trigger {\n  display: none !important; }\n\n.disable-event {\n  pointer-events: none; }\n\nbody {\n  background: #5B6770;\n  font-family: 'Arial', Calibri, Arial, sans-serif;\n  height: 100%;\n  line-height: 1.4;\n  overflow: hidden;\n  max-width: 1010px;\n  max-height: 650px; }\n\n.wrapper {\n  bottom: 0;\n  display: table;\n  height: 100%;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  width: 100%; }\n\n.launcher {\n  display: table-cell;\n  padding-bottom: 40px;\n  vertical-align: top; }\n\n.whitePatch {\n  background-color: #FFFFFF;\n  height: 231px;\n  position: relative;\n  width: 100%; }\n\n.td1 {\n  align-items: center;\n  padding: 25px 25px 15px 25px;\n  position: relative;\n  top: 10px;\n  text-align: left; }\n\n.td2 {\n  align-items: center;\n  padding: 0;\n  position: relative;\n  top: 18px;\n  width: auto; }\n\n.divSeparator {\n  background-color: #CBCBCB;\n  height: 1px;\n  margin: 0 auto;\n  width: 100%; }\n\n.td3 {\n  align-items: center;\n  color: #5B6770;\n  font-size: 1.5em;\n  padding: 24px 25px;\n  position: relative;\n  text-align: left;\n  top: 5px;\n  vertical-align: middle; }\n\n.launch_btn {\n  background-image: url(" + __webpack_require__(135) + ");\n  background-repeat: no-repeat;\n  background-position: 0 0;\n  width: 88px;\n  height: 96px;\n  display: block;\n  color: #5B6770;\n  position: absolute;\n  right: 25px;\n  font-size: 0.6em;\n  text-align: center;\n  top: 57px;\n  font-weight: bold; }\n\n.launch_btn:hover {\n  background-image: url(" + __webpack_require__(135) + ");\n  background-position: -120px 0 !important;\n  color: #FFFFFF; }\n\n.launch_btn span {\n  vertical-align: middle;\n  line-height: 99px; }\n\na {\n  text-decoration: none; }\n\n@media (min-width: 768px) {\n  .launcher {\n    vertical-align: middle; }\n  .whitePatch {\n    display: table;\n    height: 120px;\n    position: static;\n    text-align: center;\n    vertical-align: middle;\n    width: 100%; }\n  .td1 {\n    display: table-cell;\n    height: 73px;\n    padding: 0;\n    padding-top: 5px;\n    position: static;\n    text-align: right;\n    vertical-align: middle;\n    width: 40%; }\n  .td2 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: static;\n    vertical-align: middle;\n    width: 4%; }\n  .divSeparator {\n    background-color: #CBCBCB;\n    height: 80px;\n    width: 1px; }\n  .td3 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: relative;\n    text-align: left;\n    top: 0;\n    vertical-align: middle;\n    width: 56%; }\n  .launch_btn {\n    font-size: 0.6em;\n    font-weight: bold;\n    left: 65%;\n    position: absolute;\n    text-align: center;\n    top: 71px; } }\n\nbody {\n  background: #ffffff !important;\n  margin: 0 auto;\n  overflow-y: auto;\n  font-family: 'Arial' !important;\n  max-width: 1024px;\n  max-height: 650px; }\n\n.cover-page {\n  height: auto;\n  color: #FFF;\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  overflow: hidden;\n  background-color: #0A4166; }\n\n.cover-page .btnIcon {\n  background: url(" + __webpack_require__(339) + ") repeat-x scroll 0 0 transparent;\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em; }\n\n.instruction-container {\n  height: 100%;\n  display: table;\n  width: 100%;\n  position: relative;\n  margin-top: 0;\n  overflow-y: auto; }\n\n.logo-container {\n  background-color: #FFF;\n  display: block;\n  padding: 35px 15px 24px; }\n\n.instruction-title .title {\n  color: rgba(0, 0, 0, 0.68);\n  font-size: 2em;\n  font-weight: 100;\n  margin: 0; }\n\n.text-container {\n  padding: 15px 10px 0px; }\n\n.cover-page .text-container p {\n  display: table-cell;\n  vertical-align: middle;\n  padding-right: 20px;\n  font-size: 1.35em; }\n\n.cover-page .btnIconBlank {\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em;\n  color: #FFFF; }\n\n.cover-page .text-container .text {\n  font-size: 0.875em;\n  padding: 4px; }\n\n.cover-page .text-container .text > div {\n  display: table;\n  width: 100%; }\n\n.cover-page .text-container .btnIcon {\n  padding-right: 0px; }\n\n.cover-page .text-container .btnIconBlank {\n  padding-right: 0px;\n  color: #fff;\n  font-size: 1.65em; }\n\n.cover-page .text-container .btnIcon1 span {\n  font-size: 1.3em; }\n\n.cover-page .text-container p:nth-child(2) {\n  padding-left: 20px;\n  font-size: 1.07em; }\n\n.cover-page .text {\n  color: #FFF;\n  height: 40px;\n  display: table;\n  width: 100%;\n  padding: 0 15px;\n  margin-bottom: 4px;\n  font-size: 1.1em; }\n\n.cover-page .dis_sys_check {\n  position: relative;\n  top: 7px;\n  z-index: 101; }\n\n.cover-page .container {\n  height: 100%;\n  position: relative;\n  display: table; }\n\n.cover-page .startbtn {\n  display: table-cell;\n  width: 100%; }\n\n.cover-page .instruction {\n  color: #FFF;\n  max-height: 40px;\n  margin: 0;\n  padding: 10px 0 10px 12px;\n  position: relative;\n  background-color: #083451;\n  font-size: 0.9375em; }\n\n.cover-page .instruction span {\n  font-weight: normal; }\n\n.cover-page .startbtn_a {\n  /* background: url(\"../../images/btnstrip2.png\") repeat-x scroll 0 0 rgba(0, 0, 0, 0); */\n  color: #ffffff;\n  display: inline-block;\n  float: right;\n  font-size: 1.5625em;\n  height: 40px;\n  margin-top: 0;\n  position: relative;\n  text-decoration: none;\n  top: 25px;\n  vertical-align: middle;\n  width: 100px;\n  margin-left: 10px;\n  z-index: 101;\n  background-color: #1792E5; }\n\n.cover-page .btnContent {\n  display: table;\n  width: 100%;\n  padding: 0;\n  height: 40px; }\n\n.cover-page .btnContent:hover {\n  background-color: #ee3124; }\n\n.cover-page .btnContent span {\n  vertical-align: middle;\n  display: table-cell;\n  text-align: center; }\n\n.cover-page .instruction .fontBold {\n  font-weight: bold; }\n\n.cover-page .sys_container {\n  display: none; }\n\n.text-container a {\n  color: #ffffff; }\n\n.cover-page .invisible-container {\n  height: 70px; }\n\n.playAudioParent {\n  height: 100%;\n  left: 0;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  z-index: 88888; }\n\n.playBlinkBlack {\n  background-color: #FFF;\n  height: 100%;\n  left: 0;\n  opacity: 0.6;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  z-index: 5; }\n\n.playBlink {\n  background: url(" + __webpack_require__(342) + ") no-repeat scroll 0 0 transparent;\n  height: 100px;\n  margin: -50px auto 0;\n  position: relative;\n  top: 50%;\n  width: 112px;\n  z-index: 500; }\n\n.button-autoPlay {\n  background: url(" + __webpack_require__(341) + ") no-repeat scroll 0 0 transparent;\n  display: block;\n  height: 42px;\n  margin: 0 auto;\n  position: relative;\n  top: 29px;\n  width: 38px;\n  z-index: 900000;\n  margin-top: 25%; }\n\n@media (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px;\n    font-size: 1.35; }\n  .cover-page .text-container p {\n    font-size: 1em;\n    font-weight: bold; }\n  .cover-page .text-container p:nth-child(2) {\n    padding-left: 20px;\n    font-size: 1.07em; }\n  .cover-page .instruction {\n    font-size: 1.07em; } }\n\n@media all and (min-width: 320px) {\n  .cover-page .dis_container {\n    /* padding: 10px 15px 0; */ }\n  .cover-page .dis_sys_check {\n    padding: 0 15px; } }\n\n@media all and (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px; } }\n\n@media all and (min-width: 480px) {\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media all and (min-width: 600px) {\n  .cover-page .cover-page {\n    padding: 0; }\n  .cover-page .dis_container {\n    max-width: 100%; }\n  .cover-page .dis_text .title {\n    font-size: 2em;\n    font-weight: 100; }\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media (min-width: 768px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .text-container {\n    padding: 25px 25px 0; }\n  .cover-page .text-container p {\n    font-weight: normal !important; }\n  .cover-page .holder_text_mobile .desc {\n    padding: 0 0 0 22px; }\n  .cover-page .dis_logo {\n    width: auto; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .text {\n    font-size: 1.15em !important;\n    padding: 2px 4px; }\n  .cover-page .text > div {\n    width: 85%; }\n  .cover-page .dis_logo {\n    float: none;\n    top: 0; }\n  .cover-page .startbtn_a {\n    float: none;\n    top: 0;\n    right: -1px; }\n  .cover-page .startbtn {\n    width: 80%;\n    display: block; }\n  .cover-page .instruction {\n    padding: 0 0 0 15px;\n    display: table-cell;\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    padding-left: 25px; }\n  .cover-page .holder_text_mobile {\n    display: block; }\n  .cover-page .support-image {\n    position: absolute;\n    right: 0;\n    z-index: 102;\n    bottom: 0;\n    height: 100%; }\n  .cover-page .holder_text {\n    display: table-cell;\n    width: 80%;\n    position: static;\n    padding-right: 10px; }\n  .cover-page .text {\n    color: #FFF;\n    font-weight: 700;\n    height: 40px;\n    display: table;\n    width: 100%;\n    padding: 0 15px;\n    margin-bottom: 10px;\n    padding-right: 115px; }\n  .cover-page .icon-arrow {\n    margin-right: 10px; }\n  .cover-page .icon-btn {\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    z-index: 101; }\n  .cover-page .dis_img1 {\n    background: url(" + __webpack_require__(340) + ") no-repeat scroll 0 0 transparent;\n    position: absolute;\n    right: -315px;\n    bottom: -20px;\n    display: block;\n    width: 770px;\n    height: 424px; }\n  .cover-page .dis_logo {\n    margin-bottom: 5px; }\n  .cover-page .dis_logo_bg {\n    bottom: 35px;\n    padding: 0;\n    position: absolute;\n    right: 35px; }\n  .cover-page .dis_text .title {\n    margin-left: 10px; }\n  .cover-page .holder_text_mobile .btnIcon {\n    font-size: 0.9em; }\n  .cover-page .holder_text_mobile p:nth-child(2) {\n    padding-left: 15px;\n    font-size: 1em;\n    font-weight: normal;\n    line-height: 1em; } }\n\n@media (min-width: 995px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .dis_img1 {\n    right: -240px;\n    bottom: 0px; } }\n\n/* Absolute Center Spinner */\n.loading {\n  position: fixed;\n  z-index: 999;\n  height: 2em;\n  width: 2em;\n  overflow: show;\n  margin: auto;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0; }\n\n/* Transparent Overlay */\n.loading:before {\n  content: '';\n  display: block;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.3); }\n\n/* :not(:required) hides these rules from IE9 and below */\n.loading:not(:required) {\n  /* hide \"loading...\" text */\n  font: 0/0 a;\n  color: transparent;\n  text-shadow: none;\n  background-color: transparent;\n  border: 0; }\n\n.loading:not(:required):after {\n  content: '';\n  display: block;\n  font-size: 10px;\n  width: 1em;\n  height: 1em;\n  margin-top: -0.5em;\n  -webkit-animation: spinner 1500ms infinite linear;\n  -moz-animation: spinner 1500ms infinite linear;\n  -ms-animation: spinner 1500ms infinite linear;\n  -o-animation: spinner 1500ms infinite linear;\n  animation: spinner 1500ms infinite linear;\n  border-radius: 0.5em;\n  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;\n  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0; }\n\n/* Animation */\n@-webkit-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@-moz-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@-o-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\nbody {\n  margin: 0 auto;\n  font-family: Arial;\n  color: #FFF;\n  font-size: 1em;\n  font-weight: 300; }\n\n#root {\n  overflow: hidden; }\n\n.shell-container {\n  position: relative;\n  overflow: hidden; }\n\n.header {\n  background-color: #E9ECED;\n  position: relative;\n  width: 100%;\n  z-index: 100;\n  max-height: 61px; }\n\n.courseProgress {\n  width: 100%;\n  height: 4px;\n  top: -10px;\n  position: relative;\n  /* border: 0.1em solid #ccc; */\n  background: #c5cdcf; }\n\n.courseProgress span {\n  width: 0%;\n  background: #ee3124;\n  height: 4px;\n  display: block;\n  color: #000;\n  text-align: center; }\n\n.title-holder {\n  display: table;\n  color: #5C6670;\n  font-weight: 700;\n  height: 100%;\n  font-size: 1.3em; }\n\n.title-holder > div {\n  display: table-cell;\n  padding: 0 10px;\n  vertical-align: middle; }\n\n.course-logo {\n  float: left; }\n\n.page-title__container {\n  min-height: 40px;\n  line-height: 20px;\n  display: flex;\n  align-items: baseline;\n  width: 100%;\n  color: #FFF;\n  font-weight: 700;\n  background-color: #5C6670; }\n\n.page-title__container .topic-title {\n  color: #C1C6C9;\n  padding: 10px 5px 0 5px;\n  display: inline-block; }\n\n.title-seperator {\n  padding: 0 5px; }\n\n.page-title__container .page-title {\n  align-self: center;\n  padding-top: 2px; }\n\n.footer {\n  position: absolute;\n  height: 46px;\n  width: 100%;\n  background-color: #707c89;\n  bottom: 0px;\n  z-index: 999999999999; }\n\n.right-column {\n  text-align: right;\n  width: 100%;\n  border-right: 0px solid #C1C6C9; }\n\n.button-box {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: middle;\n  height: 45px;\n  width: 41px; }\n\n.button-box a {\n  color: #5C6670;\n  display: block;\n  text-align: center;\n  width: 40px;\n  height: 44px;\n  line-height: 42px;\n  margin-top: 1px; }\n\n.footer .button-box a, .footer .nav-comp-container .page-counter, .footer .button-box a.disabled, .footer .button-box a.selected {\n  background: #ffffff;\n  /* Old browsers */\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 );\n  /* IE6-8 */ }\n\n.footer .button-box a:hover {\n  color: #fff !important;\n  background: #ee3124;\n  /* Old browsers */\n  border-top: 1px solid #ee3124;\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n  /* IE6-8 */ }\n\n.nav-comp-container {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 44px;\n  padding: 1px 1px 0px 0;\n  color: #5C6670;\n  height: 44px; }\n\n.nav-comp-container .page-counter {\n  padding: 0 10px; }\n\n.button-box a.disabled {\n  color: #AAB1B9;\n  cursor: default;\n  pointer-events: none; }\n\n@media (min-width: 650px) {\n  .footer .button-box, .nav-comp-container {\n    background-color: #C1C6C9;\n    border-bottom: 1px solid #C1C6C9; } }\n\n.blinker {\n  -webkit-animation: blink 1s infinite;\n  /* Safari 4+ */\n  -moz-animation: blink 1s infinite;\n  /* Fx 5+ */\n  -o-animation: blink 1s infinite;\n  /* Opera 12+ */\n  animation: blink 1s infinite;\n  /* IE 10+, Fx 29+ */ }\n\n@-webkit-keyframes blink {\n  0%, 49% {\n    background: #ffffff;\n    /* Old browsers */\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 );\n    /* IE6-8 */ }\n  50%, 100% {\n    color: #ffffff !important;\n    background: #ee3124;\n    /* Old browsers */\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n    /* IE6-8 */ } }\n\n.page-container {\n  position: relative;\n  top: -2px;\n  margin: 0;\n  overflow-y: hidden;\n  width: 100%;\n  z-index: 9; }\n  @media all and (max-width: 680px) {\n    .page-container {\n      overflow-y: auto; } }\n\n.page-container .page-holder {\n  height: 100%; }\n\n.page-loader {\n  height: 100%;\n  z-index: 99; }\n\n.help-container > div:first-child {\n  position: static !important;\n  width: 100% !important;\n  height: 100% !important;\n  z-index: 1 !important; }\n\n.fadeOut {\n  opacity: 0; }\n\n.fadeIn {\n  opacity: 1;\n  transition: .5s; }\n\n.icon-transcript::before {\n  content: \"\\E629\"; }\n\n.icon-audio:before {\n  content: \"\\E606\"; }\n\n.icon-playPause:before {\n  content: \"\\E619\"; }\n\n.selected .icon-transcript:before {\n  content: \"\\E628\"; }\n\n.selected .icon-audio:before {\n  content: \"\\E605\"; }\n\n.selected .icon-playPause:before {\n  content: \"\\E61B\"; }\n\n.hide {\n  display: none; }\n\n/*.page {\n    margin: 0 auto;\n    padding: 0 15px 15px 15px;\n    background: #fff;\n    color: #000;\n}\n\n.screen-holder {\n    width: 100%;\n    height: 100%;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n\n.screen-bg {\n    background: url('../images/bg.jpg') left bottom no-repeat;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 0;\n}\n\n.objective-holder {\n    width: 55%;\n    background-color: #FFF;\n    margin-top: 10%;\n}\n\n.objective-title {\n    width: 75%;\n    color: #ed3125;\n    border-bottom: 1px solid #f18b86;\n    padding: 5px 0;\n    margin-left: 10px;\n    margin-bottom: 5px;\n    font-size: 1.5em;\n}\n\n.objective-content {\n    margin-left: 10px;\n    margin-bottom: 5px;\n}\n\n.heading {\n    font-size: 1em;\n    font-weight: 700;\n}\n\n.objective-content ul {\n    list-style: none;\n    padding-bottom: 20px;\n}\n\n.objective-content li {\n    background: url(../images/li_red.png) no-repeat scroll 0px 4px transparent;\n    padding: 0px 0 0px 15px;\n    margin-top: 7px;\n    line-height: 1.3em;\n    margin-left: -30px;\n}\n\n@media all and (min-width:320px) and (max-width: 640px) {\n\t.screen-bg {\n   \t\tbackground: url(../images/bg.jpg) bottom right no-repeat;\n   \t}\n\n   \t.objective-holder {\n\t    width: 88%;\n\t    background-color: #FFF;\n\t    margin-top: 10%;\n\t    margin-left: 5%;\n\t}\n}*/\n.top-nav .middleButtons {\n  text-align: center; }\n\n.top-nav a,\n.top-nav .page-counter {\n  font-size: 1.2em; }\n\n.top-nav .nav-comp-container {\n  vertical-align: inherit; }\n\n.tool-menu-custom-style {\n  height: auto;\n  max-height: 50px;\n  top: 49px !important; }\n\n.tool-menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  width: 300px; }\n\n.help-header {\n  display: table;\n  width: 100%;\n  height: 40px;\n  background: #EE3124;\n  font-size: 1.25em; }\n  .help-header h1 {\n    margin: 0;\n    font-size: 1.35em; }\n\n.help-header .title-container {\n  display: table-cell;\n  width: 100%;\n  vertical-align: middle;\n  padding: 5px 15px;\n  color: #FFF;\n  font-weight: 400; }\n\n.help-header .button-container {\n  display: table-cell;\n  width: 50px;\n  vertical-align: middle; }\n\n.help-close-button {\n  height: 40px;\n  width: 40px;\n  line-height: 40px;\n  display: block;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.elements-container {\n  display: table;\n  width: 100%;\n  height: 37px; }\n\n.elements-container .title-container {\n  display: table-cell;\n  width: 145px;\n  vertical-align: middle;\n  padding: 3px 5px 2px 15px;\n  border: 1px solid #999999;\n  border-top: none;\n  background-color: #dadada;\n  font-size: 1.05em; }\n\n.elements-container .button-container {\n  display: table-cell;\n  vertical-align: middle;\n  padding: 2px 5px;\n  border: 1px solid #999999;\n  border-left: none;\n  border-top: none;\n  background-color: #e9e9e9; }\n\n.iconbg {\n  color: #5C6670;\n  border: 1px solid #CCC;\n  height: 25px;\n  display: inline-block;\n  float: right; }\n\n.btnbg {\n  background: #ffffff;\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 ); }\n\n.iconbg .pagecounter {\n  width: 41px;\n  color: #5C6670;\n  font-weight: bold; }\n\n.iconbg span {\n  vertical-align: middle;\n  font-size: 0.8em;\n  height: 26px;\n  display: table-cell;\n  text-align: center;\n  width: 25px; }\n\n.elements-container .title-container p {\n  width: 75px;\n  padding-top: 0px;\n  display: inline-block;\n  float: left;\n  padding-left: 4px;\n  margin: 0; }\n\n.button-container p {\n  margin: 0; }\n\n.help-content {\n  color: #333333; }\n\n@media (min-width: 750px) {\n  .elements-container .title-container p {\n    width: auto;\n    padding-top: 5px;\n    display: inline-block;\n    float: left;\n    padding-left: 5px; }\n  .elements-container .title-container {\n    width: 190px; } }\n\n.transcript-container {\n  width: 320px;\n  max-height: 240px;\n  margin: 0 auto;\n  bottom: 73px;\n  left: 30%;\n  z-index: 99999;\n  position: absolute; }\n\n.transcript-container .transcript-header {\n  font-size: 1.25em;\n  background-color: #EE3124;\n  color: #FFF;\n  font-weight: 400;\n  cursor: move; }\n\n.transcript-container .transcript-title {\n  display: inline-block;\n  padding: 10px 8px 10px 16px; }\n\n.transcript-container .transcript-close-button {\n  display: block;\n  float: right;\n  font-size: 1.25em;\n  height: 44px;\n  width: 44px;\n  line-height: 44px;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.transcript-text-container {\n  height: 198px;\n  text-align: center;\n  background-color: #e9e9e9;\n  padding: 10px;\n  text-align: left;\n  color: #333333;\n  overflow-y: auto; }\n\n.menu-header {\n  background-color: #EE3124;\n  display: table;\n  font-size: 1.25em;\n  height: 40px;\n  width: 100%; }\n\n.menu-header-title {\n  color: #ffffff;\n  display: table-cell;\n  font-size: 1.15em;\n  height: 100%;\n  padding-left: 14px;\n  vertical-align: middle; }\n\n.menu-close-button-container {\n  color: #FFFFFF;\n  cursor: pointer;\n  display: table-cell;\n  height: 100%;\n  vertical-align: middle;\n  width: 40px; }\n\n.collapse-menu .collapse-menu-header h1 {\n  padding: 6px 14px; }\n\n/* Style for list view expand componen t */\n.menu-list {\n  background-color: #e9e9e9; }\n\n.menu-list__contentInner {\n  border: 1px solid #ebebeb;\n  border-top: 0;\n  position: relative; }\n\n.menu-list__contentInner ul {\n  padding: 0;\n  margin: 0; }\n\n.menu-list__contentInner ul li {\n  box-shadow: inset 0 -1px #BABABA;\n  cursor: pointer;\n  list-style: none;\n  padding: 10px 10px 10px 30px;\n  font-size: 16px;\n  color: #333333; }\n\n.menu-list__contentInner ul li:hover,\n.menu-list__contentInner ul li:active {\n  background-color: #bababa; }\n\n.menu-list__contentInner p:last-child {\n  margin-bottom: 0; }\n\n.menu-list__trigger {\n  box-shadow: inset 0 -1px #BABABA;\n  display: block;\n  font-weight: 400;\n  text-decoration: none;\n  text-indent: 8px;\n  position: relative;\n  border: 1px solid white;\n  padding: 10px;\n  background-color: #e9e9e9;\n  color: #333333;\n  cursor: pointer;\n  font-size: 16px; }\n\n.menu-list__trigger:hover {\n  background-color: #bababa; }\n\n.is-closed .icon-tree::before {\n  content: \"\\E603\";\n  font-size: 1.3em; }\n\n.is-open .icon-tree::before {\n  content: \"\\E601\";\n  font-size: 1.3em; }\n\n.icon-tree {\n  vertical-align: middle; }\n\n.menu-list__trigger.is-disabled {\n  opacity: 0.5;\n  background-color: grey; }\n\n.menu-page-progress {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  border: 1px solid #EE3124;\n  vertical-align: sub;\n  right: 18px;\n  position: absolute; }\n", ""]);
 
 // exports
 
@@ -27576,25 +27456,25 @@ module.exports = performanceNow;
 /* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/Lato-Light.svg";
+module.exports = __webpack_require__.p + "assets/fonts/Lato-Light.ttf";
 
 /***/ }),
 /* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/Lato-Light.ttf";
+module.exports = __webpack_require__.p + "assets/fonts/Lato-Light.woff";
 
 /***/ }),
 /* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/Lato-Light.woff";
+module.exports = __webpack_require__.p + "assets/fonts/Lato-Light.woff2";
 
 /***/ }),
 /* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/Lato-Light.woff2";
+module.exports = __webpack_require__.p + "assets/fonts/icomoon.eot";
 
 /***/ }),
 /* 238 */
@@ -27606,52 +27486,34 @@ module.exports = __webpack_require__.p + "assets/fonts/icomoon.eot";
 /* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/icomoon.eot";
+module.exports = __webpack_require__.p + "assets/fonts/icomoon.ttf";
 
 /***/ }),
 /* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/icomoon.svg";
+module.exports = __webpack_require__.p + "assets/fonts/icomoon.woff";
 
 /***/ }),
 /* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/icomoon.ttf";
+module.exports = __webpack_require__.p + "assets/fonts/lato-regular-webfont.ttf";
 
 /***/ }),
 /* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/icomoon.woff";
+module.exports = __webpack_require__.p + "assets/fonts/lato-regular-webfont.woff";
 
 /***/ }),
 /* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/lato-regular-webfont.svg";
-
-/***/ }),
-/* 244 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/fonts/lato-regular-webfont.ttf";
-
-/***/ }),
-/* 245 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/fonts/lato-regular-webfont.woff";
-
-/***/ }),
-/* 246 */
-/***/ (function(module, exports, __webpack_require__) {
-
 module.exports = __webpack_require__.p + "assets/fonts/lato-regular-webfont.woff2";
 
 /***/ }),
-/* 247 */
+/* 244 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -27741,7 +27603,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 248 */
+/* 245 */
 /***/ (function(module, exports) {
 
 /**
@@ -27884,7 +27746,7 @@ module.exports = getNative;
 
 
 /***/ }),
-/* 249 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -27895,7 +27757,7 @@ module.exports = getNative;
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
-var getNative = __webpack_require__(248);
+var getNative = __webpack_require__(245);
 
 /** Used as the `TypeError` message for "Functions" methods. */
 var FUNC_ERROR_TEXT = 'Expected a function';
@@ -28124,6 +27986,589 @@ module.exports = debounce;
 
 
 /***/ }),
+/* 247 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+if (process.env.NODE_ENV !== 'production') {
+  var invariant = __webpack_require__(1);
+  var warning = __webpack_require__(2);
+  var ReactPropTypesSecret = __webpack_require__(108);
+  var loggedTypeFailures = {};
+}
+
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */
+function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+  if (process.env.NODE_ENV !== 'production') {
+    for (var typeSpecName in typeSpecs) {
+      if (typeSpecs.hasOwnProperty(typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'React.PropTypes.', componentName || 'React class', location, typeSpecName);
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+        } catch (ex) {
+          error = ex;
+        }
+        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error.message] = true;
+
+          var stack = getStack ? getStack() : '';
+
+          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
+        }
+      }
+    }
+  }
+}
+
+module.exports = checkPropTypes;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 248 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+// React 15.5 references this module, and assumes PropTypes are still callable in production.
+// Therefore we re-export development-only version with all the PropTypes checks here.
+// However if one is migrating to the `prop-types` npm library, they will go through the
+// `index.js` entry point, and it will branch depending on the environment.
+var factory = __webpack_require__(249);
+module.exports = function(isValidElement) {
+  // It is still allowed in 15.5.
+  var throwOnDirectAccess = false;
+  return factory(isValidElement, throwOnDirectAccess);
+};
+
+
+/***/ }),
+/* 249 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+var emptyFunction = __webpack_require__(11);
+var invariant = __webpack_require__(1);
+var warning = __webpack_require__(2);
+
+var ReactPropTypesSecret = __webpack_require__(108);
+var checkPropTypes = __webpack_require__(247);
+
+module.exports = function(isValidElement, throwOnDirectAccess) {
+  /* global Symbol */
+  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+  /**
+   * Returns the iterator method function contained on the iterable object.
+   *
+   * Be sure to invoke the function with the iterable as context:
+   *
+   *     var iteratorFn = getIteratorFn(myIterable);
+   *     if (iteratorFn) {
+   *       var iterator = iteratorFn.call(myIterable);
+   *       ...
+   *     }
+   *
+   * @param {?object} maybeIterable
+   * @return {?function}
+   */
+  function getIteratorFn(maybeIterable) {
+    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+    if (typeof iteratorFn === 'function') {
+      return iteratorFn;
+    }
+  }
+
+  /**
+   * Collection of methods that allow declaration and validation of props that are
+   * supplied to React components. Example usage:
+   *
+   *   var Props = require('ReactPropTypes');
+   *   var MyArticle = React.createClass({
+   *     propTypes: {
+   *       // An optional string prop named "description".
+   *       description: Props.string,
+   *
+   *       // A required enum prop named "category".
+   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *
+   *       // A prop named "dialog" that requires an instance of Dialog.
+   *       dialog: Props.instanceOf(Dialog).isRequired
+   *     },
+   *     render: function() { ... }
+   *   });
+   *
+   * A more formal specification of how these methods are used:
+   *
+   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+   *   decl := ReactPropTypes.{type}(.isRequired)?
+   *
+   * Each and every declaration produces a function with the same signature. This
+   * allows the creation of custom validation functions. For example:
+   *
+   *  var MyLink = React.createClass({
+   *    propTypes: {
+   *      // An optional string or URI prop named "href".
+   *      href: function(props, propName, componentName) {
+   *        var propValue = props[propName];
+   *        if (propValue != null && typeof propValue !== 'string' &&
+   *            !(propValue instanceof URI)) {
+   *          return new Error(
+   *            'Expected a string or an URI for ' + propName + ' in ' +
+   *            componentName
+   *          );
+   *        }
+   *      }
+   *    },
+   *    render: function() {...}
+   *  });
+   *
+   * @internal
+   */
+
+  var ANONYMOUS = '<<anonymous>>';
+
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+  var ReactPropTypes = {
+    array: createPrimitiveTypeChecker('array'),
+    bool: createPrimitiveTypeChecker('boolean'),
+    func: createPrimitiveTypeChecker('function'),
+    number: createPrimitiveTypeChecker('number'),
+    object: createPrimitiveTypeChecker('object'),
+    string: createPrimitiveTypeChecker('string'),
+    symbol: createPrimitiveTypeChecker('symbol'),
+
+    any: createAnyTypeChecker(),
+    arrayOf: createArrayOfTypeChecker,
+    element: createElementTypeChecker(),
+    instanceOf: createInstanceTypeChecker,
+    node: createNodeChecker(),
+    objectOf: createObjectOfTypeChecker,
+    oneOf: createEnumTypeChecker,
+    oneOfType: createUnionTypeChecker,
+    shape: createShapeTypeChecker
+  };
+
+  /**
+   * inlined Object.is polyfill to avoid requiring consumers ship their own
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+   */
+  /*eslint-disable no-self-compare*/
+  function is(x, y) {
+    // SameValue algorithm
+    if (x === y) {
+      // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
+    }
+  }
+  /*eslint-enable no-self-compare*/
+
+  /**
+   * We use an Error-like object for backward compatibility as people may call
+   * PropTypes directly and inspect their output. However, we don't use real
+   * Errors anymore. We don't inspect their stack anyway, and creating them
+   * is prohibitively expensive if they are created too often, such as what
+   * happens in oneOfType() for any type before the one that matched.
+   */
+  function PropTypeError(message) {
+    this.message = message;
+    this.stack = '';
+  }
+  // Make `instanceof Error` still work for returned errors.
+  PropTypeError.prototype = Error.prototype;
+
+  function createChainableTypeChecker(validate) {
+    if (process.env.NODE_ENV !== 'production') {
+      var manualPropTypeCallCache = {};
+      var manualPropTypeWarningCount = 0;
+    }
+    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+      componentName = componentName || ANONYMOUS;
+      propFullName = propFullName || propName;
+
+      if (secret !== ReactPropTypesSecret) {
+        if (throwOnDirectAccess) {
+          // New behavior only for users of `prop-types` package
+          invariant(
+            false,
+            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+            'Use `PropTypes.checkPropTypes()` to call them. ' +
+            'Read more at http://fb.me/use-check-prop-types'
+          );
+        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
+          // Old behavior for people using React.PropTypes
+          var cacheKey = componentName + ':' + propName;
+          if (
+            !manualPropTypeCallCache[cacheKey] &&
+            // Avoid spamming the console because they are often not actionable except for lib authors
+            manualPropTypeWarningCount < 3
+          ) {
+            warning(
+              false,
+              'You are manually calling a React.PropTypes validation ' +
+              'function for the `%s` prop on `%s`. This is deprecated ' +
+              'and will throw in the standalone `prop-types` package. ' +
+              'You may be seeing this warning due to a third-party PropTypes ' +
+              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.',
+              propFullName,
+              componentName
+            );
+            manualPropTypeCallCache[cacheKey] = true;
+            manualPropTypeWarningCount++;
+          }
+        }
+      }
+      if (props[propName] == null) {
+        if (isRequired) {
+          if (props[propName] === null) {
+            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+          }
+          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+        }
+        return null;
+      } else {
+        return validate(props, propName, componentName, location, propFullName);
+      }
+    }
+
+    var chainedCheckType = checkType.bind(null, false);
+    chainedCheckType.isRequired = checkType.bind(null, true);
+
+    return chainedCheckType;
+  }
+
+  function createPrimitiveTypeChecker(expectedType) {
+    function validate(props, propName, componentName, location, propFullName, secret) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== expectedType) {
+        // `propValue` being instance of, say, date/regexp, pass the 'object'
+        // check, but we can offer a more precise error message here rather than
+        // 'of type `object`'.
+        var preciseType = getPreciseType(propValue);
+
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createAnyTypeChecker() {
+    return createChainableTypeChecker(emptyFunction.thatReturnsNull);
+  }
+
+  function createArrayOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+      }
+      var propValue = props[propName];
+      if (!Array.isArray(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+      }
+      for (var i = 0; i < propValue.length; i++) {
+        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+        if (error instanceof Error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!isValidElement(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createInstanceTypeChecker(expectedClass) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!(props[propName] instanceof expectedClass)) {
+        var expectedClassName = expectedClass.name || ANONYMOUS;
+        var actualClassName = getClassName(props[propName]);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createEnumTypeChecker(expectedValues) {
+    if (!Array.isArray(expectedValues)) {
+      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
+      return emptyFunction.thatReturnsNull;
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      for (var i = 0; i < expectedValues.length; i++) {
+        if (is(propValue, expectedValues[i])) {
+          return null;
+        }
+      }
+
+      var valuesString = JSON.stringify(expectedValues);
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createObjectOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+      }
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+      }
+      for (var key in propValue) {
+        if (propValue.hasOwnProperty(key)) {
+          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+          if (error instanceof Error) {
+            return error;
+          }
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createUnionTypeChecker(arrayOfTypeCheckers) {
+    if (!Array.isArray(arrayOfTypeCheckers)) {
+      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+      return emptyFunction.thatReturnsNull;
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+        var checker = arrayOfTypeCheckers[i];
+        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
+          return null;
+        }
+      }
+
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createNodeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!isNode(props[propName])) {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      for (var key in shapeTypes) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          continue;
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function isNode(propValue) {
+    switch (typeof propValue) {
+      case 'number':
+      case 'string':
+      case 'undefined':
+        return true;
+      case 'boolean':
+        return !propValue;
+      case 'object':
+        if (Array.isArray(propValue)) {
+          return propValue.every(isNode);
+        }
+        if (propValue === null || isValidElement(propValue)) {
+          return true;
+        }
+
+        var iteratorFn = getIteratorFn(propValue);
+        if (iteratorFn) {
+          var iterator = iteratorFn.call(propValue);
+          var step;
+          if (iteratorFn !== propValue.entries) {
+            while (!(step = iterator.next()).done) {
+              if (!isNode(step.value)) {
+                return false;
+              }
+            }
+          } else {
+            // Iterator will provide entry [k,v] tuples rather than values.
+            while (!(step = iterator.next()).done) {
+              var entry = step.value;
+              if (entry) {
+                if (!isNode(entry[1])) {
+                  return false;
+                }
+              }
+            }
+          }
+        } else {
+          return false;
+        }
+
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  function isSymbol(propType, propValue) {
+    // Native Symbol.
+    if (propType === 'symbol') {
+      return true;
+    }
+
+    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+    if (propValue['@@toStringTag'] === 'Symbol') {
+      return true;
+    }
+
+    // Fallback for non-spec compliant Symbols which are polyfilled.
+    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+      return true;
+    }
+
+    return false;
+  }
+
+  // Equivalent of `typeof` but with special handling for array and regexp.
+  function getPropType(propValue) {
+    var propType = typeof propValue;
+    if (Array.isArray(propValue)) {
+      return 'array';
+    }
+    if (propValue instanceof RegExp) {
+      // Old webkits (at least until Android 4.0) return 'function' rather than
+      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+      // passes PropTypes.object.
+      return 'object';
+    }
+    if (isSymbol(propType, propValue)) {
+      return 'symbol';
+    }
+    return propType;
+  }
+
+  // This handles more types than `getPropType`. Only used for error messages.
+  // See `createPrimitiveTypeChecker`.
+  function getPreciseType(propValue) {
+    var propType = getPropType(propValue);
+    if (propType === 'object') {
+      if (propValue instanceof Date) {
+        return 'date';
+      } else if (propValue instanceof RegExp) {
+        return 'regexp';
+      }
+    }
+    return propType;
+  }
+
+  // Returns class name of the object, if any.
+  function getClassName(propValue) {
+    if (!propValue.constructor || !propValue.constructor.name) {
+      return ANONYMOUS;
+    }
+    return propValue.constructor.name;
+  }
+
+  ReactPropTypes.checkPropTypes = checkPropTypes;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28138,13 +28583,13 @@ var _createClass = __webpack_require__(161)['default'];
 
 var _classCallCheck = __webpack_require__(159)['default'];
 
-var _extends = __webpack_require__(92)['default'];
+var _extends = __webpack_require__(90)['default'];
 
 var _toConsumableArray = __webpack_require__(166)['default'];
 
-var _Object$keys = __webpack_require__(91)['default'];
+var _Object$keys = __webpack_require__(89)['default'];
 
-var _interopRequireDefault = __webpack_require__(93)['default'];
+var _interopRequireDefault = __webpack_require__(91)['default'];
 
 Object.defineProperty(exports, '__esModule', {
   value: true
@@ -28154,7 +28599,7 @@ var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodashDebounce = __webpack_require__(249);
+var _lodashDebounce = __webpack_require__(246);
 
 var _lodashDebounce2 = _interopRequireDefault(_lodashDebounce);
 
@@ -28634,9 +29079,9 @@ module.exports = exports['default'];
 
 
 
-var _extends = __webpack_require__(92)['default'];
+var _extends = __webpack_require__(90)['default'];
 
-var _Object$keys = __webpack_require__(91)['default'];
+var _Object$keys = __webpack_require__(89)['default'];
 
 Object.defineProperty(exports, '__esModule', {
   value: true
@@ -28667,7 +29112,7 @@ module.exports = exports['default'];
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(93)['default'];
+var _interopRequireDefault = __webpack_require__(91)['default'];
 
 Object.defineProperty(exports, '__esModule', {
   value: true
@@ -28778,7 +29223,7 @@ module.exports = ARIADOMPropertyConfig;
 
 var ReactDOMComponentTree = __webpack_require__(5);
 
-var focusNode = __webpack_require__(105);
+var focusNode = __webpack_require__(103);
 
 var AutoFocusUtils = {
   focusDOMComponent: function () {
@@ -30456,7 +30901,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 var emptyObject = __webpack_require__(37);
 var invariant = __webpack_require__(1);
-var shallowEqual = __webpack_require__(67);
+var shallowEqual = __webpack_require__(68);
 var shouldUpdateReactComponent = __webpack_require__(82);
 var warning = __webpack_require__(2);
 
@@ -31491,7 +31936,7 @@ var emptyFunction = __webpack_require__(11);
 var escapeTextContentForBrowser = __webpack_require__(48);
 var invariant = __webpack_require__(1);
 var isEventSupported = __webpack_require__(81);
-var shallowEqual = __webpack_require__(67);
+var shallowEqual = __webpack_require__(68);
 var validateDOMNesting = __webpack_require__(83);
 var warning = __webpack_require__(2);
 
@@ -34607,7 +35052,7 @@ module.exports = ReactEventEmitterMixin;
 
 var _assign = __webpack_require__(4);
 
-var EventListener = __webpack_require__(104);
+var EventListener = __webpack_require__(102);
 var ExecutionEnvironment = __webpack_require__(6);
 var PooledClass = __webpack_require__(23);
 var ReactDOMComponentTree = __webpack_require__(5);
@@ -36379,9 +36824,9 @@ var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInputSelection = __webpack_require__(117);
 var SyntheticEvent = __webpack_require__(15);
 
-var getActiveElement = __webpack_require__(106);
+var getActiveElement = __webpack_require__(104);
 var isTextInputElement = __webpack_require__(127);
-var shallowEqual = __webpack_require__(67);
+var shallowEqual = __webpack_require__(68);
 
 var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
@@ -36572,7 +37017,7 @@ module.exports = SelectEventPlugin;
 
 var _prodInvariant = __webpack_require__(3);
 
-var EventListener = __webpack_require__(104);
+var EventListener = __webpack_require__(102);
 var EventPropagators = __webpack_require__(39);
 var ReactDOMComponentTree = __webpack_require__(5);
 var SyntheticAnimationEvent = __webpack_require__(302);
@@ -38740,7 +39185,7 @@ var PooledClass = __webpack_require__(326);
 var ReactElement = __webpack_require__(24);
 
 var emptyFunction = __webpack_require__(11);
-var traverseAllChildren = __webpack_require__(335);
+var traverseAllChildren = __webpack_require__(336);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
 var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -38937,7 +39382,7 @@ var _prodInvariant = __webpack_require__(25),
 
 var ReactComponent = __webpack_require__(84);
 var ReactElement = __webpack_require__(24);
-var ReactPropTypeLocationNames = __webpack_require__(86);
+var ReactPropTypeLocationNames = __webpack_require__(133);
 var ReactNoopUpdateQueue = __webpack_require__(85);
 
 var emptyObject = __webpack_require__(37);
@@ -39670,7 +40115,7 @@ var ReactElement = __webpack_require__(24);
  */
 var createDOMFactory = ReactElement.createFactory;
 if (process.env.NODE_ENV !== 'production') {
-  var ReactElementValidator = __webpack_require__(133);
+  var ReactElementValidator = __webpack_require__(132);
   createDOMFactory = ReactElementValidator.createFactory;
 }
 
@@ -39840,12 +40285,34 @@ module.exports = ReactDOMFactories;
 var _require = __webpack_require__(24),
     isValidElement = _require.isValidElement;
 
-var factory = __webpack_require__(344);
+var factory = __webpack_require__(248);
 
 module.exports = factory(isValidElement);
 
 /***/ }),
 /* 331 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+
+
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+module.exports = ReactPropTypesSecret;
+
+/***/ }),
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39892,7 +40359,7 @@ ReactPureComponent.prototype.isPureReactComponent = true;
 module.exports = ReactPureComponent;
 
 /***/ }),
-/* 332 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39911,7 +40378,7 @@ module.exports = ReactPureComponent;
 module.exports = '15.5.4';
 
 /***/ }),
-/* 333 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39929,8 +40396,8 @@ module.exports = '15.5.4';
 
 var _prodInvariant = __webpack_require__(25);
 
-var ReactPropTypeLocationNames = __webpack_require__(86);
-var ReactPropTypesSecret = __webpack_require__(134);
+var ReactPropTypeLocationNames = __webpack_require__(133);
+var ReactPropTypesSecret = __webpack_require__(331);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -40004,7 +40471,7 @@ module.exports = checkReactTypeSpec;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 334 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40048,7 +40515,7 @@ module.exports = onlyChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 335 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40067,9 +40534,9 @@ module.exports = onlyChild;
 var _prodInvariant = __webpack_require__(25);
 
 var ReactCurrentOwner = __webpack_require__(14);
-var REACT_ELEMENT_TYPE = __webpack_require__(132);
+var REACT_ELEMENT_TYPE = __webpack_require__(131);
 
-var getIteratorFn = __webpack_require__(88);
+var getIteratorFn = __webpack_require__(134);
 var invariant = __webpack_require__(1);
 var KeyEscapeUtils = __webpack_require__(325);
 var warning = __webpack_require__(2);
@@ -40228,6316 +40695,6 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 336 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_RESULT__;/** @license
- *
- * SoundManager 2: JavaScript Sound for the Web
- * ----------------------------------------------
- * http://schillmania.com/projects/soundmanager2/
- *
- * Copyright (c) 2007, Scott Schiller. All rights reserved.
- * Code provided under the BSD License:
- * http://schillmania.com/projects/soundmanager2/license.txt
- *
- * V2.97a.20150601
- */
-
-/*global window, SM2_DEFER, sm2Debugger, console, document, navigator, setTimeout, setInterval, clearInterval, Audio, opera, module, define */
-/*jslint regexp: true, sloppy: true, white: true, nomen: true, plusplus: true, todo: true */
-
-/**
- * About this file
- * -------------------------------------------------------------------------------------
- * This is the fully-commented source version of the SoundManager 2 API,
- * recommended for use during development and testing.
- *
- * See soundmanager2-nodebug-jsmin.js for an optimized build (~11KB with gzip.)
- * http://schillmania.com/projects/soundmanager2/doc/getstarted/#basic-inclusion
- * Alternately, serve this file with gzip for 75% compression savings (~30KB over HTTP.)
- *
- * You may notice <d> and </d> comments in this source; these are delimiters for
- * debug blocks which are removed in the -nodebug builds, further optimizing code size.
- *
- * Also, as you may note: Whoa, reliable cross-platform/device audio support is hard! ;)
- */
-
-(function(window, _undefined) {
-
-"use strict";
-
-if (!window || !window.document) {
-
-  // Don't cross the [environment] streams. SM2 expects to be running in a browser, not under node.js etc.
-  // Additionally, if a browser somehow manages to fail this test, as Egon said: "It would be bad."
-
-  throw new Error('SoundManager requires a browser with window and document objects.');
-
-}
-
-var soundManager = null;
-
-/**
- * The SoundManager constructor.
- *
- * @constructor
- * @param {string} smURL Optional: Path to SWF files
- * @param {string} smID Optional: The ID to use for the SWF container element
- * @this {SoundManager}
- * @return {SoundManager} The new SoundManager instance
- */
-
-function SoundManager(smURL, smID) {
-
-  /**
-   * soundManager configuration options list
-   * defines top-level configuration properties to be applied to the soundManager instance (eg. soundManager.flashVersion)
-   * to set these properties, use the setup() method - eg., soundManager.setup({url: '/swf/', flashVersion: 9})
-   */
-
-  this.setupOptions = {
-
-    'url': (smURL || null),             // path (directory) where SoundManager 2 SWFs exist, eg., /path/to/swfs/
-    'flashVersion': 8,                  // flash build to use (8 or 9.) Some API features require 9.
-    'debugMode': true,                  // enable debugging output (console.log() with HTML fallback)
-    'debugFlash': false,                // enable debugging output inside SWF, troubleshoot Flash/browser issues
-    'useConsole': true,                 // use console.log() if available (otherwise, writes to #soundmanager-debug element)
-    'consoleOnly': true,                // if console is being used, do not create/write to #soundmanager-debug
-    'waitForWindowLoad': false,         // force SM2 to wait for window.onload() before trying to call soundManager.onload()
-    'bgColor': '#ffffff',               // SWF background color. N/A when wmode = 'transparent'
-    'useHighPerformance': false,        // position:fixed flash movie can help increase js/flash speed, minimize lag
-    'flashPollingInterval': null,       // msec affecting whileplaying/loading callback frequency. If null, default of 50 msec is used.
-    'html5PollingInterval': null,       // msec affecting whileplaying() for HTML5 audio, excluding mobile devices. If null, native HTML5 update events are used.
-    'flashLoadTimeout': 1000,           // msec to wait for flash movie to load before failing (0 = infinity)
-    'wmode': null,                      // flash rendering mode - null, 'transparent', or 'opaque' (last two allow z-index to work)
-    'allowScriptAccess': 'always',      // for scripting the SWF (object/embed property), 'always' or 'sameDomain'
-    'useFlashBlock': false,             // *requires flashblock.css, see demos* - allow recovery from flash blockers. Wait indefinitely and apply timeout CSS to SWF, if applicable.
-    'useHTML5Audio': true,              // use HTML5 Audio() where API is supported (most Safari, Chrome versions), Firefox (MP3/MP4 support varies.) Ideally, transparent vs. Flash API where possible.
-    'forceUseGlobalHTML5Audio': false,  // if true, a single Audio() object is used for all sounds - and only one can play at a time.
-    'ignoreMobileRestrictions': false,  // if true, SM2 will not apply global HTML5 audio rules to mobile UAs. iOS WebViews purportedly allow multiple Audio() objects, auto-play etc.
-    'html5Test': /^(probably|maybe)$/i, // HTML5 Audio() format support test. Use /^probably$/i; if you want to be more conservative.
-    'preferFlash': false,               // overrides useHTML5audio, will use Flash for MP3/MP4/AAC if present. Potential option if HTML5 playback with these formats is quirky.
-    'noSWFCache': false,                // if true, appends ?ts={date} to break aggressive SWF caching.
-    'idPrefix': 'sound'                 // if an id is not provided to createSound(), this prefix is used for generated IDs - 'sound0', 'sound1' etc.
-
-  };
-
-  this.defaultOptions = {
-
-    /**
-     * the default configuration for sound objects made with createSound() and related methods
-     * eg., volume, auto-load behaviour and so forth
-     */
-
-    'autoLoad': false,        // enable automatic loading (otherwise .load() will be called on demand with .play(), the latter being nicer on bandwidth - if you want to .load yourself, you also can)
-    'autoPlay': false,        // enable playing of file as soon as possible (much faster if "stream" is true)
-    'from': null,             // position to start playback within a sound (msec), default = beginning
-    'loops': 1,               // how many times to repeat the sound (position will wrap around to 0, setPosition() will break out of loop when >0)
-    'onid3': null,            // callback function for "ID3 data is added/available"
-    'onload': null,           // callback function for "load finished"
-    'whileloading': null,     // callback function for "download progress update" (X of Y bytes received)
-    'onplay': null,           // callback for "play" start
-    'onpause': null,          // callback for "pause"
-    'onresume': null,         // callback for "resume" (pause toggle)
-    'whileplaying': null,     // callback during play (position update)
-    'onposition': null,       // object containing times and function callbacks for positions of interest
-    'onstop': null,           // callback for "user stop"
-    'onfailure': null,        // callback function for when playing fails
-    'onfinish': null,         // callback function for "sound finished playing"
-    'multiShot': true,        // let sounds "restart" or layer on top of each other when played multiple times, rather than one-shot/one at a time
-    'multiShotEvents': false, // fire multiple sound events (currently onfinish() only) when multiShot is enabled
-    'position': null,         // offset (milliseconds) to seek to within loaded sound data.
-    'pan': 0,                 // "pan" settings, left-to-right, -100 to 100
-    'stream': true,           // allows playing before entire file has loaded (recommended)
-    'to': null,               // position to end playback within a sound (msec), default = end
-    'type': null,             // MIME-like hint for file pattern / canPlay() tests, eg. audio/mp3
-    'usePolicyFile': false,   // enable crossdomain.xml request for audio on remote domains (for ID3/waveform access)
-    'volume': 100             // self-explanatory. 0-100, the latter being the max.
-
-  };
-
-  this.flash9Options = {
-
-    /**
-     * flash 9-only options,
-     * merged into defaultOptions if flash 9 is being used
-     */
-
-    'isMovieStar': null,      // "MovieStar" MPEG4 audio mode. Null (default) = auto detect MP4, AAC etc. based on URL. true = force on, ignore URL
-    'usePeakData': false,     // enable left/right channel peak (level) data
-    'useWaveformData': false, // enable sound spectrum (raw waveform data) - NOTE: May increase CPU load.
-    'useEQData': false,       // enable sound EQ (frequency spectrum data) - NOTE: May increase CPU load.
-    'onbufferchange': null,   // callback for "isBuffering" property change
-    'ondataerror': null       // callback for waveform/eq data access error (flash playing audio in other tabs/domains)
-
-  };
-
-  this.movieStarOptions = {
-
-    /**
-     * flash 9.0r115+ MPEG4 audio options,
-     * merged into defaultOptions if flash 9+movieStar mode is enabled
-     */
-
-    'bufferTime': 3,          // seconds of data to buffer before playback begins (null = flash default of 0.1 seconds - if AAC playback is gappy, try increasing.)
-    'serverURL': null,        // rtmp: FMS or FMIS server to connect to, required when requesting media via RTMP or one of its variants
-    'onconnect': null,        // rtmp: callback for connection to flash media server
-    'duration': null          // rtmp: song duration (msec)
-
-  };
-
-  this.audioFormats = {
-
-    /**
-     * determines HTML5 support + flash requirements.
-     * if no support (via flash and/or HTML5) for a "required" format, SM2 will fail to start.
-     * flash fallback is used for MP3 or MP4 if HTML5 can't play it (or if preferFlash = true)
-     */
-
-    'mp3': {
-      'type': ['audio/mpeg; codecs="mp3"', 'audio/mpeg', 'audio/mp3', 'audio/MPA', 'audio/mpa-robust'],
-      'required': true
-    },
-
-    'mp4': {
-      'related': ['aac','m4a','m4b'], // additional formats under the MP4 container
-      'type': ['audio/mp4; codecs="mp4a.40.2"', 'audio/aac', 'audio/x-m4a', 'audio/MP4A-LATM', 'audio/mpeg4-generic'],
-      'required': false
-    },
-
-    'ogg': {
-      'type': ['audio/ogg; codecs=vorbis'],
-      'required': false
-    },
-
-    'opus': {
-      'type': ['audio/ogg; codecs=opus', 'audio/opus'],
-      'required': false
-    },
-
-    'wav': {
-      'type': ['audio/wav; codecs="1"', 'audio/wav', 'audio/wave', 'audio/x-wav'],
-      'required': false
-    }
-
-  };
-
-  // HTML attributes (id + class names) for the SWF container
-
-  this.movieID = 'sm2-container';
-  this.id = (smID || 'sm2movie');
-
-  this.debugID = 'soundmanager-debug';
-  this.debugURLParam = /([#?&])debug=1/i;
-
-  // dynamic attributes
-
-  this.versionNumber = 'V2.97a.20150601';
-  this.version = null;
-  this.movieURL = null;
-  this.altURL = null;
-  this.swfLoaded = false;
-  this.enabled = false;
-  this.oMC = null;
-  this.sounds = {};
-  this.soundIDs = [];
-  this.muted = false;
-  this.didFlashBlock = false;
-  this.filePattern = null;
-
-  this.filePatterns = {
-    'flash8': /\.mp3(\?.*)?$/i,
-    'flash9': /\.mp3(\?.*)?$/i
-  };
-
-  // support indicators, set at init
-
-  this.features = {
-    'buffering': false,
-    'peakData': false,
-    'waveformData': false,
-    'eqData': false,
-    'movieStar': false
-  };
-
-  // flash sandbox info, used primarily in troubleshooting
-
-  this.sandbox = {
-    // <d>
-    'type': null,
-    'types': {
-      'remote': 'remote (domain-based) rules',
-      'localWithFile': 'local with file access (no internet access)',
-      'localWithNetwork': 'local with network (internet access only, no local access)',
-      'localTrusted': 'local, trusted (local+internet access)'
-    },
-    'description': null,
-    'noRemote': null,
-    'noLocal': null
-    // </d>
-  };
-
-  /**
-   * format support (html5/flash)
-   * stores canPlayType() results based on audioFormats.
-   * eg. { mp3: boolean, mp4: boolean }
-   * treat as read-only.
-   */
-
-  this.html5 = {
-    'usingFlash': null // set if/when flash fallback is needed
-  };
-
-  // file type support hash
-  this.flash = {};
-
-  // determined at init time
-  this.html5Only = false;
-
-  // used for special cases (eg. iPad/iPhone/palm OS?)
-  this.ignoreFlash = false;
-
-  /**
-   * a few private internals (OK, a lot. :D)
-   */
-
-  var SMSound,
-  sm2 = this, globalHTML5Audio = null, flash = null, sm = 'soundManager', smc = sm + ': ', h5 = 'HTML5::', id, ua = navigator.userAgent, wl = window.location.href.toString(), doc = document, doNothing, setProperties, init, fV, on_queue = [], debugOpen = true, debugTS, didAppend = false, appendSuccess = false, didInit = false, disabled = false, windowLoaded = false, _wDS, wdCount = 0, initComplete, mixin, assign, extraOptions, addOnEvent, processOnEvents, initUserOnload, delayWaitForEI, waitForEI, rebootIntoHTML5, setVersionInfo, handleFocus, strings, initMovie, domContentLoaded, winOnLoad, didDCLoaded, getDocument, createMovie, catchError, setPolling, initDebug, debugLevels = ['log', 'info', 'warn', 'error'], defaultFlashVersion = 8, disableObject, failSafely, normalizeMovieURL, oRemoved = null, oRemovedHTML = null, str, flashBlockHandler, getSWFCSS, swfCSS, toggleDebug, loopFix, policyFix, complain, idCheck, waitingForEI = false, initPending = false, startTimer, stopTimer, timerExecute, h5TimerCount = 0, h5IntervalTimer = null, parseURL, messages = [],
-  canIgnoreFlash, needsFlash = null, featureCheck, html5OK, html5CanPlay, html5Ext, html5Unload, domContentLoadedIE, testHTML5, event, slice = Array.prototype.slice, useGlobalHTML5Audio = false, lastGlobalHTML5URL, hasFlash, detectFlash, badSafariFix, html5_events, showSupport, flushMessages, wrapCallback, idCounter = 0, didSetup, msecScale = 1000,
-  is_iDevice = ua.match(/(ipad|iphone|ipod)/i), isAndroid = ua.match(/android/i), isIE = ua.match(/msie/i),
-  isWebkit = ua.match(/webkit/i),
-  isSafari = (ua.match(/safari/i) && !ua.match(/chrome/i)),
-  isOpera = (ua.match(/opera/i)),
-  mobileHTML5 = (ua.match(/(mobile|pre\/|xoom)/i) || is_iDevice || isAndroid),
-  isBadSafari = (!wl.match(/usehtml5audio/i) && !wl.match(/sm2\-ignorebadua/i) && isSafari && !ua.match(/silk/i) && ua.match(/OS X 10_6_([3-7])/i)), // Safari 4 and 5 (excluding Kindle Fire, "Silk") occasionally fail to load/play HTML5 audio on Snow Leopard 10.6.3 through 10.6.7 due to bug(s) in QuickTime X and/or other underlying frameworks. :/ Confirmed bug. https://bugs.webkit.org/show_bug.cgi?id=32159
-  hasConsole = (window.console !== _undefined && console.log !== _undefined),
-  isFocused = (doc.hasFocus !== _undefined ? doc.hasFocus() : null),
-  tryInitOnFocus = (isSafari && (doc.hasFocus === _undefined || !doc.hasFocus())),
-  okToDisable = !tryInitOnFocus,
-  flashMIME = /(mp3|mp4|mpa|m4a|m4b)/i,
-  emptyURL = 'about:blank', // safe URL to unload, or load nothing from (flash 8 + most HTML5 UAs)
-  emptyWAV = 'data:audio/wave;base64,/UklGRiYAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQIAAAD//w==', // tiny WAV for HTML5 unloading
-  overHTTP = (doc.location ? doc.location.protocol.match(/http/i) : null),
-  http = (!overHTTP ? 'http:/'+'/' : ''),
-  // mp3, mp4, aac etc.
-  netStreamMimeTypes = /^\s*audio\/(?:x-)?(?:mpeg4|aac|flv|mov|mp4||m4v|m4a|m4b|mp4v|3gp|3g2)\s*(?:$|;)/i,
-  // Flash v9.0r115+ "moviestar" formats
-  netStreamTypes = ['mpeg4', 'aac', 'flv', 'mov', 'mp4', 'm4v', 'f4v', 'm4a', 'm4b', 'mp4v', '3gp', '3g2'],
-  netStreamPattern = new RegExp('\\.(' + netStreamTypes.join('|') + ')(\\?.*)?$', 'i');
-
-  this.mimePattern = /^\s*audio\/(?:x-)?(?:mp(?:eg|3))\s*(?:$|;)/i; // default mp3 set
-
-  // use altURL if not "online"
-  this.useAltURL = !overHTTP;
-
-  swfCSS = {
-    'swfBox': 'sm2-object-box',
-    'swfDefault': 'movieContainer',
-    'swfError': 'swf_error', // SWF loaded, but SM2 couldn't start (other error)
-    'swfTimedout': 'swf_timedout',
-    'swfLoaded': 'swf_loaded',
-    'swfUnblocked': 'swf_unblocked', // or loaded OK
-    'sm2Debug': 'sm2_debug',
-    'highPerf': 'high_performance',
-    'flashDebug': 'flash_debug'
-  };
-
-  /**
-   * basic HTML5 Audio() support test
-   * try...catch because of IE 9 "not implemented" nonsense
-   * https://github.com/Modernizr/Modernizr/issues/224
-   */
-
-  this.hasHTML5 = (function() {
-    try {
-      // new Audio(null) for stupid Opera 9.64 case, which throws not_enough_arguments exception otherwise.
-      return (Audio !== _undefined && (isOpera && opera !== _undefined && opera.version() < 10 ? new Audio(null) : new Audio()).canPlayType !== _undefined);
-    } catch(e) {
-      return false;
-    }
-  }());
-
-  /**
-   * Public SoundManager API
-   * -----------------------
-   */
-
-  /**
-   * Configures top-level soundManager properties.
-   *
-   * @param {object} options Option parameters, eg. { flashVersion: 9, url: '/path/to/swfs/' }
-   * onready and ontimeout are also accepted parameters. call soundManager.setup() to see the full list.
-   */
-
-  this.setup = function(options) {
-
-    var noURL = (!sm2.url);
-
-    // warn if flash options have already been applied
-
-    if (options !== _undefined && didInit && needsFlash && sm2.ok() && (options.flashVersion !== _undefined || options.url !== _undefined || options.html5Test !== _undefined)) {
-      complain(str('setupLate'));
-    }
-
-    // TODO: defer: true?
-
-    assign(options);
-
-    // force the singleton HTML5 pattern?
-    if (sm2.setupOptions.useHTML5Audio && !useGlobalHTML5Audio && sm2.setupOptions.forceUseGlobalHTML5Audio) {
-      messages.push(strings.globalHTML5);
-      useGlobalHTML5Audio = true;
-    }
-
-    // don't apply 
-    if (!didSetup && mobileHTML5) {
-
-      if (sm2.setupOptions.ignoreMobileRestrictions) {
-        messages.push(strings.ignoreMobile);
-      }
-
-      // prefer HTML5 for mobile + tablet-like devices, probably more reliable vs. flash at this point.
-
-      // <d>
-      if (!sm2.setupOptions.useHTML5Audio || sm2.setupOptions.preferFlash) {
-        // notify that defaults are being changed.
-        sm2._wD(strings.mobileUA);
-      }
-      // </d>
-
-      sm2.setupOptions.useHTML5Audio = true;
-      sm2.setupOptions.preferFlash = false;
-
-      if ((isAndroid && !ua.match(/android\s2\.3/i))) {
-        
-        // iOS and Android devices tend to work better with a single audio instance, specifically for chained playback of sounds in sequence.
-        // common use case: exiting sound onfinish() -> createSound() -> play()
-
-        // <d>
-        sm2._wD(strings.globalHTML5);
-        // </d>
-
-        if (is_iDevice) {
-          sm2.ignoreFlash = true;
-        }
-
-        useGlobalHTML5Audio = true;
-
-      }
-
-    }
-
-    // special case 1: "Late setup". SM2 loaded normally, but user didn't assign flash URL eg., setup({url:...}) before SM2 init. Treat as delayed init.
-
-    if (options) {
-
-      if (noURL && didDCLoaded && options.url !== _undefined) {
-        sm2.beginDelayedInit();
-      }
-
-      // special case 2: If lazy-loading SM2 (DOMContentLoaded has already happened) and user calls setup() with url: parameter, try to init ASAP.
-
-      if (!didDCLoaded && options.url !== _undefined && doc.readyState === 'complete') {
-        setTimeout(domContentLoaded, 1);
-      }
-
-    }
-
-    didSetup = true;
-
-    return sm2;
-
-  };
-
-  this.ok = function() {
-
-    return (needsFlash ? (didInit && !disabled) : (sm2.useHTML5Audio && sm2.hasHTML5));
-
-  };
-
-  this.supported = this.ok; // legacy
-
-  this.getMovie = function(smID) {
-
-    // safety net: some old browsers differ on SWF references, possibly related to ExternalInterface / flash version
-    return id(smID) || doc[smID] || window[smID];
-
-  };
-
-  /**
-   * Creates a SMSound sound object instance. Can also be overloaded, e.g., createSound('mySound', '/some.mp3');
-   *
-   * @param {object} oOptions Sound options (at minimum, url parameter is required.)
-   * @return {object} SMSound The new SMSound object.
-   */
-
-  this.createSound = function(oOptions, _url) {
-
-    var cs, cs_string, options, oSound = null;
-
-    // <d>
-    cs = sm + '.createSound(): ';
-    cs_string = cs + str(!didInit ? 'notReady' : 'notOK');
-    // </d>
-
-    if (!didInit || !sm2.ok()) {
-      complain(cs_string);
-      return false;
-    }
-
-    if (_url !== _undefined) {
-      // function overloading in JS! :) ... assume simple createSound(id, url) use case.
-      oOptions = {
-        'id': oOptions,
-        'url': _url
-      };
-    }
-
-    // inherit from defaultOptions
-    options = mixin(oOptions);
-
-    options.url = parseURL(options.url);
-
-    // generate an id, if needed.
-    if (options.id === _undefined) {
-      options.id = sm2.setupOptions.idPrefix + (idCounter++);
-    }
-
-    // <d>
-    if (options.id.toString().charAt(0).match(/^[0-9]$/)) {
-      sm2._wD(cs + str('badID', options.id), 2);
-    }
-
-    sm2._wD(cs + options.id + (options.url ? ' (' + options.url + ')' : ''), 1);
-    // </d>
-
-    if (idCheck(options.id, true)) {
-      sm2._wD(cs + options.id + ' exists', 1);
-      return sm2.sounds[options.id];
-    }
-
-    function make() {
-
-      options = loopFix(options);
-      sm2.sounds[options.id] = new SMSound(options);
-      sm2.soundIDs.push(options.id);
-      return sm2.sounds[options.id];
-
-    }
-
-    if (html5OK(options)) {
-
-      oSound = make();
-      // <d>
-      if (!sm2.html5Only) {
-        sm2._wD(options.id + ': Using HTML5');
-      }
-      // </d>
-      oSound._setup_html5(options);
-
-    } else {
-
-      if (sm2.html5Only) {
-        sm2._wD(options.id + ': No HTML5 support for this sound, and no Flash. Exiting.');
-        return make();
-      }
-
-      // TODO: Move HTML5/flash checks into generic URL parsing/handling function.
-
-      if (sm2.html5.usingFlash && options.url && options.url.match(/data\:/i)) {
-        // data: URIs not supported by Flash, either.
-        sm2._wD(options.id + ': data: URIs not supported via Flash. Exiting.');
-        return make();
-      }
-
-      if (fV > 8) {
-        if (options.isMovieStar === null) {
-          // attempt to detect MPEG-4 formats
-          options.isMovieStar = !!(options.serverURL || (options.type ? options.type.match(netStreamMimeTypes) : false) || (options.url && options.url.match(netStreamPattern)));
-        }
-        // <d>
-        if (options.isMovieStar) {
-          sm2._wD(cs + 'using MovieStar handling');
-          if (options.loops > 1) {
-            _wDS('noNSLoop');
-          }
-        }
-        // </d>
-      }
-
-      options = policyFix(options, cs);
-      oSound = make();
-
-      if (fV === 8) {
-        flash._createSound(options.id, options.loops || 1, options.usePolicyFile);
-      } else {
-        flash._createSound(options.id, options.url, options.usePeakData, options.useWaveformData, options.useEQData, options.isMovieStar, (options.isMovieStar ? options.bufferTime : false), options.loops || 1, options.serverURL, options.duration || null, options.autoPlay, true, options.autoLoad, options.usePolicyFile);
-        if (!options.serverURL) {
-          // We are connected immediately
-          oSound.connected = true;
-          if (options.onconnect) {
-            options.onconnect.apply(oSound);
-          }
-        }
-      }
-
-      if (!options.serverURL && (options.autoLoad || options.autoPlay)) {
-        // call load for non-rtmp streams
-        oSound.load(options);
-      }
-
-    }
-
-    // rtmp will play in onconnect
-    if (!options.serverURL && options.autoPlay) {
-      oSound.play();
-    }
-
-    return oSound;
-
-  };
-
-  /**
-   * Destroys a SMSound sound object instance.
-   *
-   * @param {string} sID The ID of the sound to destroy
-   */
-
-  this.destroySound = function(sID, _bFromSound) {
-
-    // explicitly destroy a sound before normal page unload, etc.
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-
-    var oS = sm2.sounds[sID], i;
-
-    oS.stop();
-    
-    // Disable all callbacks after stop(), when the sound is being destroyed
-    oS._iO = {};
-    
-    oS.unload();
-
-    for (i = 0; i < sm2.soundIDs.length; i++) {
-      if (sm2.soundIDs[i] === sID) {
-        sm2.soundIDs.splice(i, 1);
-        break;
-      }
-    }
-
-    if (!_bFromSound) {
-      // ignore if being called from SMSound instance
-      oS.destruct(true);
-    }
-
-    oS = null;
-    delete sm2.sounds[sID];
-
-    return true;
-
-  };
-
-  /**
-   * Calls the load() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {object} oOptions Optional: Sound options
-   */
-
-  this.load = function(sID, oOptions) {
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-    return sm2.sounds[sID].load(oOptions);
-
-  };
-
-  /**
-   * Calls the unload() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   */
-
-  this.unload = function(sID) {
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-    return sm2.sounds[sID].unload();
-
-  };
-
-  /**
-   * Calls the onPosition() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {number} nPosition The position to watch for
-   * @param {function} oMethod The relevant callback to fire
-   * @param {object} oScope Optional: The scope to apply the callback to
-   * @return {SMSound} The SMSound object
-   */
-
-  this.onPosition = function(sID, nPosition, oMethod, oScope) {
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-    return sm2.sounds[sID].onposition(nPosition, oMethod, oScope);
-
-  };
-
-  // legacy/backwards-compability: lower-case method name
-  this.onposition = this.onPosition;
-
-  /**
-   * Calls the clearOnPosition() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {number} nPosition The position to watch for
-   * @param {function} oMethod Optional: The relevant callback to fire
-   * @return {SMSound} The SMSound object
-   */
-
-  this.clearOnPosition = function(sID, nPosition, oMethod) {
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-    return sm2.sounds[sID].clearOnPosition(nPosition, oMethod);
-
-  };
-
-  /**
-   * Calls the play() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {object} oOptions Optional: Sound options
-   * @return {SMSound} The SMSound object
-   */
-
-  this.play = function(sID, oOptions) {
-
-    var result = null,
-        // legacy function-overloading use case: play('mySound', '/path/to/some.mp3');
-        overloaded = (oOptions && !(oOptions instanceof Object));
-
-    if (!didInit || !sm2.ok()) {
-      complain(sm + '.play(): ' + str(!didInit?'notReady':'notOK'));
-      return false;
-    }
-
-    if (!idCheck(sID, overloaded)) {
-
-      if (!overloaded) {
-        // no sound found for the given ID. Bail.
-        return false;
-      }
-
-      if (overloaded) {
-        oOptions = {
-          url: oOptions
-        };
-      }
-
-      if (oOptions && oOptions.url) {
-        // overloading use case, create+play: .play('someID', {url:'/path/to.mp3'});
-        sm2._wD(sm + '.play(): Attempting to create "' + sID + '"', 1);
-        oOptions.id = sID;
-        result = sm2.createSound(oOptions).play();
-      }
-
-    } else if (overloaded) {
-
-      // existing sound object case
-      oOptions = {
-        url: oOptions
-      };
-
-    }
-
-    if (result === null) {
-      // default case
-      result = sm2.sounds[sID].play(oOptions);
-    }
-
-    return result;
-
-  };
-
-  // just for convenience
-  this.start = this.play;
-
-  /**
-   * Calls the setPosition() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {number} nMsecOffset Position (milliseconds)
-   * @return {SMSound} The SMSound object
-   */
-
-  this.setPosition = function(sID, nMsecOffset) {
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-    return sm2.sounds[sID].setPosition(nMsecOffset);
-
-  };
-
-  /**
-   * Calls the stop() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.stop = function(sID) {
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-
-    sm2._wD(sm + '.stop(' + sID + ')', 1);
-    return sm2.sounds[sID].stop();
-
-  };
-
-  /**
-   * Stops all currently-playing sounds.
-   */
-
-  this.stopAll = function() {
-
-    var oSound;
-    sm2._wD(sm + '.stopAll()', 1);
-
-    for (oSound in sm2.sounds) {
-      if (sm2.sounds.hasOwnProperty(oSound)) {
-        // apply only to sound objects
-        sm2.sounds[oSound].stop();
-      }
-    }
-
-  };
-
-  /**
-   * Calls the pause() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.pause = function(sID) {
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-    return sm2.sounds[sID].pause();
-
-  };
-
-  /**
-   * Pauses all currently-playing sounds.
-   */
-
-  this.pauseAll = function() {
-
-    var i;
-    for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-      sm2.sounds[sm2.soundIDs[i]].pause();
-    }
-
-  };
-
-  /**
-   * Calls the resume() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.resume = function(sID) {
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-    return sm2.sounds[sID].resume();
-
-  };
-
-  /**
-   * Resumes all currently-paused sounds.
-   */
-
-  this.resumeAll = function() {
-
-    var i;
-    for (i = sm2.soundIDs.length- 1 ; i >= 0; i--) {
-      sm2.sounds[sm2.soundIDs[i]].resume();
-    }
-
-  };
-
-  /**
-   * Calls the togglePause() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.togglePause = function(sID) {
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-    return sm2.sounds[sID].togglePause();
-
-  };
-
-  /**
-   * Calls the setPan() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {number} nPan The pan value (-100 to 100)
-   * @return {SMSound} The SMSound object
-   */
-
-  this.setPan = function(sID, nPan) {
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-    return sm2.sounds[sID].setPan(nPan);
-
-  };
-
-  /**
-   * Calls the setVolume() method of a SMSound object by ID
-   * Overloaded case: pass only volume argument eg., setVolume(50) to apply to all sounds.
-   *
-   * @param {string} sID The ID of the sound
-   * @param {number} nVol The volume value (0 to 100)
-   * @return {SMSound} The SMSound object
-   */
-
-  this.setVolume = function(sID, nVol) {
-
-    // setVolume(50) function overloading case - apply to all sounds
-
-    var i, j;
-
-    if (sID !== _undefined && !isNaN(sID) && nVol === _undefined) {
-      for (i = 0, j = sm2.soundIDs.length; i < j; i++) {
-        sm2.sounds[sm2.soundIDs[i]].setVolume(sID);
-      }
-      return;
-    }
-
-    // setVolume('mySound', 50) case
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-
-    return sm2.sounds[sID].setVolume(nVol);
-
-  };
-
-  /**
-   * Calls the mute() method of either a single SMSound object by ID, or all sound objects.
-   *
-   * @param {string} sID Optional: The ID of the sound (if omitted, all sounds will be used.)
-   */
-
-  this.mute = function(sID) {
-
-    var i = 0;
-
-    if (sID instanceof String) {
-      sID = null;
-    }
-
-    if (!sID) {
-
-      sm2._wD(sm + '.mute(): Muting all sounds');
-      for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-        sm2.sounds[sm2.soundIDs[i]].mute();
-      }
-      sm2.muted = true;
-
-    } else {
-
-      if (!idCheck(sID)) {
-        return false;
-      }
-      sm2._wD(sm + '.mute(): Muting "' + sID + '"');
-      return sm2.sounds[sID].mute();
-
-    }
-
-    return true;
-
-  };
-
-  /**
-   * Mutes all sounds.
-   */
-
-  this.muteAll = function() {
-
-    sm2.mute();
-
-  };
-
-  /**
-   * Calls the unmute() method of either a single SMSound object by ID, or all sound objects.
-   *
-   * @param {string} sID Optional: The ID of the sound (if omitted, all sounds will be used.)
-   */
-
-  this.unmute = function(sID) {
-
-    var i;
-
-    if (sID instanceof String) {
-      sID = null;
-    }
-
-    if (!sID) {
-
-      sm2._wD(sm + '.unmute(): Unmuting all sounds');
-      for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-        sm2.sounds[sm2.soundIDs[i]].unmute();
-      }
-      sm2.muted = false;
-
-    } else {
-
-      if (!idCheck(sID)) {
-        return false;
-      }
-      sm2._wD(sm + '.unmute(): Unmuting "' + sID + '"');
-      return sm2.sounds[sID].unmute();
-
-    }
-
-    return true;
-
-  };
-
-  /**
-   * Unmutes all sounds.
-   */
-
-  this.unmuteAll = function() {
-
-    sm2.unmute();
-
-  };
-
-  /**
-   * Calls the toggleMute() method of a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.toggleMute = function(sID) {
-
-    if (!idCheck(sID)) {
-      return false;
-    }
-    return sm2.sounds[sID].toggleMute();
-
-  };
-
-  /**
-   * Retrieves the memory used by the flash plugin.
-   *
-   * @return {number} The amount of memory in use
-   */
-
-  this.getMemoryUse = function() {
-
-    // flash-only
-    var ram = 0;
-
-    if (flash && fV !== 8) {
-      ram = parseInt(flash._getMemoryUse(), 10);
-    }
-
-    return ram;
-
-  };
-
-  /**
-   * Undocumented: NOPs soundManager and all SMSound objects.
-   */
-
-  this.disable = function(bNoDisable) {
-
-    // destroy all functions
-    var i;
-
-    if (bNoDisable === _undefined) {
-      bNoDisable = false;
-    }
-
-    if (disabled) {
-      return false;
-    }
-
-    disabled = true;
-    _wDS('shutdown', 1);
-
-    for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-      disableObject(sm2.sounds[sm2.soundIDs[i]]);
-    }
-
-    // fire "complete", despite fail
-    initComplete(bNoDisable);
-    event.remove(window, 'load', initUserOnload);
-
-    return true;
-
-  };
-
-  /**
-   * Determines playability of a MIME type, eg. 'audio/mp3'.
-   */
-
-  this.canPlayMIME = function(sMIME) {
-
-    var result;
-
-    if (sm2.hasHTML5) {
-      result = html5CanPlay({
-        type: sMIME
-      });
-    }
-
-    if (!result && needsFlash) {
-      // if flash 9, test netStream (movieStar) types as well.
-      result = (sMIME && sm2.ok() ? !!((fV > 8 ? sMIME.match(netStreamMimeTypes) : null) || sMIME.match(sm2.mimePattern)) : null); // TODO: make less "weird" (per JSLint)
-    }
-
-    return result;
-
-  };
-
-  /**
-   * Determines playability of a URL based on audio support.
-   *
-   * @param {string} sURL The URL to test
-   * @return {boolean} URL playability
-   */
-
-  this.canPlayURL = function(sURL) {
-
-    var result;
-
-    if (sm2.hasHTML5) {
-      result = html5CanPlay({
-        url: sURL
-      });
-    }
-
-    if (!result && needsFlash) {
-      result = (sURL && sm2.ok() ? !!(sURL.match(sm2.filePattern)) : null);
-    }
-
-    return result;
-
-  };
-
-  /**
-   * Determines playability of an HTML DOM &lt;a&gt; object (or similar object literal) based on audio support.
-   *
-   * @param {object} oLink an HTML DOM &lt;a&gt; object or object literal including href and/or type attributes
-   * @return {boolean} URL playability
-   */
-
-  this.canPlayLink = function(oLink) {
-
-    if (oLink.type !== _undefined && oLink.type) {
-      if (sm2.canPlayMIME(oLink.type)) {
-        return true;
-      }
-    }
-
-    return sm2.canPlayURL(oLink.href);
-
-  };
-
-  /**
-   * Retrieves a SMSound object by ID.
-   *
-   * @param {string} sID The ID of the sound
-   * @return {SMSound} The SMSound object
-   */
-
-  this.getSoundById = function(sID, _suppressDebug) {
-
-    if (!sID) {
-      return null;
-    }
-
-    var result = sm2.sounds[sID];
-
-    // <d>
-    if (!result && !_suppressDebug) {
-      sm2._wD(sm + '.getSoundById(): Sound "' + sID + '" not found.', 2);
-    }
-    // </d>
-
-    return result;
-
-  };
-
-  /**
-   * Queues a callback for execution when SoundManager has successfully initialized.
-   *
-   * @param {function} oMethod The callback method to fire
-   * @param {object} oScope Optional: The scope to apply to the callback
-   */
-
-  this.onready = function(oMethod, oScope) {
-
-    var sType = 'onready',
-        result = false;
-
-    if (typeof oMethod === 'function') {
-
-      // <d>
-      if (didInit) {
-        sm2._wD(str('queue', sType));
-      }
-      // </d>
-
-      if (!oScope) {
-        oScope = window;
-      }
-
-      addOnEvent(sType, oMethod, oScope);
-      processOnEvents();
-
-      result = true;
-
-    } else {
-
-      throw str('needFunction', sType);
-
-    }
-
-    return result;
-
-  };
-
-  /**
-   * Queues a callback for execution when SoundManager has failed to initialize.
-   *
-   * @param {function} oMethod The callback method to fire
-   * @param {object} oScope Optional: The scope to apply to the callback
-   */
-
-  this.ontimeout = function(oMethod, oScope) {
-
-    var sType = 'ontimeout',
-        result = false;
-
-    if (typeof oMethod === 'function') {
-
-      // <d>
-      if (didInit) {
-        sm2._wD(str('queue', sType));
-      }
-      // </d>
-
-      if (!oScope) {
-        oScope = window;
-      }
-
-      addOnEvent(sType, oMethod, oScope);
-      processOnEvents({type:sType});
-
-      result = true;
-
-    } else {
-
-      throw str('needFunction', sType);
-
-    }
-
-    return result;
-
-  };
-
-  /**
-   * Writes console.log()-style debug output to a console or in-browser element.
-   * Applies when debugMode = true
-   *
-   * @param {string} sText The console message
-   * @param {object} nType Optional log level (number), or object. Number case: Log type/style where 0 = 'info', 1 = 'warn', 2 = 'error'. Object case: Object to be dumped.
-   */
-
-  this._writeDebug = function(sText, sTypeOrObject) {
-
-    // pseudo-private console.log()-style output
-    // <d>
-
-    var sDID = 'soundmanager-debug', o, oItem;
-
-    if (!sm2.setupOptions.debugMode) {
-      return false;
-    }
-
-    if (hasConsole && sm2.useConsole) {
-      if (sTypeOrObject && typeof sTypeOrObject === 'object') {
-        // object passed; dump to console.
-        console.log(sText, sTypeOrObject);
-      } else if (debugLevels[sTypeOrObject] !== _undefined) {
-        console[debugLevels[sTypeOrObject]](sText);
-      } else {
-        console.log(sText);
-      }
-      if (sm2.consoleOnly) {
-        return true;
-      }
-    }
-
-    o = id(sDID);
-
-    if (!o) {
-      return false;
-    }
-
-    oItem = doc.createElement('div');
-
-    if (++wdCount % 2 === 0) {
-      oItem.className = 'sm2-alt';
-    }
-
-    if (sTypeOrObject === _undefined) {
-      sTypeOrObject = 0;
-    } else {
-      sTypeOrObject = parseInt(sTypeOrObject, 10);
-    }
-
-    oItem.appendChild(doc.createTextNode(sText));
-
-    if (sTypeOrObject) {
-      if (sTypeOrObject >= 2) {
-        oItem.style.fontWeight = 'bold';
-      }
-      if (sTypeOrObject === 3) {
-        oItem.style.color = '#ff3333';
-      }
-    }
-
-    // top-to-bottom
-    // o.appendChild(oItem);
-
-    // bottom-to-top
-    o.insertBefore(oItem, o.firstChild);
-
-    o = null;
-    // </d>
-
-    return true;
-
-  };
-
-  // <d>
-  // last-resort debugging option
-  if (wl.indexOf('sm2-debug=alert') !== -1) {
-    this._writeDebug = function(sText) {
-      window.alert(sText);
-    };
-  }
-  // </d>
-
-  // alias
-  this._wD = this._writeDebug;
-
-  /**
-   * Provides debug / state information on all SMSound objects.
-   */
-
-  this._debug = function() {
-
-    // <d>
-    var i, j;
-    _wDS('currentObj', 1);
-
-    for (i = 0, j = sm2.soundIDs.length; i < j; i++) {
-      sm2.sounds[sm2.soundIDs[i]]._debug();
-    }
-    // </d>
-
-  };
-
-  /**
-   * Restarts and re-initializes the SoundManager instance.
-   *
-   * @param {boolean} resetEvents Optional: When true, removes all registered onready and ontimeout event callbacks.
-   * @param {boolean} excludeInit Options: When true, does not call beginDelayedInit() (which would restart SM2).
-   * @return {object} soundManager The soundManager instance.
-   */
-
-  this.reboot = function(resetEvents, excludeInit) {
-
-    // reset some (or all) state, and re-init unless otherwise specified.
-
-    // <d>
-    if (sm2.soundIDs.length) {
-      sm2._wD('Destroying ' + sm2.soundIDs.length + ' SMSound object' + (sm2.soundIDs.length !== 1 ? 's' : '') + '...');
-    }
-    // </d>
-
-    var i, j, k;
-
-    for (i = sm2.soundIDs.length- 1 ; i >= 0; i--) {
-      sm2.sounds[sm2.soundIDs[i]].destruct();
-    }
-
-    // trash ze flash (remove from the DOM)
-
-    if (flash) {
-
-      try {
-
-        if (isIE) {
-          oRemovedHTML = flash.innerHTML;
-        }
-
-        oRemoved = flash.parentNode.removeChild(flash);
-
-      } catch(e) {
-
-        // Remove failed? May be due to flash blockers silently removing the SWF object/embed node from the DOM. Warn and continue.
-
-        _wDS('badRemove', 2);
-
-      }
-
-    }
-
-    // actually, force recreate of movie.
-
-    oRemovedHTML = oRemoved = needsFlash = flash = null;
-
-    sm2.enabled = didDCLoaded = didInit = waitingForEI = initPending = didAppend = appendSuccess = disabled = useGlobalHTML5Audio = sm2.swfLoaded = false;
-
-    sm2.soundIDs = [];
-    sm2.sounds = {};
-
-    idCounter = 0;
-    didSetup = false;
-
-    if (!resetEvents) {
-      // reset callbacks for onready, ontimeout etc. so that they will fire again on re-init
-      for (i in on_queue) {
-        if (on_queue.hasOwnProperty(i)) {
-          for (j = 0, k = on_queue[i].length; j < k; j++) {
-            on_queue[i][j].fired = false;
-          }
-        }
-      }
-    } else {
-      // remove all callbacks entirely
-      on_queue = [];
-    }
-
-    // <d>
-    if (!excludeInit) {
-      sm2._wD(sm + ': Rebooting...');
-    }
-    // </d>
-
-    // reset HTML5 and flash canPlay test results
-
-    sm2.html5 = {
-      'usingFlash': null
-    };
-
-    sm2.flash = {};
-
-    // reset device-specific HTML/flash mode switches
-
-    sm2.html5Only = false;
-    sm2.ignoreFlash = false;
-
-    window.setTimeout(function() {
-
-      // by default, re-init
-
-      if (!excludeInit) {
-        sm2.beginDelayedInit();
-      }
-
-    }, 20);
-
-    return sm2;
-
-  };
-
-  this.reset = function() {
-
-    /**
-     * Shuts down and restores the SoundManager instance to its original loaded state, without an explicit reboot. All onready/ontimeout handlers are removed.
-     * After this call, SM2 may be re-initialized via soundManager.beginDelayedInit().
-     * @return {object} soundManager The soundManager instance.
-     */
-
-    _wDS('reset');
-    return sm2.reboot(true, true);
-
-  };
-
-  /**
-   * Undocumented: Determines the SM2 flash movie's load progress.
-   *
-   * @return {number or null} Percent loaded, or if invalid/unsupported, null.
-   */
-
-  this.getMoviePercent = function() {
-
-    /**
-     * Interesting syntax notes...
-     * Flash/ExternalInterface (ActiveX/NPAPI) bridge methods are not typeof "function" nor instanceof Function, but are still valid.
-     * Additionally, JSLint dislikes ('PercentLoaded' in flash)-style syntax and recommends hasOwnProperty(), which does not work in this case.
-     * Furthermore, using (flash && flash.PercentLoaded) causes IE to throw "object doesn't support this property or method".
-     * Thus, 'in' syntax must be used.
-     */
-
-    return (flash && 'PercentLoaded' in flash ? flash.PercentLoaded() : null); // Yes, JSLint. See nearby comment in source for explanation.
-
-  };
-
-  /**
-   * Additional helper for manually invoking SM2's init process after DOM Ready / window.onload().
-   */
-
-  this.beginDelayedInit = function() {
-
-    windowLoaded = true;
-    domContentLoaded();
-
-    setTimeout(function() {
-
-      if (initPending) {
-        return false;
-      }
-
-      createMovie();
-      initMovie();
-      initPending = true;
-
-      return true;
-
-    }, 20);
-
-    delayWaitForEI();
-
-  };
-
-  /**
-   * Destroys the SoundManager instance and all SMSound instances.
-   */
-
-  this.destruct = function() {
-
-    sm2._wD(sm + '.destruct()');
-    sm2.disable(true);
-
-  };
-
-  /**
-   * SMSound() (sound object) constructor
-   * ------------------------------------
-   *
-   * @param {object} oOptions Sound options (id and url are required attributes)
-   * @return {SMSound} The new SMSound object
-   */
-
-  SMSound = function(oOptions) {
-
-    var s = this, resetProperties, add_html5_events, remove_html5_events, stop_html5_timer, start_html5_timer, attachOnPosition, onplay_called = false, onPositionItems = [], onPositionFired = 0, detachOnPosition, applyFromTo, lastURL = null, lastHTML5State, urlOmitted;
-
-    lastHTML5State = {
-      // tracks duration + position (time)
-      duration: null,
-      time: null
-    };
-
-    this.id = oOptions.id;
-
-    // legacy
-    this.sID = this.id;
-
-    this.url = oOptions.url;
-    this.options = mixin(oOptions);
-
-    // per-play-instance-specific options
-    this.instanceOptions = this.options;
-
-    // short alias
-    this._iO = this.instanceOptions;
-
-    // assign property defaults
-    this.pan = this.options.pan;
-    this.volume = this.options.volume;
-
-    // whether or not this object is using HTML5
-    this.isHTML5 = false;
-
-    // internal HTML5 Audio() object reference
-    this._a = null;
-
-    // for flash 8 special-case createSound() without url, followed by load/play with url case
-    urlOmitted = (this.url ? false : true);
-
-    /**
-     * SMSound() public methods
-     * ------------------------
-     */
-
-    this.id3 = {};
-
-    /**
-     * Writes SMSound object parameters to debug console
-     */
-
-    this._debug = function() {
-
-      // <d>
-      sm2._wD(s.id + ': Merged options:', s.options);
-      // </d>
-
-    };
-
-    /**
-     * Begins loading a sound per its *url*.
-     *
-     * @param {object} oOptions Optional: Sound options
-     * @return {SMSound} The SMSound object
-     */
-
-    this.load = function(oOptions) {
-
-      var oSound = null, instanceOptions;
-
-      if (oOptions !== _undefined) {
-        s._iO = mixin(oOptions, s.options);
-      } else {
-        oOptions = s.options;
-        s._iO = oOptions;
-        if (lastURL && lastURL !== s.url) {
-          _wDS('manURL');
-          s._iO.url = s.url;
-          s.url = null;
-        }
-      }
-
-      if (!s._iO.url) {
-        s._iO.url = s.url;
-      }
-
-      s._iO.url = parseURL(s._iO.url);
-
-      // ensure we're in sync
-      s.instanceOptions = s._iO;
-
-      // local shortcut
-      instanceOptions = s._iO;
-
-      sm2._wD(s.id + ': load (' + instanceOptions.url + ')');
-
-      if (!instanceOptions.url && !s.url) {
-        sm2._wD(s.id + ': load(): url is unassigned. Exiting.', 2);
-        return s;
-      }
-
-      // <d>
-      if (!s.isHTML5 && fV === 8 && !s.url && !instanceOptions.autoPlay) {
-        // flash 8 load() -> play() won't work before onload has fired.
-        sm2._wD(s.id + ': Flash 8 load() limitation: Wait for onload() before calling play().', 1);
-      }
-      // </d>
-
-      if (instanceOptions.url === s.url && s.readyState !== 0 && s.readyState !== 2) {
-        _wDS('onURL', 1);
-        // if loaded and an onload() exists, fire immediately.
-        if (s.readyState === 3 && instanceOptions.onload) {
-          // assume success based on truthy duration.
-          wrapCallback(s, function() {
-            instanceOptions.onload.apply(s, [(!!s.duration)]);
-          });
-        }
-        return s;
-      }
-
-      // reset a few state properties
-
-      s.loaded = false;
-      s.readyState = 1;
-      s.playState = 0;
-      s.id3 = {};
-
-      // TODO: If switching from HTML5 -> flash (or vice versa), stop currently-playing audio.
-
-      if (html5OK(instanceOptions)) {
-
-        oSound = s._setup_html5(instanceOptions);
-
-        if (!oSound._called_load) {
-
-          s._html5_canplay = false;
-
-          // TODO: review called_load / html5_canplay logic
-
-          // if url provided directly to load(), assign it here.
-
-          if (s.url !== instanceOptions.url) {
-
-            sm2._wD(_wDS('manURL') + ': ' + instanceOptions.url);
-
-            s._a.src = instanceOptions.url;
-
-            // TODO: review / re-apply all relevant options (volume, loop, onposition etc.)
-
-            // reset position for new URL
-            s.setPosition(0);
-
-          }
-
-          // given explicit load call, try to preload.
-
-          // early HTML5 implementation (non-standard)
-          s._a.autobuffer = 'auto';
-
-          // standard property, values: none / metadata / auto
-          // reference: http://msdn.microsoft.com/en-us/library/ie/ff974759%28v=vs.85%29.aspx
-          s._a.preload = 'auto';
-
-          s._a._called_load = true;
-
-        } else {
-
-          sm2._wD(s.id + ': Ignoring request to load again');
-
-        }
-
-      } else {
-
-        if (sm2.html5Only) {
-          sm2._wD(s.id + ': No flash support. Exiting.');
-          return s;
-        }
-
-        if (s._iO.url && s._iO.url.match(/data\:/i)) {
-          // data: URIs not supported by Flash, either.
-          sm2._wD(s.id + ': data: URIs not supported via Flash. Exiting.');
-          return s;
-        }
-
-        try {
-          s.isHTML5 = false;
-          s._iO = policyFix(loopFix(instanceOptions));
-          // if we have "position", disable auto-play as we'll be seeking to that position at onload().
-          if (s._iO.autoPlay && (s._iO.position || s._iO.from)) {
-            sm2._wD(s.id + ': Disabling autoPlay because of non-zero offset case');
-            s._iO.autoPlay = false;
-          }
-          // re-assign local shortcut
-          instanceOptions = s._iO;
-          if (fV === 8) {
-            flash._load(s.id, instanceOptions.url, instanceOptions.stream, instanceOptions.autoPlay, instanceOptions.usePolicyFile);
-          } else {
-            flash._load(s.id, instanceOptions.url, !!(instanceOptions.stream), !!(instanceOptions.autoPlay), instanceOptions.loops || 1, !!(instanceOptions.autoLoad), instanceOptions.usePolicyFile);
-          }
-        } catch(e) {
-          _wDS('smError', 2);
-          debugTS('onload', false);
-          catchError({
-            type: 'SMSOUND_LOAD_JS_EXCEPTION',
-            fatal: true
-          });
-        }
-
-      }
-
-      // after all of this, ensure sound url is up to date.
-      s.url = instanceOptions.url;
-
-      return s;
-
-    };
-
-    /**
-     * Unloads a sound, canceling any open HTTP requests.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.unload = function() {
-
-      // Flash 8/AS2 can't "close" a stream - fake it by loading an empty URL
-      // Flash 9/AS3: Close stream, preventing further load
-      // HTML5: Most UAs will use empty URL
-
-      if (s.readyState !== 0) {
-
-        sm2._wD(s.id + ': unload()');
-
-        if (!s.isHTML5) {
-
-          if (fV === 8) {
-            flash._unload(s.id, emptyURL);
-          } else {
-            flash._unload(s.id);
-          }
-
-        } else {
-
-          stop_html5_timer();
-
-          if (s._a) {
-
-            s._a.pause();
-
-            // update empty URL, too
-            lastURL = html5Unload(s._a);
-
-          }
-
-        }
-
-        // reset load/status flags
-        resetProperties();
-
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Unloads and destroys a sound.
-     */
-
-    this.destruct = function(_bFromSM) {
-
-      sm2._wD(s.id + ': Destruct');
-
-      if (!s.isHTML5) {
-
-        // kill sound within Flash
-        // Disable the onfailure handler
-        s._iO.onfailure = null;
-        flash._destroySound(s.id);
-
-      } else {
-
-        stop_html5_timer();
-
-        if (s._a) {
-          s._a.pause();
-          html5Unload(s._a);
-          if (!useGlobalHTML5Audio) {
-            remove_html5_events();
-          }
-          // break obvious circular reference
-          s._a._s = null;
-          s._a = null;
-        }
-
-      }
-
-      if (!_bFromSM) {
-        // ensure deletion from controller
-        sm2.destroySound(s.id, true);
-      }
-
-    };
-
-    /**
-     * Begins playing a sound.
-     *
-     * @param {object} oOptions Optional: Sound options
-     * @return {SMSound} The SMSound object
-     */
-
-    this.play = function(oOptions, _updatePlayState) {
-
-      var fN, allowMulti, a, onready,
-          audioClone, onended, oncanplay,
-          startOK = true,
-          exit = null;
-
-      // <d>
-      fN = s.id + ': play(): ';
-      // </d>
-
-      // default to true
-      _updatePlayState = (_updatePlayState === _undefined ? true : _updatePlayState);
-
-      if (!oOptions) {
-        oOptions = {};
-      }
-
-      // first, use local URL (if specified)
-      if (s.url) {
-        s._iO.url = s.url;
-      }
-
-      // mix in any options defined at createSound()
-      s._iO = mixin(s._iO, s.options);
-
-      // mix in any options specific to this method
-      s._iO = mixin(oOptions, s._iO);
-
-      s._iO.url = parseURL(s._iO.url);
-
-      s.instanceOptions = s._iO;
-
-      // RTMP-only
-      if (!s.isHTML5 && s._iO.serverURL && !s.connected) {
-        if (!s.getAutoPlay()) {
-          sm2._wD(fN +' Netstream not connected yet - setting autoPlay');
-          s.setAutoPlay(true);
-        }
-        // play will be called in onconnect()
-        return s;
-      }
-
-      if (html5OK(s._iO)) {
-        s._setup_html5(s._iO);
-        start_html5_timer();
-      }
-
-      if (s.playState === 1 && !s.paused) {
-
-        allowMulti = s._iO.multiShot;
-
-        if (!allowMulti) {
-
-          sm2._wD(fN + 'Already playing (one-shot)', 1);
-
-          if (s.isHTML5) {
-            // go back to original position.
-            s.setPosition(s._iO.position);
-          }
-
-          exit = s;
-
-        } else {
-          sm2._wD(fN + 'Already playing (multi-shot)', 1);
-        }
-
-      }
-
-      if (exit !== null) {
-        return exit;
-      }
-
-      // edge case: play() with explicit URL parameter
-      if (oOptions.url && oOptions.url !== s.url) {
-
-        // special case for createSound() followed by load() / play() with url; avoid double-load case.
-        if (!s.readyState && !s.isHTML5 && fV === 8 && urlOmitted) {
-
-          urlOmitted = false;
-
-        } else {
-
-          // load using merged options
-          s.load(s._iO);
-
-        }
-
-      }
-
-      if (!s.loaded) {
-
-        if (s.readyState === 0) {
-
-          sm2._wD(fN + 'Attempting to load');
-
-          // try to get this sound playing ASAP
-          if (!s.isHTML5 && !sm2.html5Only) {
-
-            // flash: assign directly because setAutoPlay() increments the instanceCount
-            s._iO.autoPlay = true;
-            s.load(s._iO);
-
-          } else if (s.isHTML5) {
-
-            // iOS needs this when recycling sounds, loading a new URL on an existing object.
-            s.load(s._iO);
-
-          } else {
-
-            sm2._wD(fN + 'Unsupported type. Exiting.');
-            exit = s;
-
-          }
-
-          // HTML5 hack - re-set instanceOptions?
-          s.instanceOptions = s._iO;
-
-        } else if (s.readyState === 2) {
-
-          sm2._wD(fN + 'Could not load - exiting', 2);
-          exit = s;
-
-        } else {
-
-          sm2._wD(fN + 'Loading - attempting to play...');
-
-        }
-
-      } else {
-
-        // "play()"
-        sm2._wD(fN.substr(0, fN.lastIndexOf(':')));
-
-      }
-
-      if (exit !== null) {
-        return exit;
-      }
-
-      if (!s.isHTML5 && fV === 9 && s.position > 0 && s.position === s.duration) {
-        // flash 9 needs a position reset if play() is called while at the end of a sound.
-        sm2._wD(fN + 'Sound at end, resetting to position: 0');
-        oOptions.position = 0;
-      }
-
-      /**
-       * Streams will pause when their buffer is full if they are being loaded.
-       * In this case paused is true, but the song hasn't started playing yet.
-       * If we just call resume() the onplay() callback will never be called.
-       * So only call resume() if the position is > 0.
-       * Another reason is because options like volume won't have been applied yet.
-       * For normal sounds, just resume.
-       */
-
-      if (s.paused && s.position >= 0 && (!s._iO.serverURL || s.position > 0)) {
-
-        // https://gist.github.com/37b17df75cc4d7a90bf6
-        sm2._wD(fN + 'Resuming from paused state', 1);
-        s.resume();
-
-      } else {
-
-        s._iO = mixin(oOptions, s._iO);
-
-        /**
-         * Preload in the event of play() with position under Flash,
-         * or from/to parameters and non-RTMP case
-         */
-        if (((!s.isHTML5 && s._iO.position !== null && s._iO.position > 0) || (s._iO.from !== null && s._iO.from > 0) || s._iO.to !== null) && s.instanceCount === 0 && s.playState === 0 && !s._iO.serverURL) {
-
-          onready = function() {
-            // sound "canplay" or onload()
-            // re-apply position/from/to to instance options, and start playback
-            s._iO = mixin(oOptions, s._iO);
-            s.play(s._iO);
-          };
-
-          // HTML5 needs to at least have "canplay" fired before seeking.
-          if (s.isHTML5 && !s._html5_canplay) {
-
-            // this hasn't been loaded yet. load it first, and then do this again.
-            sm2._wD(fN + 'Beginning load for non-zero offset case');
-
-            s.load({
-              // note: custom HTML5-only event added for from/to implementation.
-              _oncanplay: onready
-            });
-
-            exit = false;
-
-          } else if (!s.isHTML5 && !s.loaded && (!s.readyState || s.readyState !== 2)) {
-
-            // to be safe, preload the whole thing in Flash.
-
-            sm2._wD(fN + 'Preloading for non-zero offset case');
-
-            s.load({
-              onload: onready
-            });
-
-            exit = false;
-
-          }
-
-          if (exit !== null) {
-            return exit;
-          }
-
-          // otherwise, we're ready to go. re-apply local options, and continue
-
-          s._iO = applyFromTo();
-
-        }
-
-        // sm2._wD(fN + 'Starting to play');
-
-        // increment instance counter, where enabled + supported
-        if (!s.instanceCount || s._iO.multiShotEvents || (s.isHTML5 && s._iO.multiShot && !useGlobalHTML5Audio) || (!s.isHTML5 && fV > 8 && !s.getAutoPlay())) {
-          s.instanceCount++;
-        }
-
-        // if first play and onposition parameters exist, apply them now
-        if (s._iO.onposition && s.playState === 0) {
-          attachOnPosition(s);
-        }
-
-        s.playState = 1;
-        s.paused = false;
-
-        s.position = (s._iO.position !== _undefined && !isNaN(s._iO.position) ? s._iO.position : 0);
-
-        if (!s.isHTML5) {
-          s._iO = policyFix(loopFix(s._iO));
-        }
-
-        if (s._iO.onplay && _updatePlayState) {
-          s._iO.onplay.apply(s);
-          onplay_called = true;
-        }
-
-        s.setVolume(s._iO.volume, true);
-        s.setPan(s._iO.pan, true);
-
-        if (!s.isHTML5) {
-
-          startOK = flash._start(s.id, s._iO.loops || 1, (fV === 9 ? s.position : s.position / msecScale), s._iO.multiShot || false);
-
-          if (fV === 9 && !startOK) {
-            // edge case: no sound hardware, or 32-channel flash ceiling hit.
-            // applies only to Flash 9, non-NetStream/MovieStar sounds.
-            // http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/media/Sound.html#play%28%29
-            sm2._wD(fN + 'No sound hardware, or 32-sound ceiling hit', 2);
-            if (s._iO.onplayerror) {
-              s._iO.onplayerror.apply(s);
-            }
-
-          }
-
-        } else {
-
-          if (s.instanceCount < 2) {
-
-            // HTML5 single-instance case
-
-            start_html5_timer();
-
-            a = s._setup_html5();
-
-            s.setPosition(s._iO.position);
-
-            a.play();
-
-          } else {
-
-            // HTML5 multi-shot case
-
-            sm2._wD(s.id + ': Cloning Audio() for instance #' + s.instanceCount + '...');
-
-            audioClone = new Audio(s._iO.url);
-
-            onended = function() {
-              event.remove(audioClone, 'ended', onended);
-              s._onfinish(s);
-              // cleanup
-              html5Unload(audioClone);
-              audioClone = null;
-            };
-
-            oncanplay = function() {
-              event.remove(audioClone, 'canplay', oncanplay);
-              try {
-                audioClone.currentTime = s._iO.position/msecScale;
-              } catch(err) {
-                complain(s.id + ': multiShot play() failed to apply position of ' + (s._iO.position/msecScale));
-              }
-              audioClone.play();
-            };
-
-            event.add(audioClone, 'ended', onended);
-
-            // apply volume to clones, too
-            if (s._iO.volume !== _undefined) {
-              audioClone.volume = Math.max(0, Math.min(1, s._iO.volume/100));
-            }
-
-            // playing multiple muted sounds? if you do this, you're weird ;) - but let's cover it.
-            if (s.muted) {
-              audioClone.muted = true;
-            }
-
-            if (s._iO.position) {
-              // HTML5 audio can't seek before onplay() event has fired.
-              // wait for canplay, then seek to position and start playback.
-              event.add(audioClone, 'canplay', oncanplay);
-            } else {
-              // begin playback at currentTime: 0
-              audioClone.play();
-            }
-
-          }
-
-        }
-
-      }
-
-      return s;
-
-    };
-
-    // just for convenience
-    this.start = this.play;
-
-    /**
-     * Stops playing a sound (and optionally, all sounds)
-     *
-     * @param {boolean} bAll Optional: Whether to stop all sounds
-     * @return {SMSound} The SMSound object
-     */
-
-    this.stop = function(bAll) {
-
-      var instanceOptions = s._iO,
-          originalPosition;
-
-      if (s.playState === 1) {
-
-        sm2._wD(s.id + ': stop()');
-
-        s._onbufferchange(0);
-        s._resetOnPosition(0);
-        s.paused = false;
-
-        if (!s.isHTML5) {
-          s.playState = 0;
-        }
-
-        // remove onPosition listeners, if any
-        detachOnPosition();
-
-        // and "to" position, if set
-        if (instanceOptions.to) {
-          s.clearOnPosition(instanceOptions.to);
-        }
-
-        if (!s.isHTML5) {
-
-          flash._stop(s.id, bAll);
-
-          // hack for netStream: just unload
-          if (instanceOptions.serverURL) {
-            s.unload();
-          }
-
-        } else {
-
-          if (s._a) {
-
-            originalPosition = s.position;
-
-            // act like Flash, though
-            s.setPosition(0);
-
-            // hack: reflect old position for onstop() (also like Flash)
-            s.position = originalPosition;
-
-            // html5 has no stop()
-            // NOTE: pausing means iOS requires interaction to resume.
-            s._a.pause();
-
-            s.playState = 0;
-
-            // and update UI
-            s._onTimer();
-
-            stop_html5_timer();
-
-          }
-
-        }
-
-        s.instanceCount = 0;
-        s._iO = {};
-
-        if (instanceOptions.onstop) {
-          instanceOptions.onstop.apply(s);
-        }
-
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Undocumented/internal: Sets autoPlay for RTMP.
-     *
-     * @param {boolean} autoPlay state
-     */
-
-    this.setAutoPlay = function(autoPlay) {
-
-      sm2._wD(s.id + ': Autoplay turned ' + (autoPlay ? 'on' : 'off'));
-      s._iO.autoPlay = autoPlay;
-
-      if (!s.isHTML5) {
-        flash._setAutoPlay(s.id, autoPlay);
-        if (autoPlay) {
-          // only increment the instanceCount if the sound isn't loaded (TODO: verify RTMP)
-          if (!s.instanceCount && s.readyState === 1) {
-            s.instanceCount++;
-            sm2._wD(s.id + ': Incremented instance count to '+s.instanceCount);
-          }
-        }
-      }
-
-    };
-
-    /**
-     * Undocumented/internal: Returns the autoPlay boolean.
-     *
-     * @return {boolean} The current autoPlay value
-     */
-
-    this.getAutoPlay = function() {
-
-      return s._iO.autoPlay;
-
-    };
-
-    /**
-     * Sets the position of a sound.
-     *
-     * @param {number} nMsecOffset Position (milliseconds)
-     * @return {SMSound} The SMSound object
-     */
-
-    this.setPosition = function(nMsecOffset) {
-
-      if (nMsecOffset === _undefined) {
-        nMsecOffset = 0;
-      }
-
-      var position, position1K,
-          // Use the duration from the instance options, if we don't have a track duration yet.
-          // position >= 0 and <= current available (loaded) duration
-          offset = (s.isHTML5 ? Math.max(nMsecOffset, 0) : Math.min(s.duration || s._iO.duration, Math.max(nMsecOffset, 0)));
-
-      s.position = offset;
-      position1K = s.position/msecScale;
-      s._resetOnPosition(s.position);
-      s._iO.position = offset;
-
-      if (!s.isHTML5) {
-
-        position = (fV === 9 ? s.position : position1K);
-
-        if (s.readyState && s.readyState !== 2) {
-          // if paused or not playing, will not resume (by playing)
-          flash._setPosition(s.id, position, (s.paused || !s.playState), s._iO.multiShot);
-        }
-
-      } else if (s._a) {
-
-        // Set the position in the canplay handler if the sound is not ready yet
-        if (s._html5_canplay) {
-
-          if (s._a.currentTime !== position1K) {
-
-            /**
-             * DOM/JS errors/exceptions to watch out for:
-             * if seek is beyond (loaded?) position, "DOM exception 11"
-             * "INDEX_SIZE_ERR": DOM exception 1
-             */
-            sm2._wD(s.id + ': setPosition(' + position1K + ')');
-
-            try {
-              s._a.currentTime = position1K;
-              if (s.playState === 0 || s.paused) {
-                // allow seek without auto-play/resume
-                s._a.pause();
-              }
-            } catch(e) {
-              sm2._wD(s.id + ': setPosition(' + position1K + ') failed: ' + e.message, 2);
-            }
-
-          }
-
-        } else if (position1K) {
-
-          // warn on non-zero seek attempts
-          sm2._wD(s.id + ': setPosition(' + position1K + '): Cannot seek yet, sound not ready', 2);
-          return s;
-
-        }
-
-        if (s.paused) {
-
-          // if paused, refresh UI right away by forcing update
-          s._onTimer(true);
-
-        }
-
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Pauses sound playback.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.pause = function(_bCallFlash) {
-
-      if (s.paused || (s.playState === 0 && s.readyState !== 1)) {
-        return s;
-      }
-
-      sm2._wD(s.id + ': pause()');
-      s.paused = true;
-
-      if (!s.isHTML5) {
-        if (_bCallFlash || _bCallFlash === _undefined) {
-          flash._pause(s.id, s._iO.multiShot);
-        }
-      } else {
-        s._setup_html5().pause();
-        stop_html5_timer();
-      }
-
-      if (s._iO.onpause) {
-        s._iO.onpause.apply(s);
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Resumes sound playback.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    /**
-     * When auto-loaded streams pause on buffer full they have a playState of 0.
-     * We need to make sure that the playState is set to 1 when these streams "resume".
-     * When a paused stream is resumed, we need to trigger the onplay() callback if it
-     * hasn't been called already. In this case since the sound is being played for the
-     * first time, I think it's more appropriate to call onplay() rather than onresume().
-     */
-
-    this.resume = function() {
-
-      var instanceOptions = s._iO;
-
-      if (!s.paused) {
-        return s;
-      }
-
-      sm2._wD(s.id + ': resume()');
-      s.paused = false;
-      s.playState = 1;
-
-      if (!s.isHTML5) {
-
-        if (instanceOptions.isMovieStar && !instanceOptions.serverURL) {
-          // Bizarre Webkit bug (Chrome reported via 8tracks.com dudes): AAC content paused for 30+ seconds(?) will not resume without a reposition.
-          s.setPosition(s.position);
-        }
-
-        // flash method is toggle-based (pause/resume)
-        flash._pause(s.id, instanceOptions.multiShot);
-
-      } else {
-
-        s._setup_html5().play();
-        start_html5_timer();
-
-      }
-
-      if (!onplay_called && instanceOptions.onplay) {
-
-        instanceOptions.onplay.apply(s);
-        onplay_called = true;
-
-      } else if (instanceOptions.onresume) {
-
-        instanceOptions.onresume.apply(s);
-
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Toggles sound playback.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.togglePause = function() {
-
-      sm2._wD(s.id + ': togglePause()');
-
-      if (s.playState === 0) {
-        s.play({
-          position: (fV === 9 && !s.isHTML5 ? s.position : s.position / msecScale)
-        });
-        return s;
-      }
-
-      if (s.paused) {
-        s.resume();
-      } else {
-        s.pause();
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Sets the panning (L-R) effect.
-     *
-     * @param {number} nPan The pan value (-100 to 100)
-     * @return {SMSound} The SMSound object
-     */
-
-    this.setPan = function(nPan, bInstanceOnly) {
-
-      if (nPan === _undefined) {
-        nPan = 0;
-      }
-
-      if (bInstanceOnly === _undefined) {
-        bInstanceOnly = false;
-      }
-
-      if (!s.isHTML5) {
-        flash._setPan(s.id, nPan);
-      } // else { no HTML5 pan? }
-
-      s._iO.pan = nPan;
-
-      if (!bInstanceOnly) {
-        s.pan = nPan;
-        s.options.pan = nPan;
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Sets the volume.
-     *
-     * @param {number} nVol The volume value (0 to 100)
-     * @return {SMSound} The SMSound object
-     */
-
-    this.setVolume = function(nVol, _bInstanceOnly) {
-
-      /**
-       * Note: Setting volume has no effect on iOS "special snowflake" devices.
-       * Hardware volume control overrides software, and volume
-       * will always return 1 per Apple docs. (iOS 4 + 5.)
-       * http://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/HTML-canvas-guide/AddingSoundtoCanvasAnimations/AddingSoundtoCanvasAnimations.html
-       */
-
-      if (nVol === _undefined) {
-        nVol = 100;
-      }
-
-      if (_bInstanceOnly === _undefined) {
-        _bInstanceOnly = false;
-      }
-
-      if (!s.isHTML5) {
-
-        flash._setVolume(s.id, (sm2.muted && !s.muted) || s.muted ? 0 : nVol);
-
-      } else if (s._a) {
-
-        if (sm2.muted && !s.muted) {
-          s.muted = true;
-          s._a.muted = true;
-        }
-
-        // valid range for native HTML5 Audio(): 0-1
-        s._a.volume = Math.max(0, Math.min(1, nVol/100));
-
-      }
-
-      s._iO.volume = nVol;
-
-      if (!_bInstanceOnly) {
-        s.volume = nVol;
-        s.options.volume = nVol;
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Mutes the sound.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.mute = function() {
-
-      s.muted = true;
-
-      if (!s.isHTML5) {
-        flash._setVolume(s.id, 0);
-      } else if (s._a) {
-        s._a.muted = true;
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Unmutes the sound.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.unmute = function() {
-
-      s.muted = false;
-      var hasIO = (s._iO.volume !== _undefined);
-
-      if (!s.isHTML5) {
-        flash._setVolume(s.id, hasIO ? s._iO.volume : s.options.volume);
-      } else if (s._a) {
-        s._a.muted = false;
-      }
-
-      return s;
-
-    };
-
-    /**
-     * Toggles the muted state of a sound.
-     *
-     * @return {SMSound} The SMSound object
-     */
-
-    this.toggleMute = function() {
-
-      return (s.muted ? s.unmute() : s.mute());
-
-    };
-
-    /**
-     * Registers a callback to be fired when a sound reaches a given position during playback.
-     *
-     * @param {number} nPosition The position to watch for
-     * @param {function} oMethod The relevant callback to fire
-     * @param {object} oScope Optional: The scope to apply the callback to
-     * @return {SMSound} The SMSound object
-     */
-
-    this.onPosition = function(nPosition, oMethod, oScope) {
-
-      // TODO: basic dupe checking?
-
-      onPositionItems.push({
-        position: parseInt(nPosition, 10),
-        method: oMethod,
-        scope: (oScope !== _undefined ? oScope : s),
-        fired: false
-      });
-
-      return s;
-
-    };
-
-    // legacy/backwards-compability: lower-case method name
-    this.onposition = this.onPosition;
-
-    /**
-     * Removes registered callback(s) from a sound, by position and/or callback.
-     *
-     * @param {number} nPosition The position to clear callback(s) for
-     * @param {function} oMethod Optional: Identify one callback to be removed when multiple listeners exist for one position
-     * @return {SMSound} The SMSound object
-     */
-
-    this.clearOnPosition = function(nPosition, oMethod) {
-
-      var i;
-
-      nPosition = parseInt(nPosition, 10);
-
-      if (isNaN(nPosition)) {
-        // safety check
-        return false;
-      }
-
-      for (i=0; i < onPositionItems.length; i++) {
-
-        if (nPosition === onPositionItems[i].position) {
-          // remove this item if no method was specified, or, if the method matches
-          
-          if (!oMethod || (oMethod === onPositionItems[i].method)) {
-            
-            if (onPositionItems[i].fired) {
-              // decrement "fired" counter, too
-              onPositionFired--;
-            }
-            
-            onPositionItems.splice(i, 1);
-          
-          }
-        
-        }
-
-      }
-
-    };
-
-    this._processOnPosition = function() {
-
-      var i, item, j = onPositionItems.length;
-
-      if (!j || !s.playState || onPositionFired >= j) {
-        return false;
-      }
-
-      for (i = j - 1; i >= 0; i--) {
-        
-        item = onPositionItems[i];
-        
-        if (!item.fired && s.position >= item.position) {
-        
-          item.fired = true;
-          onPositionFired++;
-          item.method.apply(item.scope, [item.position]);
-        
-          //  reset j -- onPositionItems.length can be changed in the item callback above... occasionally breaking the loop.
-		      j = onPositionItems.length;
-        
-        }
-      
-      }
-
-      return true;
-
-    };
-
-    this._resetOnPosition = function(nPosition) {
-
-      // reset "fired" for items interested in this position
-      var i, item, j = onPositionItems.length;
-
-      if (!j) {
-        return false;
-      }
-
-      for (i = j - 1; i >= 0; i--) {
-        
-        item = onPositionItems[i];
-        
-        if (item.fired && nPosition <= item.position) {
-          item.fired = false;
-          onPositionFired--;
-        }
-      
-      }
-
-      return true;
-
-    };
-
-    /**
-     * SMSound() private internals
-     * --------------------------------
-     */
-
-    applyFromTo = function() {
-
-      var instanceOptions = s._iO,
-          f = instanceOptions.from,
-          t = instanceOptions.to,
-          start, end;
-
-      end = function() {
-
-        // end has been reached.
-        sm2._wD(s.id + ': "To" time of ' + t + ' reached.');
-
-        // detach listener
-        s.clearOnPosition(t, end);
-
-        // stop should clear this, too
-        s.stop();
-
-      };
-
-      start = function() {
-
-        sm2._wD(s.id + ': Playing "from" ' + f);
-
-        // add listener for end
-        if (t !== null && !isNaN(t)) {
-          s.onPosition(t, end);
-        }
-
-      };
-
-      if (f !== null && !isNaN(f)) {
-
-        // apply to instance options, guaranteeing correct start position.
-        instanceOptions.position = f;
-
-        // multiShot timing can't be tracked, so prevent that.
-        instanceOptions.multiShot = false;
-
-        start();
-
-      }
-
-      // return updated instanceOptions including starting position
-      return instanceOptions;
-
-    };
-
-    attachOnPosition = function() {
-
-      var item,
-          op = s._iO.onposition;
-
-      // attach onposition things, if any, now.
-
-      if (op) {
-
-        for (item in op) {
-          if (op.hasOwnProperty(item)) {
-            s.onPosition(parseInt(item, 10), op[item]);
-          }
-        }
-
-      }
-
-    };
-
-    detachOnPosition = function() {
-
-      var item,
-          op = s._iO.onposition;
-
-      // detach any onposition()-style listeners.
-
-      if (op) {
-
-        for (item in op) {
-          if (op.hasOwnProperty(item)) {
-            s.clearOnPosition(parseInt(item, 10));
-          }
-        }
-
-      }
-
-    };
-
-    start_html5_timer = function() {
-
-      if (s.isHTML5) {
-        startTimer(s);
-      }
-
-    };
-
-    stop_html5_timer = function() {
-
-      if (s.isHTML5) {
-        stopTimer(s);
-      }
-
-    };
-
-    resetProperties = function(retainPosition) {
-
-      if (!retainPosition) {
-        onPositionItems = [];
-        onPositionFired = 0;
-      }
-
-      onplay_called = false;
-
-      s._hasTimer = null;
-      s._a = null;
-      s._html5_canplay = false;
-      s.bytesLoaded = null;
-      s.bytesTotal = null;
-      s.duration = (s._iO && s._iO.duration ? s._iO.duration : null);
-      s.durationEstimate = null;
-      s.buffered = [];
-
-      // legacy: 1D array
-      s.eqData = [];
-
-      s.eqData.left = [];
-      s.eqData.right = [];
-
-      s.failures = 0;
-      s.isBuffering = false;
-      s.instanceOptions = {};
-      s.instanceCount = 0;
-      s.loaded = false;
-      s.metadata = {};
-
-      // 0 = uninitialised, 1 = loading, 2 = failed/error, 3 = loaded/success
-      s.readyState = 0;
-
-      s.muted = false;
-      s.paused = false;
-
-      s.peakData = {
-        left: 0,
-        right: 0
-      };
-
-      s.waveformData = {
-        left: [],
-        right: []
-      };
-
-      s.playState = 0;
-      s.position = null;
-
-      s.id3 = {};
-
-    };
-
-    resetProperties();
-
-    /**
-     * Pseudo-private SMSound internals
-     * --------------------------------
-     */
-
-    this._onTimer = function(bForce) {
-
-      /**
-       * HTML5-only _whileplaying() etc.
-       * called from both HTML5 native events, and polling/interval-based timers
-       * mimics flash and fires only when time/duration change, so as to be polling-friendly
-       */
-
-      var duration, isNew = false, time, x = {};
-
-      if (s._hasTimer || bForce) {
-
-        // TODO: May not need to track readyState (1 = loading)
-
-        if (s._a && (bForce || ((s.playState > 0 || s.readyState === 1) && !s.paused))) {
-
-          duration = s._get_html5_duration();
-
-          if (duration !== lastHTML5State.duration) {
-
-            lastHTML5State.duration = duration;
-            s.duration = duration;
-            isNew = true;
-
-          }
-
-          // TODO: investigate why this goes wack if not set/re-set each time.
-          s.durationEstimate = s.duration;
-
-          time = (s._a.currentTime * msecScale || 0);
-
-          if (time !== lastHTML5State.time) {
-
-            lastHTML5State.time = time;
-            isNew = true;
-
-          }
-
-          if (isNew || bForce) {
-
-            s._whileplaying(time, x, x, x, x);
-
-          }
-
-        }/* else {
-
-          // sm2._wD('_onTimer: Warn for "'+s.id+'": '+(!s._a?'Could not find element. ':'')+(s.playState === 0?'playState bad, 0?':'playState = '+s.playState+', OK'));
-
-          return false;
-
-        }*/
-
-        return isNew;
-
-      }
-
-    };
-
-    this._get_html5_duration = function() {
-
-      var instanceOptions = s._iO,
-          // if audio object exists, use its duration - else, instance option duration (if provided - it's a hack, really, and should be retired) OR null
-          d = (s._a && s._a.duration ? s._a.duration * msecScale : (instanceOptions && instanceOptions.duration ? instanceOptions.duration : null)),
-          result = (d && !isNaN(d) && d !== Infinity ? d : null);
-
-      return result;
-
-    };
-
-    this._apply_loop = function(a, nLoops) {
-
-      /**
-       * boolean instead of "loop", for webkit? - spec says string. http://www.w3.org/TR/html-markup/audio.html#audio.attrs.loop
-       * note that loop is either off or infinite under HTML5, unlike Flash which allows arbitrary loop counts to be specified.
-       */
-
-      // <d>
-      if (!a.loop && nLoops > 1) {
-        sm2._wD('Note: Native HTML5 looping is infinite.', 1);
-      }
-      // </d>
-
-      a.loop = (nLoops > 1 ? 'loop' : '');
-
-    };
-
-    this._setup_html5 = function(oOptions) {
-
-      var instanceOptions = mixin(s._iO, oOptions),
-          a = useGlobalHTML5Audio ? globalHTML5Audio : s._a,
-          dURL = decodeURI(instanceOptions.url),
-          sameURL;
-
-      /**
-       * "First things first, I, Poppa..." (reset the previous state of the old sound, if playing)
-       * Fixes case with devices that can only play one sound at a time
-       * Otherwise, other sounds in mid-play will be terminated without warning and in a stuck state
-       */
-
-      if (useGlobalHTML5Audio) {
-
-        if (dURL === decodeURI(lastGlobalHTML5URL)) {
-          // global HTML5 audio: re-use of URL
-          sameURL = true;
-        }
-
-      } else if (dURL === decodeURI(lastURL)) {
-
-        // options URL is the same as the "last" URL, and we used (loaded) it
-        sameURL = true;
-
-      }
-
-      if (a) {
-
-        if (a._s) {
-
-          if (useGlobalHTML5Audio) {
-
-            if (a._s && a._s.playState && !sameURL) {
-
-              // global HTML5 audio case, and loading a new URL. stop the currently-playing one.
-              a._s.stop();
-
-            }
-
-          } else if (!useGlobalHTML5Audio && dURL === decodeURI(lastURL)) {
-
-            // non-global HTML5 reuse case: same url, ignore request
-            s._apply_loop(a, instanceOptions.loops);
-
-            return a;
-
-          }
-
-        }
-
-        if (!sameURL) {
-
-          // don't retain onPosition() stuff with new URLs.
-
-          if (lastURL) {
-            resetProperties(false);
-          }
-
-          // assign new HTML5 URL
-
-          a.src = instanceOptions.url;
-
-          s.url = instanceOptions.url;
-
-          lastURL = instanceOptions.url;
-
-          lastGlobalHTML5URL = instanceOptions.url;
-
-          a._called_load = false;
-
-        }
-
-      } else {
-
-        if (instanceOptions.autoLoad || instanceOptions.autoPlay) {
-
-          s._a = new Audio(instanceOptions.url);
-          s._a.load();
-
-        } else {
-
-          // null for stupid Opera 9.64 case
-          s._a = (isOpera && opera.version() < 10 ? new Audio(null) : new Audio());
-
-        }
-
-        // assign local reference
-        a = s._a;
-
-        a._called_load = false;
-
-        if (useGlobalHTML5Audio) {
-
-          globalHTML5Audio = a;
-
-        }
-
-      }
-
-      s.isHTML5 = true;
-
-      // store a ref on the track
-      s._a = a;
-
-      // store a ref on the audio
-      a._s = s;
-
-      add_html5_events();
-
-      s._apply_loop(a, instanceOptions.loops);
-
-      if (instanceOptions.autoLoad || instanceOptions.autoPlay) {
-
-        s.load();
-
-      } else {
-
-        // early HTML5 implementation (non-standard)
-        a.autobuffer = false;
-
-        // standard ('none' is also an option.)
-        a.preload = 'auto';
-
-      }
-
-      return a;
-
-    };
-
-    add_html5_events = function() {
-
-      if (s._a._added_events) {
-        return false;
-      }
-
-      var f;
-
-      function add(oEvt, oFn, bCapture) {
-        return s._a ? s._a.addEventListener(oEvt, oFn, bCapture || false) : null;
-      }
-
-      s._a._added_events = true;
-
-      for (f in html5_events) {
-        if (html5_events.hasOwnProperty(f)) {
-          add(f, html5_events[f]);
-        }
-      }
-
-      return true;
-
-    };
-
-    remove_html5_events = function() {
-
-      // Remove event listeners
-
-      var f;
-
-      function remove(oEvt, oFn, bCapture) {
-        return (s._a ? s._a.removeEventListener(oEvt, oFn, bCapture || false) : null);
-      }
-
-      sm2._wD(s.id + ': Removing event listeners');
-      s._a._added_events = false;
-
-      for (f in html5_events) {
-        if (html5_events.hasOwnProperty(f)) {
-          remove(f, html5_events[f]);
-        }
-      }
-
-    };
-
-    /**
-     * Pseudo-private event internals
-     * ------------------------------
-     */
-
-    this._onload = function(nSuccess) {
-
-      var fN,
-          // check for duration to prevent false positives from flash 8 when loading from cache.
-          loadOK = !!nSuccess || (!s.isHTML5 && fV === 8 && s.duration);
-
-      // <d>
-      fN = s.id + ': ';
-      sm2._wD(fN + (loadOK ? 'onload()' : 'Failed to load / invalid sound?' + (!s.duration ? ' Zero-length duration reported.' : ' -') + ' (' + s.url + ')'), (loadOK ? 1 : 2));
-
-      if (!loadOK && !s.isHTML5) {
-        if (sm2.sandbox.noRemote === true) {
-          sm2._wD(fN + str('noNet'), 1);
-        }
-        if (sm2.sandbox.noLocal === true) {
-          sm2._wD(fN + str('noLocal'), 1);
-        }
-      }
-      // </d>
-
-      s.loaded = loadOK;
-      s.readyState = (loadOK ? 3 : 2);
-      s._onbufferchange(0);
-
-      if (s._iO.onload) {
-        wrapCallback(s, function() {
-          s._iO.onload.apply(s, [loadOK]);
-        });
-      }
-
-      return true;
-
-    };
-
-    this._onbufferchange = function(nIsBuffering) {
-
-      if (s.playState === 0) {
-        // ignore if not playing
-        return false;
-      }
-
-      if ((nIsBuffering && s.isBuffering) || (!nIsBuffering && !s.isBuffering)) {
-        return false;
-      }
-
-      s.isBuffering = (nIsBuffering === 1);
-      
-      if (s._iO.onbufferchange) {
-        sm2._wD(s.id + ': Buffer state change: ' + nIsBuffering);
-        s._iO.onbufferchange.apply(s, [nIsBuffering]);
-      }
-
-      return true;
-
-    };
-
-    /**
-     * Playback may have stopped due to buffering, or related reason.
-     * This state can be encountered on iOS < 6 when auto-play is blocked.
-     */
-
-    this._onsuspend = function() {
-
-      if (s._iO.onsuspend) {
-        sm2._wD(s.id + ': Playback suspended');
-        s._iO.onsuspend.apply(s);
-      }
-
-      return true;
-
-    };
-
-    /**
-     * flash 9/movieStar + RTMP-only method, should fire only once at most
-     * at this point we just recreate failed sounds rather than trying to reconnect
-     */
-
-    this._onfailure = function(msg, level, code) {
-
-      s.failures++;
-      sm2._wD(s.id + ': Failure (' + s.failures + '): ' + msg);
-
-      if (s._iO.onfailure && s.failures === 1) {
-        s._iO.onfailure(msg, level, code);
-      } else {
-        sm2._wD(s.id + ': Ignoring failure');
-      }
-
-    };
-
-    /**
-     * flash 9/movieStar + RTMP-only method for unhandled warnings/exceptions from Flash
-     * e.g., RTMP "method missing" warning (non-fatal) for getStreamLength on server
-     */
-
-    this._onwarning = function(msg, level, code) {
-
-      if (s._iO.onwarning) {
-        s._iO.onwarning(msg, level, code);
-      }
-
-    };
-
-    this._onfinish = function() {
-
-      // store local copy before it gets trashed...
-      var io_onfinish = s._iO.onfinish;
-
-      s._onbufferchange(0);
-      s._resetOnPosition(0);
-
-      // reset some state items
-      if (s.instanceCount) {
-
-        s.instanceCount--;
-
-        if (!s.instanceCount) {
-
-          // remove onPosition listeners, if any
-          detachOnPosition();
-
-          // reset instance options
-          s.playState = 0;
-          s.paused = false;
-          s.instanceCount = 0;
-          s.instanceOptions = {};
-          s._iO = {};
-          stop_html5_timer();
-
-          // reset position, too
-          if (s.isHTML5) {
-            s.position = 0;
-          }
-
-        }
-
-        if (!s.instanceCount || s._iO.multiShotEvents) {
-          // fire onfinish for last, or every instance
-          if (io_onfinish) {
-            sm2._wD(s.id + ': onfinish()');
-            wrapCallback(s, function() {
-              io_onfinish.apply(s);
-            });
-          }
-        }
-
-      }
-
-    };
-
-    this._whileloading = function(nBytesLoaded, nBytesTotal, nDuration, nBufferLength) {
-
-      var instanceOptions = s._iO;
-
-      s.bytesLoaded = nBytesLoaded;
-      s.bytesTotal = nBytesTotal;
-      s.duration = Math.floor(nDuration);
-      s.bufferLength = nBufferLength;
-
-      if (!s.isHTML5 && !instanceOptions.isMovieStar) {
-
-        if (instanceOptions.duration) {
-          // use duration from options, if specified and larger. nobody should be specifying duration in options, actually, and it should be retired.
-          s.durationEstimate = (s.duration > instanceOptions.duration) ? s.duration : instanceOptions.duration;
-        } else {
-          s.durationEstimate = parseInt((s.bytesTotal / s.bytesLoaded) * s.duration, 10);
-        }
-
-      } else {
-
-        s.durationEstimate = s.duration;
-
-      }
-
-      // for flash, reflect sequential-load-style buffering
-      if (!s.isHTML5) {
-        s.buffered = [{
-          'start': 0,
-          'end': s.duration
-        }];
-      }
-
-      // allow whileloading to fire even if "load" fired under HTML5, due to HTTP range/partials
-      if ((s.readyState !== 3 || s.isHTML5) && instanceOptions.whileloading) {
-        instanceOptions.whileloading.apply(s);
-      }
-
-    };
-
-    this._whileplaying = function(nPosition, oPeakData, oWaveformDataLeft, oWaveformDataRight, oEQData) {
-
-      var instanceOptions = s._iO,
-          eqLeft;
-
-      if (isNaN(nPosition) || nPosition === null) {
-        // flash safety net
-        return false;
-      }
-
-      // Safari HTML5 play() may return small -ve values when starting from position: 0, eg. -50.120396875. Unexpected/invalid per W3, I think. Normalize to 0.
-      s.position = Math.max(0, nPosition);
-
-      s._processOnPosition();
-
-      if (!s.isHTML5 && fV > 8) {
-
-        if (instanceOptions.usePeakData && oPeakData !== _undefined && oPeakData) {
-          s.peakData = {
-            left: oPeakData.leftPeak,
-            right: oPeakData.rightPeak
-          };
-        }
-
-        if (instanceOptions.useWaveformData && oWaveformDataLeft !== _undefined && oWaveformDataLeft) {
-          s.waveformData = {
-            left: oWaveformDataLeft.split(','),
-            right: oWaveformDataRight.split(',')
-          };
-        }
-
-        if (instanceOptions.useEQData) {
-          if (oEQData !== _undefined && oEQData && oEQData.leftEQ) {
-            eqLeft = oEQData.leftEQ.split(',');
-            s.eqData = eqLeft;
-            s.eqData.left = eqLeft;
-            if (oEQData.rightEQ !== _undefined && oEQData.rightEQ) {
-              s.eqData.right = oEQData.rightEQ.split(',');
-            }
-          }
-        }
-
-      }
-
-      if (s.playState === 1) {
-
-        // special case/hack: ensure buffering is false if loading from cache (and not yet started)
-        if (!s.isHTML5 && fV === 8 && !s.position && s.isBuffering) {
-          s._onbufferchange(0);
-        }
-
-        if (instanceOptions.whileplaying) {
-          // flash may call after actual finish
-          instanceOptions.whileplaying.apply(s);
-        }
-
-      }
-
-      return true;
-
-    };
-
-    this._oncaptiondata = function(oData) {
-
-      /**
-       * internal: flash 9 + NetStream (MovieStar/RTMP-only) feature
-       *
-       * @param {object} oData
-       */
-
-      sm2._wD(s.id + ': Caption data received.');
-
-      s.captiondata = oData;
-
-      if (s._iO.oncaptiondata) {
-        s._iO.oncaptiondata.apply(s, [oData]);
-      }
-
-    };
-
-    this._onmetadata = function(oMDProps, oMDData) {
-
-      /**
-       * internal: flash 9 + NetStream (MovieStar/RTMP-only) feature
-       * RTMP may include song title, MovieStar content may include encoding info
-       *
-       * @param {array} oMDProps (names)
-       * @param {array} oMDData (values)
-       */
-
-      sm2._wD(s.id + ': Metadata received.');
-
-      var oData = {}, i, j;
-
-      for (i = 0, j = oMDProps.length; i < j; i++) {
-        oData[oMDProps[i]] = oMDData[i];
-      }
-
-      s.metadata = oData;
-
-      if (s._iO.onmetadata) {
-        s._iO.onmetadata.call(s, s.metadata);
-      }
-
-    };
-
-    this._onid3 = function(oID3Props, oID3Data) {
-
-      /**
-       * internal: flash 8 + flash 9 ID3 feature
-       * may include artist, song title etc.
-       *
-       * @param {array} oID3Props (names)
-       * @param {array} oID3Data (values)
-       */
-
-      sm2._wD(s.id + ': ID3 data received.');
-
-      var oData = [], i, j;
-
-      for (i = 0, j = oID3Props.length; i < j; i++) {
-        oData[oID3Props[i]] = oID3Data[i];
-      }
-
-      s.id3 = mixin(s.id3, oData);
-
-      if (s._iO.onid3) {
-        s._iO.onid3.apply(s);
-      }
-
-    };
-
-    // flash/RTMP-only
-
-    this._onconnect = function(bSuccess) {
-
-      bSuccess = (bSuccess === 1);
-      sm2._wD(s.id + ': ' + (bSuccess ? 'Connected.' : 'Failed to connect? - ' + s.url), (bSuccess ? 1 : 2));
-      s.connected = bSuccess;
-
-      if (bSuccess) {
-
-        s.failures = 0;
-
-        if (idCheck(s.id)) {
-          if (s.getAutoPlay()) {
-            // only update the play state if auto playing
-            s.play(_undefined, s.getAutoPlay());
-          } else if (s._iO.autoLoad) {
-            s.load();
-          }
-        }
-
-        if (s._iO.onconnect) {
-          s._iO.onconnect.apply(s, [bSuccess]);
-        }
-
-      }
-
-    };
-
-    this._ondataerror = function(sError) {
-
-      // flash 9 wave/eq data handler
-      // hack: called at start, and end from flash at/after onfinish()
-      if (s.playState > 0) {
-        sm2._wD(s.id + ': Data error: ' + sError);
-        if (s._iO.ondataerror) {
-          s._iO.ondataerror.apply(s);
-        }
-      }
-
-    };
-
-    // <d>
-    this._debug();
-    // </d>
-
-  }; // SMSound()
-
-  /**
-   * Private SoundManager internals
-   * ------------------------------
-   */
-
-  getDocument = function() {
-
-    return (doc.body || doc.getElementsByTagName('div')[0]);
-
-  };
-
-  id = function(sID) {
-
-    return doc.getElementById(sID);
-
-  };
-
-  mixin = function(oMain, oAdd) {
-
-    // non-destructive merge
-    var o1 = (oMain || {}), o2, o;
-
-    // if unspecified, o2 is the default options object
-    o2 = (oAdd === _undefined ? sm2.defaultOptions : oAdd);
-
-    for (o in o2) {
-
-      if (o2.hasOwnProperty(o) && o1[o] === _undefined) {
-
-        if (typeof o2[o] !== 'object' || o2[o] === null) {
-
-          // assign directly
-          o1[o] = o2[o];
-
-        } else {
-
-          // recurse through o2
-          o1[o] = mixin(o1[o], o2[o]);
-
-        }
-
-      }
-
-    }
-
-    return o1;
-
-  };
-
-  wrapCallback = function(oSound, callback) {
-
-    /**
-     * 03/03/2013: Fix for Flash Player 11.6.602.171 + Flash 8 (flashVersion = 8) SWF issue
-     * setTimeout() fix for certain SMSound callbacks like onload() and onfinish(), where subsequent calls like play() and load() fail when Flash Player 11.6.602.171 is installed, and using soundManager with flashVersion = 8 (which is the default).
-     * Not sure of exact cause. Suspect race condition and/or invalid (NaN-style) position argument trickling down to the next JS -> Flash _start() call, in the play() case.
-     * Fix: setTimeout() to yield, plus safer null / NaN checking on position argument provided to Flash.
-     * https://getsatisfaction.com/schillmania/topics/recent_chrome_update_seems_to_have_broken_my_sm2_audio_player
-     */
-    if (!oSound.isHTML5 && fV === 8) {
-      window.setTimeout(callback, 0);
-    } else {
-      callback();
-    }
-
-  };
-
-  // additional soundManager properties that soundManager.setup() will accept
-
-  extraOptions = {
-    'onready': 1,
-    'ontimeout': 1,
-    'defaultOptions': 1,
-    'flash9Options': 1,
-    'movieStarOptions': 1
-  };
-
-  assign = function(o, oParent) {
-
-    /**
-     * recursive assignment of properties, soundManager.setup() helper
-     * allows property assignment based on whitelist
-     */
-
-    var i,
-        result = true,
-        hasParent = (oParent !== _undefined),
-        setupOptions = sm2.setupOptions,
-        bonusOptions = extraOptions;
-
-    // <d>
-
-    // if soundManager.setup() called, show accepted parameters.
-
-    if (o === _undefined) {
-
-      result = [];
-
-      for (i in setupOptions) {
-
-        if (setupOptions.hasOwnProperty(i)) {
-          result.push(i);
-        }
-
-      }
-
-      for (i in bonusOptions) {
-
-        if (bonusOptions.hasOwnProperty(i)) {
-
-          if (typeof sm2[i] === 'object') {
-            result.push(i + ': {...}');
-          } else if (sm2[i] instanceof Function) {
-            result.push(i + ': function() {...}');
-          } else {
-            result.push(i);
-          }
-
-        }
-
-      }
-
-      sm2._wD(str('setup', result.join(', ')));
-
-      return false;
-
-    }
-
-    // </d>
-
-    for (i in o) {
-
-      if (o.hasOwnProperty(i)) {
-
-        // if not an {object} we want to recurse through...
-
-        if (typeof o[i] !== 'object' || o[i] === null || o[i] instanceof Array || o[i] instanceof RegExp) {
-
-          // check "allowed" options
-
-          if (hasParent && bonusOptions[oParent] !== _undefined) {
-
-            // valid recursive / nested object option, eg., { defaultOptions: { volume: 50 } }
-            sm2[oParent][i] = o[i];
-
-          } else if (setupOptions[i] !== _undefined) {
-
-            // special case: assign to setupOptions object, which soundManager property references
-            sm2.setupOptions[i] = o[i];
-
-            // assign directly to soundManager, too
-            sm2[i] = o[i];
-
-          } else if (bonusOptions[i] === _undefined) {
-
-            // invalid or disallowed parameter. complain.
-            complain(str((sm2[i] === _undefined ? 'setupUndef' : 'setupError'), i), 2);
-
-            result = false;
-
-          } else {
-
-            /**
-             * valid extraOptions (bonusOptions) parameter.
-             * is it a method, like onready/ontimeout? call it.
-             * multiple parameters should be in an array, eg. soundManager.setup({onready: [myHandler, myScope]});
-             */
-
-            if (sm2[i] instanceof Function) {
-
-              sm2[i].apply(sm2, (o[i] instanceof Array ? o[i] : [o[i]]));
-
-            } else {
-
-              // good old-fashioned direct assignment
-              sm2[i] = o[i];
-
-            }
-
-          }
-
-        } else {
-
-          // recursion case, eg., { defaultOptions: { ... } }
-
-          if (bonusOptions[i] === _undefined) {
-
-            // invalid or disallowed parameter. complain.
-            complain(str((sm2[i] === _undefined ? 'setupUndef' : 'setupError'), i), 2);
-
-            result = false;
-
-          } else {
-
-            // recurse through object
-            return assign(o[i], i);
-
-          }
-
-        }
-
-      }
-
-    }
-
-    return result;
-
-  };
-
-  function preferFlashCheck(kind) {
-
-    // whether flash should play a given type
-    return (sm2.preferFlash && hasFlash && !sm2.ignoreFlash && (sm2.flash[kind] !== _undefined && sm2.flash[kind]));
-
-  }
-
-  /**
-   * Internal DOM2-level event helpers
-   * ---------------------------------
-   */
-
-  event = (function() {
-
-    // normalize event methods
-    var old = (window.attachEvent),
-    evt = {
-      add: (old ? 'attachEvent' : 'addEventListener'),
-      remove: (old ? 'detachEvent' : 'removeEventListener')
-    };
-
-    // normalize "on" event prefix, optional capture argument
-    function getArgs(oArgs) {
-
-      var args = slice.call(oArgs),
-          len = args.length;
-
-      if (old) {
-        // prefix
-        args[1] = 'on' + args[1];
-        if (len > 3) {
-          // no capture
-          args.pop();
-        }
-      } else if (len === 3) {
-        args.push(false);
-      }
-
-      return args;
-
-    }
-
-    function apply(args, sType) {
-
-      // normalize and call the event method, with the proper arguments
-      var element = args.shift(),
-          method = [evt[sType]];
-
-      if (old) {
-        // old IE can't do apply().
-        element[method](args[0], args[1]);
-      } else {
-        element[method].apply(element, args);
-      }
-
-    }
-
-    function add() {
-      apply(getArgs(arguments), 'add');
-    }
-
-    function remove() {
-      apply(getArgs(arguments), 'remove');
-    }
-
-    return {
-      'add': add,
-      'remove': remove
-    };
-
-  }());
-
-  /**
-   * Internal HTML5 event handling
-   * -----------------------------
-   */
-
-  function html5_event(oFn) {
-
-    // wrap html5 event handlers so we don't call them on destroyed and/or unloaded sounds
-
-    return function(e) {
-
-      var s = this._s,
-          result;
-
-      if (!s || !s._a) {
-        // <d>
-        if (s && s.id) {
-          sm2._wD(s.id + ': Ignoring ' + e.type);
-        } else {
-          sm2._wD(h5 + 'Ignoring ' + e.type);
-        }
-        // </d>
-        result = null;
-      } else {
-        result = oFn.call(this, e);
-      }
-
-      return result;
-
-    };
-
-  }
-
-  html5_events = {
-
-    // HTML5 event-name-to-handler map
-
-    abort: html5_event(function() {
-
-      sm2._wD(this._s.id + ': abort');
-
-    }),
-
-    // enough has loaded to play
-
-    canplay: html5_event(function() {
-
-      var s = this._s,
-          position1K;
-
-      if (s._html5_canplay) {
-        // this event has already fired. ignore.
-        return true;
-      }
-
-      s._html5_canplay = true;
-      sm2._wD(s.id + ': canplay');
-      s._onbufferchange(0);
-
-      // position according to instance options
-      position1K = (s._iO.position !== _undefined && !isNaN(s._iO.position) ? s._iO.position/msecScale : null);
-
-      // set the position if position was provided before the sound loaded
-      if (this.currentTime !== position1K) {
-        sm2._wD(s.id + ': canplay: Setting position to ' + position1K);
-        try {
-          this.currentTime = position1K;
-        } catch(ee) {
-          sm2._wD(s.id + ': canplay: Setting position of ' + position1K + ' failed: ' + ee.message, 2);
-        }
-      }
-
-      // hack for HTML5 from/to case
-      if (s._iO._oncanplay) {
-        s._iO._oncanplay();
-      }
-
-    }),
-
-    canplaythrough: html5_event(function() {
-
-      var s = this._s;
-
-      if (!s.loaded) {
-        s._onbufferchange(0);
-        s._whileloading(s.bytesLoaded, s.bytesTotal, s._get_html5_duration());
-        s._onload(true);
-      }
-
-    }),
-
-    durationchange: html5_event(function() {
-
-      // durationchange may fire at various times, probably the safest way to capture accurate/final duration.
-
-      var s = this._s,
-          duration;
-
-      duration = s._get_html5_duration();
-
-      if (!isNaN(duration) && duration !== s.duration) {
-
-        sm2._wD(this._s.id + ': durationchange (' + duration + ')' + (s.duration ? ', previously ' + s.duration : ''));
-
-        s.durationEstimate = s.duration = duration;
-
-      }
-
-    }),
-
-    // TODO: Reserved for potential use
-    /*
-    emptied: html5_event(function() {
-
-      sm2._wD(this._s.id + ': emptied');
-
-    }),
-    */
-
-    ended: html5_event(function() {
-
-      var s = this._s;
-
-      sm2._wD(s.id + ': ended');
-
-      s._onfinish();
-
-    }),
-
-    error: html5_event(function() {
-
-      sm2._wD(this._s.id + ': HTML5 error, code ' + this.error.code);
-      /**
-       * HTML5 error codes, per W3C
-       * Error 1: Client aborted download at user's request.
-       * Error 2: Network error after load started.
-       * Error 3: Decoding issue.
-       * Error 4: Media (audio file) not supported.
-       * Reference: http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#error-codes
-       */
-      // call load with error state?
-      this._s._onload(false);
-
-    }),
-
-    loadeddata: html5_event(function() {
-
-      var s = this._s;
-
-      sm2._wD(s.id + ': loadeddata');
-
-      // safari seems to nicely report progress events, eventually totalling 100%
-      if (!s._loaded && !isSafari) {
-        s.duration = s._get_html5_duration();
-      }
-
-    }),
-
-    loadedmetadata: html5_event(function() {
-
-      sm2._wD(this._s.id + ': loadedmetadata');
-
-    }),
-
-    loadstart: html5_event(function() {
-
-      sm2._wD(this._s.id + ': loadstart');
-      // assume buffering at first
-      this._s._onbufferchange(1);
-
-    }),
-
-    play: html5_event(function() {
-
-      // sm2._wD(this._s.id + ': play()');
-      // once play starts, no buffering
-      this._s._onbufferchange(0);
-
-    }),
-
-    playing: html5_event(function() {
-
-      sm2._wD(this._s.id + ': playing ' + String.fromCharCode(9835));
-      // once play starts, no buffering
-      this._s._onbufferchange(0);
-
-    }),
-
-    progress: html5_event(function(e) {
-
-      // note: can fire repeatedly after "loaded" event, due to use of HTTP range/partials
-
-      var s = this._s,
-          i, j, progStr, buffered = 0,
-          isProgress = (e.type === 'progress'),
-          ranges = e.target.buffered,
-          // firefox 3.6 implements e.loaded/total (bytes)
-          loaded = (e.loaded || 0),
-          total = (e.total || 1);
-
-      // reset the "buffered" (loaded byte ranges) array
-      s.buffered = [];
-
-      if (ranges && ranges.length) {
-
-        // if loaded is 0, try TimeRanges implementation as % of load
-        // https://developer.mozilla.org/en/DOM/TimeRanges
-
-        // re-build "buffered" array
-        // HTML5 returns seconds. SM2 API uses msec for setPosition() etc., whether Flash or HTML5.
-        for (i = 0, j = ranges.length; i < j; i++) {
-          s.buffered.push({
-            'start': ranges.start(i) * msecScale,
-            'end': ranges.end(i) * msecScale
-          });
-        }
-
-        // use the last value locally
-        buffered = (ranges.end(0) - ranges.start(0)) * msecScale;
-
-        // linear case, buffer sum; does not account for seeking and HTTP partials / byte ranges
-        loaded = Math.min(1, buffered / (e.target.duration * msecScale));
-
-        // <d>
-        if (isProgress && ranges.length > 1) {
-          progStr = [];
-          j = ranges.length;
-          for (i = 0; i < j; i++) {
-            progStr.push((e.target.buffered.start(i) * msecScale) + '-' + (e.target.buffered.end(i) * msecScale));
-          }
-          sm2._wD(this._s.id + ': progress, timeRanges: ' + progStr.join(', '));
-        }
-
-        if (isProgress && !isNaN(loaded)) {
-          sm2._wD(this._s.id + ': progress, ' + Math.floor(loaded * 100) + '% loaded');
-        }
-        // </d>
-
-      }
-
-      if (!isNaN(loaded)) {
-
-        // TODO: prevent calls with duplicate values.
-        s._whileloading(loaded, total, s._get_html5_duration());
-        if (loaded && total && loaded === total) {
-          // in case "onload" doesn't fire (eg. gecko 1.9.2)
-          html5_events.canplaythrough.call(this, e);
-        }
-
-      }
-
-    }),
-
-    ratechange: html5_event(function() {
-
-      sm2._wD(this._s.id + ': ratechange');
-
-    }),
-
-    suspend: html5_event(function(e) {
-
-      // download paused/stopped, may have finished (eg. onload)
-      var s = this._s;
-
-      sm2._wD(this._s.id + ': suspend');
-      html5_events.progress.call(this, e);
-      s._onsuspend();
-
-    }),
-
-    stalled: html5_event(function() {
-
-      sm2._wD(this._s.id + ': stalled');
-
-    }),
-
-    timeupdate: html5_event(function() {
-
-      this._s._onTimer();
-
-    }),
-
-    waiting: html5_event(function() {
-
-      var s = this._s;
-
-      // see also: seeking
-      sm2._wD(this._s.id + ': waiting');
-
-      // playback faster than download rate, etc.
-      s._onbufferchange(1);
-
-    })
-
-  };
-
-  html5OK = function(iO) {
-
-    // playability test based on URL or MIME type
-
-    var result;
-
-    if (!iO || (!iO.type && !iO.url && !iO.serverURL)) {
-
-      // nothing to check
-      result = false;
-
-    } else if (iO.serverURL || (iO.type && preferFlashCheck(iO.type))) {
-
-      // RTMP, or preferring flash
-      result = false;
-
-    } else {
-
-      // Use type, if specified. Pass data: URIs to HTML5. If HTML5-only mode, no other options, so just give 'er
-      result = ((iO.type ? html5CanPlay({type:iO.type}) : html5CanPlay({url:iO.url}) || sm2.html5Only || iO.url.match(/data\:/i)));
-
-    }
-
-    return result;
-
-  };
-
-  html5Unload = function(oAudio) {
-
-    /**
-     * Internal method: Unload media, and cancel any current/pending network requests.
-     * Firefox can load an empty URL, which allegedly destroys the decoder and stops the download.
-     * https://developer.mozilla.org/En/Using_audio_and_video_in_Firefox#Stopping_the_download_of_media
-     * However, Firefox has been seen loading a relative URL from '' and thus requesting the hosting page on unload.
-     * Other UA behaviour is unclear, so everyone else gets an about:blank-style URL.
-     */
-
-    var url;
-
-    if (oAudio) {
-
-      // Firefox and Chrome accept short WAVe data: URIs. Chome dislikes audio/wav, but accepts audio/wav for data: MIME.
-      // Desktop Safari complains / fails on data: URI, so it gets about:blank.
-      url = (isSafari ? emptyURL : (sm2.html5.canPlayType('audio/wav') ? emptyWAV : emptyURL));
-
-      oAudio.src = url;
-
-      // reset some state, too
-      if (oAudio._called_unload !== _undefined) {
-        oAudio._called_load = false;
-      }
-
-    }
-
-    if (useGlobalHTML5Audio) {
-
-      // ensure URL state is trashed, also
-      lastGlobalHTML5URL = null;
-
-    }
-
-    return url;
-
-  };
-
-  html5CanPlay = function(o) {
-
-    /**
-     * Try to find MIME, test and return truthiness
-     * o = {
-     *  url: '/path/to/an.mp3',
-     *  type: 'audio/mp3'
-     * }
-     */
-
-    if (!sm2.useHTML5Audio || !sm2.hasHTML5) {
-      return false;
-    }
-
-    var url = (o.url || null),
-        mime = (o.type || null),
-        aF = sm2.audioFormats,
-        result,
-        offset,
-        fileExt,
-        item;
-
-    // account for known cases like audio/mp3
-
-    if (mime && sm2.html5[mime] !== _undefined) {
-      return (sm2.html5[mime] && !preferFlashCheck(mime));
-    }
-
-    if (!html5Ext) {
-      
-      html5Ext = [];
-      
-      for (item in aF) {
-      
-        if (aF.hasOwnProperty(item)) {
-      
-          html5Ext.push(item);
-      
-          if (aF[item].related) {
-            html5Ext = html5Ext.concat(aF[item].related);
-          }
-      
-        }
-      
-      }
-      
-      html5Ext = new RegExp('\\.('+html5Ext.join('|')+')(\\?.*)?$','i');
-    
-    }
-
-    // TODO: Strip URL queries, etc.
-    fileExt = (url ? url.toLowerCase().match(html5Ext) : null);
-
-    if (!fileExt || !fileExt.length) {
-      
-      if (!mime) {
-      
-        result = false;
-      
-      } else {
-      
-        // audio/mp3 -> mp3, result should be known
-        offset = mime.indexOf(';');
-      
-        // strip "audio/X; codecs..."
-        fileExt = (offset !== -1 ? mime.substr(0,offset) : mime).substr(6);
-      
-      }
-    
-    } else {
-    
-      // match the raw extension name - "mp3", for example
-      fileExt = fileExt[1];
-    
-    }
-
-    if (fileExt && sm2.html5[fileExt] !== _undefined) {
-    
-      // result known
-      result = (sm2.html5[fileExt] && !preferFlashCheck(fileExt));
-    
-    } else {
-    
-      mime = 'audio/' + fileExt;
-      result = sm2.html5.canPlayType({type:mime});
-    
-      sm2.html5[fileExt] = result;
-    
-      // sm2._wD('canPlayType, found result: ' + result);
-      result = (result && sm2.html5[mime] && !preferFlashCheck(mime));
-    }
-
-    return result;
-
-  };
-
-  testHTML5 = function() {
-
-    /**
-     * Internal: Iterates over audioFormats, determining support eg. audio/mp3, audio/mpeg and so on
-     * assigns results to html5[] and flash[].
-     */
-
-    if (!sm2.useHTML5Audio || !sm2.hasHTML5) {
-    
-      // without HTML5, we need Flash.
-      sm2.html5.usingFlash = true;
-      needsFlash = true;
-    
-      return false;
-    
-    }
-
-    // double-whammy: Opera 9.64 throws WRONG_ARGUMENTS_ERR if no parameter passed to Audio(), and Webkit + iOS happily tries to load "null" as a URL. :/
-    var a = (Audio !== _undefined ? (isOpera && opera.version() < 10 ? new Audio(null) : new Audio()) : null),
-        item, lookup, support = {}, aF, i;
-
-    function cp(m) {
-
-      var canPlay, j,
-          result = false,
-          isOK = false;
-
-      if (!a || typeof a.canPlayType !== 'function') {
-        return result;
-      }
-
-      if (m instanceof Array) {
-    
-        // iterate through all mime types, return any successes
-    
-        for (i = 0, j = m.length; i < j; i++) {
-    
-          if (sm2.html5[m[i]] || a.canPlayType(m[i]).match(sm2.html5Test)) {
-    
-            isOK = true;
-            sm2.html5[m[i]] = true;
-    
-            // note flash support, too
-            sm2.flash[m[i]] = !!(m[i].match(flashMIME));
-    
-          }
-    
-        }
-    
-        result = isOK;
-    
-      } else {
-    
-        canPlay = (a && typeof a.canPlayType === 'function' ? a.canPlayType(m) : false);
-        result = !!(canPlay && (canPlay.match(sm2.html5Test)));
-    
-      }
-
-      return result;
-
-    }
-
-    // test all registered formats + codecs
-
-    aF = sm2.audioFormats;
-
-    for (item in aF) {
-
-      if (aF.hasOwnProperty(item)) {
-
-        lookup = 'audio/' + item;
-
-        support[item] = cp(aF[item].type);
-
-        // write back generic type too, eg. audio/mp3
-        support[lookup] = support[item];
-
-        // assign flash
-        if (item.match(flashMIME)) {
-
-          sm2.flash[item] = true;
-          sm2.flash[lookup] = true;
-
-        } else {
-
-          sm2.flash[item] = false;
-          sm2.flash[lookup] = false;
-
-        }
-
-        // assign result to related formats, too
-
-        if (aF[item] && aF[item].related) {
-
-          for (i = aF[item].related.length - 1; i >= 0; i--) {
-
-            // eg. audio/m4a
-            support['audio/' + aF[item].related[i]] = support[item];
-            sm2.html5[aF[item].related[i]] = support[item];
-            sm2.flash[aF[item].related[i]] = support[item];
-
-          }
-
-        }
-
-      }
-
-    }
-
-    support.canPlayType = (a ? cp : null);
-    sm2.html5 = mixin(sm2.html5, support);
-
-    sm2.html5.usingFlash = featureCheck();
-    needsFlash = sm2.html5.usingFlash;
-
-    return true;
-
-  };
-
-  strings = {
-
-    // <d>
-    notReady: 'Unavailable - wait until onready() has fired.',
-    notOK: 'Audio support is not available.',
-    domError: sm + 'exception caught while appending SWF to DOM.',
-    spcWmode: 'Removing wmode, preventing known SWF loading issue(s)',
-    swf404: smc + 'Verify that %s is a valid path.',
-    tryDebug: 'Try ' + sm + '.debugFlash = true for more security details (output goes to SWF.)',
-    checkSWF: 'See SWF output for more debug info.',
-    localFail: smc + 'Non-HTTP page (' + doc.location.protocol + ' URL?) Review Flash player security settings for this special case:\nhttp://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html\nMay need to add/allow path, eg. c:/sm2/ or /users/me/sm2/',
-    waitFocus: smc + 'Special case: Waiting for SWF to load with window focus...',
-    waitForever: smc + 'Waiting indefinitely for Flash (will recover if unblocked)...',
-    waitSWF: smc + 'Waiting for 100% SWF load...',
-    needFunction: smc + 'Function object expected for %s',
-    badID: 'Sound ID "%s" should be a string, starting with a non-numeric character',
-    currentObj: smc + '_debug(): Current sound objects',
-    waitOnload: smc + 'Waiting for window.onload()',
-    docLoaded: smc + 'Document already loaded',
-    onload: smc + 'initComplete(): calling soundManager.onload()',
-    onloadOK: sm + '.onload() complete',
-    didInit: smc + 'init(): Already called?',
-    secNote: 'Flash security note: Network/internet URLs will not load due to security restrictions. Access can be configured via Flash Player Global Security Settings Page: http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html',
-    badRemove: smc + 'Failed to remove Flash node.',
-    shutdown: sm + '.disable(): Shutting down',
-    queue: smc + 'Queueing %s handler',
-    smError: 'SMSound.load(): Exception: JS-Flash communication failed, or JS error.',
-    fbTimeout: 'No flash response, applying .' + swfCSS.swfTimedout + ' CSS...',
-    fbLoaded: 'Flash loaded',
-    fbHandler: smc + 'flashBlockHandler()',
-    manURL: 'SMSound.load(): Using manually-assigned URL',
-    onURL: sm + '.load(): current URL already assigned.',
-    badFV: sm + '.flashVersion must be 8 or 9. "%s" is invalid. Reverting to %s.',
-    as2loop: 'Note: Setting stream:false so looping can work (flash 8 limitation)',
-    noNSLoop: 'Note: Looping not implemented for MovieStar formats',
-    needfl9: 'Note: Switching to flash 9, required for MP4 formats.',
-    mfTimeout: 'Setting flashLoadTimeout = 0 (infinite) for off-screen, mobile flash case',
-    needFlash: smc + 'Fatal error: Flash is needed to play some required formats, but is not available.',
-    gotFocus: smc + 'Got window focus.',
-    policy: 'Enabling usePolicyFile for data access',
-    setup: sm + '.setup(): allowed parameters: %s',
-    setupError: sm + '.setup(): "%s" cannot be assigned with this method.',
-    setupUndef: sm + '.setup(): Could not find option "%s"',
-    setupLate: sm + '.setup(): url, flashVersion and html5Test property changes will not take effect until reboot().',
-    noURL: smc + 'Flash URL required. Call soundManager.setup({url:...}) to get started.',
-    sm2Loaded: 'SoundManager 2: Ready. ' + String.fromCharCode(10003),
-    reset: sm + '.reset(): Removing event callbacks',
-    mobileUA: 'Mobile UA detected, preferring HTML5 by default.',
-    globalHTML5: 'Using singleton HTML5 Audio() pattern for this device.',
-    ignoreMobile: 'Ignoring mobile restrictions for this device.'
-    // </d>
-
-  };
-
-  str = function() {
-
-    // internal string replace helper.
-    // arguments: o [,items to replace]
-    // <d>
-
-    var args,
-        i, j, o,
-        sstr;
-
-    // real array, please
-    args = slice.call(arguments);
-
-    // first argument
-    o = args.shift();
-
-    sstr = (strings && strings[o] ? strings[o] : '');
-
-    if (sstr && args && args.length) {
-      for (i = 0, j = args.length; i < j; i++) {
-        sstr = sstr.replace('%s', args[i]);
-      }
-    }
-
-    return sstr;
-    // </d>
-
-  };
-
-  loopFix = function(sOpt) {
-
-    // flash 8 requires stream = false for looping to work
-    if (fV === 8 && sOpt.loops > 1 && sOpt.stream) {
-      _wDS('as2loop');
-      sOpt.stream = false;
-    }
-
-    return sOpt;
-
-  };
-
-  policyFix = function(sOpt, sPre) {
-
-    if (sOpt && !sOpt.usePolicyFile && (sOpt.onid3 || sOpt.usePeakData || sOpt.useWaveformData || sOpt.useEQData)) {
-      sm2._wD((sPre || '') + str('policy'));
-      sOpt.usePolicyFile = true;
-    }
-
-    return sOpt;
-
-  };
-
-  complain = function(sMsg) {
-
-    // <d>
-    if (hasConsole && console.warn !== _undefined) {
-      console.warn(sMsg);
-    } else {
-      sm2._wD(sMsg);
-    }
-    // </d>
-
-  };
-
-  doNothing = function() {
-
-    return false;
-
-  };
-
-  disableObject = function(o) {
-
-    var oProp;
-
-    for (oProp in o) {
-      if (o.hasOwnProperty(oProp) && typeof o[oProp] === 'function') {
-        o[oProp] = doNothing;
-      }
-    }
-
-    oProp = null;
-
-  };
-
-  failSafely = function(bNoDisable) {
-
-    // general failure exception handler
-
-    if (bNoDisable === _undefined) {
-      bNoDisable = false;
-    }
-
-    if (disabled || bNoDisable) {
-      sm2.disable(bNoDisable);
-    }
-
-  };
-
-  normalizeMovieURL = function(smURL) {
-
-    var urlParams = null, url;
-
-    if (smURL) {
-      
-      if (smURL.match(/\.swf(\?.*)?$/i)) {
-      
-        urlParams = smURL.substr(smURL.toLowerCase().lastIndexOf('.swf?') + 4);
-      
-        if (urlParams) {
-          // assume user knows what they're doing
-          return smURL;
-        }
-      
-      } else if (smURL.lastIndexOf('/') !== smURL.length - 1) {
-      
-        // append trailing slash, if needed
-        smURL += '/';
-      
-      }
-    
-    }
-
-    url = (smURL && smURL.lastIndexOf('/') !== - 1 ? smURL.substr(0, smURL.lastIndexOf('/') + 1) : './') + sm2.movieURL;
-
-    if (sm2.noSWFCache) {
-      url += ('?ts=' + new Date().getTime());
-    }
-
-    return url;
-
-  };
-
-  setVersionInfo = function() {
-
-    // short-hand for internal use
-
-    fV = parseInt(sm2.flashVersion, 10);
-
-    if (fV !== 8 && fV !== 9) {
-      sm2._wD(str('badFV', fV, defaultFlashVersion));
-      sm2.flashVersion = fV = defaultFlashVersion;
-    }
-
-    // debug flash movie, if applicable
-
-    var isDebug = (sm2.debugMode || sm2.debugFlash ? '_debug.swf' : '.swf');
-
-    if (sm2.useHTML5Audio && !sm2.html5Only && sm2.audioFormats.mp4.required && fV < 9) {
-      sm2._wD(str('needfl9'));
-      sm2.flashVersion = fV = 9;
-    }
-
-    sm2.version = sm2.versionNumber + (sm2.html5Only ? ' (HTML5-only mode)' : (fV === 9 ? ' (AS3/Flash 9)' : ' (AS2/Flash 8)'));
-
-    // set up default options
-    if (fV > 8) {
-    
-      // +flash 9 base options
-      sm2.defaultOptions = mixin(sm2.defaultOptions, sm2.flash9Options);
-      sm2.features.buffering = true;
-    
-      // +moviestar support
-      sm2.defaultOptions = mixin(sm2.defaultOptions, sm2.movieStarOptions);
-      sm2.filePatterns.flash9 = new RegExp('\\.(mp3|' + netStreamTypes.join('|') + ')(\\?.*)?$', 'i');
-      sm2.features.movieStar = true;
-    
-    } else {
-    
-      sm2.features.movieStar = false;
-    
-    }
-
-    // regExp for flash canPlay(), etc.
-    sm2.filePattern = sm2.filePatterns[(fV !== 8 ? 'flash9' : 'flash8')];
-
-    // if applicable, use _debug versions of SWFs
-    sm2.movieURL = (fV === 8 ? 'soundmanager2.swf' : 'soundmanager2_flash9.swf').replace('.swf', isDebug);
-
-    sm2.features.peakData = sm2.features.waveformData = sm2.features.eqData = (fV > 8);
-
-  };
-
-  setPolling = function(bPolling, bHighPerformance) {
-
-    if (!flash) {
-      return false;
-    }
-
-    flash._setPolling(bPolling, bHighPerformance);
-
-  };
-
-  initDebug = function() {
-
-    // starts debug mode, creating output <div> for UAs without console object
-
-    // allow force of debug mode via URL
-    // <d>
-    if (sm2.debugURLParam.test(wl)) {
-      sm2.setupOptions.debugMode = sm2.debugMode = true;
-    }
-
-    if (id(sm2.debugID)) {
-      return false;
-    }
-
-    var oD, oDebug, oTarget, oToggle, tmp;
-
-    if (sm2.debugMode && !id(sm2.debugID) && (!hasConsole || !sm2.useConsole || !sm2.consoleOnly)) {
-
-      oD = doc.createElement('div');
-      oD.id = sm2.debugID + '-toggle';
-
-      oToggle = {
-        'position': 'fixed',
-        'bottom': '0px',
-        'right': '0px',
-        'width': '1.2em',
-        'height': '1.2em',
-        'lineHeight': '1.2em',
-        'margin': '2px',
-        'textAlign': 'center',
-        'border': '1px solid #999',
-        'cursor': 'pointer',
-        'background': '#fff',
-        'color': '#333',
-        'zIndex': 10001
-      };
-
-      oD.appendChild(doc.createTextNode('-'));
-      oD.onclick = toggleDebug;
-      oD.title = 'Toggle SM2 debug console';
-
-      if (ua.match(/msie 6/i)) {
-        oD.style.position = 'absolute';
-        oD.style.cursor = 'hand';
-      }
-
-      for (tmp in oToggle) {
-        if (oToggle.hasOwnProperty(tmp)) {
-          oD.style[tmp] = oToggle[tmp];
-        }
-      }
-
-      oDebug = doc.createElement('div');
-      oDebug.id = sm2.debugID;
-      oDebug.style.display = (sm2.debugMode ? 'block' : 'none');
-
-      if (sm2.debugMode && !id(oD.id)) {
-        try {
-          oTarget = getDocument();
-          oTarget.appendChild(oD);
-        } catch(e2) {
-          throw new Error(str('domError') + ' \n' + e2.toString());
-        }
-        oTarget.appendChild(oDebug);
-      }
-
-    }
-
-    oTarget = null;
-    // </d>
-
-  };
-
-  idCheck = this.getSoundById;
-
-  // <d>
-  _wDS = function(o, errorLevel) {
-
-    return (!o ? '' : sm2._wD(str(o), errorLevel));
-
-  };
-
-  toggleDebug = function() {
-
-    var o = id(sm2.debugID),
-    oT = id(sm2.debugID + '-toggle');
-
-    if (!o) {
-      return false;
-    }
-
-    if (debugOpen) {
-      // minimize
-      oT.innerHTML = '+';
-      o.style.display = 'none';
-    } else {
-      oT.innerHTML = '-';
-      o.style.display = 'block';
-    }
-
-    debugOpen = !debugOpen;
-
-  };
-
-  debugTS = function(sEventType, bSuccess, sMessage) {
-
-    // troubleshooter debug hooks
-
-    if (window.sm2Debugger !== _undefined) {
-      try {
-        sm2Debugger.handleEvent(sEventType, bSuccess, sMessage);
-      } catch(e) {
-        // oh well
-        return false;
-      }
-    }
-
-    return true;
-
-  };
-  // </d>
-
-  getSWFCSS = function() {
-
-    var css = [];
-
-    if (sm2.debugMode) {
-      css.push(swfCSS.sm2Debug);
-    }
-
-    if (sm2.debugFlash) {
-      css.push(swfCSS.flashDebug);
-    }
-
-    if (sm2.useHighPerformance) {
-      css.push(swfCSS.highPerf);
-    }
-
-    return css.join(' ');
-
-  };
-
-  flashBlockHandler = function() {
-
-    // *possible* flash block situation.
-
-    var name = str('fbHandler'),
-        p = sm2.getMoviePercent(),
-        css = swfCSS,
-        error = {
-          type:'FLASHBLOCK'
-        };
-
-    if (sm2.html5Only) {
-      // no flash, or unused
-      return false;
-    }
-
-    if (!sm2.ok()) {
-
-      if (needsFlash) {
-        // make the movie more visible, so user can fix
-        sm2.oMC.className = getSWFCSS() + ' ' + css.swfDefault + ' ' + (p === null ? css.swfTimedout : css.swfError);
-        sm2._wD(name + ': ' + str('fbTimeout') + (p ? ' (' + str('fbLoaded') + ')' : ''));
-      }
-
-      sm2.didFlashBlock = true;
-
-      // fire onready(), complain lightly
-      processOnEvents({
-        type: 'ontimeout',
-        ignoreInit: true,
-        error: error
-      });
-
-      catchError(error);
-
-    } else {
-
-      // SM2 loaded OK (or recovered)
-
-      // <d>
-      if (sm2.didFlashBlock) {
-        sm2._wD(name + ': Unblocked');
-      }
-      // </d>
-
-      if (sm2.oMC) {
-        sm2.oMC.className = [getSWFCSS(), css.swfDefault, css.swfLoaded + (sm2.didFlashBlock ? ' ' + css.swfUnblocked : '')].join(' ');
-      }
-
-    }
-
-  };
-
-  addOnEvent = function(sType, oMethod, oScope) {
-
-    if (on_queue[sType] === _undefined) {
-      on_queue[sType] = [];
-    }
-
-    on_queue[sType].push({
-      'method': oMethod,
-      'scope': (oScope || null),
-      'fired': false
-    });
-
-  };
-
-  processOnEvents = function(oOptions) {
-
-    // if unspecified, assume OK/error
-
-    if (!oOptions) {
-      oOptions = {
-        type: (sm2.ok() ? 'onready' : 'ontimeout')
-      };
-    }
-
-    if (!didInit && oOptions && !oOptions.ignoreInit) {
-      // not ready yet.
-      return false;
-    }
-
-    if (oOptions.type === 'ontimeout' && (sm2.ok() || (disabled && !oOptions.ignoreInit))) {
-      // invalid case
-      return false;
-    }
-
-    var status = {
-          success: (oOptions && oOptions.ignoreInit ? sm2.ok() : !disabled)
-        },
-
-        // queue specified by type, or none
-        srcQueue = (oOptions && oOptions.type ? on_queue[oOptions.type] || [] : []),
-
-        queue = [], i, j,
-        args = [status],
-        canRetry = (needsFlash && !sm2.ok());
-
-    if (oOptions.error) {
-      args[0].error = oOptions.error;
-    }
-
-    for (i = 0, j = srcQueue.length; i < j; i++) {
-      if (srcQueue[i].fired !== true) {
-        queue.push(srcQueue[i]);
-      }
-    }
-
-    if (queue.length) {
-    
-      // sm2._wD(sm + ': Firing ' + queue.length + ' ' + oOptions.type + '() item' + (queue.length === 1 ? '' : 's')); 
-      for (i = 0, j = queue.length; i < j; i++) {
-      
-        if (queue[i].scope) {
-          queue[i].method.apply(queue[i].scope, args);
-        } else {
-          queue[i].method.apply(this, args);
-        }
-      
-        if (!canRetry) {
-          // useFlashBlock and SWF timeout case doesn't count here.
-          queue[i].fired = true;
-      
-        }
-      
-      }
-    
-    }
-
-    return true;
-
-  };
-
-  initUserOnload = function() {
-
-    window.setTimeout(function() {
-
-      if (sm2.useFlashBlock) {
-        flashBlockHandler();
-      }
-
-      processOnEvents();
-
-      // call user-defined "onload", scoped to window
-
-      if (typeof sm2.onload === 'function') {
-        _wDS('onload', 1);
-        sm2.onload.apply(window);
-        _wDS('onloadOK', 1);
-      }
-
-      if (sm2.waitForWindowLoad) {
-        event.add(window, 'load', initUserOnload);
-      }
-
-    }, 1);
-
-  };
-
-  detectFlash = function() {
-
-    /**
-     * Hat tip: Flash Detect library (BSD, (C) 2007) by Carl "DocYes" S. Yestrau
-     * http://featureblend.com/javascript-flash-detection-library.html / http://featureblend.com/license.txt
-     */
-
-    if (hasFlash !== _undefined) {
-      // this work has already been done.
-      return hasFlash;
-    }
-
-    var hasPlugin = false, n = navigator, nP = n.plugins, obj, type, types, AX = window.ActiveXObject;
-
-    if (nP && nP.length) {
-      
-      type = 'application/x-shockwave-flash';
-      types = n.mimeTypes;
-      
-      if (types && types[type] && types[type].enabledPlugin && types[type].enabledPlugin.description) {
-        hasPlugin = true;
-      }
-    
-    } else if (AX !== _undefined && !ua.match(/MSAppHost/i)) {
-    
-      // Windows 8 Store Apps (MSAppHost) are weird (compatibility?) and won't complain here, but will barf if Flash/ActiveX object is appended to the DOM.
-      try {
-        obj = new AX('ShockwaveFlash.ShockwaveFlash');
-      } catch(e) {
-        // oh well
-        obj = null;
-      }
-      
-      hasPlugin = (!!obj);
-      
-      // cleanup, because it is ActiveX after all
-      obj = null;
-    
-    }
-
-    hasFlash = hasPlugin;
-
-    return hasPlugin;
-
-  };
-
-featureCheck = function() {
-
-    var flashNeeded,
-        item,
-        formats = sm2.audioFormats,
-        // iPhone <= 3.1 has broken HTML5 audio(), but firmware 3.2 (original iPad) + iOS4 works.
-        isSpecial = (is_iDevice && !!(ua.match(/os (1|2|3_0|3_1)\s/i)));
-
-    if (isSpecial) {
-
-      // has Audio(), but is broken; let it load links directly.
-      sm2.hasHTML5 = false;
-
-      // ignore flash case, however
-      sm2.html5Only = true;
-
-      // hide the SWF, if present
-      if (sm2.oMC) {
-        sm2.oMC.style.display = 'none';
-      }
-
-    } else {
-
-      if (sm2.useHTML5Audio) {
-
-        if (!sm2.html5 || !sm2.html5.canPlayType) {
-          sm2._wD('SoundManager: No HTML5 Audio() support detected.');
-          sm2.hasHTML5 = false;
-        }
-
-        // <d>
-        if (isBadSafari) {
-          sm2._wD(smc + 'Note: Buggy HTML5 Audio in Safari on this OS X release, see https://bugs.webkit.org/show_bug.cgi?id=32159 - ' + (!hasFlash ? ' would use flash fallback for MP3/MP4, but none detected.' : 'will use flash fallback for MP3/MP4, if available'), 1);
-        }
-        // </d>
-
-      }
-
-    }
-
-    if (sm2.useHTML5Audio && sm2.hasHTML5) {
-
-      // sort out whether flash is optional, required or can be ignored.
-
-      // innocent until proven guilty.
-      canIgnoreFlash = true;
-
-      for (item in formats) {
-        
-        if (formats.hasOwnProperty(item)) {
-        
-          if (formats[item].required) {
-        
-            if (!sm2.html5.canPlayType(formats[item].type)) {
-        
-              // 100% HTML5 mode is not possible.
-              canIgnoreFlash = false;
-              flashNeeded = true;
-        
-            } else if (sm2.preferFlash && (sm2.flash[item] || sm2.flash[formats[item].type])) {
-        
-              // flash may be required, or preferred for this format.
-              flashNeeded = true;
-        
-            }
-        
-          }
-
-        }
-
-      }
-
-    }
-
-    // sanity check...
-    if (sm2.ignoreFlash) {
-      flashNeeded = false;
-      canIgnoreFlash = true;
-    }
-
-    sm2.html5Only = (sm2.hasHTML5 && sm2.useHTML5Audio && !flashNeeded);
-
-    return (!sm2.html5Only);
-
-  };
-
-  parseURL = function(url) {
-
-    /**
-     * Internal: Finds and returns the first playable URL (or failing that, the first URL.)
-     * @param {string or array} url A single URL string, OR, an array of URL strings or {url:'/path/to/resource', type:'audio/mp3'} objects.
-     */
-
-    var i, j, urlResult = 0, result;
-
-    if (url instanceof Array) {
-
-      // find the first good one
-      for (i = 0, j = url.length; i < j; i++) {
-
-        if (url[i] instanceof Object) {
-
-          // MIME check
-          if (sm2.canPlayMIME(url[i].type)) {
-            urlResult = i;
-            break;
-          }
-
-        } else if (sm2.canPlayURL(url[i])) {
-
-          // URL string check
-          urlResult = i;
-          break;
-
-        }
-
-      }
-
-      // normalize to string
-      if (url[urlResult].url) {
-        url[urlResult] = url[urlResult].url;
-      }
-
-      result = url[urlResult];
-
-    } else {
-
-      // single URL case
-      result = url;
-
-    }
-
-    return result;
-
-  };
-
-
-  startTimer = function(oSound) {
-
-    /**
-     * attach a timer to this sound, and start an interval if needed
-     */
-
-    if (!oSound._hasTimer) {
-
-      oSound._hasTimer = true;
-
-      if (!mobileHTML5 && sm2.html5PollingInterval) {
-
-        if (h5IntervalTimer === null && h5TimerCount === 0) {
-
-          h5IntervalTimer = setInterval(timerExecute, sm2.html5PollingInterval);
-
-        }
-
-        h5TimerCount++;
-
-      }
-
-    }
-
-  };
-
-  stopTimer = function(oSound) {
-
-    /**
-     * detach a timer
-     */
-
-    if (oSound._hasTimer) {
-
-      oSound._hasTimer = false;
-
-      if (!mobileHTML5 && sm2.html5PollingInterval) {
-
-        // interval will stop itself at next execution.
-
-        h5TimerCount--;
-
-      }
-
-    }
-
-  };
-
-  timerExecute = function() {
-
-    /**
-     * manual polling for HTML5 progress events, ie., whileplaying()
-     * (can achieve greater precision than conservative default HTML5 interval)
-     */
-
-    var i;
-
-    if (h5IntervalTimer !== null && !h5TimerCount) {
-
-      // no active timers, stop polling interval.
-
-      clearInterval(h5IntervalTimer);
-
-      h5IntervalTimer = null;
-
-      return false;
-
-    }
-
-    // check all HTML5 sounds with timers
-
-    for (i = sm2.soundIDs.length - 1; i >= 0; i--) {
-
-      if (sm2.sounds[sm2.soundIDs[i]].isHTML5 && sm2.sounds[sm2.soundIDs[i]]._hasTimer) {
-        sm2.sounds[sm2.soundIDs[i]]._onTimer();
-      }
-
-    }
-
-  };
-
-  catchError = function(options) {
-
-    options = (options !== _undefined ? options : {});
-
-    if (typeof sm2.onerror === 'function') {
-      sm2.onerror.apply(window, [{
-        type: (options.type !== _undefined ? options.type : null)
-      }]);
-    }
-
-    if (options.fatal !== _undefined && options.fatal) {
-      sm2.disable();
-    }
-
-  };
-
-  badSafariFix = function() {
-
-    // special case: "bad" Safari (OS X 10.3 - 10.7) must fall back to flash for MP3/MP4
-    if (!isBadSafari || !detectFlash()) {
-      // doesn't apply
-      return false;
-    }
-
-    var aF = sm2.audioFormats, i, item;
-
-    for (item in aF) {
-
-      if (aF.hasOwnProperty(item)) {
-
-        if (item === 'mp3' || item === 'mp4') {
-
-          sm2._wD(sm + ': Using flash fallback for ' + item + ' format');
-          sm2.html5[item] = false;
-
-          // assign result to related formats, too
-          if (aF[item] && aF[item].related) {
-            for (i = aF[item].related.length - 1; i >= 0; i--) {
-              sm2.html5[aF[item].related[i]] = false;
-            }
-          }
-
-        }
-
-      }
-
-    }
-
-  };
-
-  /**
-   * Pseudo-private flash/ExternalInterface methods
-   * ----------------------------------------------
-   */
-
-  this._setSandboxType = function(sandboxType) {
-
-    // <d>
-    // Security sandbox according to Flash plugin
-    var sb = sm2.sandbox;
-
-    sb.type = sandboxType;
-    sb.description = sb.types[(sb.types[sandboxType] !== _undefined?sandboxType : 'unknown')];
-
-    if (sb.type === 'localWithFile') {
-
-      sb.noRemote = true;
-      sb.noLocal = false;
-      _wDS('secNote', 2);
-
-    } else if (sb.type === 'localWithNetwork') {
-
-      sb.noRemote = false;
-      sb.noLocal = true;
-
-    } else if (sb.type === 'localTrusted') {
-
-      sb.noRemote = false;
-      sb.noLocal = false;
-
-    }
-    // </d>
-
-  };
-
-  this._externalInterfaceOK = function(swfVersion) {
-
-    // flash callback confirming flash loaded, EI working etc.
-    // swfVersion: SWF build string
-
-    if (sm2.swfLoaded) {
-      return false;
-    }
-
-    var e;
-
-    debugTS('swf', true);
-    debugTS('flashtojs', true);
-    sm2.swfLoaded = true;
-    tryInitOnFocus = false;
-
-    if (isBadSafari) {
-      badSafariFix();
-    }
-
-    // complain if JS + SWF build/version strings don't match, excluding +DEV builds
-    // <d>
-    if (!swfVersion || swfVersion.replace(/\+dev/i,'') !== sm2.versionNumber.replace(/\+dev/i, '')) {
-
-      e = sm + ': Fatal: JavaScript file build "' + sm2.versionNumber + '" does not match Flash SWF build "' + swfVersion + '" at ' + sm2.url + '. Ensure both are up-to-date.';
-
-      // escape flash -> JS stack so this error fires in window.
-      setTimeout(function versionMismatch() {
-        throw new Error(e);
-      }, 0);
-
-      // exit, init will fail with timeout
-      return false;
-
-    }
-    // </d>
-
-    // IE needs a larger timeout
-    setTimeout(init, isIE ? 100 : 1);
-
-  };
-
-  /**
-   * Private initialization helpers
-   * ------------------------------
-   */
-
-  createMovie = function(smID, smURL) {
-
-    if (didAppend && appendSuccess) {
-      // ignore if already succeeded
-      return false;
-    }
-
-    function initMsg() {
-
-      // <d>
-
-      var options = [],
-          title,
-          msg = [],
-          delimiter = ' + ';
-
-      title = 'SoundManager ' + sm2.version + (!sm2.html5Only && sm2.useHTML5Audio ? (sm2.hasHTML5 ? ' + HTML5 audio' : ', no HTML5 audio support') : '');
-
-      if (!sm2.html5Only) {
-
-        if (sm2.preferFlash) {
-          options.push('preferFlash');
-        }
-
-        if (sm2.useHighPerformance) {
-          options.push('useHighPerformance');
-        }
-
-        if (sm2.flashPollingInterval) {
-          options.push('flashPollingInterval (' + sm2.flashPollingInterval + 'ms)');
-        }
-
-        if (sm2.html5PollingInterval) {
-          options.push('html5PollingInterval (' + sm2.html5PollingInterval + 'ms)');
-        }
-
-        if (sm2.wmode) {
-          options.push('wmode (' + sm2.wmode + ')');
-        }
-
-        if (sm2.debugFlash) {
-          options.push('debugFlash');
-        }
-
-        if (sm2.useFlashBlock) {
-          options.push('flashBlock');
-        }
-
-      } else {
-
-        if (sm2.html5PollingInterval) {
-          options.push('html5PollingInterval (' + sm2.html5PollingInterval + 'ms)');
-        }
-
-      }
-
-      if (options.length) {
-        msg = msg.concat([options.join(delimiter)]);
-      }
-
-      sm2._wD(title + (msg.length ? delimiter + msg.join(', ') : ''), 1);
-
-      showSupport();
-
-      // </d>
-
-    }
-
-    if (sm2.html5Only) {
-
-      // 100% HTML5 mode
-      setVersionInfo();
-
-      initMsg();
-      sm2.oMC = id(sm2.movieID);
-      init();
-
-      // prevent multiple init attempts
-      didAppend = true;
-
-      appendSuccess = true;
-
-      return false;
-
-    }
-
-    // flash path
-    var remoteURL = (smURL || sm2.url),
-    localURL = (sm2.altURL || remoteURL),
-    swfTitle = 'JS/Flash audio component (SoundManager 2)',
-    oTarget = getDocument(),
-    extraClass = getSWFCSS(),
-    isRTL = null,
-    html = doc.getElementsByTagName('html')[0],
-    oEmbed, oMovie, tmp, movieHTML, oEl, s, x, sClass;
-
-    isRTL = (html && html.dir && html.dir.match(/rtl/i));
-    smID = (smID === _undefined ? sm2.id : smID);
-
-    function param(name, value) {
-      return '<param name="' + name + '" value="' + value + '" />';
-    }
-
-    // safety check for legacy (change to Flash 9 URL)
-    setVersionInfo();
-    sm2.url = normalizeMovieURL(overHTTP ? remoteURL : localURL);
-    smURL = sm2.url;
-
-    sm2.wmode = (!sm2.wmode && sm2.useHighPerformance ? 'transparent' : sm2.wmode);
-
-    if (sm2.wmode !== null && (ua.match(/msie 8/i) || (!isIE && !sm2.useHighPerformance)) && navigator.platform.match(/win32|win64/i)) {
-      /**
-       * extra-special case: movie doesn't load until scrolled into view when using wmode = anything but 'window' here
-       * does not apply when using high performance (position:fixed means on-screen), OR infinite flash load timeout
-       * wmode breaks IE 8 on Vista + Win7 too in some cases, as of January 2011 (?)
-       */
-      messages.push(strings.spcWmode);
-      sm2.wmode = null;
-    }
-
-    oEmbed = {
-      'name': smID,
-      'id': smID,
-      'src': smURL,
-      'quality': 'high',
-      'allowScriptAccess': sm2.allowScriptAccess,
-      'bgcolor': sm2.bgColor,
-      'pluginspage': http + 'www.macromedia.com/go/getflashplayer',
-      'title': swfTitle,
-      'type': 'application/x-shockwave-flash',
-      'wmode': sm2.wmode,
-      // http://help.adobe.com/en_US/as3/mobile/WS4bebcd66a74275c36cfb8137124318eebc6-7ffd.html
-      'hasPriority': 'true'
-    };
-
-    if (sm2.debugFlash) {
-      oEmbed.FlashVars = 'debug=1';
-    }
-
-    if (!sm2.wmode) {
-      // don't write empty attribute
-      delete oEmbed.wmode;
-    }
-
-    if (isIE) {
-
-      // IE is "special".
-      oMovie = doc.createElement('div');
-      movieHTML = [
-        '<object id="' + smID + '" data="' + smURL + '" type="' + oEmbed.type + '" title="' + oEmbed.title +'" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0">',
-        param('movie', smURL),
-        param('AllowScriptAccess', sm2.allowScriptAccess),
-        param('quality', oEmbed.quality),
-        (sm2.wmode? param('wmode', sm2.wmode): ''),
-        param('bgcolor', sm2.bgColor),
-        param('hasPriority', 'true'),
-        (sm2.debugFlash ? param('FlashVars', oEmbed.FlashVars) : ''),
-        '</object>'
-      ].join('');
-
-    } else {
-
-      oMovie = doc.createElement('embed');
-      for (tmp in oEmbed) {
-        if (oEmbed.hasOwnProperty(tmp)) {
-          oMovie.setAttribute(tmp, oEmbed[tmp]);
-        }
-      }
-
-    }
-
-    initDebug();
-    extraClass = getSWFCSS();
-    oTarget = getDocument();
-
-    if (oTarget) {
-
-      sm2.oMC = (id(sm2.movieID) || doc.createElement('div'));
-
-      if (!sm2.oMC.id) {
-
-        sm2.oMC.id = sm2.movieID;
-        sm2.oMC.className = swfCSS.swfDefault + ' ' + extraClass;
-        s = null;
-        oEl = null;
-
-        if (!sm2.useFlashBlock) {
-          if (sm2.useHighPerformance) {
-            // on-screen at all times
-            s = {
-              'position': 'fixed',
-              'width': '8px',
-              'height': '8px',
-              // >= 6px for flash to run fast, >= 8px to start up under Firefox/win32 in some cases. odd? yes.
-              'bottom': '0px',
-              'left': '0px',
-              'overflow': 'hidden'
-            };
-          } else {
-            // hide off-screen, lower priority
-            s = {
-              'position': 'absolute',
-              'width': '6px',
-              'height': '6px',
-              'top': '-9999px',
-              'left': '-9999px'
-            };
-            if (isRTL) {
-              s.left = Math.abs(parseInt(s.left, 10)) + 'px';
-            }
-          }
-        }
-
-        if (isWebkit) {
-          // soundcloud-reported render/crash fix, safari 5
-          sm2.oMC.style.zIndex = 10000;
-        }
-
-        if (!sm2.debugFlash) {
-          for (x in s) {
-            if (s.hasOwnProperty(x)) {
-              sm2.oMC.style[x] = s[x];
-            }
-          }
-        }
-
-        try {
-
-          if (!isIE) {
-            sm2.oMC.appendChild(oMovie);
-          }
-
-          oTarget.appendChild(sm2.oMC);
-
-          if (isIE) {
-            oEl = sm2.oMC.appendChild(doc.createElement('div'));
-            oEl.className = swfCSS.swfBox;
-            oEl.innerHTML = movieHTML;
-          }
-
-          appendSuccess = true;
-
-        } catch(e) {
-
-          throw new Error(str('domError') + ' \n' + e.toString());
-
-        }
-
-      } else {
-
-        // SM2 container is already in the document (eg. flashblock use case)
-        sClass = sm2.oMC.className;
-        sm2.oMC.className = (sClass ? sClass + ' ' : swfCSS.swfDefault) + (extraClass ? ' ' + extraClass : '');
-        sm2.oMC.appendChild(oMovie);
-
-        if (isIE) {
-          oEl = sm2.oMC.appendChild(doc.createElement('div'));
-          oEl.className = swfCSS.swfBox;
-          oEl.innerHTML = movieHTML;
-        }
-
-        appendSuccess = true;
-
-      }
-
-    }
-
-    didAppend = true;
-
-    initMsg();
-
-    // sm2._wD(sm + ': Trying to load ' + smURL + (!overHTTP && sm2.altURL ? ' (alternate URL)' : ''), 1);
-
-    return true;
-
-  };
-
-  initMovie = function() {
-
-    if (sm2.html5Only) {
-      createMovie();
-      return false;
-    }
-
-    // attempt to get, or create, movie (may already exist)
-    if (flash) {
-      return false;
-    }
-
-    if (!sm2.url) {
-
-      /**
-       * Something isn't right - we've reached init, but the soundManager url property has not been set.
-       * User has not called setup({url: ...}), or has not set soundManager.url (legacy use case) directly before init time.
-       * Notify and exit. If user calls setup() with a url: property, init will be restarted as in the deferred loading case.
-       */
-
-       _wDS('noURL');
-       return false;
-
-    }
-
-    // inline markup case
-    flash = sm2.getMovie(sm2.id);
-
-    if (!flash) {
-
-      if (!oRemoved) {
-
-        // try to create
-        createMovie(sm2.id, sm2.url);
-
-      } else {
-
-        // try to re-append removed movie after reboot()
-        if (!isIE) {
-          sm2.oMC.appendChild(oRemoved);
-        } else {
-          sm2.oMC.innerHTML = oRemovedHTML;
-        }
-
-        oRemoved = null;
-        didAppend = true;
-
-      }
-
-      flash = sm2.getMovie(sm2.id);
-
-    }
-
-    if (typeof sm2.oninitmovie === 'function') {
-      setTimeout(sm2.oninitmovie, 1);
-    }
-
-    // <d>
-    flushMessages();
-    // </d>
-
-    return true;
-
-  };
-
-  delayWaitForEI = function() {
-
-    setTimeout(waitForEI, 1000);
-
-  };
-
-  rebootIntoHTML5 = function() {
-
-    // special case: try for a reboot with preferFlash: false, if 100% HTML5 mode is possible and useFlashBlock is not enabled.
-
-    window.setTimeout(function() {
-
-      complain(smc + 'useFlashBlock is false, 100% HTML5 mode is possible. Rebooting with preferFlash: false...');
-
-      sm2.setup({
-        preferFlash: false
-      }).reboot();
-
-      // if for some reason you want to detect this case, use an ontimeout() callback and look for html5Only and didFlashBlock == true.
-      sm2.didFlashBlock = true;
-
-      sm2.beginDelayedInit();
-
-    }, 1);
-
-  };
-
-  waitForEI = function() {
-
-    var p,
-        loadIncomplete = false;
-
-    if (!sm2.url) {
-      // No SWF url to load (noURL case) - exit for now. Will be retried when url is set.
-      return false;
-    }
-
-    if (waitingForEI) {
-      return false;
-    }
-
-    waitingForEI = true;
-    event.remove(window, 'load', delayWaitForEI);
-
-    if (hasFlash && tryInitOnFocus && !isFocused) {
-      // Safari won't load flash in background tabs, only when focused.
-      _wDS('waitFocus');
-      return false;
-    }
-
-    if (!didInit) {
-      p = sm2.getMoviePercent();
-      if (p > 0 && p < 100) {
-        loadIncomplete = true;
-      }
-    }
-
-    setTimeout(function() {
-
-      p = sm2.getMoviePercent();
-
-      if (loadIncomplete) {
-        // special case: if movie *partially* loaded, retry until it's 100% before assuming failure.
-        waitingForEI = false;
-        sm2._wD(str('waitSWF'));
-        window.setTimeout(delayWaitForEI, 1);
-        return false;
-      }
-
-      // <d>
-      if (!didInit) {
-
-        sm2._wD(sm + ': No Flash response within expected time. Likely causes: ' + (p === 0 ? 'SWF load failed, ' : '') + 'Flash blocked or JS-Flash security error.' + (sm2.debugFlash ? ' ' + str('checkSWF') : ''), 2);
-
-        if (!overHTTP && p) {
-
-          _wDS('localFail', 2);
-
-          if (!sm2.debugFlash) {
-            _wDS('tryDebug', 2);
-          }
-
-        }
-
-        if (p === 0) {
-
-          // if 0 (not null), probably a 404.
-          sm2._wD(str('swf404', sm2.url), 1);
-
-        }
-
-        debugTS('flashtojs', false, ': Timed out' + (overHTTP ? ' (Check flash security or flash blockers)':' (No plugin/missing SWF?)'));
-
-      }
-      // </d>
-
-      // give up / time-out, depending
-
-      if (!didInit && okToDisable) {
-
-        if (p === null) {
-
-          // SWF failed to report load progress. Possibly blocked.
-
-          if (sm2.useFlashBlock || sm2.flashLoadTimeout === 0) {
-
-            if (sm2.useFlashBlock) {
-
-              flashBlockHandler();
-
-            }
-
-            _wDS('waitForever');
-
-          } else {
-
-            // no custom flash block handling, but SWF has timed out. Will recover if user unblocks / allows SWF load.
-
-            if (!sm2.useFlashBlock && canIgnoreFlash) {
-
-              rebootIntoHTML5();
-
-            } else {
-
-              _wDS('waitForever');
-
-              // fire any regular registered ontimeout() listeners.
-              processOnEvents({
-                type: 'ontimeout',
-                ignoreInit: true,
-                error: {
-                  type: 'INIT_FLASHBLOCK'
-                }
-              });
-
-            }
-
-          }
-
-        } else {
-
-          // SWF loaded? Shouldn't be a blocking issue, then.
-
-          if (sm2.flashLoadTimeout === 0) {
-
-            _wDS('waitForever');
-
-          } else {
-
-            if (!sm2.useFlashBlock && canIgnoreFlash) {
-
-              rebootIntoHTML5();
-
-            } else {
-
-              failSafely(true);
-
-            }
-
-          }
-
-        }
-
-      }
-
-    }, sm2.flashLoadTimeout);
-
-  };
-
-  handleFocus = function() {
-
-    function cleanup() {
-      event.remove(window, 'focus', handleFocus);
-    }
-
-    if (isFocused || !tryInitOnFocus) {
-      // already focused, or not special Safari background tab case
-      cleanup();
-      return true;
-    }
-
-    okToDisable = true;
-    isFocused = true;
-    _wDS('gotFocus');
-
-    // allow init to restart
-    waitingForEI = false;
-
-    // kick off ExternalInterface timeout, now that the SWF has started
-    delayWaitForEI();
-
-    cleanup();
-    return true;
-
-  };
-
-  flushMessages = function() {
-
-    // <d>
-
-    // SM2 pre-init debug messages
-    if (messages.length) {
-      sm2._wD('SoundManager 2: ' + messages.join(' '), 1);
-      messages = [];
-    }
-
-    // </d>
-
-  };
-
-  showSupport = function() {
-
-    // <d>
-
-    flushMessages();
-
-    var item, tests = [];
-
-    if (sm2.useHTML5Audio && sm2.hasHTML5) {
-      for (item in sm2.audioFormats) {
-        if (sm2.audioFormats.hasOwnProperty(item)) {
-          tests.push(item + ' = ' + sm2.html5[item] + (!sm2.html5[item] && needsFlash && sm2.flash[item] ? ' (using flash)' : (sm2.preferFlash && sm2.flash[item] && needsFlash ? ' (preferring flash)' : (!sm2.html5[item] ? ' (' + (sm2.audioFormats[item].required ? 'required, ' : '') + 'and no flash support)' : ''))));
-        }
-      }
-      sm2._wD('SoundManager 2 HTML5 support: ' + tests.join(', '), 1);
-    }
-
-    // </d>
-
-  };
-
-  initComplete = function(bNoDisable) {
-
-    if (didInit) {
-      return false;
-    }
-
-    if (sm2.html5Only) {
-      // all good.
-      _wDS('sm2Loaded', 1);
-      didInit = true;
-      initUserOnload();
-      debugTS('onload', true);
-      return true;
-    }
-
-    var wasTimeout = (sm2.useFlashBlock && sm2.flashLoadTimeout && !sm2.getMoviePercent()),
-        result = true,
-        error;
-
-    if (!wasTimeout) {
-      didInit = true;
-    }
-
-    error = {
-      type: (!hasFlash && needsFlash ? 'NO_FLASH' : 'INIT_TIMEOUT')
-    };
-
-    sm2._wD('SoundManager 2 ' + (disabled ? 'failed to load' : 'loaded') + ' (' + (disabled ? 'Flash security/load error' : 'OK') + ') ' + String.fromCharCode(disabled ? 10006 : 10003), disabled ? 2: 1);
-
-    if (disabled || bNoDisable) {
-
-      if (sm2.useFlashBlock && sm2.oMC) {
-        sm2.oMC.className = getSWFCSS() + ' ' + (sm2.getMoviePercent() === null ? swfCSS.swfTimedout : swfCSS.swfError);
-      }
-
-      processOnEvents({
-        type: 'ontimeout',
-        error: error,
-        ignoreInit: true
-      });
-
-      debugTS('onload', false);
-      catchError(error);
-
-      result = false;
-
-    } else {
-
-      debugTS('onload', true);
-
-    }
-
-    if (!disabled) {
-
-      if (sm2.waitForWindowLoad && !windowLoaded) {
-
-        _wDS('waitOnload');
-        event.add(window, 'load', initUserOnload);
-
-      } else {
-
-        // <d>
-        if (sm2.waitForWindowLoad && windowLoaded) {
-          _wDS('docLoaded');
-        }
-        // </d>
-
-        initUserOnload();
-
-      }
-
-    }
-
-    return result;
-
-  };
-
-  /**
-   * apply top-level setupOptions object as local properties, eg., this.setupOptions.flashVersion -> this.flashVersion (soundManager.flashVersion)
-   * this maintains backward compatibility, and allows properties to be defined separately for use by soundManager.setup().
-   */
-
-  setProperties = function() {
-
-    var i,
-        o = sm2.setupOptions;
-
-    for (i in o) {
-
-      if (o.hasOwnProperty(i)) {
-
-        // assign local property if not already defined
-
-        if (sm2[i] === _undefined) {
-
-          sm2[i] = o[i];
-
-        } else if (sm2[i] !== o[i]) {
-
-          // legacy support: write manually-assigned property (eg., soundManager.url) back to setupOptions to keep things in sync
-          sm2.setupOptions[i] = sm2[i];
-
-        }
-
-      }
-
-    }
-
-  };
-
-
-  init = function() {
-
-    // called after onload()
-
-    if (didInit) {
-      _wDS('didInit');
-      return false;
-    }
-
-    function cleanup() {
-      event.remove(window, 'load', sm2.beginDelayedInit);
-    }
-
-    if (sm2.html5Only) {
-
-      if (!didInit) {
-        // we don't need no steenking flash!
-        cleanup();
-        sm2.enabled = true;
-        initComplete();
-      }
-
-      return true;
-
-    }
-
-    // flash path
-    initMovie();
-
-    try {
-
-      // attempt to talk to Flash
-      flash._externalInterfaceTest(false);
-
-      /**
-       * Apply user-specified polling interval, OR, if "high performance" set, faster vs. default polling
-       * (determines frequency of whileloading/whileplaying callbacks, effectively driving UI framerates)
-       */
-      setPolling(true, (sm2.flashPollingInterval || (sm2.useHighPerformance ? 10 : 50)));
-
-      if (!sm2.debugMode) {
-        // stop the SWF from making debug output calls to JS
-        flash._disableDebug();
-      }
-
-      sm2.enabled = true;
-      debugTS('jstoflash', true);
-
-      if (!sm2.html5Only) {
-        // prevent browser from showing cached page state (or rather, restoring "suspended" page state) via back button, because flash may be dead
-        // http://www.webkit.org/blog/516/webkit-page-cache-ii-the-unload-event/
-        event.add(window, 'unload', doNothing);
-      }
-
-    } catch(e) {
-
-      sm2._wD('js/flash exception: ' + e.toString());
-
-      debugTS('jstoflash', false);
-
-      catchError({
-        type: 'JS_TO_FLASH_EXCEPTION',
-        fatal: true
-      });
-
-      // don't disable, for reboot()
-      failSafely(true);
-
-      initComplete();
-
-      return false;
-
-    }
-
-    initComplete();
-
-    // disconnect events
-    cleanup();
-
-    return true;
-
-  };
-
-  domContentLoaded = function() {
-
-    if (didDCLoaded) {
-      return false;
-    }
-
-    didDCLoaded = true;
-
-    // assign top-level soundManager properties eg. soundManager.url
-    setProperties();
-
-    initDebug();
-
-    if (!hasFlash && sm2.hasHTML5) {
-
-      sm2._wD('SoundManager 2: No Flash detected' + (!sm2.useHTML5Audio ? ', enabling HTML5.' : '. Trying HTML5-only mode.'), 1);
-
-      sm2.setup({
-        'useHTML5Audio': true,
-        // make sure we aren't preferring flash, either
-        // TODO: preferFlash should not matter if flash is not installed. Currently, stuff breaks without the below tweak.
-        'preferFlash': false
-      });
-
-    }
-
-    testHTML5();
-
-    if (!hasFlash && needsFlash) {
-
-      messages.push(strings.needFlash);
-
-      // TODO: Fatal here vs. timeout approach, etc.
-      // hack: fail sooner.
-      sm2.setup({
-        'flashLoadTimeout': 1
-      });
-
-    }
-
-    if (doc.removeEventListener) {
-      doc.removeEventListener('DOMContentLoaded', domContentLoaded, false);
-    }
-
-    initMovie();
-
-    return true;
-
-  };
-
-  domContentLoadedIE = function() {
-
-    if (doc.readyState === 'complete') {
-      domContentLoaded();
-      doc.detachEvent('onreadystatechange', domContentLoadedIE);
-    }
-
-    return true;
-
-  };
-
-  winOnLoad = function() {
-
-    // catch edge case of initComplete() firing after window.load()
-    windowLoaded = true;
-
-    // catch case where DOMContentLoaded has been sent, but we're still in doc.readyState = 'interactive'
-    domContentLoaded();
-
-    event.remove(window, 'load', winOnLoad);
-
-  };
-
-  // sniff up-front
-  detectFlash();
-
-  // focus and window load, init (primarily flash-driven)
-  event.add(window, 'focus', handleFocus);
-  event.add(window, 'load', delayWaitForEI);
-  event.add(window, 'load', winOnLoad);
-
-  if (doc.addEventListener) {
-
-    doc.addEventListener('DOMContentLoaded', domContentLoaded, false);
-
-  } else if (doc.attachEvent) {
-
-    doc.attachEvent('onreadystatechange', domContentLoadedIE);
-
-  } else {
-
-    // no add/attachevent support - safe to assume no JS -> Flash either
-    debugTS('onload', false);
-    catchError({
-      type: 'NO_DOM2_EVENTS',
-      fatal: true
-    });
-
-  }
-
-} // SoundManager()
-
-// SM2_DEFER details: http://www.schillmania.com/projects/soundmanager2/doc/getstarted/#lazy-loading
-
-if (window.SM2_DEFER === _undefined || !SM2_DEFER) {
-  soundManager = new SoundManager();
-}
-
-/**
- * SoundManager public interfaces
- * ------------------------------
- */
-
-if (typeof module === 'object' && module && typeof module.exports === 'object') {
-
-  /**
-   * commonJS module
-   */
-
-  module.exports.SoundManager = SoundManager;
-  module.exports.soundManager = soundManager;
-
-} else if (true) {
-
-  /**
-   * AMD - requireJS
-   * basic usage:
-   * require(["/path/to/soundmanager2.js"], function(SoundManager) {
-   *   SoundManager.getInstance().setup({
-   *     url: '/swf/',
-   *     onready: function() { ... }
-   *   })
-   * });
-   *
-   * SM2_DEFER usage:
-   * window.SM2_DEFER = true;
-   * require(["/path/to/soundmanager2.js"], function(SoundManager) {
-   *   SoundManager.getInstance(function() {
-   *     var soundManager = new SoundManager.constructor();
-   *     soundManager.setup({
-   *       url: '/swf/',
-   *       ...
-   *     });
-   *     ...
-   *     soundManager.beginDelayedInit();
-   *     return soundManager;
-   *   })
-   * }); 
-   */
-
-  !(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
-    /**
-     * Retrieve the global instance of SoundManager.
-     * If a global instance does not exist it can be created using a callback.
-     *
-     * @param {Function} smBuilder Optional: Callback used to create a new SoundManager instance
-     * @return {SoundManager} The global SoundManager instance
-     */
-    function getInstance(smBuilder) {
-      if (!window.soundManager && smBuilder instanceof Function) {
-        var instance = smBuilder(SoundManager);
-        if (instance instanceof SoundManager) {
-          window.soundManager = instance;
-        }
-      }
-      return window.soundManager;
-    }
-    return {
-      constructor: SoundManager,
-      getInstance: getInstance
-    }
-  }.call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-}
-
-// standard browser case
-
-// constructor
-window.SoundManager = SoundManager;
-
-/**
- * note: SM2 requires a window global due to Flash, which makes calls to window.soundManager.
- * Flash may not always be needed, but this is not known until async init and SM2 may even "reboot" into Flash mode.
- */
-
-// public API, flash callbacks etc.
-window.soundManager = soundManager;
-
-}(window));
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(341)(module)))
 
 /***/ }),
 /* 337 */
@@ -46940,732 +41097,220 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAoCAYAAADd
 /* 340 */
 /***/ (function(module, exports) {
 
-module.exports = "data:image/png;base64,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"
+module.exports = "data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzA2NyA3OS4xNTc3NDcsIDIwMTUvMDMvMzAtMjM6NDA6NDIgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBMDkwNENGMzI2OTUxMUU3QjIxMzgzMDY0RjYwM0QwRiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBMDkwNENGNDI2OTUxMUU3QjIxMzgzMDY0RjYwM0QwRiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkEwOTA0Q0YxMjY5NTExRTdCMjEzODMwNjRGNjAzRDBGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkEwOTA0Q0YyMjY5NTExRTdCMjEzODMwNjRGNjAzRDBGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQAAQEBAQEBAQEBAQEBAQEB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"
 
 /***/ }),
 /* 341 */
 /***/ (function(module, exports) {
 
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
+module.exports = "data:image/gif;base64,R0lGODlhJAAqANU/ACcnJ1ZWVtfX10VFRa2trQUFBSoqKkhISFVVVWpqaiIiItTU1LW1tQICAg0NDRAQEAMDAykpKWJiYgEBAaioqFdXVxwcHEJCQqampkNDQxcXFwsLC9nZ2Tk5OVJSUmhoaMzMzKurqxEREdLS0kRERFRUVD4+PsLCwgkJCSsrK21tbQgICDw8PGBgYBkZGU5OTk1NTXJycg4ODiYmJsDAwBISEiQkJBgYGC4uLpubmxUVFSwsLNzc3FhYWAAAAP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFMgA/ACwAAAAAJAAqAAAGsUCfcEgsGo/IpHLJbDqfUOeN1INFGlGmptLr9g6PrDLj9QZSWLExUC6D1cV2O2CYwIVy+UB2z8vpdmJ+eQMOgoNyCABZiH4khk+NfoqRkn4XG02WgyUzTJuImEqgiB4iSaSIA6ipgytIrYMosLF6rLVepre4orutlEu4GZDBv4tOrYVQpAh1UaDKjJKAapJvcIh0aXBsedd3PmRtFTjb4FtuNeBGLiYlL1fr8vP09fZJQQAh+QQFMgA/ACwFAAQAHAAiAAAGosAfK8SjfQq/pHLJbHY4vCiPAWharRSpVKBCXr8CrZb6vYrFggSkzDyfCTa20n1Or9l0N0GBz58XEmV+dCF8VoN0gIeIdBgWbYx0Iy1LkX6OSZZ+IBE/mn4Enp95OqN5GqZ6oqlSnKusmK+jinOpFIa1n7SQmntmlgtqX5a+goh2cohkcrJoCV7MYW7LzElZYhwx0NU/T2M73E0mOSMnR+FMQQA7"
 
 /***/ }),
 /* 342 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-
-
-var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
-
-module.exports = ReactPropTypesSecret;
-
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABkCAMAAABpeUT0AAAAt1BMVEUAAAD///8PDw/////b29sGBgYLCwv///+Ojo4nJyf///8zMzNeXl7////////////////39/cBAQH////v7+8DAwP////c3NzW1tb////Q0ND///++vr6zs7MVFRWqqqoZGRmWlpZ4eHhwcHA+Pj5lZWVAQED///////////////////////////////////////////////////////////////////////////+lpaUAAAD///+bswwxAAAAO3RSTlMA/NPI4+DZ0MbGxMK/m3hUIff08/Hn5OTg393W1NDPzcvHwsHBwMC+t6ujkpB0bGdaSEQ+NikkHw8Iy1MJXcQAAAKISURBVGje7NZHcttAEEBRY4gMEBRzzjmJFCUq9b//uVxwaWcbcVzlhd4F/mKmZ/rHt2/fyrnXourO6TSNX5odZ1eNavcf/8bb9Vgx+AOjcry+6a6916p9EvSrtXeNudezz5fBPAxmdrsh0mjbsyCcD/jin1815R4iB2Jdd6XkN2rldiHmRA8ach8Xn1jLDSz5CytwW8T8y0fZ3vOBWG+tJJFa94gdnsv1HocAZmhLKjs0AYaPZU7vBFBfKMlELeoAp8In+bIHGHuSmTcG2L8U6922gLG0JAdraQDbW5HeUwUwN5LTxgQqTwV7I09y80aFire4N51IAZNpXLzlvC9b4FNJIeoT2L7kmoc9MFVSkJoC+zzTcQJGEylsMgJOOd4XwPSkBM8EHjO/n0MwNlLKxoBhxnf14wAspaQlcMj2d1yAsSUlWWPgkumG+lD3pDSvDn6WmxoBC9FgAUTpvVcHTCUaKBOc9D3nDISiRQicU/dBH3q2aGH3wE/bHmvAWjRZA7WUYBVaSjRRLaim7PN9cEUbF/pvicErEIg2AXBNDB6ha4k2VheOicEKuKKRC5Wk3t2AlWi0AuOeMhRKNFIpgxHBQLQaQJQ8hXPRap48iTsIRasQdglBBwLRKgAnIdiBmWg1g05CsAm2aGVDMyFoQFu0aoORHGyIVo3UoGj2/wV/tmsGNgCDMAz7/2tuKMSSI9oTpgGpHeCTmn4a5liYDj5ztZkub+Z5Mj3ATMQwhSgkJrqCMBH1XcsMsK7ZFtL8ym2DCnFs4gNDYfRlhHtRfOkEtDkE7YXsIY1gFiUJFWSXXa86r0FYvijZFul8qdW7igPzakRf+WNSb+kt8EwqSsUlrJ2db+YAKt4iQMe6yaEAAAAASUVORK5CYII="
 
 /***/ }),
 /* 343 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-
-
-if (process.env.NODE_ENV !== 'production') {
-  var invariant = __webpack_require__(1);
-  var warning = __webpack_require__(2);
-  var ReactPropTypesSecret = __webpack_require__(342);
-  var loggedTypeFailures = {};
-}
-
-/**
- * Assert that the values match with the type specs.
- * Error messages are memorized and will only be shown once.
- *
- * @param {object} typeSpecs Map of name to a ReactPropType
- * @param {object} values Runtime values that need to be type-checked
- * @param {string} location e.g. "prop", "context", "child context"
- * @param {string} componentName Name of the component for error messages.
- * @param {?Function} getStack Returns the component stack.
- * @private
- */
-function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-  if (process.env.NODE_ENV !== 'production') {
-    for (var typeSpecName in typeSpecs) {
-      if (typeSpecs.hasOwnProperty(typeSpecName)) {
-        var error;
-        // Prop type validation may throw. In case they do, we don't want to
-        // fail the render phase where it didn't fail before. So we log it.
-        // After these have been cleaned up, we'll let them throw.
-        try {
-          // This is intentionally an invariant that gets caught. It's the same
-          // behavior as without this statement except with a better message.
-          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'React.PropTypes.', componentName || 'React class', location, typeSpecName);
-          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
-        } catch (ex) {
-          error = ex;
-        }
-        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
-        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
-          // Only monitor this failure once because there tends to be a lot of the
-          // same error.
-          loggedTypeFailures[error.message] = true;
-
-          var stack = getStack ? getStack() : '';
-
-          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
-        }
-      }
-    }
-  }
-}
-
-module.exports = checkPropTypes;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+module.exports = "data:image/svg+xml;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICJhc3NldHMvZm9udHMvTGF0by1MaWdodC5zdmciOw=="
 
 /***/ }),
 /* 344 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-
-
-// React 15.5 references this module, and assumes PropTypes are still callable in production.
-// Therefore we re-export development-only version with all the PropTypes checks here.
-// However if one is migrating to the `prop-types` npm library, they will go through the
-// `index.js` entry point, and it will branch depending on the environment.
-var factory = __webpack_require__(345);
-module.exports = function(isValidElement) {
-  // It is still allowed in 15.5.
-  var throwOnDirectAccess = false;
-  return factory(isValidElement, throwOnDirectAccess);
-};
-
+module.exports = "data:image/svg+xml;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICJhc3NldHMvZm9udHMvaWNvbW9vbi5zdmciOw=="
 
 /***/ }),
 /* 345 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-
-
-var emptyFunction = __webpack_require__(11);
-var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
-
-var ReactPropTypesSecret = __webpack_require__(342);
-var checkPropTypes = __webpack_require__(343);
-
-module.exports = function(isValidElement, throwOnDirectAccess) {
-  /* global Symbol */
-  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
-  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
-
-  /**
-   * Returns the iterator method function contained on the iterable object.
-   *
-   * Be sure to invoke the function with the iterable as context:
-   *
-   *     var iteratorFn = getIteratorFn(myIterable);
-   *     if (iteratorFn) {
-   *       var iterator = iteratorFn.call(myIterable);
-   *       ...
-   *     }
-   *
-   * @param {?object} maybeIterable
-   * @return {?function}
-   */
-  function getIteratorFn(maybeIterable) {
-    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
-    if (typeof iteratorFn === 'function') {
-      return iteratorFn;
-    }
-  }
-
-  /**
-   * Collection of methods that allow declaration and validation of props that are
-   * supplied to React components. Example usage:
-   *
-   *   var Props = require('ReactPropTypes');
-   *   var MyArticle = React.createClass({
-   *     propTypes: {
-   *       // An optional string prop named "description".
-   *       description: Props.string,
-   *
-   *       // A required enum prop named "category".
-   *       category: Props.oneOf(['News','Photos']).isRequired,
-   *
-   *       // A prop named "dialog" that requires an instance of Dialog.
-   *       dialog: Props.instanceOf(Dialog).isRequired
-   *     },
-   *     render: function() { ... }
-   *   });
-   *
-   * A more formal specification of how these methods are used:
-   *
-   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
-   *   decl := ReactPropTypes.{type}(.isRequired)?
-   *
-   * Each and every declaration produces a function with the same signature. This
-   * allows the creation of custom validation functions. For example:
-   *
-   *  var MyLink = React.createClass({
-   *    propTypes: {
-   *      // An optional string or URI prop named "href".
-   *      href: function(props, propName, componentName) {
-   *        var propValue = props[propName];
-   *        if (propValue != null && typeof propValue !== 'string' &&
-   *            !(propValue instanceof URI)) {
-   *          return new Error(
-   *            'Expected a string or an URI for ' + propName + ' in ' +
-   *            componentName
-   *          );
-   *        }
-   *      }
-   *    },
-   *    render: function() {...}
-   *  });
-   *
-   * @internal
-   */
-
-  var ANONYMOUS = '<<anonymous>>';
-
-  // Important!
-  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
-  var ReactPropTypes = {
-    array: createPrimitiveTypeChecker('array'),
-    bool: createPrimitiveTypeChecker('boolean'),
-    func: createPrimitiveTypeChecker('function'),
-    number: createPrimitiveTypeChecker('number'),
-    object: createPrimitiveTypeChecker('object'),
-    string: createPrimitiveTypeChecker('string'),
-    symbol: createPrimitiveTypeChecker('symbol'),
-
-    any: createAnyTypeChecker(),
-    arrayOf: createArrayOfTypeChecker,
-    element: createElementTypeChecker(),
-    instanceOf: createInstanceTypeChecker,
-    node: createNodeChecker(),
-    objectOf: createObjectOfTypeChecker,
-    oneOf: createEnumTypeChecker,
-    oneOfType: createUnionTypeChecker,
-    shape: createShapeTypeChecker
-  };
-
-  /**
-   * inlined Object.is polyfill to avoid requiring consumers ship their own
-   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
-   */
-  /*eslint-disable no-self-compare*/
-  function is(x, y) {
-    // SameValue algorithm
-    if (x === y) {
-      // Steps 1-5, 7-10
-      // Steps 6.b-6.e: +0 != -0
-      return x !== 0 || 1 / x === 1 / y;
-    } else {
-      // Step 6.a: NaN == NaN
-      return x !== x && y !== y;
-    }
-  }
-  /*eslint-enable no-self-compare*/
-
-  /**
-   * We use an Error-like object for backward compatibility as people may call
-   * PropTypes directly and inspect their output. However, we don't use real
-   * Errors anymore. We don't inspect their stack anyway, and creating them
-   * is prohibitively expensive if they are created too often, such as what
-   * happens in oneOfType() for any type before the one that matched.
-   */
-  function PropTypeError(message) {
-    this.message = message;
-    this.stack = '';
-  }
-  // Make `instanceof Error` still work for returned errors.
-  PropTypeError.prototype = Error.prototype;
-
-  function createChainableTypeChecker(validate) {
-    if (process.env.NODE_ENV !== 'production') {
-      var manualPropTypeCallCache = {};
-      var manualPropTypeWarningCount = 0;
-    }
-    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
-      componentName = componentName || ANONYMOUS;
-      propFullName = propFullName || propName;
-
-      if (secret !== ReactPropTypesSecret) {
-        if (throwOnDirectAccess) {
-          // New behavior only for users of `prop-types` package
-          invariant(
-            false,
-            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
-            'Use `PropTypes.checkPropTypes()` to call them. ' +
-            'Read more at http://fb.me/use-check-prop-types'
-          );
-        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
-          // Old behavior for people using React.PropTypes
-          var cacheKey = componentName + ':' + propName;
-          if (
-            !manualPropTypeCallCache[cacheKey] &&
-            // Avoid spamming the console because they are often not actionable except for lib authors
-            manualPropTypeWarningCount < 3
-          ) {
-            warning(
-              false,
-              'You are manually calling a React.PropTypes validation ' +
-              'function for the `%s` prop on `%s`. This is deprecated ' +
-              'and will throw in the standalone `prop-types` package. ' +
-              'You may be seeing this warning due to a third-party PropTypes ' +
-              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.',
-              propFullName,
-              componentName
-            );
-            manualPropTypeCallCache[cacheKey] = true;
-            manualPropTypeWarningCount++;
-          }
-        }
-      }
-      if (props[propName] == null) {
-        if (isRequired) {
-          if (props[propName] === null) {
-            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
-          }
-          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
-        }
-        return null;
-      } else {
-        return validate(props, propName, componentName, location, propFullName);
-      }
-    }
-
-    var chainedCheckType = checkType.bind(null, false);
-    chainedCheckType.isRequired = checkType.bind(null, true);
-
-    return chainedCheckType;
-  }
-
-  function createPrimitiveTypeChecker(expectedType) {
-    function validate(props, propName, componentName, location, propFullName, secret) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== expectedType) {
-        // `propValue` being instance of, say, date/regexp, pass the 'object'
-        // check, but we can offer a more precise error message here rather than
-        // 'of type `object`'.
-        var preciseType = getPreciseType(propValue);
-
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createAnyTypeChecker() {
-    return createChainableTypeChecker(emptyFunction.thatReturnsNull);
-  }
-
-  function createArrayOfTypeChecker(typeChecker) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
-      }
-      var propValue = props[propName];
-      if (!Array.isArray(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
-      }
-      for (var i = 0; i < propValue.length; i++) {
-        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
-        if (error instanceof Error) {
-          return error;
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createElementTypeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      if (!isValidElement(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createInstanceTypeChecker(expectedClass) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (!(props[propName] instanceof expectedClass)) {
-        var expectedClassName = expectedClass.name || ANONYMOUS;
-        var actualClassName = getClassName(props[propName]);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createEnumTypeChecker(expectedValues) {
-    if (!Array.isArray(expectedValues)) {
-      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
-      return emptyFunction.thatReturnsNull;
-    }
-
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      for (var i = 0; i < expectedValues.length; i++) {
-        if (is(propValue, expectedValues[i])) {
-          return null;
-        }
-      }
-
-      var valuesString = JSON.stringify(expectedValues);
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createObjectOfTypeChecker(typeChecker) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
-      }
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
-      }
-      for (var key in propValue) {
-        if (propValue.hasOwnProperty(key)) {
-          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-          if (error instanceof Error) {
-            return error;
-          }
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createUnionTypeChecker(arrayOfTypeCheckers) {
-    if (!Array.isArray(arrayOfTypeCheckers)) {
-      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
-      return emptyFunction.thatReturnsNull;
-    }
-
-    function validate(props, propName, componentName, location, propFullName) {
-      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-        var checker = arrayOfTypeCheckers[i];
-        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
-          return null;
-        }
-      }
-
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createNodeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (!isNode(props[propName])) {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createShapeTypeChecker(shapeTypes) {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-      }
-      for (var key in shapeTypes) {
-        var checker = shapeTypes[key];
-        if (!checker) {
-          continue;
-        }
-        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-        if (error) {
-          return error;
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function isNode(propValue) {
-    switch (typeof propValue) {
-      case 'number':
-      case 'string':
-      case 'undefined':
-        return true;
-      case 'boolean':
-        return !propValue;
-      case 'object':
-        if (Array.isArray(propValue)) {
-          return propValue.every(isNode);
-        }
-        if (propValue === null || isValidElement(propValue)) {
-          return true;
-        }
-
-        var iteratorFn = getIteratorFn(propValue);
-        if (iteratorFn) {
-          var iterator = iteratorFn.call(propValue);
-          var step;
-          if (iteratorFn !== propValue.entries) {
-            while (!(step = iterator.next()).done) {
-              if (!isNode(step.value)) {
-                return false;
-              }
-            }
-          } else {
-            // Iterator will provide entry [k,v] tuples rather than values.
-            while (!(step = iterator.next()).done) {
-              var entry = step.value;
-              if (entry) {
-                if (!isNode(entry[1])) {
-                  return false;
-                }
-              }
-            }
-          }
-        } else {
-          return false;
-        }
-
-        return true;
-      default:
-        return false;
-    }
-  }
-
-  function isSymbol(propType, propValue) {
-    // Native Symbol.
-    if (propType === 'symbol') {
-      return true;
-    }
-
-    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
-    if (propValue['@@toStringTag'] === 'Symbol') {
-      return true;
-    }
-
-    // Fallback for non-spec compliant Symbols which are polyfilled.
-    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
-      return true;
-    }
-
-    return false;
-  }
-
-  // Equivalent of `typeof` but with special handling for array and regexp.
-  function getPropType(propValue) {
-    var propType = typeof propValue;
-    if (Array.isArray(propValue)) {
-      return 'array';
-    }
-    if (propValue instanceof RegExp) {
-      // Old webkits (at least until Android 4.0) return 'function' rather than
-      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
-      // passes PropTypes.object.
-      return 'object';
-    }
-    if (isSymbol(propType, propValue)) {
-      return 'symbol';
-    }
-    return propType;
-  }
-
-  // This handles more types than `getPropType`. Only used for error messages.
-  // See `createPrimitiveTypeChecker`.
-  function getPreciseType(propValue) {
-    var propType = getPropType(propValue);
-    if (propType === 'object') {
-      if (propValue instanceof Date) {
-        return 'date';
-      } else if (propValue instanceof RegExp) {
-        return 'regexp';
-      }
-    }
-    return propType;
-  }
-
-  // Returns class name of the object, if any.
-  function getClassName(propValue) {
-    if (!propValue.constructor || !propValue.constructor.name) {
-      return ANONYMOUS;
-    }
-    return propValue.constructor.name;
-  }
-
-  ReactPropTypes.checkPropTypes = checkPropTypes;
-  ReactPropTypes.PropTypes = ReactPropTypes;
-
-  return ReactPropTypes;
-};
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+module.exports = "data:image/svg+xml;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICJhc3NldHMvZm9udHMvbGF0by1yZWd1bGFyLXdlYmZvbnQuc3ZnIjs="
 
 /***/ }),
 /* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ReactInterval = undefined;
-
-var _react = __webpack_require__(7);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ReactInterval = exports.ReactInterval = _react2.default.createClass({
-  displayName: 'ReactInterval',
-
-  propTypes: {
-    callback: _react2.default.PropTypes.func.isRequired,
-    enabled: _react2.default.PropTypes.bool,
-    timeout: _react2.default.PropTypes.number
-  },
-
-  getDefaultProps: function getDefaultProps() {
-    return {
-      enabled: false,
-      timeout: 1000
-    };
-  },
-  componentDidMount: function componentDidMount() {
-    if (this.props.enabled) {
-      this.start();
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
+    if (true) {
+        // AMD
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+    } else if (typeof module === 'object' && module.exports) {
+        // CMD
+        module.exports = factory()
+    } else {
+        // Browser globals (root is window)
+        root.Preloader = factory()
     }
-  },
-  shouldComponentUpdate: function shouldComponentUpdate(_ref) {
-    var timeout = _ref.timeout;
-    var callback = _ref.callback;
-    var enabled = _ref.enabled;
+}(this, function () {
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+    var assign = Object.assign || function (target) {
+        'use strict'
 
-    return this.props.timeout !== timeout || this.props.callback !== callback || this.props.enabled !== enabled;
-  },
-  componentDidUpdate: function componentDidUpdate(_ref2) {
-    var enabled = _ref2.enabled;
+        if (target === undefined || target === null) {
+            throw new TypeError('Cannot convert undefined or null to object')
+        }
 
-    if (this.props.enabled !== enabled) {
-      if (this.props.enabled) {
-        this.start();
-      } else {
-        this.stop();
-      }
+        var output = Object(target)
+        for (var index = 1; index < arguments.length; index++) {
+            var source = arguments[index]
+            if (source !== undefined && source !== null) {
+                for (var nextKey in source) {
+                    if (Object.prototype.hasOwnProperty.call(source, nextKey)) {
+                        output[nextKey] = source[nextKey]
+                    }
+                }
+            }
+        }
+        return output
     }
-  },
-  componentWillUnmount: function componentWillUnmount() {
-    this.stop();
-  },
-  callback: function callback() {
-    if (this.timer) {
-      this.props.callback();
-      this.start();
+    var body = document.body || document.getElementsByTagName('body')[0]
+
+    var Preloader = function (options) {
+        this.opts = assign({
+            resources: [],
+            concurrency: 0,
+            perMinTime: 0,
+            attr: 'data-preload',
+            onProgress: null,
+            onCompletion: null
+        }, options)
+
+        var preloads = document.querySelectorAll('[' + this.opts.attr + ']')
+        for (var i = 0; i < preloads.length; i++) {
+            var preload = preloads[i]
+            if (preload.src) this.opts.resources.push(preload.src)
+        }
+
+        this.length = this.opts.resources.length
+        this.completedCount = 0
+        this.loadingIndex = 0
+        this.resourceMap = {}
+        this.div = document.createElement('div')
+
+        var style = this.div.style
+        style.visibility = 'hidden'
+        style.position = 'absolute'
+        style.width = style.height = '10px'
+        style.overflow = 'hidden'
+        style.transform = style.msTransform = style.webkitTransform = style.oTransform = 'translate(-10px, -10px)'
+        body.appendChild(this.div)
+
+        this.done = function (resource, instance) {
+            if (this.length === 0) return this.onCompletion && this.onCompletion(0)
+
+            this.completedCount += 1
+            this.resourceMap[resource] = instance
+
+            this.onProgress && this.onProgress(this.completedCount, this.length, resource)
+            if (this.completedCount >= this.length) {
+                this.onCompletion && this.onCompletion(this.length)
+            } else if (this.opts.concurrency > 0) {
+                this.loader()
+            }
+        }
+
+        this.loader = function () {
+            if (this.loadingIndex >= this.length) return
+            var resource = this.opts.resources[this.loadingIndex]
+            this.loadingIndex++
+
+            if (~['mp3', 'ogg', 'wav'].indexOf(getType(resource))) {
+                this.audioLoader(resource)
+            } else {
+                this.imageLoader(resource)
+            }
+        }
+
+        this.imageLoader = function (resource) {
+            var self = this
+
+            var image = new Image()
+            var startTime = new Date()
+            image.onload = image.onerror = function () {
+                var duration = new Date() - startTime
+                var diff = self.opts.perMinTime - duration
+
+                diff > 0 ? setTimeout(function () {
+                    self.done(resource, image)
+                }, diff) : self.done(resource, image)
+            }
+            image.src = resource
+        }
+        this.audioLoader = function (resource) {
+            var self = this
+
+            var audio = new Audio()
+            self.div.appendChild(audio)
+            var startTime = new Date()
+            var handler = function () {
+                var duration = new Date() - startTime
+                var diff = self.opts.perMinTime - duration
+
+                diff > 0 ? setTimeout(function () {
+                    self.done(resource, audio)
+                }, diff) : self.done(resource, audio)
+            }
+            audio.addEventListener('canplaythrough', handler)
+            audio.addEventListener('error', handler)
+            audio.preload = 'auto'
+            audio.src = resource
+            audio.load()
+        }
     }
-  },
-  start: function start() {
-    this.stop();
-    this.timer = setTimeout(this.callback, this.props.timeout);
-  },
-  stop: function stop() {
-    clearTimeout(this.timer);
-    this.timer = null;
-  },
-  render: function render() {
-    return false;
-  }
-});
-//# sourceMappingURL=Component.js.map
 
-/***/ }),
-/* 347 */
-/***/ (function(module, exports, __webpack_require__) {
+    /**
+     * add progress event callback
+     */
+    Preloader.prototype.addProgressListener = function (fn) {
+        this.onProgress = fn
+    }
 
-"use strict";
+    /**
+     * add completed event callback
+     */
+    Preloader.prototype.addCompletionListener = function (fn) {
+        this.onCompletion = fn
+    }
 
+    /**
+     * get resource instance
+     */
+    Preloader.prototype.get = function (resource) {
+        return this.resourceMap[resource]
+    }
 
-var ReactInterval = __webpack_require__(346).ReactInterval;
+    /**
+     * load begin
+     */
+    Preloader.prototype.start = function () {
+        if (!this.length) return this.done(null, null)
 
-ReactInterval.ReactInterval = ReactInterval;
+        if (this.opts.concurrency === 0) {
+            while (this.loadingIndex < this.length) {
+                this.loader()
+            }
+        } else {
+            for (var i = 0; i < this.opts.concurrency; i++) {
+                this.loader()
+            }
+        }
+    }
 
-module.exports = ReactInterval;
-//# sourceMappingURL=index.js.map
+    function getType (resource) {
+        var parser = document.createElement('a')
+        parser.href = resource
+        return parser.pathname.split('.').pop().toLowerCase()
+    }
+
+    return Preloader
+}))
+
 
 /***/ })
 /******/ ]);
