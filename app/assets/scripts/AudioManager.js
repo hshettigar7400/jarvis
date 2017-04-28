@@ -8,7 +8,7 @@ function loadAudio(pageNum) {
     onload: function() {
       enableButtons();
       $.getJSON( "../app/assets/data/transcript.json", function( data ) {
-        //  $(".transcript-text-container").html(data.transcript[pageNum-1].text)
+          $(".transcript-text-container").html(data.transcript[pageNum].text)
       });
     },
     onfinish: function() {
