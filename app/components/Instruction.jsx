@@ -21,9 +21,16 @@ componentDidMount() {
       'images/m01_t01_p03/Slide_08_image_01.jpg',
       'images/m01_t01_p03/Slide_08_image_02.jpg',
       'images/m01_t01_p04/m01_t01_p04_01_large.jpg',
-      'images/m01_t01_p04/m01_t01_p04_03_large.jpg',
-      'images/m01_t01_p04/m01_t01_p04_02_large.jpg',
-      'images/m01_t01_p04/m01_t01_p04_04_large.jpg',
+      'images/m01_t01_p04/m01_t01_p04_02.jpg',
+      'images/m01_t01_p04/m01_t01_p04_03.jpg',
+      'images/m01_t01_p04/m01_t01_p04_04.jpg',
+      'images/m01_t01_p04/m01_t01_p04_05.jpg',
+      'images/m01_t01_p04/m01_t01_p04_06.jpg',
+      'images/m01_t01_p04/m01_t01_p04_07.jpg',
+      'images/m01_t01_p04/m01_t01_p04_08.jpg',
+      'images/m01_t01_p04/m01_t01_p04_09.jpg',
+      'images/m01_t01_p04/m01_t01_p04_10.jpg',
+      'images/m01_t01_p04/m01_t01_p04_11.jpg',
       'images/m01_t01_p04/icon1.png',
       'images/m01_t01_p04/icon2.png',
       'images/m01_t01_p04/icon3.png',
@@ -32,21 +39,22 @@ componentDidMount() {
       'images/m01_t01_p05/arrow.png',
       'images/m01_t01_p07/m01_t01_p07_bg.jpg',
       'images/m01_t01_p07/m01_t01_p07_bg1.jpg',
-      '../app/assets/audio/Instruction_audio.mp3',
+      '../app/assets/audio/course_instruction.mp3',
       '../app/assets/audio/m01_t01_p01.mp3',
       '../app/assets/audio/m01_t01_p02.mp3',
       '../app/assets/audio/m01_t01_p03.mp3',
       '../app/assets/audio/m01_t01_p04.mp3',
       '../app/assets/audio/m01_t01_p05.mp3',
-      '../app/assets/audio/m01_t01_p06_01.mp3',
-      '../app/assets/audio/m01_t01_p06_02.mp3',
-      '../app/assets/audio/m01_t01_p06_03.mp3',
-      '../app/assets/audio/m01_t01_p06_04.mp3',
+      '../app/assets/audio/m01_t01_p07_01.mp3',
+      '../app/assets/audio/m01_t01_p07_02.mp3',
+      '../app/assets/audio/m01_t01_p07_03.mp3',
+      '../app/assets/audio/m01_t01_p07_04.mp3',
       '../app/assets/audio/m01_t01_p06.mp3',
       '../app/assets/audio/m01_t01_p07.mp3',
-      '../app/assets/audio/m01_t01_p08_01.mp3',
-      '../app/assets/audio/m01_t01_p08_02.mp3',
-      '../app/assets/audio/m01_t01_p08.mp3'
+      '../app/assets/audio/m01_t01_p08.mp3',
+      '../app/assets/audio/m01_t01_p09_01.mp3',
+      '../app/assets/audio/m01_t01_p09_02.mp3',
+      '../app/assets/audio/m01_t01_p09.mp3'
       ],
     concurrency: 0
   });
@@ -153,14 +161,14 @@ else {
   					<div className="text">
   						<div>
   							<p className="btnIconBlank btnIcon1"><span className="icon-btn"></span></p>
-  							<p>Course duration: 10 minutes</p>
+  							<p>Course duration: 20 minutes</p>
   						</div>
   					</div>
   				</div>
           <div className="dis_sys_check">
             <div className="container">
                 <div className="startbtn dis">
-                   <p className="instruction">Select <span className="fontBold">Start</span> to proceed with the course.
+                   <p className="instruction">Select <span className="fontBold">Start</span> to proceed with the session.
                      <a href="#" className="startbtn_a tab" role="button" onClick={this.startCourse.bind(null, this)}>
                           <span className="btnContent">
                               <span>Start</span>

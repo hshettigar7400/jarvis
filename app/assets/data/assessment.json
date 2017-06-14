@@ -5,32 +5,32 @@
 			{
 				"id":"start",
 				"path": "content/en/audio/assessment/m01_t04_p01.mp3",
-				"transcript": [ 
+				"transcript": [
 					{"qPoint": 0, "text":"Welcome to the Quiz. <br><br>Let's see how well you've understood what we've covered in this module.<br><br>Good luck!"}
 				],
 				"qPoints": [
 					{ "qPoint": 0, "defaultClass":"", "animationType":"addClass", "className":"", "element":""}
-					
+
 				]
 			},
 
 			{ "id":"result1", "path": "content/en/audio/assessment/m01_t04_p03_2.mp3", "transcript": [
-			{	
+			{
 				"qPoint": 0,
 				"text":"Congratulations, you've successfully completed the module."
 			}
 			], "qPoints": [] },
 			{ "id":"result2", "path": "content/en/audio/assessment/m01_t04_p03_1.mp3", "transcript": [
-			{	
+			{
 				"qPoint": 0,
 				"text":"Sorry, you did not achieve the passing score. If you would like to improve your score, please select Try Again."
 			}
-			
-			], "qPoints": [] }
-		
 
-		
-		
+			], "qPoints": [] }
+
+
+
+
 		],
 		"images":[
 			"content/images/assessment.png"
@@ -48,7 +48,7 @@
         "tryAgain": {
             "label": "Try again",
 			"text": "To reattempt the quiz, select "
-			
+
         },
         "exitCourse": {
             "label": "Exit",
@@ -80,26 +80,26 @@
                 "questions": [
                     {
                         "id": "question",
-						"audioID":"p1q1",	
+						"audioID":"p1q1",
                         "type": "mcq",
-                        "text": "As medical devices are become more portable and accessible, they will <b>require</b> more or less sensors?",
+                        "text": "As medical devices are become more portable and accessible, they will require more sensors.",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                             {
                                 "id": "option",
                                 "correct": 1,
-                                "text": "Yes"
+                                "text": "True"
                             },
                             {
                                 "id": "option",
                                 "correct": 0,
-                                "text": "No"
+                                "text": "False"
                             }
                         ]
                     },
                     {
                         "id": "question",
-						"audioID":"p1q2",	
+						"audioID":"p1q2",
                         "type": "mcq",
                         "text": "Patient care is moving towards the hospital.",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
@@ -114,12 +114,12 @@
                                 "correct": 1,
                                 "text": "False. These days people prefer to use portable and manageable medical equipment at home."
                             }
-							
+
                         ]
                     },
                     {
                         "id": "question",
-						"audioID":"p1q3",	
+						"audioID":"p1q3",
                         "type": "mrq",
                         "text": "With medical devices becoming smaller and portable, what are the implications for sensors?",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
@@ -148,7 +148,7 @@
                     },
                     {
                         "id": "question",
-						"audioID":"p1q4",	
+						"audioID":"p1q4",
                         "type": "mcq",
                         "text": "Identify key reasons that led IOT revolution in the medical device industry.",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
@@ -156,7 +156,7 @@
                               {
                                 "id": "option",
                                 "correct": 0,
-                                "text": "Digitization and interconnectivity of medical devices"
+                                "text": "Connectivity of medical equipment to the Internet"
                             },
                             {
                                 "id": "option",
@@ -170,6 +170,11 @@
                             },
                             {
                                 "id": "option",
+                                "correct": 0,
+                                "text": "Enhanced mobile-equipment capabilities"
+                            },
+                            {
+                                "id": "option",
                                 "correct": 1,
                                 "text": "All of the above"
                             }
@@ -177,7 +182,7 @@
                     },
                     {
                         "id": "question",
-						"audioID":"p1q5",	
+			                  "audioID":"p1q5",
                         "type": "mrq",
                         "text": "From medical applications listed below, identify Honeywell’s focus medical applications.?",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
@@ -251,7 +256,7 @@
 					"audioID":"result2",
                     "exitCourse": true,
                     "passMark": 0,
-                    "header":"<span class='failed'>Sorry!</span><span> You did not achieve the passing score. To improve your score, go through the module once again.</span>",                    
+                    "header":"<span class='failed'>Sorry!</span><span> You did not achieve the passing score. To improve your score, go through the module once again.</span>",
                     "text": "<div> <p> <span class='right-side-text'>Minimum passing score:</span> <span class='left-side-text'>80%</span> </p> <p> <span class='right-side-text'>Total number of questions:</span> <span class='left-side-text'><<Y>></span> </p> <p> <span class='right-side-text'>Total number of correct answers:</span> <span class='left-side-text'><<X>></span> </p> <p> <span class='right-side-text'>Total number of incorrect answers:</span> <span class='left-side-text'><<I>></span> </p> <p> <span class='right-side-text'>Your score:</span> <span class='left-side-text'><<R>></span> </p> </div>"
                 }
             ]

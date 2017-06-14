@@ -87,7 +87,7 @@ var Shell = React.createClass ({
   },
 
   loadNextPage() {
-    if(this.state.currentPageNumber + 1 > 8) {
+    if(this.state.currentPageNumber + 1 > 9) {
       this.setState({currentPageNumber: 2});
     }
     else {
@@ -172,7 +172,7 @@ var Shell = React.createClass ({
               onNextButtonClick={this.loadNextPage}
               onBackButtonClick={this.loadPreviousPage}
               onTranscriptButtonClick={this.enableTranscript}
-              totalPages={8}
+              totalPages={9}
               currentPageNumber={this.state.currentPageNumber}
               onPlayPauseClick={this.audioPlayPause}
               onReplayClick={this.replayScreen}
@@ -213,7 +213,7 @@ var Shell = React.createClass ({
               onNextButtonClick={this.loadNextPage}
               onBackButtonClick={this.loadPreviousPage}
               onTranscriptButtonClick={this.enableTranscript}
-              totalPages={8}
+              totalPages={9}
               currentPageNumber={this.state.currentPageNumber}
               onPlayPauseClick={this.audioPlayPause}
               onReplayClick={this.replayScreen}

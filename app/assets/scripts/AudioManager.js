@@ -1,6 +1,5 @@
 function loadAudio(pageNum) {
   soundManager.stopAll();
-  console.log(pageNum);
   jarvisAudio = soundManager.createSound({
     url: '../app/assets/audio/m01_t01_p0'+pageNum+'.mp3',
     autoLoad: true,
@@ -15,7 +14,7 @@ function loadAudio(pageNum) {
       jarvisAudio.unload();
       disableButtons();
       $(".start-button").removeClass("disabled");
-      if(PageNum !== 6 )
+      if(pageNum !== 7 )
         document.querySelector('.next-button').classList.add("blinker");
     },
     whileplaying() {
@@ -69,14 +68,19 @@ function changeText(element) {
   $("."+element).hide();
 }
 
+function imageSwap(id) {
+  $(".image-container"+id).hide();
+}
+
+function highlightElement(id) {
+  $(".highlight-image"+(id-1)).removeClass("highlight")
+  $(".highlight-image"+id).addClass("highlight")
+}
+
 function syncPageText(position) {
-  if (qPoints !== null) {
+  if (qPoints !== null && currentCuePointId != undefined) {
      var t = millisToMinutesAndSeconds(position);
      if (t == qPoints[currentCuePointId]) {
-       if (imageSwap &&  document.querySelector('.sync'+(currentCuePointId))){
-         document.querySelector('.sync'+(currentCuePointId)).classList.add('hide');
-         document.querySelector('.sync'+(currentCuePointId + 1)).classList.remove('hide');
-       }
        if (document.querySelector('.sync'+(currentCuePointId+1))) {
          document.querySelector('.sync'+(currentCuePointId+1)).classList.remove('fadeOut');
          document.querySelector('.sync'+(currentCuePointId+1)).classList.add('fadeIn');
@@ -89,8 +93,6 @@ function syncPageText(position) {
      }
    }
 }
-
-
 
 module.exports = {
   toggleSoundVolume,

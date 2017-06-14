@@ -2,7 +2,7 @@
 
 <div id="m01_t01_p03" class="page m01_t01_p03">
     <div class="template-panel">
-        <div class="instruction fadeOut sync1">Select each category to learn more.</div>
+        <div class="instruction fadeOut sync1">Select each label below to learn more.</div>
         <div class="template-holder">
             <div class="template-horizontal-tab">
                 <div>
@@ -18,27 +18,27 @@
                       <div class="tab-data" id="tab-data-1" style="display: none;">
                           <div class="popup-txt">
                             <div class="main-content">
-                                <div class="text-1 fadeOut sync3">Would you prefer taking it in a hospital or at home?</div>
+                                <div class="text-1 fadeOut sync3">For the dialysis treatment:</div>
                                 <div class="text-2 fadeOut sync4">Would you prefer travelling to a facility multiple times every week for treatment?</div>
-                                <div class="text-3 fadeOut sync5">Would you prefer the use of needles or a surgically implanted catheter?</div>
+                                <div class="text-1 fadeOut sync5">Would you prefer taking it in a hospital or at home?</div>
+                                <div class="text-3 fadeOut sync6">Would you prefer the use of needles or a surgically implanted catheter?</div>
                             </div>
-                            <div class="fadeOut sync6">
+                            <div class="fadeOut sync7">
                               <p  >Hemodialysis in a clinic requires:</p>
                               <ul>
-                                  <li >Travel to a clinic serveral times a week</li>
-                                  <li >Complex medical equipment</li>
-                                  <li >Health professional supervision</li>
+                                  <li>Needle and tubing</li>
+                                  <li>Travel to a clinic several times a week</li>
                               </ul>
                             </div>
                           </div>
                       </div>
                       <div class="tab-data" id="tab-data-2" style="display: none;">
                           <div class="popup-txt" >
-                              <p>Peritoneal dialysis at home requires:</p>
+                              <p>Peritoneal dialysis:</p>
                               <ul>
-                                  <li>No travel</li>
-                                  <li >Self-administered treatment</li>
-                                  <li >Compliance with prescribed procedure</li>
+                                  <li>Blood return or removal not required</li>
+                                  <li>Self-administered, at-home treatment</li>
+                                  <li>Travel, needles, and nurse support not required</li>
                               </ul>
                           </div>
                       </div>
@@ -47,11 +47,11 @@
                 <div class="image-holder">
                     <div class="img1" style="display: none;">
                         <img src="images/m01_t01_p03/Slide_08_image_01.jpg">
-                        <p>Hemodialysis in a hospital</p>
+                        <figcaption class="img-caption">Hemodialysis in a hospital</figcaption>
                     </div>
                     <div class="img2" style="display: none;">
                         <img src="images/m01_t01_p03/Slide_08_image_02.jpg">
-                        <p>Peritoneal dialysis at home</p>
+                          <figcaption class="img-caption">Peritoneal dialysis at home</figcaption>
                     </div>
                 </div>
             </div>
@@ -61,8 +61,8 @@
 
 <script>
     var imageSwap = false;
-    var qPoints = [0, 3, 28, 32, 38, 42, 70];
-    var qPointsExecution = ["", "pauseSound()", "", "", "", "changeText('main-content')", "pauseSound()"];
+    var qPoints = [0, 3, 24, 25, 30, 34, 38, 69];
+    var qPointsExecution = ["", "pauseSound()", "", "", "", "", "changeText('main-content')", "pauseSound()"];
     var currentCuePointId = 0;
     var globalAudioPosition = 0
     var startAudioPlay = false;
@@ -88,7 +88,7 @@
       document.querySelector('.img2').style.display = 'block';
       document.querySelector('.img1').style.display = 'none';
       //document.querySelector('.main-content').style.display = 'none';
-      jarvisAudio.setPosition(71000);
+      jarvisAudio.setPosition(69000);
       jarvisAudio.resume();
       $(e).css("background-color", "#ef3125 !important");
       $(".tab-1").css("background-color", "#1792e5 !important");

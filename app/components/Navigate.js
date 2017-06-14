@@ -1,11 +1,12 @@
 var $ = require("jquery");
-
+var currentCuePointId = 0;
 var topicNamesArray = [
   'Welcome',
   'Course objectives',
-  'Increase in home therapy options',
-  'Small and portable medical devices',
+  'Medical devices move to the home',
+  'Growth in portable- and home-use medical devices',
   'Internet of things—connected medical equipment',
+  'Target/focus medical applications',
   'Medical appications for Honeywell sensors - Activity',
   'Course Summary',
   'Quiz Introduction'
