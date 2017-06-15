@@ -7,7 +7,7 @@ function loadAudio(pageNum) {
     onload: function() {
       enableButtons();
       $.getJSON( "../app/assets/data/transcript.json", function( data ) {
-        //  $(".transcript-text-container").html(data.transcript[pageNum-1].text)
+          $(".transcript-text-container").html(data.transcript[pageNum-1].text)
       });
     },
     onfinish: function() {
@@ -56,6 +56,7 @@ function millisToMinutesAndSeconds(millis) {
 }
 
 function pauseSound() {
+   //alert("Sound paused");
   jarvisAudio.pause();
 }
 
@@ -78,6 +79,7 @@ function highlightElement(id) {
 }
 
 function syncPageText(position) {
+    $("#button-playPause").removeClass("selected");
   if (qPoints !== null && currentCuePointId != undefined) {
      var t = millisToMinutesAndSeconds(position);
      if (t == qPoints[currentCuePointId]) {

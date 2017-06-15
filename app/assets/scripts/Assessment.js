@@ -288,6 +288,7 @@ function Assessment() {
             });
             document.querySelector('.next-button').classList.remove("disabled");
             soundManager.stopAll();
+            document.querySelector('.back-button').classList.add("disabled");
             jarvisAudio = soundManager.createSound({
               url: '../app/assets/audio/m01_t01_p01.mp3',
               autoLoad: true,
@@ -525,6 +526,7 @@ function Assessment() {
     }
 
     function createEndPage() {
+        document.querySelector('.next-button').classList.remove("blinker");
         var obj = data.resultPage;
         var str = '';
         str += '<div id="question-page-' + (totalQuestions + 1) + '" class="result-page">';

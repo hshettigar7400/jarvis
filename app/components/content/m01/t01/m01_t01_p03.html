@@ -61,8 +61,8 @@
 
 <script>
     var imageSwap = false;
-    var qPoints = [0, 3, 24, 25, 30, 34, 38, 69];
-    var qPointsExecution = ["", "pauseSound()", "", "", "", "", "changeText('main-content')", "pauseSound()"];
+    var qPoints = [0, 3, 24, 25, 30, 34, 38,  60];
+    var qPointsExecution = ["", "pauseSound()", "", "", "", "", "changeText('main-content')","pauseSound()"];
     var currentCuePointId = 0;
     var globalAudioPosition = 0
     var startAudioPlay = false;
@@ -88,7 +88,7 @@
       document.querySelector('.img2').style.display = 'block';
       document.querySelector('.img1').style.display = 'none';
       //document.querySelector('.main-content').style.display = 'none';
-      jarvisAudio.setPosition(69000);
+      jarvisAudio.setPosition(60000);
       jarvisAudio.resume();
       $(e).css("background-color", "#ef3125 !important");
       $(".tab-1").css("background-color", "#1792e5 !important");

@@ -154,14 +154,14 @@ else {
   					<div className="text">
   						<div>
 
-  							<p className="btnIconBlank"><span className="icon-btn"></span> </p>
+  							<p className="btnIconBlank"><span className="icon-btn email"></span> </p>
   							<p> Email: <a href="mailTo:ACSHSMVocollectTrainingRequests@honeywell.com" className="fontStyle" role="button"><u>Training</u></a></p>
   						</div>
   					</div>
   					<div className="text">
   						<div>
   							<p className="btnIconBlank btnIcon1"><span className="icon-btn"></span></p>
-  							<p>Course duration: 20 minutes</p>
+  							<p>Course duration: Approximately 20 minutes</p>
   						</div>
   					</div>
   				</div>

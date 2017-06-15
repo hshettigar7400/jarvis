@@ -82,7 +82,7 @@
                         "id": "question",
 						"audioID":"p1q1",
                         "type": "mcq",
-                        "text": "As medical devices are become more portable and accessible, they will require more sensors.",
+                        "text": "As medical devices become more portable and accessible, they will require more sensors.",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                             {

@@ -13,6 +13,9 @@ var topicNamesArray = [
 ];
 
 function loadPage(pageNumber) {
+    if(pageNumber > 1) {
+        document.querySelector('.back-button').classList.remove("disabled");
+    }
   $(".page-number").html(pageNumber);
   if (document.querySelector('.next-button'))
     document.querySelector('.next-button').classList.remove("blinker");

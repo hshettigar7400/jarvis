@@ -363,6 +363,10 @@ body {
   border: 0;
 }
 
+.email
+{
+	margin-left: -15px;
+}
 .loading:not(:required):after {
   content: '';
   display: block;

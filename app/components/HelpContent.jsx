@@ -91,7 +91,7 @@ var HelpContent = React.createClass ({
             <div className="title-container">
               <p>Play/Pause</p>
               <div className="iconbg btnbg">
-                <span className="icon-playPause"></span>
+                <span className="icon-playPause"></span>
               </div>
             </div>
             <div className="button-container">
@@ -144,7 +144,7 @@ var HelpContent = React.createClass ({
             <div className="title-container">
               <p>Audio On/Off</p>
               <div className="iconbg btnbg">
-                <span className="icon-audio"></span>
+                <span className="icon-audio"></span>
               </div>
             </div>
             <div className="button-container">
@@ -157,7 +157,7 @@ var HelpContent = React.createClass ({
             <div className="title-container">
               <p>Transcript Text</p>
               <div className="iconbg btnbg">
-                <span className="icon-transcript"></span>
+                <span className="icon-transcript"></span>
               </div>
             </div>
             <div className="button-container">

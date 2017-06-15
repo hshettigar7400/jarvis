@@ -13,6 +13,9 @@
     margin: auto;
     margin-left: 4%;
     margin-top: 1%;
+      opacity: 0.8;
+       background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
+          height: 420px;
   }
 
   .m01_t01_p06 .flex-container {
@@ -34,6 +37,7 @@
 
   .m01_t01_p06 .bg {
     background-color: #fff;
+     
     height: 100%;
   }
 
@@ -116,7 +120,7 @@
   }
 
   .m01_t01_p06 ul li {
-    font-size: 1.3em;
+    font-size: 1em;
     color: #000;
   }
 
@@ -133,12 +137,15 @@
 
   .m01_t01_p06 .img_caption {
     color: #000;
-    font-size: 1.5em;
+    font-size: 1em;
     text-align: center;
     margin-top: 2%;
+	font-weight: bold;
   }
-
-
+	.m01_t01_p06 .popup_second img
+	{
+	    border: 2px solid black;
+	}
   @media only screen and (max-device-width: 1024px) {
 
 
@@ -156,6 +163,8 @@
       margin: auto;
       margin-left: 4%;
       margin-top: 1%;
+         background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
+          height: 420px;
     }
 
     .m01_t01_p06 .flex-container {
@@ -253,7 +262,7 @@
     }
 
     .m01_t01_p06 ul li {
-      font-size: 1.3em;
+      font-size: 1em;
       color: #000;
     }
 
@@ -296,6 +305,8 @@
       margin: auto;
       margin-left: 4%;
       margin-top: 1%;
+         background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
+          height: 420px;
     }
 
     .m01_t01_p06 .flex-container {
@@ -373,6 +384,8 @@
       margin: auto;
       margin-left: 4%;
       margin-top: 1%;
+         background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
+          height: 420px;
     }
 
     .m01_t01_p06 .flex-container {
@@ -448,19 +461,19 @@
                 <a href="#" onclick="openPopup(this, 1, 24000)">Kidney dialysis machines</a>
               </div>
               <div class="button">
-                <a href="#" onclick="openPopup(this, 2, 40000)">Respiratory</a>
+                <a href="#" onclick="openPopup(this, 2, 41000)">Respiratory</a>
               </div>
               <div class="button">
                 <a href="#" onclick="openPopup(this, 3, 69000)">Diagnostic/analytical equipment</a>
               </div>
               <div class="button">
-                <a href="#" onClick="openPopup(this, 4, 81000)">Hospital hardware</a>
+                <a href="#" onClick="openPopup(this, 4, 82000)">Hospital hardware</a>
               </div>
               <div class="button">
                 <a href="#" onclick="openPopup(this, 5, 98000)">Dental equipment</a>
               </div>
               <div class="button">
-                <a href="#" onclick="openPopup(this, 6, 115000)">Surgical instruments</a>
+                <a href="#" onclick="openPopup(this, 6, 114000)">Surgical instruments</a>
               </div>
               <div class="button">
                 <a href="#" onclick="openPopup(this, 7, 131000)">Patient monitoring systems</a>
@@ -651,14 +664,15 @@
 </div>
 
 <script>
-  var qPoints = [0, 24, 72, 8, 12, 14, 18];
-  var qPointsExecution = ["", "pauseSound()", "pauseSound()", "pauseSound()", "", "", ""];
+  var qPoints = [0, 24, 41, 69, 82, 98, 115, 131, 161, 8, 12, 14, 18];
+  var qPointsExecution = ["", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "", "", "", ""];
   var currentCuePointId = 0;
   var imageSwap = false;
 
   function openPopup(e, id, cuePoints) {
     $(".popup-content").hide();
     $("#popup" + id).show();
+      $(".right-side").css('background','none');
     jarvisAudio.setPosition(cuePoints);
     jarvisAudio.resume();
     $(".button").removeClass("highlight-button");

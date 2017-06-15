@@ -8,8 +8,7 @@
         Medical applications for Honeywell sensors—Activity
       </div>
       <div class="activity-instruction">
-        Drag and drop each medical equipment label on to the correct medical application in which Honeywell sensors are used. After making a drop, select Proceed to view the next medical application label and its drop options.
-        Select Start to begin.
+        Drag and drop each medical equipment label on to the correct medical application in which Honeywell sensors are used. After making a drop, select <b>Proceed</b> to view the next medical application label and its drop options.
       </div>
       <div class="activity-condition">
         <div>
@@ -22,7 +21,7 @@
         </div>
       </div>
       <div class="activity-action">
-        Select start to begin
+        Select <b>start</b> to begin
         <a role="button" onclick="startActivity()" class="start-button disabled"> Start</a>
       </div>
     </div>
@@ -443,6 +442,7 @@ function tryAgainActivity() {
   correctAns = 0;
   timeTaken = "";
   activityAttempt++;
+    soundManager.stopAll();
   $(".activity-feedback-container").fadeOut( "slow", function() {
     $(".activity-slider").css("left", 0);
     $("#activity1").show();

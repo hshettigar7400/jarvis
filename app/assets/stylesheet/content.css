@@ -271,7 +271,7 @@ b{font-weight:bold;}
     m01_t01_p04
 **/
 .m01_t01_p04 {background-color: #e1f4fb;margin: 0;padding: 0;padding-bottom: 25px;position: relative;top:-16px;}
-.m01_t01_p04 .template-panel .image-holder {width: 100%;height: 100%;}
+.m01_t01_p04 .template-panel .image-holder {width: 100%;height: 100%; margin-top: 10px;}
 .m01_t01_p04 .template-panel .image-holder .img1 {background: url("../../images/m01_t01_p04/m01_t01_p04_01_large.jpg");background-position: left top;background-repeat: no-repeat;min-width: 100%; min-height: 82vh;background-size: contain;z-index: 1;position:relative;}
 .m01_t01_p04 .template-panel .image-holder .img2 {background: url("../../images/m01_t01_p04/m01_t01_p04_02_large.jpg");background-position: left top;background-repeat: no-repeat;min-width: 100%; min-height: 82vh;background-size: contain;z-index: 2;position:relative;}
 .m01_t01_p04 .template-panel .image-holder .img3 {background: url("../../images/m01_t01_p04/m01_t01_p04_03_large.jpg");background-position: left top;background-repeat: no-repeat;min-width: 100%; min-height: 82vh;background-size: contain;z-index: 3;position:relative;}
@@ -306,6 +306,8 @@ b{font-weight:bold;}
   vertical-align: middle;
   font-size: 1.25em;
   color: #ffffff;
+    display: inline-block;
+    width: 70%;
 }
 
 .content-tab > p {
@@ -329,13 +331,17 @@ b{font-weight:bold;}
 }
 
 .m01_t01_p04 .image-container {
-  display: flex;
+  display: inline-block;
+    width: 100%;
+    margin: auto;
+    text-align: center;
 }
 
 .m01_t01_p04 .image-container > div {
   top: 150px;
   margin: 0 auto;
   position: relative;
+    display: inline-block;
 }
 
 figcaption {
@@ -820,6 +826,7 @@ figcaption {
 .final-assessment .intro-text b{color:#EE3124;font-size: 1.4em;}
 .final-assessment .headerIntro{background-color:#FFF;font-size: 1.3em;padding: 15px;}
 .final-assessment .contentIntro{padding: 15px;padding-bottom:10px;padding-right: 30px;z-index:1;color:#FFF;width: auto;}
+
 .final-assessment .goodLuck{font-size:1.5em}
 .final-assessment .percentage{font-size:1.5em}
 .final-assessment .instructionIntro{color:#CCDC00}

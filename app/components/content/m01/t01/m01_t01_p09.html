@@ -1,18 +1,43 @@
+
+<style>
+
+ul li
+{
+list-style-type: circle;
+}
+
+</style>
 <link rel="stylesheet" type="text/css" href="assets/stylesheet/content.css">
 
     <div id="player" class="page final-assessment">
         <div class="start-page" >
             <div class="intro-text">
-                <div class="headerIntro">Welcome to the <b>Quiz</b>.</div>
+                <div class="headerIntro">Welcome to the <b>Quiz</b></div>
                 <div class="contentIntro">
-                    <p class="sync1" data-index="2" >Select the best answer(s) for each question and proceed to the next question. At the end of the quiz, submit your responses.</p>
-                    <p class="sync2" data-index="3" >When you are done, your score will be displayed.</p>
-                    <p class="sync2" data-index="3" >You must score 80% or better to pass the quiz.</p>
-                    <p class="sync2" data-index="3" >You have an unlimited number of attempts to pass the quiz and can review the training module as needed.</p>
-                    <p class="gdlu sync2" data-index="3" >Good Luck!</p>
+                    
+                    <ul style="padding:0px">
+                        <p>Helpful tips:</p>
+				<p class="sync1" data-index="2" >
+               <li>Try this quiz as many times as needed</li></p>
+                    <p class="sync2" data-index="3" >
+                        <li>Take your time</li></p>
+                    
+                    <p class="sync2" data-index="3" >
+                         <li>Read each question carefully</li></p>
+                    <p class="sync2" data-index="3" >
+                    <li>Select the best answer</li> </p> 
+                    <p class="sync2" data-index="3" >
+                    <li>Review your work</li> </p>   
+                    <p class="sync2" data-index="3" >
+                    <li><li>Review the course material</li>
+                </p></ul> 
+                    
+                    <p class="sync2" data-index="3" >Select the <span style="font-weight: bold;">start</span> button to begin. Good Luck!</p>
+                   
                 </div>
             </div>
-            <a class="assessment-start-btn assessbtnbg tabindex sync3" href="javascript:void(0);" data-index="4" role="button" aria-disabled="false" >Start quiz</a>
+            <a class="assessment-start-btn assessbtnbg tabindex sync3" href="javascript:void(0);" data-index="4" role="button" aria-disabled="false" >Start</a>
+            
             <div class="assessBg"></div>
         </div>
         <div class = "template-holder assessment-container">
@@ -54,4 +79,6 @@ assessment_config = {
         container: '.assessment-holder',
         isMobileFirst: 1
     })
+    
+ 
 </script>
