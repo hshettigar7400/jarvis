@@ -27,11 +27,13 @@
 }
 
 .fadeOut {
-  opacity: 0;
+  /*opacity: 0;*/
+    display: none;
 }
 
 .fadeIn {
-  opacity: 1;
+  /*opacity: 1;*/
+    display: block;
   transition: .5s;
 }
 

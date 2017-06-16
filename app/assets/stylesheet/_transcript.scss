@@ -42,3 +42,17 @@
   color: #333333;
   overflow-y: auto;
 }
+
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+      
+        .transcript-container {
+        width: 270px;
+        max-height: 240px;
+        margin: 0 auto;
+        bottom: 50%;
+        right: 0%;
+        z-index: 99999;
+        position: fixed;
+      }
+      
+}
