@@ -5,7 +5,7 @@ module.exports = {
   context: __dirname + '/app',
   entry: {
     index: './index.js',
-    framework: './frameWork.js'
+    framework: './framework.js'
   },
   output: {
     path: __dirname + '/build',

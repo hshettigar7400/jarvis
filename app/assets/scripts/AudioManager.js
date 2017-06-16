@@ -14,8 +14,11 @@ function loadAudio(pageNum) {
       jarvisAudio.unload();
       disableButtons();
       $(".start-button").removeClass("disabled");
-      if(pageNum !== 7 )
+
+      if(Number(pageNum) !== 9 ) {
+
         document.querySelector('.next-button').classList.add("blinker");
+      }
     },
     whileplaying() {
       syncPageText(jarvisAudio.position);
