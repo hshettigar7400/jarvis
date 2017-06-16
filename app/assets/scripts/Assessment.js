@@ -526,6 +526,7 @@ function Assessment() {
     }
 
     function createEndPage() {
+      if (document.querySelector('.next-button'))
         document.querySelector('.next-button').classList.remove("blinker");
         var obj = data.resultPage;
         var str = '';
