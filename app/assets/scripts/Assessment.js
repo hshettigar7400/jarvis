@@ -383,6 +383,32 @@ function Assessment() {
         var txt = obj.text;
         if (assessment_config.playQuestionAudio) {
             if (!reviewMode) {
+              if(per < assessment_config.passingScore) {
+                jarvisAudio = soundManager.createSound({
+                  url: '../app/assets/audio/m01_t01_p09_02.mp3',
+                  autoLoad: true,
+                  autoPlay: true,
+                  onload: function() {
+                  },
+                  onfinish: function() {
+                  },
+                  whileplaying() {
+                  }
+                });
+              } else {
+                jarvisAudio = soundManager.createSound({
+                  url: '../app/assets/audio/m01_t01_p09_01.mp3',
+                  autoLoad: true,
+                  autoPlay: true,
+                  onload: function() {
+                  },
+                  onfinish: function() {
+                  },
+                  whileplaying() {
+                  }
+                });
+              }
+              //
                 //var audioId = obj.audioID;
                 //FRED.contentSync.playAudioById(audioId)
                 //SUMANTH AUDIO TO BE PLAUED FOR ALL THE QUESTION SCREEN
