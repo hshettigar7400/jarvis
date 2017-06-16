@@ -1,5 +1,6 @@
 function Assessment() {
     var currentQuestion;
+    var jarvisAudio;
     var totalQuestions;
     var attemptCounter = 0;
     var data;
@@ -68,7 +69,8 @@ function Assessment() {
 	            $('.start-page').hide();
 	            $(defaults.container).show();
 	            dataLoadComplete();
-	            showQuestion(0)
+	            showQuestion(0);
+              soundManager.stopAll();
 	        });
 	        $('.player-module-0').hide()
         });
