@@ -11,7 +11,8 @@ window.pageStatusList = [0,0,0,0,0,0,0,0];
 
 window.updatePageStatusList = function(pageNum) {
 	pageStatusList[pageNum-1] = 1;
-	document.getElementById('courseProgressUpdate').style.width = getCourseProgress();
+  if (document.getElementById('courseProgressUpdate'))
+	 document.getElementById('courseProgressUpdate').style.width = getCourseProgress();
 }
 
 window.getCourseProgress = function() {
