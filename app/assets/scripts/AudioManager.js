@@ -42,12 +42,16 @@ function toggleButtonState(e) {
 }
 
 function disableButtons() {
+  if (document.getElementById('button-playPause'))
   document.getElementById('button-playPause').classList.add("disabled");
+  if (document.getElementById('button-audio'))
   document.getElementById('button-audio').classList.add("disabled");
 }
 
 function enableButtons() {
+  if (document.getElementById('button-playPause'))
   document.getElementById('button-playPause').classList.remove("disabled");
+  if (document.getElementById('button-audio'))
   document.getElementById('button-audio').classList.remove("disabled");
 }
 

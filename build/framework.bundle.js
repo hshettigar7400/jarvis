@@ -7937,7 +7937,7 @@ var topicNamesArray = ['Welcome', 'Course objectives', 'Medical devices move to 
 
 function loadPage(pageNumber) {
   if (pageNumber > 1) {
-    document.querySelector('.back-button').classList.remove("disabled");
+    if (document.querySelector('.back-button')) document.querySelector('.back-button').classList.remove("disabled");
   }
   $(".page-number").html(pageNumber);
   if (document.querySelector('.next-button')) document.querySelector('.next-button').classList.remove("blinker");
@@ -23361,13 +23361,13 @@ function toggleButtonState(e) {
 }
 
 function disableButtons() {
-  document.getElementById('button-playPause').classList.add("disabled");
-  document.getElementById('button-audio').classList.add("disabled");
+  if (document.getElementById('button-playPause')) document.getElementById('button-playPause').classList.add("disabled");
+  if (document.getElementById('button-audio')) document.getElementById('button-audio').classList.add("disabled");
 }
 
 function enableButtons() {
-  document.getElementById('button-playPause').classList.remove("disabled");
-  document.getElementById('button-audio').classList.remove("disabled");
+  if (document.getElementById('button-playPause')) document.getElementById('button-playPause').classList.remove("disabled");
+  if (document.getElementById('button-audio')) document.getElementById('button-audio').classList.remove("disabled");
 }
 
 function millisToMinutesAndSeconds(millis) {
@@ -23450,7 +23450,7 @@ window.pageStatusList = [0, 0, 0, 0, 0, 0, 0, 0];
 
 window.updatePageStatusList = function (pageNum) {
   pageStatusList[pageNum - 1] = 1;
-  document.getElementById('courseProgressUpdate').style.width = getCourseProgress();
+  if (document.getElementById('courseProgressUpdate')) document.getElementById('courseProgressUpdate').style.width = getCourseProgress();
 };
 
 window.getCourseProgress = function () {

@@ -1,4 +1,4 @@
-<style>
+ <style>
   .m01_t01_p06 .left-side {
     width: 33%;
     display: inline-block;
@@ -13,9 +13,9 @@
     margin: auto;
     margin-left: 4%;
     margin-top: 1%;
-      opacity: 0.8;
-       background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
-          height: 420px;
+    opacity: 0.8;
+    background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
+    height: 420px;
   }
 
   .m01_t01_p06 .flex-container {
@@ -37,7 +37,7 @@
 
   .m01_t01_p06 .bg {
     background-color: #fff;
-     
+
     height: 100%;
   }
 
@@ -674,6 +674,7 @@
     $("#popup" + id).show();
       $(".right-side").css('background','none');
     jarvisAudio.setPosition(cuePoints);
+    jarvisAudio.play();
     jarvisAudio.resume();
     $(".button").removeClass("highlight-button");
     $($(e).parent()).addClass("highlight-button");
