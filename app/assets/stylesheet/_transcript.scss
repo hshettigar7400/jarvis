@@ -43,16 +43,30 @@
   overflow-y: auto;
 }
 
+ @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+   .transcript-container {
+   width: 270px;
+   max-height: 240px;
+   margin: 0 auto;
+   top: 100px;
+   right: 0%;;
+
+   z-index: 99999;
+   position: fixed;
+ }
+
+ }
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-      
+
         .transcript-container {
         width: 270px;
         max-height: 240px;
         margin: 0 auto;
-        bottom: 50%;
-        right: 0%;
+        bottom: 25%;
+        right: 5%;
+      left: 0px;
         z-index: 99999;
         position: fixed;
       }
-      
+
 }
