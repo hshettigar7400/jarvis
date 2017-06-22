@@ -41,25 +41,14 @@ var PageContainer = React.createClass ({
       '../app/assets/audio/m01_t01_p09.mp3'
 
       ]
-
       });
 
       console.log('preloader: ', preloader);
-      console.log('isLoading: ', this.state.isLoading);
+
       preloader.addProgressListener(function (loaded, length) {
           console.log('loading ', loaded, length, loaded / length)
       });
-
-      preloader.addCompletionListener(function () {
-        jarvisAudio.play();
-        $('#html5Loader').css('display', 'none');
-        self.setState({
-          isLoading: false
-        });
-      });
-
-      preloader.start();
-
+      
   },
 
   componentDidUpdate(prevProps, prevState) {
@@ -77,9 +66,6 @@ var PageContainer = React.createClass ({
     else
       return false;
   },
-
-
-
 
   render() {
     let audioPath = "../app/assets/audio/m01_t01_p0'+pageNum+'.mp3";

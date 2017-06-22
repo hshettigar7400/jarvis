@@ -22813,24 +22813,13 @@ var PageContainer = React.createClass({
     var self = this;
     var preloader = new _preloader2.default({
       resources: ['../app/assets/audio/course_instruction.mp3', '../app/assets/audio/m01_t01_p01.mp3', '../app/assets/audio/m01_t01_p02.mp3', '../app/assets/audio/m01_t01_p03.mp3', '../app/assets/audio/m01_t01_p04.mp3', '../app/assets/audio/m01_t01_p05.mp3', '../app/assets/audio/m01_t01_p07_01.mp3', '../app/assets/audio/m01_t01_p07_02.mp3', '../app/assets/audio/m01_t01_p07_03.mp3', '../app/assets/audio/m01_t01_p07_04.mp3', '../app/assets/audio/m01_t01_p06.mp3', '../app/assets/audio/m01_t01_p07.mp3', '../app/assets/audio/m01_t01_p08.mp3', '../app/assets/audio/m01_t01_p09_01.mp3', '../app/assets/audio/m01_t01_p09_02.mp3', '../app/assets/audio/m01_t01_p09.mp3']
-
     });
 
     console.log('preloader: ', preloader);
-    console.log('isLoading: ', this.state.isLoading);
+
     preloader.addProgressListener(function (loaded, length) {
       console.log('loading ', loaded, length, loaded / length);
     });
-
-    preloader.addCompletionListener(function () {
-      jarvisAudio.play();
-      $('#html5Loader').css('display', 'none');
-      self.setState({
-        isLoading: false
-      });
-    });
-
-    preloader.start();
   },
   componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
     if (this.props.PageNum !== prevProps.PageNum) {
