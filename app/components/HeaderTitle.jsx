@@ -11,7 +11,7 @@ var HeaderTitle = React.createClass ({
     return (
       <div>
         <div className="course-logo">
-          <img src="../app/assets/images/logo-fred.png" />
+          <img src="../app/assets/images/logo-fred.png" className="logo_img" />
         </div>
         <div className="title-holder clearfix">
           <div id="courseTitle" className="course-title title">

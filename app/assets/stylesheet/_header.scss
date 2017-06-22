@@ -1,0 +1,47 @@
+.header {
+  background-color: $header-bg;
+  display: inline-block;
+  max-height: 61px;
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+
+.course-logo {
+  float: left;
+}
+
+
+
+
+
+.title-holder {
+  color: #5C6670;
+  display: table;
+  font-size: $base-font-size;
+  font-weight: $bold-font-weight;
+  height: 100%;
+}
+
+.title-holder > div {
+  margin-top: $base-margin * 2.5;
+  padding: 0 10px;
+  vertical-align: middle;
+}
+
+.course-progress {
+  background: #c5cdcf;
+  height: 4px;
+  position: relative;
+  top: 2px;
+  width: 100%;
+}
+
+.course-progress span {
+  background: rgb(238, 49, 36);
+  color: $black;
+  display: block;
+  height: 4px;
+  text-align: center;
+  width: 0%;
+}

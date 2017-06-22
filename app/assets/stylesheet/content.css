@@ -32,6 +32,12 @@ li::before {
     list-style: none;
 }
 
+.logo_img
+{
+height: 50px;
+margin: 5px;
+}
+
 .page ul li{ background: url("../../images/li_red.png") no-repeat scroll 0px 4px transparent; padding: 0px 0 0px 15px;margin-top: 7px;line-height: 1.3em;}
 b{font-weight:bold;}
 
@@ -391,13 +397,14 @@ figcaption {
   top: 30px !important;
 }
 
- @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+ @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
 
-     .m01_t01_p04 .sub-page {height: 150vh; display: block;}
+     .m01_t01_p04 .sub-page {height: 170vh; display: block;}
      .m01_t01_p04 .template-panel .image-holder .img1{background-image: none;}
      .m01_t01_p04 .template-panel .image-holder .img1 img{ width: 100%;}
-     .m01_t01_p04 .template-panel .image-holder div p { padding-top: 0%; position: relative; top: -50px;}
+     .m01_t01_p04 .template-panel .image-holder div p { padding-top: 0%; position: relative; top: -40px;}
 		.main_large_img{display: block;}
+    .content-tab > span {width: 50%;}
 }
 
  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
@@ -427,7 +434,7 @@ figcaption {
 .m01_t01_p05 .template-panel .content-area .part-1 .text-3 {margin-top: 30px;}
 .m01_t01_p05 .template-panel .content-area .part-1 .text-3 .text-3-box-holder {display: flex; flex-wrap: nowrap;justify-content: space-between; margin-top: 3%;}
 .m01_t01_p05 .template-panel .content-area .part-1 .text-3 .text-3-box-holder li{ background: url("../../images/li_white.png") no-repeat scroll 0px 4px transparent; padding: 0px 0 0px 15px;margin-top: 7px;line-height: 1.3em;}
-.m01_t01_p05 .template-panel .content-area .part-1 .text-3 .box-1 ul {-webkit-padding-start: 10px;}
+.m01_t01_p05 .template-panel .content-area .part-1 .text-3 .box-1 ul {-webkit-padding-start: 10px; padding: 5px;}
 .m01_t01_p05 .template-panel .content-area .part-1 .text-3 .box-1 {background: #029ddf; color: #FFF;padding: 1%;width: 30%;}
 .m01_t01_p05 .template-panel .content-area .part-1 .text-3 .box-2 {background: #ef3125; color: #FFF;padding: 1%;width: 30%;position: relative;}
 .m01_t01_p05 .template-panel .content-area .part-1 .text-3 .box-2 p {text-align: center;padding: 0px;position: absolute;width: 90%;top: 40%;transform: translate(-50%, -50%);left:50%;}
@@ -876,19 +883,7 @@ figcaption {
   color: green;
   font-weight: 700;
 }
-/**
-    m01_t01_p07
-**/
-.m01_t01_p08 {background: url(../../images/m01_t01_p07/m01_t01_p07_bg.jpg);background-position: bottom left;background-repeat: no-repeat;min-width: 100%;background-size: cover; margin: 0;padding: 0;padding-bottom: 25px;}
-.m01_t01_p08 .template-panel .content-area {padding: 10px; color: #FFF;}
-.m01_t01_p08 .template-panel .content-area .content-holder {width: 60%;background: rgba(0, 0, 0, 0.5);padding-left: 15px;}
-.m01_t01_p08 .template-panel .content-area ul li {list-style: disc; background: none;padding: 3px;}
-.m01_t01_p08 .template-panel .content-area ol li {padding: 3px;}
 
-@media all and (max-width: 768px) {
-  .m01_t01_p08 {background: url(../../images/m01_t01_p07/m01_t01_p07_bg.jpg);background-position: right bottom;background-size: cover;}
-  .m01_t01_p08 .template-panel .content-area .content-holder {width: 75%;background: rgba(0, 0, 0, 0.5);padding-left: 15px;}
-}
 @media all and (max-width: 480px) {
   .drag-element {
   margin-top: 10px;
@@ -956,6 +951,29 @@ figcaption {
     right: 10px;
   }
 }
+
+ @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+	 .m01_t01_p07
+	 {
+		 height: 400px;
+
+
+	 }
+ }
+/**
+    m01_t01_p07
+**/
+.m01_t01_p08 {background: url(../../images/m01_t01_p07/m01_t01_p07_bg.jpg);background-position: bottom left;background-repeat: no-repeat;min-width: 100%;background-size: cover; margin: 0;padding: 0;padding-bottom: 25px;}
+.m01_t01_p08 .template-panel .content-area {padding: 10px; color: #FFF;}
+.m01_t01_p08 .template-panel .content-area .content-holder {width: 60%;background: rgba(0, 0, 0, 0.5);padding-left: 15px;}
+.m01_t01_p08 .template-panel .content-area ul li {list-style: disc; background: none;padding: 3px;}
+.m01_t01_p08 .template-panel .content-area ol li {padding: 3px;}
+
+@media all and (max-width: 768px) {
+  .m01_t01_p08 {background: url(../../images/m01_t01_p07/m01_t01_p07_bg.jpg);background-position: right bottom;background-size: cover;}
+  .m01_t01_p08 .template-panel .content-area .content-holder {width: 75%;background: rgba(0, 0, 0, 0.5);padding-left: 15px;}
+}
+
 
 /*
   final-assessment
