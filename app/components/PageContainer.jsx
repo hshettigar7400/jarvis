@@ -1,6 +1,77 @@
 var React = require('react'),
-{loadPage} = require('../components/Navigate.js');
+{loadPage} = require('../components/Navigate.js'),
+{loadAudio} = require('../assets/scripts/AudioManager.js'),
+$ = require('jquery');
 import Preloader from 'preloader.js';
+
+var pageAssets = [
+  [
+    'images/m01_t01_p01/img1.png',
+    '../app/assets/audio/m01_t01_p01.mp3'
+  ],
+  [
+    '../app/assets/audio/m01_t01_p02.mp3'
+  ],
+  [
+    'images/m01_t01_p03/Slide_08_image_01.jpg',
+    'images/m01_t01_p03/Slide_08_image_02.jpg',
+    '../app/assets/audio/m01_t01_p03.mp3'
+  ],
+  [
+    'images/m01_t01_p04/m01_t01_p04_01_large.jpg',
+    'images/m01_t01_p04/m01_t01_p04_02.jpg',
+    'images/m01_t01_p04/m01_t01_p04_03.jpg',
+    'images/m01_t01_p04/m01_t01_p04_04.jpg',
+    'images/m01_t01_p04/m01_t01_p04_05.jpg',
+    'images/m01_t01_p04/m01_t01_p04_06.jpg',
+    'images/m01_t01_p04/m01_t01_p04_07.jpg',
+    'images/m01_t01_p04/m01_t01_p04_08.jpg',
+    'images/m01_t01_p04/m01_t01_p04_09.jpg',
+    'images/m01_t01_p04/m01_t01_p04_10.jpg',
+    'images/m01_t01_p04/m01_t01_p04_11.jpg',
+    'images/m01_t01_p04/icon1.png',
+    'images/m01_t01_p04/icon2.png',
+    'images/m01_t01_p04/icon3.png',
+    'images/m01_t01_p04/arrow.png',
+    '../app/assets/audio/m01_t01_p04.mp3'
+  ],
+  [
+    'images/m01_t01_p05/arrow.png',
+    'images/m01_t01_p05/m01_t01_p05_img1.jpg',
+    '../app/assets/audio/m01_t01_p05.mp3'
+  ],
+  [
+    '../app/assets/audio/m01_t01_p06.mp3',
+    'images/m01_t01_p06/image1.jpg',
+    'images/m01_t01_p06/image2.jpg',
+    'images/m01_t01_p06/image3.jpg',
+    'images/m01_t01_p06/image4.jpg',
+    'images/m01_t01_p06/image5.jpg',
+    'images/m01_t01_p06/image6.jpg',
+    'images/m01_t01_p06/image7.jpg',
+    'images/m01_t01_p06/image8.jpg',
+    'images/m01_t01_p06/medical_device_bg_images.png',
+
+  ],
+  [
+    '../app/assets/audio/m01_t01_p07_01.mp3',
+    '../app/assets/audio/m01_t01_p07_02.mp3',
+    '../app/assets/audio/m01_t01_p07_03.mp3',
+    '../app/assets/audio/m01_t01_p07_04.mp3',
+    '../app/assets/audio/m01_t01_p07.mp3'
+  ],
+  [
+    'images/m01_t01_p07/m01_t01_p07_bg.jpg',
+    'images/m01_t01_p07/m01_t01_p07_bg1.jpg',
+    '../app/assets/audio/m01_t01_p08.mp3'
+  ],
+  [
+    '../app/assets/audio/m01_t01_p09_01.mp3',
+    '../app/assets/audio/m01_t01_p09_02.mp3',
+    '../app/assets/audio/m01_t01_p09.mp3'
+  ]
+]
+
 var PageContainer = React.createClass ({
   propTypes: {
     PageNum: React.PropTypes.number,
@@ -11,43 +82,27 @@ var PageContainer = React.createClass ({
 
   getInitialState() {
     return {
-      finishedPlaying: false,
-      stopAudio: false,
-      currentAudioPosition: 0,
       isLoading: true,
     }
   },
 
   componentDidMount() {
-    loadPage(this.props.PageNum);
-    var self = this;
+    $(".loading").show();
     var preloader = new Preloader({
-      resources: [
-      '../app/assets/audio/course_instruction.mp3',
-      '../app/assets/audio/m01_t01_p01.mp3',
-      '../app/assets/audio/m01_t01_p02.mp3',
-      '../app/assets/audio/m01_t01_p03.mp3',
-      '../app/assets/audio/m01_t01_p04.mp3',
-      '../app/assets/audio/m01_t01_p05.mp3',
-      '../app/assets/audio/m01_t01_p07_01.mp3',
-      '../app/assets/audio/m01_t01_p07_02.mp3',
-      '../app/assets/audio/m01_t01_p07_03.mp3',
-      '../app/assets/audio/m01_t01_p07_04.mp3',
-      '../app/assets/audio/m01_t01_p06.mp3',
-      '../app/assets/audio/m01_t01_p07.mp3',
-      '../app/assets/audio/m01_t01_p08.mp3',
-      '../app/assets/audio/m01_t01_p09_01.mp3',
-      '../app/assets/audio/m01_t01_p09_02.mp3',
-      '../app/assets/audio/m01_t01_p09.mp3'
-
-      ]
+      resources:pageAssets[0]
       });
-
-      // console.log('preloader: ', preloader);
 
       preloader.addProgressListener(function (loaded, length) {
           // console.log('loading ', loaded, length, loaded / length)
       });
+
+      preloader.addCompletionListener(function () {
+        $(".loading").hide();
+        loadPage(1);
+        loadAudio(1)
+      });
+
+      preloader.start();
 
   },
 
@@ -58,28 +113,43 @@ var PageContainer = React.createClass ({
     }
   },
 
+  componentWillReceiveProps(nextProps) {
+    $(".loading").show();
+    var preloader = new Preloader({
+      resources:pageAssets[this.props.PageNum]
+      });
 
+      preloader.addProgressListener(function (loaded, length) {
+        console.log('loading ', loaded, length, loaded / length)
+      });
 
-  shouldComponentUpdate: function(nextProps, nextState) {
-    if(this.props.PageNum !== nextProps.PageNum || this.props.volume !== nextProps.volume || this.props.audioState !== nextProps.audioState || this.state.stopAudio !== nextState.stopAudio)
-      return true;
-    else
-      return false;
+      preloader.addCompletionListener(function () {
+        $(".loading").hide();
+        loadPage(nextProps.PageNum);
+        loadAudio(nextProps.PageNum)
+      });
+
+      preloader.start();
   },
 
+/*  shouldComponentUpdate: function(nextProps, nextState) {
+    //if(this.props.PageNum !== nextProps.PageNum || this.props.volume !== nextProps.volume || this.props.audioState !== nextProps.audioState || this.state.stopAudio !== nextState.stopAudio)
+    //  return true;
+  //  else
+    //  return false;
+  },
+*/
   render() {
-    let audioPath = "../app/assets/audio/m01_t01_p0'+pageNum+'.mp3";
     return (
       <div className="page-holder">
+        <div className="loading">Loading&#8230;</div>
         <div className="page-title__container">
           <span className="topic-title">
-
           </span>
-          <span className="page-title">Welcome</span>
+          <span className="page-title"></span>
         </div>
         <div ref="pageLoader" className="page-loader">
         </div>
-
       </div>
     )
   }

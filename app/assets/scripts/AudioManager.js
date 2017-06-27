@@ -16,7 +16,6 @@ function loadAudio(pageNum) {
       $(".start-button").removeClass("disabled");
 
       if(Number(pageNum) !== 9 ) {
-
         document.querySelector('.next-button').classList.add("blinker");
       }
     },
@@ -86,7 +85,7 @@ function highlightElement(id) {
 }
 
 function syncPageText(position) {
-    $("#button-playPause").removeClass("selected");
+  $("#button-playPause").removeClass("selected");
   if (qPoints !== null && currentCuePointId != undefined) {
      var t = millisToMinutesAndSeconds(position);
      if (t == qPoints[currentCuePointId]) {

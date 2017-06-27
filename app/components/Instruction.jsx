@@ -17,44 +17,7 @@ componentDidMount() {
   var self = this;
   var preloader = new Preloader({
     resources: [
-      'images/m01_t01_p02/m01_t01_p02_img1.png',
-      'images/m01_t01_p03/Slide_08_image_01.jpg',
-      'images/m01_t01_p03/Slide_08_image_02.jpg',
-      'images/m01_t01_p04/m01_t01_p04_01_large.jpg',
-      'images/m01_t01_p04/m01_t01_p04_02.jpg',
-      'images/m01_t01_p04/m01_t01_p04_03.jpg',
-      'images/m01_t01_p04/m01_t01_p04_04.jpg',
-      'images/m01_t01_p04/m01_t01_p04_05.jpg',
-      'images/m01_t01_p04/m01_t01_p04_06.jpg',
-      'images/m01_t01_p04/m01_t01_p04_07.jpg',
-      'images/m01_t01_p04/m01_t01_p04_08.jpg',
-      'images/m01_t01_p04/m01_t01_p04_09.jpg',
-      'images/m01_t01_p04/m01_t01_p04_10.jpg',
-      'images/m01_t01_p04/m01_t01_p04_11.jpg',
-      'images/m01_t01_p04/icon1.png',
-      'images/m01_t01_p04/icon2.png',
-      'images/m01_t01_p04/icon3.png',
-      'images/m01_t01_p04/arrow.png',
-      'images/m01_t01_p05/m01_t01_p05_img1.jpg',
-      'images/m01_t01_p05/arrow.png',
-      'images/m01_t01_p07/m01_t01_p07_bg.jpg',
-      'images/m01_t01_p07/m01_t01_p07_bg1.jpg',
-      '../app/assets/audio/course_instruction.mp3',
-      '../app/assets/audio/m01_t01_p01.mp3',
-      '../app/assets/audio/m01_t01_p02.mp3',
-      '../app/assets/audio/m01_t01_p03.mp3',
-      '../app/assets/audio/m01_t01_p04.mp3',
-      '../app/assets/audio/m01_t01_p05.mp3',
-      '../app/assets/audio/m01_t01_p07_01.mp3',
-      '../app/assets/audio/m01_t01_p07_02.mp3',
-      '../app/assets/audio/m01_t01_p07_03.mp3',
-      '../app/assets/audio/m01_t01_p07_04.mp3',
-      '../app/assets/audio/m01_t01_p06.mp3',
-      '../app/assets/audio/m01_t01_p07.mp3',
-      '../app/assets/audio/m01_t01_p08.mp3',
-      '../app/assets/audio/m01_t01_p09_01.mp3',
-      '../app/assets/audio/m01_t01_p09_02.mp3',
-      '../app/assets/audio/m01_t01_p09.mp3'
+      '../app/assets/audio/course_instruction.mp3'
       ],
     concurrency: 0
   });
@@ -78,6 +41,7 @@ componentDidMount() {
 
 startCourse() {
   this.setState({isStartCourse: true});
+  soundManager.stopAll();
 },
 
 playInstructionAudio() {
