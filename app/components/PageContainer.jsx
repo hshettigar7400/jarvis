@@ -100,7 +100,7 @@ var PageContainer = React.createClass ({
       });
 
       preloader.addProgressListener(function (loaded, length) {
-        console.log('loading ', loaded, length, loaded / length)
+          // console.log('loading ', loaded, length, loaded / length)
       });
 
       preloader.addCompletionListener(function () {
@@ -110,6 +110,7 @@ var PageContainer = React.createClass ({
       });
 
       preloader.start();
+
   },
 
   componentDidUpdate(prevProps, prevState) {

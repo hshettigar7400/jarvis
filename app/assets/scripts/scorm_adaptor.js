@@ -4,32 +4,32 @@ var LMSFinishCalled = false;
 var userPassed = false;
 var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 var sessionSetTimeOut;
-function scormAdaptor_getAPI(){
+export function scormAdaptor_getAPI(){
 
   var myAPI = null;
-  var tries = 0, triesMax = 10;  
+  var tries = 0, triesMax = 10;
   while (tries <= triesMax && myAPI == null){
     myAPI = findAPI(window);
-    
+
     if (myAPI == null && typeof(window.parent) != 'undefined'){
     	myAPI = findAPI(window.parent);
     }
-    
+
     if (myAPI == null && typeof(window.top) != 'undefined'){
     	myAPI = findAPI(window.top);
-    }	
+    }
 
     if (myAPI == null && typeof(window.opener) != 'undefined'){
     	if (window.opener != null && !window.opener.closed){
     		myAPI = findAPI(window.opener);
     	}
-    	
+
     	try {
 		if (myAPI == null && typeof(window.opener.parent) != 'undefined'){
 			myAPI = findAPI(window.opener.parent);
-		}	
+		}
 	} catch(e) {}
-	
+
 		try {
 		    if (myAPI == null && typeof(window.opener.top) != 'undefined'){
 			if (window.opener.top != null && !window.opener.top.closed){
@@ -37,27 +37,27 @@ function scormAdaptor_getAPI(){
 			}
 
 			if (myAPI == null && window.opener.top.opener != null && !window.opener.top.opener.closed){
-				myAPI = findAPI(window.opener.top.opener);			
+				myAPI = findAPI(window.opener.top.opener);
 
 				if (myAPI == null && window.opener.top.opener.top != null && !window.opener.top.opener.top.closed){
 					myAPI = findAPI(window.opener.top.opener.top);
-				}			
-			}	
+				}
+			}
 		    }
 		} catch(e) {}
-		
+
     }
     tries++;
   }
   if (myAPI == null){
-  	
+
   } else {
     scormAPIHandle = myAPI;
     //scormAdaptor_adlOnload();
   }
 }
 
-function findAPI(win){
+export function findAPI(win){
   if (typeof(win) != 'undefined' ? typeof(win.API) != 'undefined' : false){
     if (win.API != null )  return win.API;
   }
@@ -69,15 +69,15 @@ function findAPI(win){
   return null;
 }
 
-// KB - This function earlier was on Load of Player html .. now calling after API is found .. 
-function scormAdaptor_adlOnload(){
+// KB - This function earlier was on Load of Player html .. now calling after API is found ..
+export function scormAdaptor_adlOnload(){
   if (scormAPIHandle != null){
     var res = scormAPIHandle.LMSInitialize("");
     	if (res=="true"){
     	}else{
     	}
     	fGetLastError();
-    	
+
     	fGetLastError();
     	fGetLastError();
 
@@ -86,11 +86,11 @@ function scormAdaptor_adlOnload(){
 
 	var res = scormAPIHandle.LMSGetValue("cmi.core.entry");
     	fGetLastError();
-    	
+
 
 	var res = scormAPIHandle.LMSGetValue("cmi.comments");
     	fGetLastError();
-    	
+
 	var res = scormAPIHandle.LMSGetValue("cmi.objectives._children");
     	fGetLastError();
 
@@ -108,23 +108,23 @@ function scormAdaptor_adlOnload(){
     	scormAdaptor_incomplete();
     	if(is_chrome) sessionSetTimeOut = setTimeout("scormAdaptor_setSessionTime()",30000);
     	// only for SABA
-    	//keepLMSAlive();	
+    	//keepLMSAlive();
   }
 }
 
-function fGetLastError(){
+export function fGetLastError(){
 	if(scormAPIHandle != null){
 		var res = scormAPIHandle.LMSGetLastError();
 		if (res=="0"){
 		}else{
-		}	
+		}
 	}
 }
 
-function scormAdaptor_adlOnunload(){
+export function scormAdaptor_adlOnunload(){
 	if(! LMSFinishCalled){
 		if (scormAPIHandle != null){
-		
+
 			scormAdaptor_setSessionTime();
 
 			// only for SABA
@@ -139,7 +139,7 @@ function scormAdaptor_adlOnunload(){
   }
 }
 
-function scormAdaptor_isAPI(){
+export function scormAdaptor_isAPI(){
 	if(scormAPIHandle != null){
 		return true
 	}else{
@@ -147,7 +147,7 @@ function scormAdaptor_isAPI(){
 	}
 }
 
-function scormAdaptor_getstatus(){
+export function scormAdaptor_getstatus(){
 	if(scormAPIHandle != null){
 		var res = scormAPIHandle.LMSGetValue("cmi.core.lesson_status");
 		fGetLastError();
@@ -156,13 +156,13 @@ function scormAdaptor_getstatus(){
 }
 
 
-function scormAdaptor_getlocation(){
+export function scormAdaptor_getlocation(){
   if(scormAPIHandle != null){
     var res = scormAPIHandle.LMSGetValue("cmi.core.lesson_location");
     return res;
     fGetLastError();
-  }else if($.jStorage.storageAvailable()){
-  	var res = $.jStorage.get("_lesson_location");
+  }else if(localStorage){
+  	var res = localStorage.getItem("_lesson_location");
   	if (res == null){
   		res = "";
   	}
@@ -172,7 +172,7 @@ function scormAdaptor_getlocation(){
   }
 }
 
-function scormAdaptor_setlocation(lPageNum){
+export function scormAdaptor_setlocation(lPageNum){
 	if(scormAPIHandle != null){
 		var res = scormAPIHandle.LMSSetValue("cmi.core.lesson_location", lPageNum);
 		if (res=="true"){
@@ -180,15 +180,15 @@ function scormAdaptor_setlocation(lPageNum){
 		}
 		fGetLastError();
 		if(is_chrome){
-			scormAdaptor_setSessionTime();	
-		}		
+			scormAdaptor_setSessionTime();
+		}
   }
-  /*else if($.jStorage.storageAvailable()){
-  	$.jStorage.set("_lesson_location",lPageNum);
-  }	*/	  
+  else {
+  	localStorage.setItem("_lesson_location",lPageNum);
+  }
 }
 
-function scormAdaptor_complete(){
+export function scormAdaptor_complete(){
 	if(scormAPIHandle != null){
 		//var res = scormAPIHandle.LMSSetValue("cmi.core.lesson_status", "passed");
 		var res = scormAPIHandle.LMSSetValue("cmi.core.lesson_status", "completed");
@@ -200,7 +200,7 @@ function scormAdaptor_complete(){
 	}
 }
 
-function scormAdaptor_incomplete(){
+export function scormAdaptor_incomplete(){
 	if(scormAPIHandle != null){
 		var status = scormAPIHandle.LMSGetValue("cmi.core.lesson_status");
 		fGetLastError();
@@ -214,7 +214,7 @@ function scormAdaptor_incomplete(){
 	}
 }
 
-function scormAdaptor_failed(){
+export function scormAdaptor_failed(){
 	if(scormAPIHandle != null){
 		var status = scormAPIHandle.LMSGetValue("cmi.core.lesson_status");
 		fGetLastError();
@@ -228,7 +228,7 @@ function scormAdaptor_failed(){
 	}
 }
 
-function scormAdaptor_setmaxscore(score){
+export function scormAdaptor_setmaxscore(score){
 	if(scormAPIHandle != null ){
 		var res = scormAPIHandle.LMSSetValue("cmi.core.score.max", score);
 		if (res == "true"){
@@ -238,7 +238,7 @@ function scormAdaptor_setmaxscore(score){
 	}
 }
 
-function scormAdaptor_setminscore(score){
+export function scormAdaptor_setminscore(score){
 	if(scormAPIHandle != null ){
 		var res = scormAPIHandle.LMSSetValue("cmi.core.score.min", score);
 		if (res == "true"){
@@ -250,58 +250,59 @@ function scormAdaptor_setminscore(score){
 
 
 
-function scormAdaptor_setscore(score){
+export function scormAdaptor_setscore(score){
 	if(scormAPIHandle != null ){
 		var res = scormAPIHandle.LMSSetValue("cmi.core.score.raw", score);
 		if (res == "true"){
 		}else{
 		}
 		fGetLastError();
-	}else if($.jStorage.storageAvailable()){
-  		$.jStorage.set("_score",score);
-  	}	
+	}else {
+  		localStorage.setItem("_score",score);
+  	}
 }
 
-function scormAdaptor_getscore(){
+export function scormAdaptor_getscore(){
   if(scormAPIHandle != null ){
     	var res = scormAPIHandle.LMSGetValue("cmi.core.score.raw");
     	fGetLastError();
     	if (res==""){
     		res = "0";
     	}
-    	return res;  
-    	
-   }else if($.jStorage.storageAvailable()){
-	var res = $.jStorage.get("_score");
+    	return res;
+
+   }else if(localStorage){
+	var res = localStorage.getItem("_score");
 	if (res == null){
 		res = "";
 	}
 	return res;
    } else {
-   	return 0;  
+   	return 0;
    }
  }
 
-function scormAdaptor_setsuspenddata(args){
+export function scormAdaptor_setsuspenddata(args){
+
 	if(scormAPIHandle != null){
 		var res = scormAPIHandle.LMSSetValue("cmi.suspend_data", args);
 		if (res == "true"){
 		}else{
 		}
 		fGetLastError();
-	}else if($.jStorage.storageAvailable()){
-  		$.jStorage.set("_suspend_data",args);
+	}else {
+  		localStorage.setItem("_suspend_data",args);
   	}
 }
 
-function scormAdaptor_getsuspenddata(){
+export function scormAdaptor_getsuspenddata(){
 	if(scormAPIHandle != null){
         	var res = scormAPIHandle.LMSGetValue("cmi.suspend_data");
         	fGetLastError();
 
         	return res;
-	}else if($.jStorage.storageAvailable()){
-		var res = $.jStorage.get("_suspend_data");
+	}else if(localStorage){
+		var res = localStorage.getItem("_suspend_data");
 		if (res == null){
 			res = "";
 		}
@@ -311,7 +312,7 @@ function scormAdaptor_getsuspenddata(){
 	}
 }
 
-function scormAdaptor_getstudentname(){
+export function scormAdaptor_getstudentname(){
 	if(scormAPIHandle != null){
         	var res = scormAPIHandle.LMSGetValue("cmi.core.student_name");
         	fGetLastError();
@@ -321,7 +322,7 @@ function scormAdaptor_getstudentname(){
 	}
 }
 
-function scormAdaptor_getstudentid(){
+export function scormAdaptor_getstudentid(){
 	if(scormAPIHandle != null){
         	var res = scormAPIHandle.LMSGetValue("cmi.core.student_id");
         	fGetLastError();
@@ -331,19 +332,19 @@ function scormAdaptor_getstudentid(){
 	}
 }
 
-function scormAdaptor_commit(){
+export function scormAdaptor_commit(){
 	if(scormAPIHandle != null){
 		var res = scormAPIHandle.LMSCommit("");
 		if (res == "true"){
 		}else{
 		}
 		fGetLastError();
-	}	
+	}
 }
 
 /*function scormAdaptor_setInteraction(lNum, lId, lType, lCorrectResponses, lStudentResponse, lResult){
 	return ;
-	
+
 	scormAPIHandle.LMSSetValue("cmi.interactions."+lNum+".id",lId);
 	scormAPIHandle.LMSSetValue("cmi.interactions."+lNum+".type",lType);
 	scormAPIHandle.LMSSetValue("cmi.interactions."+lNum+".correct_responses.0.pattern",lCorrectResponses);
@@ -351,7 +352,7 @@ function scormAdaptor_commit(){
 	scormAPIHandle.LMSSetValue("cmi.interactions."+lNum+".result",lResult);
 }*/
 
-function scormAdaptor_setInteraction(lNum, lId, lType, lStudentResponse){
+export function scormAdaptor_setInteraction(lNum, lId, lType, lStudentResponse){
 
 	scormAPIHandle.LMSSetValue("cmi.interactions."+lNum+".id",lId);
 	scormAPIHandle.LMSSetValue("cmi.interactions."+lNum+".type",lType);
@@ -384,7 +385,7 @@ function scormAdaptor_setSessionTime(){
 	{
 		formattedTime = "00:00:00.0";
 	}
-			
+
 	if(scormAPIHandle != null){
 		var res = scormAPIHandle.LMSSetValue("cmi.core.session_time", formattedTime);
 		if (res == "true"){
@@ -431,10 +432,10 @@ function getduration(ts){
      return strTime;
 }
 
-// KB - Commenting this here... calling from document onload .. 
+// KB - Commenting this here... calling from document onload ..
 // scormAdaptor_getAPI();
 
-// only for SABA 
+// only for SABA
 function convertTotalSeconds(ts)
 {
    var sec = (ts % 60);
@@ -445,7 +446,7 @@ function convertTotalSeconds(ts)
 
    // convert seconds to conform to CMITimespan type (e.g. SS.00)
    sec = Math.round(sec*100)/100;
-   
+
    var strSec = new String(sec);
    var strWholeSec = strSec;
    var strFractionSec = "";
@@ -455,13 +456,13 @@ function convertTotalSeconds(ts)
       strWholeSec =  strSec.substring(0, strSec.indexOf("."));
       strFractionSec = strSec.substring(strSec.indexOf(".")+1, strSec.length);
    }
-   
+
    if (strWholeSec.length < 2)
    {
       strWholeSec = "0" + strWholeSec;
    }
    strSec = strWholeSec;
-   
+
    if (strFractionSec.length)
    {
       strSec = strSec+ "." + strFractionSec;
@@ -486,7 +487,7 @@ function convertTotalSeconds(ts)
 }
 
 
-// only for SABA 
+// only for SABA
 /*var tKeepAlive;
 function keepLMSAlive()
 {
