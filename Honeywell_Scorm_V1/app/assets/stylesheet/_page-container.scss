@@ -1,0 +1,66 @@
+.page-container {
+  position: relative;
+  top: -2px;
+  margin: 0;
+  overflow-y: hidden;
+  width: 100%;
+  z-index: 9;
+  @media all and (max-width: 680px) {
+    overflow-y: auto;
+  }
+}
+
+.page-container .page-holder {
+  height: 100%;
+}
+
+.page-loader {
+  height: 100%;
+  z-index: 99;
+}
+
+.help-container > div:first-child {
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1 !important;
+}
+
+.fadeOut {
+   opacity: 0;
+}
+
+.fadeIn {
+  opacity: 1;   
+  transition: .5s;
+}
+
+.icon-transcript::before {
+  content: "";
+}
+
+.icon-audio:before {
+  content: "";
+}
+
+.icon-playPause:before {
+  content: "";
+}
+
+.selected {
+  .icon-transcript:before {
+    content: "";
+  }
+
+  .icon-audio:before {
+    content: "";
+  }
+
+  .icon-playPause:before {
+    content: "";
+  }
+}
+
+.hide {
+  display: none;
+}

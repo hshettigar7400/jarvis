@@ -1,0 +1,185 @@
+{
+  "data": {
+    "id": "menu",
+    "courseTitle": "Medical Device Industry Overview",
+    "courseDescription": "The Voice Inspection: Market Basics – Aerospace MRO course is aimed at providing you some fundamentals on the Aerospace Maintenance, Repair, and Overhaul (MRO) industry. This course covers details on Aerospace MRO segments that has a potential for implementing Honeywell's Vocollect voice solution",
+    "title": "Menu",
+    "level": [
+      {
+        "id": "module",
+        "type": "content",
+        "title": "Module-1",
+        "level": [
+          {
+            "id": "section",
+            "type": "content",
+            "title": "Section-1",
+            "level": [
+              {
+                "id": "topic",
+                "title": "Introduction",
+                "level": [
+
+                  {
+                    "id": "page",
+                    "title": "Welcome",
+                    "html": "content/en/html/m01_t01_p01.html",
+                    "json": "content/en/data/pages/m01_t01_p01.json",
+                    "mandatory": false,
+                    "metadata": ["test", "foo"],
+                    "verb": "experienced"
+                  },
+                  {
+                    "id": "page",
+                    "title": "Module overview",
+                    "html": "content/en/html/m01_t01_p02.html",
+                    "json": "content/en/data/pages/m01_t01_p02.json",
+                    "mandatory": false,
+                    "metadata": [],
+                    "verb": "experienced"
+                  }
+
+                ]
+              },
+              {
+                "id": "topic",
+                "title": "Aerospace MRO",
+                "level": [
+                  {
+                    "id": "page",
+                    "title": "Introduction to aerospace MRO",
+                    "html": "content/en/html/m01_t02_p01.html",
+                    "json": "content/en/data/pages/m01_t02_p01.json",
+                    "mandatory": false,
+                    "metadata": [],
+                    "verb": "attempted"
+                  },
+                  {
+                    "id": "page",
+                    "title": "Aircraft types",
+                    "html": "content/en/html/m01_t02_p02.html",
+                    "json": "content/en/data/pages/m01_t02_p02.json",
+                    "mandatory": false,
+                    "metadata": ["test", "foo"],
+                    "verb": "experienced"
+                  },
+                  {
+                    "id": "page",
+                    "title": "Aircraft maintenance checks",
+                    "html": "content/en/html/m01_t02_p03.html",
+                    "json": "content/en/data/pages/m01_t02_p03.json",
+                    "mandatory": false,
+                    "metadata": [],
+                    "verb": "attempted"
+                  },
+                  {
+                    "id": "page",
+                    "title": "Market",
+                    "html": "content/en/html/m01_t02_p04.html",
+                    "json": "content/en/data/pages/m01_t02_p04.json",
+                    "mandatory": false,
+                    "metadata": ["test", "foo"],
+                    "verb": "experienced"
+                  },
+                  {
+                    "id": "page",
+                    "title": "Employment",
+                    "html": "content/en/html/m01_t02_p05.html",
+                    "json": "content/en/data/pages/m01_t02_p05.json",
+                    "mandatory": false,
+                    "metadata": [],
+                    "verb": "attempted"
+                  },
+                  {
+                    "id": "page",
+                    "title": "Process",
+                    "html": "content/en/html/m01_t02_p06.html",
+                    "json": "content/en/data/pages/m01_t02_p06.json",
+                    "mandatory": false,
+                    "metadata": ["test", "foo"],
+                    "verb": "experienced"
+                  },
+                  {
+                    "id": "page",
+                    "title": "Aerospace MRO service categories",
+                    "html": "content/en/html/m01_t02_p07.html",
+                    "json": "content/en/data/pages/m01_t02_p07.json",
+                    "mandatory": false,
+                    "metadata": [],
+                    "verb": "attempted"
+                  },
+                  {
+                    "id": "page",
+                    "title": "Service providers",
+                    "html": "content/en/html/m01_t02_p08.html",
+                    "json": "content/en/data/pages/m01_t02_p08.json",
+                    "mandatory": false,
+                    "metadata": ["test", "foo"],
+                    "verb": "experienced"
+                  },
+                  {
+                    "id": "page",
+                    "title": "Regulations",
+                    "html": "content/en/html/m01_t02_p09.html",
+                    "json": "content/en/data/pages/m01_t02_p09.json",
+                    "mandatory": false,
+                    "metadata": [],
+                    "verb": "attempted"
+                  }
+
+                ]
+              },
+              {
+                "id": "topic",
+                "title": "Summary",
+                "level": [
+                  {
+                    "id": "page",
+                    "title": "Module summary",
+                    "html": "content/en/html/m01_t03_p01.html",
+                    "json": "content/en/data/pages/m01_t03_p01.json",
+                    "mandatory": false,
+                    "metadata": ["test", "foo"],
+                    "verb": "experienced"
+                  }
+                ]
+              }
+            ]
+          }
+
+        ]
+      },
+      {
+        "id": "module",
+        "type": "assessment",
+        "title": "Assessment",
+        "level": [
+          {
+            "id": "section",
+            "type": "assessment",
+            "title": "Quiz Introduction",
+            "description": "",
+            "level": [
+              {
+                "id": "topic",
+                "title": "Final quiz",
+                "level": [
+                  {
+                    "id": "page",
+                    "pageType": "assessment",
+                    "title": "Quiz introduction",
+                    "html": "content/en/html/Assessment.html",
+                    "json": "content/en/data/assessment.json",
+                    "mandatory": true,
+                    "metadata": [],
+                    "verb": "attempted"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

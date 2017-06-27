@@ -1,0 +1,112 @@
+.menu-header {
+  background-color: #EE3124;
+  display: table;
+  font-size: 1.25em;
+  height: 40px;
+  width: 100%;
+}
+
+.menu-header-title {
+  color: #ffffff;
+  display: table-cell;
+  font-size: 1.15em;
+  height: 100%;
+  padding-left: $base-padding * 1.4;
+  vertical-align: middle;
+}
+
+.menu-close-button-container {
+  color: $white;
+  cursor: pointer;
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+  width: 40px;
+}
+
+.collapse-menu .collapse-menu-header h1 {
+  padding: 6px 14px;
+}
+
+/* Style for list view expand componen t */
+.menu-list {
+  background-color: #e9e9e9;
+}
+
+.menu-list__contentInner {
+  border: 1px solid #ebebeb;
+  border-top: 0;
+  position: relative;
+}
+
+.menu-list__contentInner ul {
+  padding: 0;
+  margin: 0
+}
+
+.menu-list__contentInner ul li {
+  box-shadow: inset 0 -1px #BABABA;
+  cursor: pointer;
+  list-style: none;
+  padding: 10px 10px 10px 30px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.menu-list__contentInner ul li:hover,
+.menu-list__contentInner ul li:active {
+  background-color: #bababa;
+}
+
+.menu-list__contentInner p:last-child {
+  margin-bottom: 0;
+}
+
+.menu-list__trigger {
+  box-shadow: inset 0 -1px #BABABA;
+  display: block;
+  font-weight: 400;
+  text-decoration: none;
+  text-indent: 8px;
+  position: relative;
+  border: 1px solid white;
+  padding: 10px;
+  background-color: #e9e9e9;
+  color: #333333;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.menu-list__trigger:hover {
+  background-color: #bababa;
+}
+
+.is-closed .icon-tree::before {
+  content: "";
+  font-size: 1.3em;
+}
+
+.is-open .icon-tree::before {
+  content: "";
+  font-size: 1.3em;
+}
+
+.icon-tree {
+  vertical-align: middle;
+}
+
+.menu-list__trigger.is-disabled {
+  opacity: 0.5;
+  background-color: grey;
+}
+
+.menu-page-progress {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #EE3124;
+  vertical-align: sub;
+  right: 18px;
+  position: absolute;
+}

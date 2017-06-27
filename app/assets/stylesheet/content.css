@@ -725,7 +725,6 @@ figcaption {
 
 .activity-correct:after {
   font-family: 'icomoon';
-  content: "";
   position: absolute;
   right: 5px;
   top: 5px;
@@ -734,8 +733,7 @@ figcaption {
 }
 
 .activity-incorrect:after {
-  font-family: 'icomoon';
-  content: "";
+  font-family: 'icomoon'; 
   position: absolute;
   right: 5px;
   top: 5px;
@@ -1020,7 +1018,7 @@ figcaption {
 .final-assessment .question-page .question ul li:first-child >span:last-child{padding-left:0;display:table-cell;vertical-align: top;}
 .final-assessment .contentIntro p{margin-bottom:10px}
 .final-assessment .contentIntro .gdlu{font-size:1.5em}
-.final-assessment .question-page .question ul li:first-child >span.icon-correct-incorrect:last-child{display:inline-block;vertical-align: top;}
+.final-assessment .question-page .question ul li:first-child >span.correct-incorrect:last-child{display:inline-block;vertical-align: top;}
 .final-assessment.desktopFirst .header{height:0}
 .final-assessment li{background:none !important;padding:0;margin-top:0 !important;line-height: 1.1em;}
 .final-assessment .failed{color:#EE3124;display: block;padding-bottom: 10px;font-size: 1.8em;}
@@ -1082,17 +1080,33 @@ figcaption {
   margin: 0 auto;
   padding-top: 40px;
 }
-.icon-correct-incorrect{
+.correct-incorrect{
     font-size: 1.2em;
     font-weight: 700;
-    padding: 10px;
+    
+	
 }
-.icon-correct-incorrect.correct{
+.correct-incorrect.correct{
+	background-image: url('../../../app/assets/images/Yes.png');
+	background-repeat: no-repeat;
     color: #7EB338;
+	width: 30px;
+	height: 30px;
+	
+	
 }
-.icon-correct-incorrect.incorrect{
-    color: #EE3124;
+
+
+.correct-incorrect.incorrect{
+	background-image: url('../../../app/assets/images/No.png');
+    font-family: "Arial";
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 30px;
 }
+
+
+
 .assessment.desktopFirst{
     overflow: hidden;
 }

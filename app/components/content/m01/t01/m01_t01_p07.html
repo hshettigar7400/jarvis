@@ -1,6 +1,45 @@
 <link rel="stylesheet" type="text/css" href="assets/stylesheet/content.css">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <script src="../../../../../app/assets/scripts/preloadjs-0.3.0.min.js"></script>
+<script src="../../../../../app/components/Navigate.js"></script>
+<script src="../../../../../app/assets/scripts/AudioManager.js"></script>
 
+<script>
+function init() {
+
+var pre;
+var cnt = 0;
+var manifest = [
+		{src:"../../../../../app/assets/audio/m01_t01_p07.mp3"},
+		{src:"../../../../../app/assets/audio/m01_t01_p07_01.mp3"},
+		{src:"../../../../../app/assets/audio/m01_t01_p07_02.mp3"},
+		{src:"../../../../../app/assets/audio/m01_t01_p07_03.mp3"},
+		{src:"../../../../../app/assets/audio/m01_t01_p07_04.mp3"}
+		];
+		var loader = new createjs.LoadQueue(false);
+		loader.installPlugin(createjs.Sound);
+		loader.addEventListener("fileload", handleFileLoad);
+		loader.addEventListener("complete", handleComplete);
+		loader.loadManifest(manifest);
+		pre = manifest.length;
+		
+
+function handleFileLoad(evt) {
+		cnt += 1;
+		var per = Math.round((cnt/pre)*100);
+		//$(".m01_t01_p07").css('display','none');
+		jarvisAudio.pause();
+}
+
+function handleComplete() {
+	 loadPage(7);
+	 console.log('pageNumber 7');
+	//$(".m01_t01_p07").css('display','block');
+	
+	}
+}	
+init();
+</script> -->
 <div class="m01_t01_p07">
   <div class="activity-intro-container" id="intro">
     <div class="activity-intro">
@@ -316,6 +355,7 @@ $(function(){
 });
 
 function startActivity() {
+console.log('startActivity');
   $(".activity-intro-container").fadeOut( "slow", function() {
     $("#activity1").show();
   })

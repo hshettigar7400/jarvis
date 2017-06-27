@@ -1,3 +1,4 @@
+
 var $ = require("jquery");
 var currentCuePointId = 0;
 var topicNamesArray = [
@@ -46,5 +47,6 @@ function loadMenu() {
 module.exports = {
   loadPage,
   loadSound,
-  loadTranscript
+  loadTranscript,
+  topicNamesArray
 }

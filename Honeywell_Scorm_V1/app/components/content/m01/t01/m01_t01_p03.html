@@ -1,0 +1,98 @@
+<link rel="stylesheet" type="text/css" href="assets/stylesheet/content.css">
+
+<div id="m01_t01_p03" class="page m01_t01_p03">
+    <div class="template-panel">
+        <div class="instruction fadeOut sync1">Select each label below to learn more.</div>
+        <div class="template-holder">
+            <div class="template-horizontal-tab">
+                <div>
+                  <div class="tabs-nav fadeOut sync2">
+                      <a class="h-tab tab-1" data-index="1" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab1(this)">
+                          <span class="">Hemodialysis</span>
+                      </a>
+                      <a class="h-tab tab-2" data-index="2" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab2(this)">
+                          <span class="">Peritoneal dialysis</span>
+                      </a>
+                  </div>
+                  <div class="tab-content" style="display: none;">
+                      <div class="tab-data" id="tab-data-1" style="display: none;">
+                          <div class="popup-txt">
+                            <div class="main-content">
+                                <div class="text-1 fadeOut sync3">For the dialysis treatment:</div>
+                                <div class="text-2 fadeOut sync4">Would you prefer travelling to a facility multiple times every week for treatment?</div>
+                                <div class="text-1 fadeOut sync5">Would you prefer taking it in a hospital or at home?</div>
+                                <div class="text-3 fadeOut sync6">Would you prefer the use of needles or a surgically implanted catheter?</div>
+                            </div>
+                            <div class="fadeOut sync7">
+                              <p  >Hemodialysis in a clinic requires:</p>
+                              <ul>
+                                  <li>Needle and tubing</li>
+                                  <li>Travel to a clinic several times a week</li>
+                              </ul>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="tab-data" id="tab-data-2" style="display: none;">
+                          <div class="popup-txt" >
+                              <p>Peritoneal dialysis:</p>
+                              <ul>
+                                  <li>Blood return or removal not required</li>
+                                  <li>Self-administered, at-home treatment</li>
+                                  <li>Travel, needles, and nurse support not required</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="image-holder">
+                    <div class="img1" style="display: none;">
+                        <img src="images/m01_t01_p03/Slide_08_image_01.jpg">
+                        <figcaption class="img-caption">Hemodialysis in a hospital</figcaption>
+                    </div>
+                    <div class="img2" style="display: none;">
+                        <img src="images/m01_t01_p03/Slide_08_image_02.jpg">
+                          <figcaption class="img-caption">Peritoneal dialysis at home</figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var imageSwap = false;
+    var qPoints = [0, 3, 24, 25, 30, 34, 38,  60];
+    var qPointsExecution = ["", "pauseSound()", "", "", "", "", "changeText('main-content')","pauseSound()"];
+    var currentCuePointId = 0;
+    var globalAudioPosition = 0
+    var startAudioPlay = false;
+    function showTab1 (e) {
+
+      document.querySelector('.tab-content').style.display = 'block';
+      document.querySelector('#tab-data-1').style.display = 'block';
+      document.querySelector('#tab-data-2').style.display = 'none';
+      document.querySelector('.img1').style.display = 'block';
+      document.querySelector('.img2').style.display = 'none';
+    //  document.querySelector('.main-content').style.display = 'none';
+      jarvisAudio.setPosition(3000);
+      jarvisAudio.resume();
+      $(e).css("background-color", "#ef3125 !important");
+      $(".tab-2").css("background-color", "#1792e5 !important");
+
+    }
+
+    function showTab2 (e) {
+      document.querySelector('.tab-content').style.display = 'block';
+      document.querySelector('#tab-data-2').style.display = 'block';
+      document.querySelector('#tab-data-1').style.display = 'none';
+      document.querySelector('.img2').style.display = 'block';
+      document.querySelector('.img1').style.display = 'none';
+      //document.querySelector('.main-content').style.display = 'none';
+      jarvisAudio.setPosition(60000);
+      jarvisAudio.resume();
+      $(e).css("background-color", "#ef3125 !important");
+      $(".tab-1").css("background-color", "#1792e5 !important");
+    }
+
+
+</script>

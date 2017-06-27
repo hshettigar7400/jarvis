@@ -1,3 +1,16 @@
+
+var topicNamesArray = [
+  'Welcome',
+  'Course objectives',
+  'Medical devices move to the home',
+  'Growth in portable- and home-use medical devices',
+  'Internet of things—connected medical equipment',
+  'Target/focus medical applications',
+  'Medical appications for Honeywell sensors - Activity',
+  'Course Summary',
+  'Quiz Introduction'
+];
+
 function Assessment() {
     var currentQuestion;
     var jarvisAudio;
@@ -281,12 +294,19 @@ function Assessment() {
             //SUMANTH open the exit popup window here
         });
         if (defaults.revisitContent) $(Selectors.player).on('click', selectors.visitContentButton, function() {
+			
             $('.lastQuestion').html('Submit');
             $(".page-loader").empty();
             $(".page-loader").load('components/content/m01/t01/m01_t01_p01.html');
             $(".page-number").html(01);
+			$(".page-title").html(topicNamesArray[0]);
+			
             $.getJSON( "../app/assets/data/transcript.json", function( data ) {
                 $(".transcript-text-container").html(data.transcript[0].text)
+            });
+			
+			$.getJSON( "../app/assets/data/menu.json", function( data ) {
+                $(".transcript-text-container").html(data.menu[0].text)
             });
             document.querySelector('.next-button').classList.remove("disabled");
             soundManager.stopAll();
@@ -506,7 +526,7 @@ function Assessment() {
         str += '<div class="question-page">';
         str += '<div class="question">';
         str += '<ul>';
-        str += '<li  data-index="' + ++tabindex + '" ><span class="question-counter"> Question ' + (currentQuestion + 1) + '</span><span class="icon-correct-incorrect"></span></li>';
+        str += '<li  data-index="' + ++tabindex + '" ><span class="question-counter"> Question ' + (currentQuestion + 1) + '</span><span class="correct-incorrect"></span></li>';
         str += '<li  data-index="' + ++tabindex + '" ><span>' + element.text + '</span></li>';
         str += '</ul>';
         str += '</div>';
@@ -630,14 +650,14 @@ function Assessment() {
                 updateQuestionStatus(a)
             }
         } else {
-            var a = $('.assessment .question .icon-correct-incorrect');
+            var a = $('.assessment .question .correct-incorrect');
             a.html('')
         }
     }
 
     function updateQuestionStatus(a) {
         var c = a.find('.option').toArray();
-        var o = $(a.find('.icon-correct-incorrect'));
+        var o = $(a.find('.correct-incorrect'));
         var s, dv = [],
             uv = [];
         $.each(c, function(i, e) {
@@ -648,10 +668,10 @@ function Assessment() {
         o.removeClass('correct').removeClass('incorrect');
         if (s) {
             o.addClass('correct');
-            o.html('&#xe626;')
+            //o.html('&#xe626;')
         } else {
             o.addClass('incorrect');
-            o.html('&#xe60c;')
+            //o.html('&#xe60c;')
         }
     }
 

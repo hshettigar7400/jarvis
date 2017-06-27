@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Medical Device Industry Overview</title>
+  <style>
+  body {
+    background: #5B6770;
+    font-family: 'Arial', Calibri, Arial, sans-serif;
+    height: 100%;
+    line-height: 1.4;
+    overflow: hidden;
+  }
+
+  .wrapper {
+    bottom: 0;
+    display: table;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .launcher {
+    display: table-cell;
+    padding-bottom: 40px;
+    vertical-align: top;
+  }
+
+  .whitePatch {
+    background-color: #FFFFFF;
+    height: 231px;
+    position: relative;
+    width: 100%;
+  }
+
+  .td1 {
+    align-items:center;
+    padding: 25px 25px 15px 25px;
+    position: relative;
+    top: 10px;
+    text-align: left;
+  }
+
+  .td2 {
+    align-items:center;
+    padding: 0;
+    position: relative;
+    top: 18px;
+    width: auto;
+  }
+
+  .divSeparator {
+    background-color: #CBCBCB;
+    height: 1px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .td3 {
+    align-items:center;
+    color: #5B6770;
+    font-size: 1.35em;
+    padding: 24px 25px;
+    position: relative;
+    text-align: left;
+    top: 5px;
+    vertical-align: middle;
+  }
+
+  .title-text {
+    margin: 0 !important;
+  }
+
+  .launch_btn {
+    background-image: url('assets/images/launch_btn.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    width: 88px;
+    height: 96px;
+    display: block;
+    color: #5B6770;
+    position: absolute;
+    right: 25px;
+    font-size: 0.6em;
+    text-align: center;
+    top: 57px;
+    font-weight: bold;
+  }
+
+  .launch_btn:hover {
+    background-image: url('assets/images/launch_btn.png');
+    background-position: -120px 0 !important;
+    color: #fff;
+  }
+
+  .launch_btn span {
+    vertical-align: middle;
+    line-height: 99px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  @media (min-width: 768px) {
+    .launcher {
+      vertical-align: middle;
+    }
+
+    .whitePatch {
+      display: table;
+      height: 120px;
+      position: static;
+      text-align: center;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    .td1 {
+      display: table-cell;
+      height: 73px;
+      padding: 0;
+      padding-top: 5px;
+      position: static;
+      text-align: right;
+      vertical-align: middle;
+      width: 40%;
+    }
+
+    .td2 {
+      display: table-cell;
+      height: 100px;
+      padding: 0;
+      position: static;
+      vertical-align: middle;
+      width: 4%;
+    }
+
+    .divSeparator {
+      background-color: #CBCBCB;
+      height: 80px;
+      width: 1px;
+    }
+
+    .td3 {
+      display: table-cell;
+      height: 100px;
+      padding: 0;
+      position: relative;
+      text-align: left;
+      top: 0;
+      vertical-align: middle;
+      width: 56%;
+    }
+
+    .launch_btn {
+      font-size: 0.6em;
+      font-weight: bold;
+      left: 65%;
+      position: absolute;
+      text-align: center;
+      top: 71px;
+
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="launcher">
+      <div class="whitePatch">
+        <div class="td1">
+          <img class="logo" src="../app/assets/images/Honeywell_LOGO.png" alt="Logo" />
+        </div>
+        <div class="td2">
+          <div class="divSeparator"></div>
+        </div>
+        <div class="td3">
+          <p class="title-text">Medical Device Industry Overview</p>
+          <a href="javascript:void(0)" onclick="launchCourse()" class="Link launch_btn">
+            <span>LAUNCH</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="assets/scripts/SystemDetect.js"></script>
+  <script type="text/javascript" src="assets/scripts/system.js"></script>
+  <script type="text/javascript" src="assets/scripts/scorm_adaptor.js"></script>
+  <script>
+  function launchCourse() {
+    var winwidth = 1010;
+    var winheight = 650;
+    var xOffset = screen.width / 2 - winwidth / 2;
+    var yOffset = screen.height / 2 - winheight / 2;
+    var sysInfo = new SystemDetect();
+    sysInfo.init();
+    var is_chrome = sysInfo.browserName === 'chrome';
+    var is_safari = sysInfo.browserName === 'safari';
+    var isWindows = sysInfo.deviceType === 'windows';
+    var appType = 'scorm';
+
+    if (is_chrome) {
+        winheight = 650;
+    } else if (is_safari && isWindows) {
+        /** v. 5.1.7 */
+        if (parseInt($.browser.version) === 534) {
+            winheight = 591;
+        } else {
+            winheight = 570;
+        }
+    } else if (sysInfo.browserName === 'ie' && sysInfo.browserVersion >= 9) {
+        winheight = 647;
+        winwidth = 1006;
+    } else if (sysInfo.osName === 'mac' && sysInfo.browserName === 'opera') {
+        winheight = 711;
+    } else {
+        winheight = 650;
+    }
+    var popuppage = "framework.html";
+    var win;
+    if (navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/iPhone|iPod/i)) {
+        win = window.open(popuppage, 'course', 'scrollbars=1,screenX=0,screenY=0,status=no,resizable=no,top=' + 0 + ',left=' + 0 + '');
+    }
+    else {
+        win = window.open(popuppage, 'course', 'width=' + winwidth + ',height=' + winheight + ',scrollbars=1,screenX=0,screenY=0,resizable=yes,status=no,top=' + yOffset + ',left=' + xOffset + '');
+    }
+    win.focus();
+
+    window.onload = function () {
+      if (appType != 'standalone') {
+        scormAdaptor_getAPI();
+        scormAdaptor_adlOnload();
+      }
+    }
+  }
+</script>
+</body>
+  </html>

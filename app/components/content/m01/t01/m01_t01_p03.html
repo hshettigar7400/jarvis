@@ -22,7 +22,7 @@
 						<div class="main-content">
                                 <div class="text-1 fadeOut sync3">For the dialysis treatment:</div>
                                 <div class="text-2 fadeOut sync4">Would you prefer taking it in a hospital or at home?</div>
-								<div class="text-2 fadeOut sync4">Would you prefer travelling to the hospital multiple times to take it?</div>
+								<div class="text-2 fadeOut sync5">Would you prefer travelling to the hospital multiple times to take it?</div>
                                 <div class="text-3 fadeOut sync6">Would you prefer the use of needles or a surgically implanted catheter?</div>
                             </div>
                             <div class="fadeOut sync7">
@@ -63,8 +63,8 @@
 
 <script>
     var imageSwap = false;
-    var qPoints = [0, 3, 24, 25, 30, 34, 38,  60];
-    var qPointsExecution = ["", "pauseSound()", "", "", "", "", "changeText('main-content')","pauseSound()"];
+    var qPoints = [0, 3, 27, 28, 28,35, 40, 65];
+    var qPointsExecution = ["", "pauseSound()", "",  "", "", "", "changeText('main-content')","pauseSound()"];
     var currentCuePointId = 0;
     var globalAudioPosition = 0
     var startAudioPlay = false;
@@ -90,7 +90,7 @@
       document.querySelector('.img2').style.display = 'block';
       document.querySelector('.img1').style.display = 'none';
       //document.querySelector('.main-content').style.display = 'none';
-      jarvisAudio.setPosition(60000);
+      jarvisAudio.setPosition(65000);
       jarvisAudio.resume();
       $(e).css("background-color", "#ef3125 !important");
       $(".tab-1").css("background-color", "#1792e5 !important");
