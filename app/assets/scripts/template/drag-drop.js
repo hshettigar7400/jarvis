@@ -57,7 +57,7 @@
       timeTaken = minutes + ":" + seconds;
 
       if (--timer < 0) {
-        console.log(timer)
+        // console.log(timer)
         clearInterval(tInterval);
         timer = duration;
         currentActivityNumber = 1;

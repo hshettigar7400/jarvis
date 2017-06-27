@@ -59,10 +59,10 @@ componentDidMount() {
     concurrency: 0
   });
 
-  console.log('preloader: ', preloader);
+  // console.log('preloader: ', preloader);
 
   preloader.addProgressListener(function (loaded, length) {
-      console.log('loading ', loaded, length, loaded / length)
+      // console.log('loading ', loaded, length, loaded / length)
   });
 
   preloader.addCompletionListener(function () {

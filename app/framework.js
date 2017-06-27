@@ -2,17 +2,32 @@ var React = require('react'),
   ReactDOM = require('react-dom'),
   Instruction = require('./components/Instruction.jsx').default;
 import SCSS from './assets/stylesheet/app.scss';
+import * as scormAdaptor from "./assets/scripts/scorm_adaptor";
 
 const appData = {
   title: 'Jarvis'
 }
 
-window.pageStatusList = [0,0,0,0,0,0,0,0];
+window.appType = 'standalone';
+if(scormAdaptor.scormAdaptor_getsuspenddata() == '' || scormAdaptor.scormAdaptor_getsuspenddata() == undefined) {
+  window.pageStatusList = [0,0,0,0,0,0,0,0];
+} else {
+  window.pageStatusList = scormAdaptor.scormAdaptor_getsuspenddata().split(',').map(Number);
+}
+
+if(scormAdaptor.scormAdaptor_getlocation() == '' || scormAdaptor.scormAdaptor_getlocation() == undefined) {
+  window.currentPageNum = 1;
+} else {
+  window.currentPageNum = scormAdaptor.scormAdaptor_getlocation();
+}
 
 window.updatePageStatusList = function(pageNum) {
 	pageStatusList[pageNum-1] = 1;
   if (document.getElementById('courseProgressUpdate'))
 	 document.getElementById('courseProgressUpdate').style.width = getCourseProgress();
+
+  scormAdaptor.scormAdaptor_setsuspenddata(window.pageStatusList);
+  scormAdaptor.scormAdaptor_setlocation(pageNum);
 }
 
 window.getCourseProgress = function() {

@@ -97,7 +97,7 @@ function Assessment() {
         });
         questionDataArr = [];
         createQuestionData();
-        console.log('container: ',defaults.container);
+        //console.log('container: ',defaults.container);
         $(defaults.container).html(createAssessmentHTML());
         if (!reviewMode && defaults.exitReview /*|| FRED.player.isMobileFirst*/) {
             $(selectors.reviewButtonContainer).hide()

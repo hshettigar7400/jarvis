@@ -43,12 +43,12 @@ var PageContainer = React.createClass ({
       ]
       });
 
-      console.log('preloader: ', preloader);
+      // console.log('preloader: ', preloader);
 
       preloader.addProgressListener(function (loaded, length) {
-          console.log('loading ', loaded, length, loaded / length)
+          // console.log('loading ', loaded, length, loaded / length)
       });
-      
+
   },
 
   componentDidUpdate(prevProps, prevState) {
