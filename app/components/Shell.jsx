@@ -61,6 +61,10 @@ var Shell = React.createClass ({
         'max-width': '1010px',
         'max-height': '650px'
         })
+        $('.shell-container').css({
+        'max-width': '1010px',
+        'max-height': '650px'
+        })
       }
       /*if (width > 680)
         var contentHeight = height - 65;
@@ -74,7 +78,6 @@ var Shell = React.createClass ({
   componentDidMount: function() {
     window.addEventListener("resize", this.updateDimensions);
     this.updateDimensions();
-    loadAudio(1);
   },
 
   componentDidUpdate: function(prevProps, prevState) {
@@ -94,20 +97,17 @@ var Shell = React.createClass ({
     this.setState({currentPageNumber: this.state.currentPageNumber + 1});
   }
     this.setState({isPause: false})
-    loadAudio(this.state.currentPageNumber + 1);
   },
 
   loadPreviousPage() {
     this.setState({currentPageNumber: this.state.currentPageNumber - 1});
     this.setState({isPause: false})
-    loadAudio(this.state.currentPageNumber - 1);
   },
 
   menuItemClicked(e){
     var pageId = e.target.dataset.pageId;
     this.setState({currentPageNumber: parseInt(pageId)});
     this.setState({sidebarOpen: !this.state.sidebarOpen});
-    loadAudio(pageId);
   },
 
   clickOpenHelpDock() {
@@ -152,7 +152,6 @@ var Shell = React.createClass ({
 
   replayScreen() {
     loadPage(this.state.currentPageNumber);
-    loadAudio(this.state.currentPageNumber);
   },
 
 
