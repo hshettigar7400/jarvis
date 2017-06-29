@@ -1,5 +1,8 @@
+var tInterval;
+
 function loadAudio(pageNum) {
   soundManager.stopAll();
+    clearInterval(tInterval);
   jarvisAudio = soundManager.createSound({
     url: '../app/assets/audio/m01_t01_p0'+pageNum+'.mp3',
     autoLoad: true,
@@ -14,13 +17,22 @@ function loadAudio(pageNum) {
       jarvisAudio.unload();
       disableButtons();
       $(".start-button").removeClass("disabled");
-
+      $(".button").removeClass('disabled');
       if(Number(pageNum) !== 9 ) {
         document.querySelector('.next-button').classList.add("blinker");
+
       }
     },
     whileplaying() {
+
       syncPageText(jarvisAudio.position);
+      if(!jarvisAudio.paused)
+      {
+      $(".button").addClass('disabled');
+    }
+    else {
+        $(".button").removeClass('disabled');
+    }
     }
   });
 }
@@ -62,8 +74,17 @@ function millisToMinutesAndSeconds(millis) {
 }
 
 function pauseSound() {
-   //alert("Sound paused");
+
   jarvisAudio.pause();
+  //  console.log(jarvisAudio.paused)
+//   var elements = document.querySelectorAll('.button');
+//   var ele;
+//   for(ele=0; ele<elements.length; ele++)
+//   {
+//     console.log($(elements[ele]).hasClass('disabled'));
+//   $(elements[ele]).removeClass('disabled');
+// }
+
 }
 
 function changeFontSize() {
@@ -85,21 +106,29 @@ function highlightElement(id) {
 }
 
 function syncPageText(position) {
+
   $("#button-playPause").removeClass("selected");
+
   if (qPoints !== null && currentCuePointId != undefined) {
      var t = millisToMinutesAndSeconds(position);
+
      if (t == qPoints[currentCuePointId]) {
+        console.log(t == qPoints[currentCuePointId])
        if (document.querySelector('.sync'+(currentCuePointId+1))) {
          document.querySelector('.sync'+(currentCuePointId+1)).classList.remove('fadeOut');
          document.querySelector('.sync'+(currentCuePointId+1)).classList.add('fadeIn');
+
        }
        if(qPointsExecution && qPointsExecution[currentCuePointId])
        {
          eval(qPointsExecution[currentCuePointId]);
+
        }
        currentCuePointId++;
+
      }
    }
+
 }
 
 module.exports = {

@@ -460,6 +460,10 @@
   .m01_t01_p06 .highlight-button {
     background-color: #EF3125;
   }
+
+  .disabled {
+    pointer-events: none;
+  }
 </style>
 
 <div id="m01_t01_p06" class="page m01_t01_p06">
@@ -473,28 +477,28 @@
           <div class="container">
             <div class="left-side">
               <div class="button">
-                <a href="#" onclick="openPopup(this, 1, 27000)">Kidney dialysis machines</a>
+                <a href="#" onclick="openPopup(this, 1, '../app/assets/audio/m01_t01_p06_02.mp3')">Kidney dialysis machines</a>
               </div>
               <div class="button">
-                <a href="#" onclick="openPopup(this, 2, 49000)">Respiratory</a>
+                <a href="#" onclick="openPopup(this, 2, '../app/assets/audio/m01_t01_p06_03.mp3')">Respiratory</a>
               </div>
               <div class="button">
-                <a href="#" onclick="openPopup(this, 3, 83000)">Diagnostic/analytical equipment</a>
+                <a href="#" onclick="openPopup(this, 3, '../app/assets/audio/m01_t01_p06_04.mp3')">Diagnostic/analytical equipment</a>
               </div>
               <div class="button">
-                <a href="#" onClick="openPopup(this, 4, 102000)">Hospital hardware</a>
+                <a href="#" onClick="openPopup(this, 4, '../app/assets/audio/m01_t01_p06_05.mp3')">Hospital hardware</a>
               </div>
               <div class="button">
-                <a href="#" onclick="openPopup(this, 5, 122000)">Dental equipment</a>
+                <a href="#" onclick="openPopup(this, 5, '../app/assets/audio/m01_t01_p06_06.mp3')">Dental equipment</a>
               </div>
               <div class="button">
-                <a href="#" onclick="openPopup(this, 6, 143000)">Surgical instruments</a>
+                <a href="#" onclick="openPopup(this, 6, '../app/assets/audio/m01_t01_p06_07.mp3')">Surgical instruments</a>
               </div>
               <div class="button">
-                <a href="#" onclick="openPopup(this, 7, 167000)">Patient monitoring systems</a>
+                <a href="#" onclick="openPopup(this, 7, '../app/assets/audio/m01_t01_p06_08.mp3')">Patient monitoring systems</a>
               </div>
               <div class="button">
-                <a href="#" onclick="openPopup(this, 8, 202000)">Infusion pumps</a>
+                <a href="#" onclick="openPopup(this, 8, '../app/assets/audio/m01_t01_p06_09.mp3')">Infusion pumps</a>
               </div>
             </div>
             <div class="right-side">
@@ -679,17 +683,33 @@
 </div>
 
 <script>
-  var qPoints = [0, 28, 49, 83, 101, 123, 144, 165, 202, 8, 12, 14, 18];
+
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+
+  var qPoints = [0, 28, 51, 86, 103, 124, 145, 167, 202, 8, 12, 14, 18];
+
   var qPointsExecution = ["", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "", "", "", ""];
   var currentCuePointId = 0;
   var imageSwap = false;
 
-  function openPopup(e, id, cuePoints) {
+  function openPopup(e, id, path) {
     $(".popup-content").hide();
     $("#popup" + id).show();
-      $(".right-side").css('background','none');
-    jarvisAudio.setPosition(cuePoints);
-    jarvisAudio.resume();
+    $(".right-side").css('background', 'none');
+    jarvisAudio1 = soundManager.createSound({
+      url: path,
+      autoLoad: true,
+      autoPlay: true,
+      onload: function() {},
+      onfinish: function() {
+          $(".button").removeClass('disabled');
+        },
+        whileplaying() {
+          $(".button").addClass('disabled');
+        }
+    });
+
     $(".button").removeClass("highlight-button");
     $($(e).parent()).addClass("highlight-button");
   }

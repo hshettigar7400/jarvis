@@ -2,110 +2,115 @@
 
 
 <div id="m01_t01_p03" class="page m01_t01_p03">
-    <div class="template-panel">
-        <div class="instruction fadeOut sync1">Select each label below to learn more.</div>
-        <div class="template-holder">
-            <div class="template-horizontal-tab">
-                <div>
-                  <div class="tabs-nav fadeOut sync2">
-                      <a class="h-tab tab-1" data-index="1" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab1(this)">
+  <div class="template-panel">
+    <div class="instruction fadeOut sync1">Select each label below to learn more.</div>
+    <div class="template-holder">
+      <div class="template-horizontal-tab">
+        <div>
+          <div class="tabs-nav fadeOut sync2">
+            <a class="h-tab tab-1 button" data-index="1" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab1(this)">
                           <span class="">Hemodialysis</span>
                       </a>
-                      <a class="h-tab tab-2" data-index="2" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab2(this)">
+            <a class="h-tab tab-2 button" data-index="2" area-expanded="false" role="button" aria-disabled="true" href="#" onclick="showTab2(this)">
                           <span class="">Peritoneal dialysis</span>
                       </a>
-                  </div>
-                  <div class="tab-content" style="display: none;">
-                      <div class="tab-data" id="tab-data-1" style="display: none;">
-                          <div class="popup-txt">
-
-						<div class="main-content">
-                                <div class="text-1 fadeOut sync3">For the dialysis treatment:</div>
-                                <div class="text-2 fadeOut sync4">Would you prefer taking it in a hospital or at home?</div>
-								<div class="text-2 fadeOut sync5">Would you prefer travelling to the hospital multiple times to take it?</div>
-                                <div class="text-3 fadeOut sync6">Would you prefer the use of needles or a surgically implanted catheter?</div>
-                            </div>
-                            <div class="fadeOut sync7">
-                              <p  >Hemodialysis in a clinic requires:</p>
-                              <ul>
-                                  <li>Needle and tubing</li>
-                                  <li>Travel to a clinic several times a week</li>
-                              </ul>
-                            </div>
-                          </div>
-                      </div>
-                      <div class="tab-data" id="tab-data-2" style="display: none;">
-                          <div class="popup-txt" >
-                              <p>Peritoneal dialysis:</p>
-                              <ul>
-                                  <li>Blood return or removal not required</li>
-                                  <li>Self-administered, at-home treatment</li>
-                                  <li>Travel, needles, and nurse support not required</li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
+          </div>
+          <div class="tab-content" style="display: none;">
+            <div class="tab-data" id="tab-data-1" style="display: none;">
+              <div class="popup-txt">
+                <div class="main-content">
+                  <div class="tab1-content text-1 fadeOut sync3">For the dialysis treatment:</div>
+                  <div class="tab1-content text-2 fadeOut sync4">Would you prefer taking it in a hospital or at home?</div>
+                  <div class="tab1-content text-2 fadeOut sync5">Would you prefer travelling to the hospital multiple times to take it?</div>
+                  <div class="tab1-content text-3 fadeOut sync6">Would you prefer the use of needles or a surgically implanted catheter?</div>
                 </div>
-                <div class="image-holder">
-                    <div class="img1" style="display: none;">
-                        <img src="images/m01_t01_p03/Slide_08_image_01.jpg">
-                        <figcaption class="img-caption">Hemodialysis in a hospital</figcaption>
-                    </div>
-                    <div class="img2" style="display: none;">
-                        <img src="images/m01_t01_p03/Slide_08_image_02.jpg">
-                          <figcaption class="img-caption">Peritoneal dialysis at home</figcaption>
-                    </div>
+                <div class="tab1-content fadeOut sync7">
+                  <p>Hemodialysis in a clinic requires:</p>
+                  <ul>
+                    <li>Needle and tubing</li>
+                    <li>Travel to a clinic several times a week</li>
+                  </ul>
                 </div>
+              </div>
             </div>
+            <div class="tab-data" id="tab-data-2" style="display: none;">
+              <div class="popup-txt">
+                <p>Peritoneal dialysis:</p>
+                <ul>
+                  <li>Blood return or removal not required</li>
+                  <li>Self-administered, at-home treatment</li>
+                  <li>Travel, needles, and nurse support not required</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="image-holder">
+          <div class="img1" style="display: none;">
+            <img src="images/m01_t01_p03/Slide_08_image_01.jpg">
+            <figcaption class="img-caption">Hemodialysis in a hospital</figcaption>
+          </div>
+          <div class="img2" style="display: none;">
+            <img src="images/m01_t01_p03/Slide_08_image_02.jpg">
+            <figcaption class="img-caption">Peritoneal dialysis at home</figcaption>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <script>
-    var imageSwap = false;
-    var qPoints = [0, 3, 27, 28, 28,35, 40, 65];
-    var qPointsExecution = ["", "pauseSound()", "",  "", "", "", "changeText('main-content')","pauseSound()"];
-    var currentCuePointId = 0;
-    var globalAudioPosition = 0
-    var startAudioPlay = false;
-    function showTab1 (e) {
+  var imageSwap = false;
 
-      document.querySelector('.tab-content').style.display = 'block';
-      document.querySelector('#tab-data-1').style.display = 'block';
-      document.querySelector('#tab-data-2').style.display = 'none';
-      document.querySelector('.img1').style.display = 'block';
-      document.querySelector('.img2').style.display = 'none';
+  var isIE = /*@cc_on!@*/ false || !!document.documentMode;
+
+
+
+  var qPoints = [0, 3, 23, 26, 26, 33, 37, 62];
+  var qPointsExecution = ["", "pauseSound()", "", "", "", "", "changeText('main-content')", "pauseSound()"];
+  var currentCuePointId = 0;
+  var globalAudioPosition = 0
+  var startAudioPlay = false;
+
+  function showTab1(e) {
+    $(".tab1-content").removeClass("fadeIn");
+    $(".tab1-content").addClass("fadeOut");
+    document.querySelector('.tab-content').style.display = 'block';
+    document.querySelector('#tab-data-1').style.display = 'block';
+    document.querySelector('#tab-data-2').style.display = 'none';
+    document.querySelector('.img1').style.display = 'block';
+    document.querySelector('.img2').style.display = 'none';
     //  document.querySelector('.main-content').style.display = 'none';
-      jarvisAudio.setPosition(3000);
-      jarvisAudio.resume();
-      $(e).css("background-color", "#ef3125 !important");
-      $(".tab-2").css("background-color", "#1792e5 !important");
+    jarvisAudio.setPosition(3000);
+    jarvisAudio.play();
+    currentCuePointId = 2;
+    $(e).css("background-color", "#ef3125 !important");
+    $(".tab-2").css("background-color", "#1792e5 !important");
+    $('.main-content').show();
+  }
 
-    }
-
-    function showTab2 (e) {
-      document.querySelector('.tab-content').style.display = 'block';
-      document.querySelector('#tab-data-2').style.display = 'block';
-      document.querySelector('#tab-data-1').style.display = 'none';
-      document.querySelector('.img2').style.display = 'block';
-      document.querySelector('.img1').style.display = 'none';
-      //document.querySelector('.main-content').style.display = 'none';
-      jarvisAudio.setPosition(64000);
-      jarvisAudio.resume();
-      $(e).css("background-color", "#ef3125 !important");
-      $(".tab-1").css("background-color", "#1792e5 !important");
-    }
+  function showTab2(e) {
+    document.querySelector('.tab-content').style.display = 'block';
+    document.querySelector('#tab-data-2').style.display = 'block';
+    document.querySelector('#tab-data-1').style.display = 'none';
+    document.querySelector('.img2').style.display = 'block';
+    document.querySelector('.img1').style.display = 'none';
+    jarvisAudio.setPosition(62000);
+    jarvisAudio.play();
+    $(e).css("background-color", "#ef3125 !important");
+    $(".tab-1").css("background-color", "#1792e5 !important");
+  }
 
 
-    var preloader = {
-      resource : [
-        'images/m01_t01_p03/Slide_08_image_01.jpg',
-        'images/m01_t01_p03/Slide_08_image_02.jpg',
-        '../app/assets/audio/m01_t01_p03.mp3'
+  var preloader = {
+    resource: [
+      'images/m01_t01_p03/Slide_08_image_01.jpg',
+      'images/m01_t01_p03/Slide_08_image_02.jpg',
+      '../app/assets/audio/m01_t01_p03.mp3'
 
-                  ]
-    }
+    ]
+  }
 
-    // console.log(preloader.resource.length);
-
+  // console.log(preloader.resource.length);
 </script>

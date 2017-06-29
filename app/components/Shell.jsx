@@ -105,9 +105,10 @@ var Shell = React.createClass ({
   },
 
   menuItemClicked(e){
-    var pageId = e.target.dataset.pageId;
+    var pageId = e.currentTarget.dataset.pageId;
     this.setState({currentPageNumber: parseInt(pageId)});
     this.setState({sidebarOpen: !this.state.sidebarOpen});
+    console.log("Clicked",  parseInt(pageId));
   },
 
   clickOpenHelpDock() {
@@ -152,6 +153,7 @@ var Shell = React.createClass ({
 
   replayScreen() {
     loadPage(this.state.currentPageNumber);
+    loadAudio(this.state.currentPageNumber);
   },
 
 

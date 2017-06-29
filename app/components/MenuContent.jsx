@@ -55,12 +55,12 @@ render() {
               <a className="disable-event">Growth in portable- and home-use medical devices</a>
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(4)}}></span>
             </li>
-            <li  onClick={this.props.onPageLinkClick} data-page-id={6}>
-              <a className="disable-event">Target/focus medical applications</a>
-              <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(5)}}></span>
-            </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={5}>
               <a className="disable-event">Internet of things—connected medical equipment</a>
+              <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(5)}}></span>
+            </li>
+            <li  onClick={this.props.onPageLinkClick} data-page-id={6}>
+              <a className="disable-event">Target/focus medical applications</a>
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(6)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={7}>

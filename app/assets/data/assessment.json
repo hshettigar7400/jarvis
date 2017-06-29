@@ -120,29 +120,29 @@
                     {
                         "id": "question",
 						"audioID":"p1q3",
-                        "type": "mrq",
+                        "type": "mcq",
                         "text": "With medical devices becoming smaller and portable, what are the implications for sensors?",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                               {
                                 "id": "option",
-                                "correct": 1,
+                                "correct": 0,
                                 "text": "Lower power"
                             },
                             {
                                 "id": "option",
-                                "correct": 1,
+                                "correct": 0,
                                 "text": "Smaller size"
                             },
                             {
                                 "id": "option",
-                                "correct": 1,
+                                "correct": 0,
                                 "text": "Higher volume"
                             },
                             {
                                 "id": "option",
-                                "correct": 0,
-                                "text": "Higher price"
+                                "correct": 1,
+                                "text": "All of the above"
                             }
                         ]
                     },
@@ -183,54 +183,39 @@
                     {
                         "id": "question",
 			                  "audioID":"p1q5",
-                        "type": "mrq",
-                        "text": "From medical applications listed below, identify Honeywell’s focus medical applications.?",
+                        "type": "mcq",
+                        "text": "From medical applications listed below, identify Honeywell’s focus medical applications.",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                             {
                                 "id": "option",
-                                "correct": 1,
+                                "correct": 0,
                                 "text": "Kidney dialysis machines"
                             },
                             {
                                 "id": "option",
-                                "correct": 1,
+                                "correct": 0,
                                 "text": "Respiratory"
                             },
                             {
                                 "id": "option",
                                 "correct": 0,
-                                "text": "Pacemaker"
-                            },
-                            {
-                                "id": "option",
-                                "correct": 1,
                                 "text": "Diagnostic/analytical equipment"
                             },
                             {
                                 "id": "option",
                                 "correct": 0,
-                                "text": "Holter monitor"
-                            },
-                            {
-                                "id": "option",
-                                "correct": 0,
-                                "text": "Ultrasound imaging"
-                            },
-                            {
-                                "id": "option",
-                                "correct": 1,
                                 "text": "Hospital hardware"
                             },
                             {
                                 "id": "option",
-                                "correct": 1,
+                                "correct": 0,
                                 "text": "Surgical equipment"
                             },
                             {
                                 "id": "option",
-                                "correct": 0,
-                                "text": "Balloon angioplasty"
+                                "correct": 1,
+                                "text": "All of the above"
                             }
                         ]
                     }
@@ -248,7 +233,7 @@
                     "exitCourse": true,
                     "passMark": 80,
                     "header":"<span class='passed'>Congatulations!</span><span> You have successfully completed the module.</span>",
-                    "text": "<div> <p> <span class='right-side-text'>Minimum passing score:</span> <span class='left-side-text'>80%</span> </p> <p> <span class='right-side-text'>Total number of questions:</span> <span class='left-side-text'><<Y>></span> </p> <p> <span class='right-side-text'>Total number of correct answers:</span> <span class='left-side-text'><<X>></span> </p> <p> <span class='right-side-text'>Total number of incorrect answers:</span> <span class='left-side-text'><<I>></span> </p> <p> <span class='right-side-text'>Your score:</span> <span class='left-side-text'><<R>></span> </p> </div>"
+                    "text": "<div> <p> <span class='right-side-text'>Minimum passing score:</span> <span class='left-side-text'>80%</span> </p> <p> <span class='right-side-text'>Total number of questions:</span> <span class='left-side-text'><<Y>></span> </p> <p> <span class='right-side-text'>Total number of correct answers:</span> <span class='left-side-text'><<X>></span> </p> <p> <span class='right-side-text'>Total number of incorrect answers:</span> <span class='left-side-text'><<I>></span> </p> <p> <span class='right-side-text'>Your score:</span> <span class='left-side-text'><<R>></span></p></div>"
                 },
                 {
                     "review": true,

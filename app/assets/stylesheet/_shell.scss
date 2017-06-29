@@ -57,11 +57,16 @@ body {
 
 .course-logo {
   float: left;
+  img
+  {
+  width: 80%;
+  margin: 5px;
+  }
 }
 
 .page-title__container {
   min-height: 40px;
-  line-height: 20px;
+  line-height: 35px;
   display: flex;
   align-items: baseline;
   width: 100%;

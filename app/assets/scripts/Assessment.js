@@ -39,7 +39,7 @@ function Assessment() {
             randomizeOptions: false,
             review: true,
             exitReview: true,
-            revisitContent: true,
+            revisitContent: false,
             exitButtonOnResultPage: true,
             noOfAttempts: 3,
             showReviewButtonAfterAttempt: 2,
@@ -280,6 +280,7 @@ function Assessment() {
         });
         if (defaults.noOfAttempts > 1 || defaults.noOfAttempts < 1) $(Selectors.player).on('click', selectors.tryAgainButton, function() {
             $('.lastQuestion').html('Submit');
+            jarvisAudio.stop();
             restartAssessment()
         });
         if (defaults.review) $(Selectors.player).on('click', selectors.reviewButton, function() {
@@ -294,17 +295,17 @@ function Assessment() {
             //SUMANTH open the exit popup window here
         });
         if (defaults.revisitContent) $(Selectors.player).on('click', selectors.visitContentButton, function() {
-			
+
             $('.lastQuestion').html('Submit');
             $(".page-loader").empty();
             $(".page-loader").load('components/content/m01/t01/m01_t01_p01.html');
             $(".page-number").html(01);
 			$(".page-title").html(topicNamesArray[0]);
-			
+
             $.getJSON( "../app/assets/data/transcript.json", function( data ) {
                 $(".transcript-text-container").html(data.transcript[0].text)
             });
-			
+
 			$.getJSON( "../app/assets/data/menu.json", function( data ) {
                 $(".transcript-text-container").html(data.menu[0].text)
             });
@@ -314,13 +315,7 @@ function Assessment() {
             jarvisAudio = soundManager.createSound({
               url: '../app/assets/audio/m01_t01_p01.mp3',
               autoLoad: true,
-              autoPlay: true,
-              onload: function() {
-              },
-              onfinish: function() {
-              },
-              whileplaying() {
-              }
+              autoPlay: true
             });
             //window.reloadFromStart();
             /*if (document.querySelector('.next-button'))
@@ -389,7 +384,9 @@ function Assessment() {
         var per = Math.ceil(correctCount / (questionResult.length) * 100);
         updateEndPageContent(per, correctCount);
         if (attemptCounter >= defaults.noOfAttempts && defaults.noOfAttempts > 0) {
-            $(selectors.tryAgainButton).hide()
+            $(selectors.tryAgainButton).hide();
+
+
         }
     }
 
@@ -407,25 +404,13 @@ function Assessment() {
                 jarvisAudio = soundManager.createSound({
                   url: '../app/assets/audio/m01_t01_p09_02.mp3',
                   autoLoad: true,
-                  autoPlay: true,
-                  onload: function() {
-                  },
-                  onfinish: function() {
-                  },
-                  whileplaying() {
-                  }
+                  autoPlay: true
                 });
               } else {
                 jarvisAudio = soundManager.createSound({
                   url: '../app/assets/audio/m01_t01_p09_01.mp3',
                   autoLoad: true,
-                  autoPlay: true,
-                  onload: function() {
-                  },
-                  onfinish: function() {
-                  },
-                  whileplaying() {
-                  }
+                  autoPlay: true
                 });
               }
               //
@@ -454,11 +439,17 @@ function Assessment() {
         var str = '';
         if ((defaults.noOfAttempts > attemptCounter || defaults.noOfAttempts == 0) && per < assessment_config.passingScore) str += '<div class="button-container"><span>' + data.tryAgain.text + ' </span><a href="#" class="tryAgain button assessbtnbg ' + Selectors.tabIndex + '">' + data.tryAgain.label + '</a></div>';
         if (defaults.review) {
+
             str += '<div class="button-container"><span>' + data.review.text + '</span><a href="#" class="review button assessbtnbg ' + Selectors.tabIndex + '">' + data.review.label + '</a></div>'
         }
-        if (defaults.revisitContent) str += '<div class="button-container"><span>' + data.visitContent.text + ' </span><a href="#" class="revisitContent button assessbtnbg ' + Selectors.tabIndex + '">' + data.visitContent.label + '</a></div>';
+        if (defaults.revisitContent && per < assessment_config.passingScore) str += '<div class="button-container"><span>' + data.visitContent.text + ' </span><a href="#" class="revisitContent button assessbtnbg ' + Selectors.tabIndex + '">' + data.visitContent.label + '</a></div>';
+        if (per >= assessment_config.passingScore)
+        {
+        str += '<div class="button-container">Before you go, please take the time to complete a short <a href="https://www.surveymonkey.com/r/D9LF2YW" target="_blank">survey</a> to help us improve our courses.</div>';
+        }
         if (defaults.exitButtonOnResultPage) str += '<div class="button-container"><span>' + data.exitCourse.text + '</span><a href="#" class="exitCourse button assessbtnbg ' + Selectors.tabIndex + '">' + data.exitCourse.label + '</a></div>';
-        if (defaults.certificate && per >= assessment_config.passingScore && assessment_config.complianceType !== 1) str += '<div class="button-container"><a data-index="' + ++tabindex + '" href="#" class="certificate button assessbtnbg ' + Selectors.tabIndex + '">' + data.certificate.label + '</a></div>';
+        if (defaults.certificate && per >= assessment_config.passingScore && assessment_config.complianceType !== 1)
+         str += '<a data-index="' + ++tabindex + '" href="#" class="certificate button assessbtnbg ' + Selectors.tabIndex + '">' + data.certificate.label + '</a></div>';
         $(selectors.wrapper + ' .text-content-header').html(obj.header);
         $('.assessment .end-page .buttons').html(str).show();
         $('.assessment .end-page').show()
@@ -756,6 +747,7 @@ function Assessment() {
         FRED.player.enableButton(FRED.player.audioName);
         FRED.player.enableButton(FRED.player.playPauseName);*/
         //SUMANTH ENABLE UI BUTTONS AS REQUIRED ABOVE
+		$('.correct-incorrect').hide();
         $(selectors.qOptions).attr(selectors.userValue, '0').removeClass(Selectors.selected + ' ' + Selectors.disabled);
         $(selectors.qOptions).attr(selectors.userValue, '0').attr('aria-disabled', false);
         $(selectors.qOptions).attr(selectors.userValue, '0').attr('aria-checked', false);
@@ -780,7 +772,9 @@ function Assessment() {
 
     function reviewAssessment() {
         reviewMode = true;
+        jarvisAudio.pause();
         initVars();
+		$('.correct-incorrect').show();
         /*FRED.player.disableButton(FRED.player.transcriptName);
         FRED.player.disableButton(FRED.player.replayName);
         FRED.player.disableButton(FRED.player.audioName);
