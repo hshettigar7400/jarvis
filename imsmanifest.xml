@@ -129,7 +129,7 @@ The XSD files for SCORM 1.2 are not strictly valid and may cause errors in some 
 
 <resources>
 	<resource identifier="resource_1" type="webcontent" adlcp:scormtype="sco" href="app/index.html">
-		<file href="app/index.html"/>
+		<file href="app/framework.html"/>
 	</resource>
 	 <!-- <resource identifier="resource_2" type="webcontent" adlcp:scormtype="sco" href="module2/shell.html">
 		<file href="module2/shell.html"/>

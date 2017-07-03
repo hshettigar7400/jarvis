@@ -1,4 +1,5 @@
 
+
 var topicNamesArray = [
   'Welcome',
   'Course objectives',
@@ -394,6 +395,18 @@ function Assessment() {
         var obj = getResultPageData(per);
         gData.userScore = per;
         gData.quizAttempted = true;
+		console.log('scormAdaptor_getscore(): ', window.scormAdaptor_getscore());
+		var lmsScore = Number(scormAdaptor_getscore());
+		
+		if(gData.userScore > lmsScore) {
+			scormAdaptor_setscore(gData.userScore.toString());
+			scormAdaptor_commit();
+		}
+		
+		if(gData.userScore >= assessment_config.passingScore) {
+			scormAdaptor_complete();
+			scormAdaptor_commit();
+		}
         //gData.updatePageStatus(2, page);
         tabindex = 3;
         if (!obj) return;
@@ -447,7 +460,7 @@ function Assessment() {
         {
         str += '<div class="button-container">Before you go, please take the time to complete a short <a href="https://www.surveymonkey.com/r/D9LF2YW" target="_blank">survey</a> to help us improve our courses.</div>';
         }
-        if (defaults.exitButtonOnResultPage) str += '<div class="button-container"><span>' + data.exitCourse.text + '</span><a href="#" class="exitCourse button assessbtnbg ' + Selectors.tabIndex + '">' + data.exitCourse.label + '</a></div>';
+        if (defaults.exitButtonOnResultPage) str += '<div class="button-container"><span>' + data.exitCourse.text + '</span><a href="#" class="exitCourse button assessbtnbg ' + Selectors.tabIndex + '" onclick="showPopup()">' + data.exitCourse.label + '</a></div>';
         if (defaults.certificate && per >= assessment_config.passingScore && assessment_config.complianceType !== 1)
          str += '<a data-index="' + ++tabindex + '" href="#" class="certificate button assessbtnbg ' + Selectors.tabIndex + '">' + data.certificate.label + '</a></div>';
         $(selectors.wrapper + ' .text-content-header').html(obj.header);
@@ -856,4 +869,28 @@ function Assessment() {
         //FRED.util.popupWindow(FRED.util.resolveLangPath(defaults.certificateURL), defaults.certificateWidth, defaults.certificateHeight)
         //sumanth open certificate
     }
+}
+
+function exitCourse(_val)
+{
+  //var _exitConfirm = confirm("Are you sure you want to exit the course?");
+  
+  if(_val == true || _val == "true")
+  {
+	  window.scormAdaptor_adlOnunload();
+    setTimeout(function(){self.close();parent.window.close();window.opener.close();}, 300);
+  }
+  else
+  {
+	 var exitPopup = document.getElementById('exitAlert');
+		exitPopup.style.display = 'none'; 
+  }
+}
+
+function showPopup()
+{
+	
+	var exitPopup = document.getElementById('exitAlert');
+	exitPopup.style.display = 'block';
+	console.log(exitPopup);
 }

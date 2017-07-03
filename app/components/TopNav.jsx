@@ -40,7 +40,7 @@ var TopNav = React.createClass ({
             </a>
           </div>
           <div className="button-box">
-            <a href="#" id="button-back" onClick={this.props.onBackButtonClick} className="tabindex" aria-label="menu" role="button" aria-disabled="false" aria-pressed="false">
+            <a href="#" id="button-back" onClick={this.props.onBackButtonClick} className={(this.props.currentPageNumber > 1 || !this.props.isMenuOpened)? "back-button tabindex" : "back-button tabindex disabled"} aria-label="menu" role="button" aria-disabled="false" aria-pressed="false">
               <span className="button-label">
               </span>
               <span className="icon-back"></span>
@@ -54,7 +54,7 @@ var TopNav = React.createClass ({
             </div>
           </div>
           <div className="button-box">
-            <a href="#" id="button-next" onClick={this.props.onNextButtonClick} className="tabindex" aria-label="next" role="button" aria-disabled="false">
+            <a href="#" id="button-next" onClick={this.props.onNextButtonClick} className={this.props.isMenuOpened && this.props.currentPageNumber !== this.props.totalPages ? "tabindex next-button" : "tabindex disabled next-button"} aria-label="next" role="button" aria-disabled="false">
               <span className="button-label"></span>
               <span className="icon-next"></span>
             </a>

@@ -2,32 +2,43 @@ var React = require('react'),
   ReactDOM = require('react-dom'),
   Instruction = require('./components/Instruction.jsx').default;
 import SCSS from './assets/stylesheet/app.scss';
-import * as scormAdaptor from "./assets/scripts/scorm_adaptor";
+//import * as scormAdaptor from "./assets/scripts/scorm_adaptor";
 
 const appData = {
   title: 'Jarvis'
 }
 
-window.appType = 'standalone';
-if(scormAdaptor.scormAdaptor_getsuspenddata() == '' || scormAdaptor.scormAdaptor_getsuspenddata() == undefined) {
-  window.pageStatusList = [0,0,0,0,0,0,0,0];
-} else {
-  window.pageStatusList = scormAdaptor.scormAdaptor_getsuspenddata().split(',').map(Number);
+window.appType = 'scorm';
+
+if(window.appType != 'standalone') {
+	scormAdaptor_getAPI();
+	//window.pageStatusList = [0,0,0,0,0,0,0,0];
+	console.log('suspend_data: ', window.scormAdaptor_getsuspenddata());
+	console.log('lesson location: ', window.scormAdaptor_getlocation());
+	if(window.scormAdaptor_getsuspenddata() == '' || window.scormAdaptor_getsuspenddata() == undefined) {
+	  window.pageStatusList = [0,0,0,0,0,0,0,0];
+	} else {
+	  window.pageStatusList = window.scormAdaptor_getsuspenddata().split(',').map(Number);
+	}
+
+	if(window.scormAdaptor_getlocation() == '' || window.scormAdaptor_getlocation() == undefined) {
+	  window.currentPageNum = 1;
+	} else {
+	  window.currentPageNum = window.scormAdaptor_getlocation();
+	}
 }
 
-if(scormAdaptor.scormAdaptor_getlocation() == '' || scormAdaptor.scormAdaptor_getlocation() == undefined) {
-  window.currentPageNum = 1;
-} else {
-  window.currentPageNum = scormAdaptor.scormAdaptor_getlocation();
-}
 
 window.updatePageStatusList = function(pageNum) {
 	pageStatusList[pageNum-1] = 1;
   if (document.getElementById('courseProgressUpdate'))
 	 document.getElementById('courseProgressUpdate').style.width = getCourseProgress();
 
-  scormAdaptor.scormAdaptor_setsuspenddata(window.pageStatusList);
-  scormAdaptor.scormAdaptor_setlocation(pageNum);
+  window.scormAdaptor_setsuspenddata(window.pageStatusList);
+  
+  window.scormAdaptor_setlocation(pageNum.toString());
+  
+  window.scormAdaptor_commit();
 }
 
 window.getCourseProgress = function() {

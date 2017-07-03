@@ -16,7 +16,9 @@ var pageAssets = [
   [
     'images/m01_t01_p03/Slide_08_image_01.jpg',
     'images/m01_t01_p03/Slide_08_image_02.jpg',
-    '../app/assets/audio/m01_t01_p03.mp3'
+    '../app/assets/audio/m01_t01_p03.mp3',
+    '../app/assets/audio/m01_t01_p03_02.mp3',
+    '../app/assets/audio/m01_t01_p03_03.mp3'
   ],
   [
     'images/m01_t01_p04/m01_t01_p04_01_large.jpg',

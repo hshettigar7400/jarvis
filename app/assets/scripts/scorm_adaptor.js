@@ -53,7 +53,7 @@ export function scormAdaptor_getAPI(){
 
   } else {
     scormAPIHandle = myAPI;
-    //scormAdaptor_adlOnload();
+    scormAdaptor_adlOnload();
   }
 }
 
@@ -296,6 +296,7 @@ export function scormAdaptor_setsuspenddata(args){
 }
 
 export function scormAdaptor_getsuspenddata(){
+	console.log('scormAPIHandle: ', scormAPIHandle);
 	if(scormAPIHandle != null){
         	var res = scormAPIHandle.LMSGetValue("cmi.suspend_data");
         	fGetLastError();
@@ -364,6 +365,7 @@ export function scormAdaptor_setInteraction(lNum, lId, lType, lStudentResponse){
 }
 
 function startTimer(){
+	console.log('startTimer is Called');
 	startDate = new Date().getTime();
 }
 

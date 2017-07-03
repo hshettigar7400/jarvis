@@ -403,7 +403,7 @@ figcaption {
     .content-tab > span {width: 50%;}
 }
 
- @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+ @media only screen and  (max-device-width: 480px) and (orientation: portrait) {
      .m01_t01_p04 {margin-top: 16px;}
      .m01_t01_p04 .template-panel .image-holder .img1{background-image: none;}
      .m01_t01_p04 .template-panel .image-holder .img1 img{ width: 100%; padding-top: 40%;}
@@ -417,7 +417,7 @@ figcaption {
       .m01_t01_p04 .image-container4 {width: 40%; margin-left: 25px;}
       .m01_t01_p04 .image-container4> div { top: 30px;     height: 190px;}
      .m01_t01_p04 .image-container > div img {width: 100%;}
-     figcaption { position: relative; bottom: 33px; font-size: 11px;}
+     .img-caption { position: relative; bottom: 33px; font-size: 11px;}
 }
 /**
     m01_t01_p05
@@ -896,7 +896,88 @@ figcaption {
   font-weight: 700;
 }
 
-@media all and (max-width: 480px) {
+ @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+	 .m01_t01_p07
+	 {
+		 height: 500px;
+		 overflow: auto;
+   }
+
+	.activity-holder
+	{
+		overflow: auto;
+		height: 500px;
+	}
+   .drag-element {
+   margin-top: 10px;
+   background-color: #0097e1;
+   color: #ffffff;
+   padding: 10px;
+   min-width: 80px;
+   max-width: 50px;
+   height: 40px;
+   z-index: 999999;
+   cursor: move;
+   font-weight: 600;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 0.7em;
+ }
+
+ .activity-question {
+     padding: 5px 10px;
+   }
+
+   .activity-score, .activity-timer {
+     background-color: #ee3124;
+     color: #fff;
+     padding: 0px 10px;
+   }
+
+   .drop-container {
+     background-color: #47bbea;
+     padding: 0px;
+     margin-right: 20px;
+     color: #fff;
+     text-align: center;
+     min-width: 18%;
+     max-width: 23%;
+     height: 60px;
+     position: relative;
+     font-weight: 600;
+     display: flex;
+      justify-content: center;
+     align-items: center;
+     font-size: 0.7em;
+ }
+ .activity-drop__container {
+     padding-top: 10px;
+     display: flex !important;
+   }
+   .drop-container {
+     float: left;
+     margin-left: 1%;
+     margin-top: 15px;
+ }
+ .activity-drag__element {
+   padding: 0px;
+ }
+ .activity-drag__element {
+     padding-top: 0px;
+   }
+   .activity-option {
+     padding: 0px;
+     width: 100%;
+   }
+
+   .proceed-button, .activity-nav-button {
+     bottom: 5px;
+     right: 10px;
+   }
+ }
+ 
+@media all and (max-device-width: 480px) and  (orientation: portrait){
   .drag-element {
   margin-top: 10px;
   background-color: #0097e1;
@@ -912,6 +993,19 @@ figcaption {
   justify-content: center;
   align-items: center;
   font-size: 0.7em;
+}
+
+.proceed-button,
+.activity-nav-button {
+  position: absolute;
+  right: 60px;
+  bottom: 110px;
+  background: #0097e1;
+  border: none;
+  color: #fff;
+  padding: 10px 30px;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 .activity-question {
@@ -930,8 +1024,8 @@ figcaption {
     margin-right: 0px;
     color: #fff;
     text-align: center;
-    min-width: 12%;
-    max-width: 22%;
+    min-width: 22%;
+    max-width: 10%;
     height: 60px;
     position: relative;
     font-weight: 600;
@@ -964,14 +1058,7 @@ figcaption {
   }
 }
 
- @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
-	 .m01_t01_p07
-	 {
-		 height: 400px;
 
-
-	 }
- }
 /**
     m01_t01_p07
 **/
@@ -1437,4 +1524,9 @@ color:#FFF;
 
 @media all and (min-width:768px)
 {
+}
+
+.exitAlert
+{
+  display: none;
 }

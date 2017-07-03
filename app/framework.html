@@ -8,6 +8,67 @@
     <meta id="myViewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Medical Device Industry Overview</title>
   </head>
+  
+  <style>
+  .popup-alert
+  {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	width: 300px;
+	margin: auto;
+	padding: 5px;
+	display: none;
+	z-index: 99999;
+  }
+  
+  .popup-content
+  {
+	text-align: center;
+	    padding: 20px 0;
+  }
+  .popup-header
+  {
+	padding: 10px;
+    background-color: #ee3124;
+  }
+  
+  .popup-area
+  {
+	background-color: #D3D4D4;
+	display: block;
+    text-align: center;
+    padding: 0 35px;
+  }
+  
+  .warning-msg
+  {
+	margin: 0;
+	color: #000;
+  }
+  
+  .popup-buttons
+  {
+	 text-align: center;
+  }
+  .popup-buttons div
+  {
+	display: inline-block;
+	width: 80px;
+  }
+  .popup-yes-button, .popup-no-button
+  {
+	display: block;
+    margin: 10px;
+    padding: 5px 10px;
+    width: 60px;
+    background-color: #1792e5;
+    color: #FFF;
+	
+	
+  }
+  </style>
   <body>
     <div id="root"></div>
     <script src="assets/scripts/jquery.min.js"></script>
@@ -16,16 +77,27 @@
     <script trype="text/javascript" src="assets/scripts/vendor/soundmanager2-nodebug.js"></script>
     <script type="text/javascript" src="assets/scripts/velocity.ui.min.js"></script>
     <script type="text/javascript" src="assets/scripts/jquery.velocity.min.js"></script>
+	<script type="text/javascript" src="assets/scripts/scorm_adaptor1.js"></script>
     <script type="text/javascript" src="../build/framework.bundle.js"></script>
+	<script type="text/javascript" src="assets/scripts/Assessment.js"></script>
 
     <script>
     var jarvisAudio;
     var qPoints = [];
+	var appType = 'scorm';
     soundManager.setup({
       onready: function() {
         init();
       }
     });
+	
+	window.onload = function () {
+	//console.log('appType: ', appType);
+      if (appType != 'standalone') {
+        //scormAdaptor_getAPI();
+        //scormAdaptor_adlOnload();
+      }
+    }
 
     function init() {
       jarvisAudio = soundManager.createSound({
@@ -39,5 +111,53 @@
       });
     }
     </script>
+	
+	
+	<section class="popup-alert" id="exitAlert">
+	<div class="popup-header">
+	Exit
+	</div>
+	<div class="popup-area">
+	<div class="popup-content">
+	
+	<p class="warning-msg">
+	<span class="warning-sign">
+	</span>Are you sure you wish to exit the module?</p>
+	
+	</div>
+	<div class="popup-buttons">
+	<div>
+	<a href="#" id="popup-yes-button" onclick="exitCourse(true)" class="course-button box-shadow exitAlert-yes-button tabindextabindex">Yes</a>
+	</div>
+	<div>
+	<a href="#" id="popup-no-button" onclick="exitCourse(false)" class="course-button box-shadow exitAlert-no-button tabindextabindex">No</a>
+	</div>
+	</div>
+	</div>
+	</section>
+	
+	<section class="popup-alert" id="resumeAlert">
+	<div class="popup-header">
+	Resume
+	</div>
+	<div class="popup-area">
+	<div class="popup-content">
+	
+	<p class="warning-msg">
+	<span class="warning-sign">
+	</span>Are you sure you wish to exit the module?</p>
+	
+	</div>
+	<div class="popup-buttons">
+	<div>
+	<a href="#" id="popup-yes-button" onclick="exitCourse(true)" class="course-button box-shadow exitAlert-yes-button tabindextabindex">Yes</a>
+	</div>
+	<div>
+	<a href="#" id="popup-no-button" onclick="exitCourse(false)" class="course-button box-shadow exitAlert-no-button tabindextabindex">No</a>
+	</div>
+	</div>
+	</div>
+	</section>
+	
   </body>
 </html>
