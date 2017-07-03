@@ -919,7 +919,7 @@ figcaption {
    padding: 10px;
    min-width: 80px;
    max-width: 50px;
-   height: 40px;
+   height: 60px;
    z-index: 999999;
    cursor: move;
    font-weight: 600;
@@ -947,7 +947,7 @@ figcaption {
      text-align: center;
      min-width: 18%;
      max-width: 23%;
-     height: 60px;
+     height: 80px;
      position: relative;
      font-weight: 600;
      display: flex;
@@ -988,8 +988,8 @@ figcaption {
   color: #ffffff;
   padding: 10px;
   min-width: 60px;
-  max-width: 50px;
-  height: 40px;
+      min-width: 70px;
+    height: 55px;
   z-index: 999999;
   cursor: move;
   font-weight: 600;

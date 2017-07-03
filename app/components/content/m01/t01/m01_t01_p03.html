@@ -83,10 +83,10 @@
       onfinish: function() {
           $(".button").removeClass('disabled');
         },
-        whileplaying() {
+        whileplaying: function() {
           $(".button").addClass('disabled');
 		  syncPageText(jarvisAudio1.position);
-        }
+        },
     });
 	
 }

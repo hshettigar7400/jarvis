@@ -1,6 +1,7 @@
 var tInterval;
 
 function loadAudio(pageNum) {
+	soundManager.unload();
   soundManager.stopAll();
     clearInterval(tInterval);
   jarvisAudio = soundManager.createSound({
