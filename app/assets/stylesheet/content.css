@@ -276,6 +276,15 @@ b{font-weight:bold;}
 
 .m01_t01_p03 .template-panel .intro-text .image-holder div p {margin-top: -38px;text-align: center;color: #fff;font-size: 16px;font-weight: normal;}
 */
+
+.img-caption {
+  position: relative;
+  bottom: 50px;
+  text-align: center;
+  color: #fff;
+  margin-right: 35px;
+}
+
 @media all and (max-width: 680px) {
     .m01_t01_p03 .template-panel .popup-txt .intro-text .text-holder .part2 {display: flex;flex-direction: column;}
     .m01_t01_p03 .template-panel .intro-text .text-holder .part2 .part2-1 {width: 80%;border-bottom: 1px solid #fff;border-right: 0;margin: 0 auto;}
@@ -291,15 +300,10 @@ b{font-weight:bold;}
      .page {
         padding: 6px 25px 0px 10px;
      }
+	 .img-caption { bottom: 40px; margin-right: 0px;}
 }
 
-.img-caption {
-  position: relative;
-  bottom: 50px;
-  text-align: center;
-  color: #fff;
-  margin-right: 35px;
-}
+
 /**
     m01_t01_p04
 **/
@@ -417,7 +421,7 @@ figcaption {
       .m01_t01_p04 .image-container4 {width: 40%; margin-left: 25px;}
       .m01_t01_p04 .image-container4> div { top: 30px;     height: 190px;}
      .m01_t01_p04 .image-container > div img {width: 100%;}
-     .img-caption { position: relative; bottom: 33px; font-size: 11px;}
+     figcaption{ position: relative; bottom: 33px; font-size: 11px;}
 }
 /**
     m01_t01_p05
@@ -896,17 +900,17 @@ figcaption {
   font-weight: 700;
 }
 
- @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+ @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
 	 .m01_t01_p07
 	 {
 		 height: 500px;
-		 overflow: auto;
+		 overflow-y: hidden;
    }
 
 	.activity-holder
 	{
-		overflow: auto;
-		height: 500px;
+		overflow-x: hidden;
+		height: 350px;
 	}
    .drag-element {
    margin-top: 10px;
@@ -952,7 +956,7 @@ figcaption {
      font-size: 0.7em;
  }
  .activity-drop__container {
-     padding-top: 10px;
+     padding: 10px;
      display: flex !important;
    }
    .drop-container {
@@ -1035,7 +1039,8 @@ figcaption {
     font-size: 0.7em;
 }
 .activity-drop__container {
-    padding-top: 10px;
+    padding: 10px;
+	
   }
   .drop-container {
     float: left;

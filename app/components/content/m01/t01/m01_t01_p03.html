@@ -67,8 +67,8 @@
 
 
 
-  var qPoints = [0, 3, 23, 26, 26, 33, 37, 62];
-  var qPointsExecution = ["", "pauseSound()", "", "", "", "", "changeText('main-content')", "pauseSound()"];
+  var qPoints = [0, 3, 20, 23, 23, 30, 34, 39, 62];
+  var qPointsExecution = ["", "", "", "", "", "", "changeText('main-content')", "", ""];
   var currentCuePointId = 0;
   var globalAudioPosition = 0
   var startAudioPlay = false;
@@ -79,7 +79,7 @@
       url: path,
       autoLoad: true,
       autoPlay: true,
-      //onload: function() {},
+      onload: function() {},
       onfinish: function() {
           $(".button").removeClass('disabled');
         },
@@ -91,6 +91,8 @@
 	
 }
   function showTab1(e,path) {
+  
+	currentCuePointId = 2;
     $(".tab1-content").removeClass("fadeIn");
     $(".tab1-content").addClass("fadeOut");
     document.querySelector('.tab-content').style.display = 'block';
@@ -128,7 +130,7 @@
     resource: [
       'images/m01_t01_p03/Slide_08_image_01.jpg',
       'images/m01_t01_p03/Slide_08_image_02.jpg',
-      '../app/assets/audio/m01_t01_p03_01.mp3',
+      '../app/assets/audio/m01_t01_p03.mp3',
       '../app/assets/audio/m01_t01_p03_02.mp3',
       '../app/assets/audio/m01_t01_p03_03.mp3'
 
@@ -143,6 +145,7 @@
   if (qPoints !== null && currentCuePointId != undefined) {
      var t = millisToMinutesAndSeconds(position);
 
+	console.log(qPoints[currentCuePointId]);
      if (t == qPoints[currentCuePointId]) {
         console.log(t == qPoints[currentCuePointId])
        if (document.querySelector('.sync'+(currentCuePointId+1))) {
@@ -160,6 +163,17 @@
      }
    }
 
+}
+
+function millisToMinutesAndSeconds(millis) {
+  var minutes = Math.floor(millis / 60000);
+  var seconds = ((millis % 60000) / 1000).toFixed(0);
+  var s = ((minutes * 60) + parseInt(seconds));
+  return s;
+}
+
+function changeText(element) {
+  $("."+element).hide();
 }
   // console.log(preloader.resource.length);
 </script>
