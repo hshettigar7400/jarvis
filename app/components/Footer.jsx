@@ -95,7 +95,7 @@ render() {
         </div>
         <div className="nav-comp-container">
           <div className="page-counter clearfix">
-            0<span className="page-number">{this.getDoubleDigit(this.props.currentPageNumber)}</span>
+            0<span className="page-number">{this.props.currentPageNumber}</span>
             <span className="page-separator">|</span>
             <span className="total-pages">{this.getDoubleDigit(this.props.totalPages)}</span>
           </div>

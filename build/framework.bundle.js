@@ -18194,6 +18194,7 @@ exports.default = TopNav;
 var tInterval;
 
 function loadAudio(pageNum) {
+  soundManager.unload();
   soundManager.stopAll();
   clearInterval(tInterval);
   jarvisAudio = soundManager.createSound({
@@ -18211,7 +18212,7 @@ function loadAudio(pageNum) {
       disableButtons();
       $(".start-button").removeClass("disabled");
       $(".button").removeClass('disabled');
-      if (Number(pageNum) !== 9) {
+      if (Number(pageNum) !== 9 && Number(pageNum) !== 6) {
         document.querySelector('.next-button').classList.add("blinker");
       }
     },
@@ -22180,7 +22181,7 @@ var Footer = React.createClass({
             React.createElement(
               'span',
               { className: 'page-number' },
-              this.getDoubleDigit(this.props.currentPageNumber)
+              this.props.currentPageNumber
             ),
             React.createElement(
               'span',

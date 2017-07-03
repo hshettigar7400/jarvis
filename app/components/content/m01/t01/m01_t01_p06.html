@@ -693,8 +693,9 @@ var isIE = /*@cc_on!@*/false || !!document.documentMode;
   var qPointsExecution = ["", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "", "", "", ""];
   var currentCuePointId = 0;
   var imageSwap = false;
-
+	var count = 0;
   function openPopup(e, id, path) {
+	count++;
     $(".popup-content").hide();
     $("#popup" + id).show();
     $(".right-side").css('background', 'none');
@@ -705,6 +706,10 @@ var isIE = /*@cc_on!@*/false || !!document.documentMode;
       //onload: function() {},
       onfinish: function() {
           $(".button").removeClass('disabled');
+		  if(count >= 8)
+		  {
+			document.querySelector('.next-button').classList.add("blinker");
+		  }
         },
         whileplaying: function() {
           $(".button").addClass('disabled');

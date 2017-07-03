@@ -144,10 +144,13 @@
   </div>
 
   <div id="accordion" class="show-answer-container">
+  
     <div class="answer--inner-container">
       <div class="activity-feedback-title">
         Activity Answer
-        <a onclick="hideShowAnswer()"><span class="icon-close"></span></a>
+        <a onclick="hideShowAnswer()">
+		<button onclick="tryAgainActivity()">Back</button>
+		<span class="icon-close"></span></a>
       </div>
       <div class="answer-container">
         <p>Select each medical application to view its examples.</p>
@@ -436,6 +439,7 @@ function loadNextActivity() {
 }
 
 function tryAgainActivity() {
+	clearInterval(tInterval);
   currentActivityNumber = 1;
   correctAns = 0;
   timeTaken = "";

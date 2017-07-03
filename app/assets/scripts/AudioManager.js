@@ -19,7 +19,7 @@ function loadAudio(pageNum) {
       disableButtons();
       $(".start-button").removeClass("disabled");
       $(".button").removeClass('disabled');
-      if(Number(pageNum) !== 9 ) {
+      if(Number(pageNum) !== 9 && Number(pageNum) !== 6) {
         document.querySelector('.next-button').classList.add("blinker");
 
       }
