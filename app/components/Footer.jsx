@@ -88,7 +88,7 @@ render() {
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-back" onClick={this.props.onBackButtonClick} className={(this.props.currentPageNumber > 1 || !this.props.isMenuOpened)? "back-button tabindex" : "back-button tabindex disabled"} aria-label="back" role="button" aria-disabled="true">
+          <a href="#" id="button-back" onClick={this.props.onBackButtonClick} className={this.props.isMenuOpened && (this.props.currentPageNumber > 1 || !this.props.isMenuOpened)? "back-button tabindex" : "back-button tabindex disabled"} aria-label="back" role="button" aria-disabled="true">
             <span className="button-label"></span>
             <span className="icon-back"></span>
           </a>

@@ -140,7 +140,7 @@
     font-size: 1em;
     text-align: center;
     margin-top: 2%;
-	font-weight: bold;
+	  font-weight: bold;
   }
 	.m01_t01_p06 .popup_second img
 	{
@@ -520,7 +520,7 @@
                   </ul>
                 </div>
                 <div class="popup_second"><img src="images/m01_t01_p06/image1.jpg" />
-                  <div class="img_caption">Kidney dialysis machine</div>
+                  <div class="img_caption">Kidney Dialysis Machine</div>
                 </div>
               </div>
 
@@ -538,7 +538,7 @@
                   </ul>
                 </div>
                 <div class="popup_second"><img src="images/m01_t01_p06/image2.jpg" />
-                  <div class="img_caption">Respiratory applications</div>
+                  <div class="img_caption">Respiratory Applications</div>
                 </div>
 
               </div>
@@ -561,7 +561,7 @@
                   </ul>
                 </div>
                 <div class="popup_second"><img src="images/m01_t01_p06/image3.jpg" />
-                  <div class="img_caption">Diagnostic/analytical equipment</div>
+                  <div class="img_caption">Diagnostic/analytical Equipment</div>
                 </div>
 
               </div>
@@ -582,7 +582,7 @@
                   </ul>
                 </div>
                 <div class="popup_second"><img src="images/m01_t01_p06/image4.jpg" />
-                  <div class="img_caption">Hospital hardware</div>
+                  <div class="img_caption">Hospital Hardware</div>
                 </div>
 
               </div>
@@ -601,7 +601,7 @@
                   </ul>
                 </div>
                 <div class="popup_second"><img src="images/m01_t01_p06/image5.jpg" />
-                  <div class="img_caption">Dental equipment</div>
+                  <div class="img_caption">Dental Equipment</div>
                 </div>
 
               </div>
@@ -623,7 +623,7 @@
                   </ul>
                 </div>
                 <div class="popup_second"><img src="images/m01_t01_p06/image6.jpg" />
-                  <div class="img_caption">Surgical instruments</div>
+                  <div class="img_caption">Surgical Instruments</div>
                 </div>
 
               </div>
@@ -671,7 +671,7 @@
                   </ul>
                 </div>
                 <div class="popup_second"><img src="images/m01_t01_p06/image8.jpg" />
-                  <div class="img_caption">Infusion pumps</div>
+                  <div class="img_caption">Infusion Pumps</div>
                 </div>
 
               </div>
@@ -703,9 +703,12 @@ var isIE = /*@cc_on!@*/false || !!document.documentMode;
       url: path,
       autoLoad: true,
       autoPlay: true,
-      //onload: function() {},
+      onload: function() {
+        enableButtons();
+      },
       onfinish: function() {
           $(".button").removeClass('disabled');
+          disableButtons();
 		  if(count >= 8)
 		  {
 			document.querySelector('.next-button').classList.add("blinker");
@@ -718,5 +721,18 @@ var isIE = /*@cc_on!@*/false || !!document.documentMode;
 
     $(".button").removeClass("highlight-button");
     $($(e).parent()).addClass("highlight-button");
+  }
+  function disableButtons() {
+    if (document.getElementById('button-playPause'))
+    document.getElementById('button-playPause').classList.add("disabled");
+    if (document.getElementById('button-audio'))
+    document.getElementById('button-audio').classList.add("disabled");
+  }
+
+  function enableButtons() {
+    if (document.getElementById('button-playPause'))
+    document.getElementById('button-playPause').classList.remove("disabled");
+    if (document.getElementById('button-audio'))
+    document.getElementById('button-audio').classList.remove("disabled");
   }
 </script>

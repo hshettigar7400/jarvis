@@ -17,10 +17,13 @@ var HeaderTitle = React.createClass ({
           <div id="courseTitle" className="course-title title">
             <p>Medical Device Industry Overview</p>
           </div>
+
         </div>
+        <span className="close_btn icon-close"></span>
         <div className="courseProgress">
           <span id="courseProgressUpdate"></span>
         </div>
+
       </div>
     )
   }

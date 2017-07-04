@@ -31,7 +31,10 @@ var Shell = React.createClass ({
 
   clickOpenMenu: function(e) {
     this.setState({sidebarOpen: !this.state.sidebarOpen});
-    togglePlayPuase()
+    togglePlayPuase();
+    this.setState({transcriptVisible: false});
+    this.setState({isHelpDockOpen: false});
+    enableTranscript();
   },
 
   clickOpenToolsMenu: function() {
@@ -113,10 +116,13 @@ var Shell = React.createClass ({
 
   clickOpenHelpDock() {
     this.setState({isHelpDockOpen: !this.state.isHelpDockOpen});
+    this.setState({transcriptVisible: false});
     togglePlayPuase();
+    enableTranscript();
   },
 
   enableTranscript(e) {
+  this.setState({isHelpDockOpen: false});
     var _self =this;
     if (!this.state.transcriptVisible) {
       $("#button-transcript").addClass("selected");

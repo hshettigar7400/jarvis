@@ -3,6 +3,10 @@
     Author     : SunilP, RahulD
 */
 
+body
+{
+  overflow-y: hidden;
+}
 .page a {
     cursor: pointer;
     word-break: break-word;
@@ -51,7 +55,7 @@ b{font-weight:bold;}
     height: -webkit-calc(100% - 40px);
     height: calc(100% - 40px);*/
 }
-.page .instruction {background: url("../../images/instr_bg.png") no-repeat scroll 0px top transparent;padding: 2px 0 0px 30px;font-size: 14px;min-height: 19px;}
+.page .instruction {background: url("../../images/instr_bg.png")  no-repeat scroll 0px top transparent;padding: 2px 0 0px 30px; font-style: italic; font-size: 14px;min-height: 19px;}
 
 .page .instruction.white {background: url("images/instr_bg_white.png") no-repeat scroll 0px top transparent;padding: 2px 0 0px 30px;font-size: 14px;min-height: 19px;}
 
@@ -168,8 +172,8 @@ b{font-weight:bold;}
 .m01_t01_p02 {background-color: #0a4166;}
 .m01_t01_p02 .template-panel{display: flex;flex-wrap: wrap;margin-top: 30px;}
 .m01_t01_p02 .objective-holder{position: relative;margin-top: 25px;height: auto;left: 0;max-width: 50%;}
-.m01_t01_p02 .img1 {right: 11%;margin-top: 20px;position: absolute;}
-.m01_t01_p02 .img1 img {max-width: 100%;display: block;margin: 0 auto;}
+.m01_t01_p02 .img1 {right: 11%;margin-top: 0px;position: absolute;}
+.m01_t01_p02 .img1 img {max-width: 90%;display: block;margin: 0 auto;}
 .m01_t01_p02 .objective-txt{background-color: #FFF;padding: 15px 20px;}
 .m01_t01_p02 .page-header{display:table;padding: 0;width:100%;}
 .m01_t01_p02 .page-header>div{display:table-cell}
@@ -225,7 +229,7 @@ b{font-weight:bold;}
 .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab{background-color:#1792E5;text-align: justify;margin-right: 10px;}
 .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab span {display: block;width: 200px;text-align: center;line-height: 40px;font-size: 18px;}
 .m01_t01_p03 .template-horizontal-tab .tab-content {height: 250px;}
-.m01_t01_p03 .template-horizontal-tab .tab-content .tab-data {height: 100%;background-color: rgba(255,255,255,0.85);border-top: 4px solid #EE3124;color: #333;}
+.m01_t01_p03 .template-horizontal-tab .tab-content .tab-data {width: 410px; height: 100%;background-color: rgba(255,255,255,0.85);border-top: 4px solid #EE3124;color: #333;}
 .m01_t01_p03 .template-horizontal-tab .tab-content .tab-data .popup-txt {padding-left: 30px; padding-top: 5px; max-width: 360px;}
 .m01_t01_p03 .template-panel .main-content div {padding-top: 15px;font-size: 1em;}
 .m01_t01_p03 .template-panel .image-holder div p {margin-top: -38px;text-align: center;color: #fff;font-size: 16px;font-weight: normal;}
@@ -283,6 +287,7 @@ b{font-weight:bold;}
   text-align: center;
   color: #fff;
   margin-right: 35px;
+  font-weight: bold;
 }
 
 @media all and (max-width: 680px) {
@@ -387,6 +392,7 @@ figcaption {
   text-align: center;
   color: #fff;
   font-size: 14px;
+  font-weight: bold;
 }
 
 .highlight {
@@ -751,8 +757,8 @@ figcaption {
     background-size: 80%;
   font-family: 'Arial';
   position: absolute;
-  right: 0px;
-  top: 5px;
+  right: -5px;
+	top: 0px;
   color: red;
   font-weight: 700;
   height: 30px;
@@ -783,6 +789,14 @@ figcaption {
   overflow-y: auto;
 }
 
+.btn
+{
+  height: 30px;
+width: 100px;
+font-size: 14px;
+margin-top: 10px;
+cursor: pointer;
+}
 .answer-container ul {
   width: 65%;
   max-height: 256px;
@@ -832,6 +846,16 @@ figcaption {
 
 .show-answer-container .icon-close {
   cursor: pointer;
+
+}
+
+.icon-close
+{
+  color: #ccc;
+}
+.icon-close:hover
+{
+  color: #fff;
 }
 .show-answer-container ul#nav > li{
     border-top: solid 1px;
@@ -890,15 +914,29 @@ figcaption {
 }
 
 .activity-result-fail {
+  width: 30px;
+  height: 30px;
   color: red;
   font-weight: 700;
 }
-
+.img-correct-incorrect
+{
+vertical-align: top;
+}
 .activity-result-success {
+
   color: green;
   font-weight: 700;
+  width: 30px;
+  height: 30px;
+
 }
 
+.error_msg
+{
+  display: inline-block;
+  width: 95%;
+}
  @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
 	 .m01_t01_p07
 	 {
@@ -979,7 +1017,7 @@ figcaption {
      right: 10px;
    }
  }
- 
+
 @media all and (max-device-width: 480px) and  (orientation: portrait){
   .drag-element {
   margin-top: 10px;
@@ -1039,7 +1077,7 @@ figcaption {
 }
 .activity-drop__container {
     padding: 10px;
-	
+
   }
   .drop-container {
     float: left;
@@ -1086,7 +1124,7 @@ figcaption {
 .final-assessment .intro-text{padding:0}
 .final-assessment .intro-text b{color:#EE3124;font-size: 1.4em;}
 .final-assessment .headerIntro{background-color:#FFF;font-size: 1.3em;padding: 15px;}
-.final-assessment .contentIntro{padding: 15px;padding-bottom:10px;padding-right: 30px;z-index:1;color:#FFF;width: auto;}
+.final-assessment .contentIntro{padding: 15px;padding-bottom:0px;padding-right: 30px;z-index:1;color:#FFF;width: auto;}
 
 .final-assessment .goodLuck{font-size:1.5em}
 .final-assessment .percentage{font-size:1.5em}
@@ -1123,7 +1161,7 @@ figcaption {
 .final-assessment .question-page .question ul li:first-child >span:last-child{padding-left:0;display:table-cell;vertical-align: top;}
 .final-assessment .contentIntro p{margin-bottom:10px}
 .final-assessment .contentIntro .gdlu{font-size:1.5em}
-.final-assessment .question-page .question ul li:first-child >span.correct-incorrect:last-child{display:inline-block;vertical-align: top;}
+.final-assessment .question-page .question ul li:first-child >span.correct-incorrect:last-child{display:inline-block;vertical-align: middle;}
 .final-assessment.desktopFirst .header{height:0}
 .final-assessment li{background:none !important;padding:0;margin-top:0 !important;line-height: 1.1em;}
 .final-assessment .failed{color:#EE3124;display: block;padding-bottom: 10px;font-size: 1.8em;}
@@ -1250,7 +1288,8 @@ figcaption {
 {
 
     display: table-cell;
-vertical-align: top;}
+    vertical-align: top;
+  }
 
 .assessment .icon-radio-button, .assessment .icon-check-button{
     background-image: url("../../images/mcq_mrq_btns2.png");

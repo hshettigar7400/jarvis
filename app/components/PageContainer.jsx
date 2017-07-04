@@ -107,6 +107,7 @@ var PageContainer = React.createClass ({
   componentDidMount() {
     loadPage(this.props.PageNum);
     $(".loading").show();
+
     var preloader = new Preloader({
       resources:pageAssets[0]
       });
@@ -140,8 +141,9 @@ var PageContainer = React.createClass ({
   },
 
   componentWillReceiveProps(nextProps) {
+    
     if(this.props.PageNum !== nextProps.PageNum) {
-    $(".loading").show();
+      $(".loading").show();
     var preloader = new Preloader({
       resources:pageAssets[nextProps.PageNum - 1]
       });

@@ -397,12 +397,12 @@ function Assessment() {
         gData.quizAttempted = true;
 		console.log('scormAdaptor_getscore(): ', window.scormAdaptor_getscore());
 		var lmsScore = Number(scormAdaptor_getscore());
-		
+
 		if(gData.userScore > lmsScore) {
 			scormAdaptor_setscore(gData.userScore.toString());
 			scormAdaptor_commit();
 		}
-		
+
 		if(gData.userScore >= assessment_config.passingScore) {
 			scormAdaptor_complete();
 			scormAdaptor_commit();
@@ -440,6 +440,7 @@ function Assessment() {
         str += '</div>';
         str += '<div class="text-content">';
         str += txt;
+
         str += '</div>';
         str += '<div class="buttons">';
         str += '</div>';
@@ -450,22 +451,30 @@ function Assessment() {
         //SUMANTH ENABLE THE REQUIRED BUTTONS
         $('.assessment .end-page').html(str).show();
         var str = '';
-        if ((defaults.noOfAttempts > attemptCounter || defaults.noOfAttempts == 0) && per < assessment_config.passingScore) str += '<div class="button-container"><span>' + data.tryAgain.text + ' </span><a href="#" class="tryAgain button assessbtnbg ' + Selectors.tabIndex + '">' + data.tryAgain.label + '</a></div>';
-        if (defaults.review) {
-
-            str += '<div class="button-container"><span>' + data.review.text + '</span><a href="#" class="review button assessbtnbg ' + Selectors.tabIndex + '">' + data.review.label + '</a></div>'
-        }
-        if (defaults.revisitContent && per < assessment_config.passingScore) str += '<div class="button-container"><span>' + data.visitContent.text + ' </span><a href="#" class="revisitContent button assessbtnbg ' + Selectors.tabIndex + '">' + data.visitContent.label + '</a></div>';
+        if ((defaults.noOfAttempts > attemptCounter || defaults.noOfAttempts == 0) && per < assessment_config.passingScore) str += '<div class="button-container"><span>' + data.tryAgain.text + ' </span></div>';
+        if (defaults.revisitContent && per < assessment_config.passingScore) str += '<div class="button-container"><span>' + data.visitContent.text + ' </span></div>';
         if (per >= assessment_config.passingScore)
         {
-        str += '<div class="button-container">Before you go, please take the time to complete a short <a href="https://www.surveymonkey.com/r/D9LF2YW" target="_blank">survey</a> to help us improve our courses.</div>';
+        str += '<div class="button-container">Before you go, please take the time to complete a short <a href="https://www.surveymonkey.com/r/D9LF2YW" target="_blank" style="font-weight: bold; text-decoration: underline;">survey</a> to help us improve our courses.</div>';
         }
-        if (defaults.exitButtonOnResultPage) str += '<div class="button-container"><span>' + data.exitCourse.text + '</span><a href="#" class="exitCourse button assessbtnbg ' + Selectors.tabIndex + '" onclick="showPopup()">' + data.exitCourse.label + '</a></div>';
+        if (defaults.exitButtonOnResultPage) str += '<div class="button-container"><span>' + data.exitCourse.text + '</span></div>';
+        if (defaults.review) {
+
+            str += '<div class="button-container"><span>' + data.review.text + '</span></div>'
+        }
+
+        if (per >= assessment_config.passingScore)
+        {
+        str += '<a href="#" class="review button assessbtnbg ' + Selectors.tabIndex + '">' + data.review.label + '</a> <a href="#" class="revisitContent button assessbtnbg ' + Selectors.tabIndex + '">' + data.visitContent.label + '</a> <a href="#" class="exitCourse button assessbtnbg ' + Selectors.tabIndex + '" onclick="showPopup()">' + data.exitCourse.label + '</a> '
+        }
+      else {
+        str += '<a href="#" class="tryAgain button assessbtnbg ' + Selectors.tabIndex + '">' + data.tryAgain.label + '</a> <a href="#" class="review button assessbtnbg ' + Selectors.tabIndex + '">' + data.review.label + '</a>  <a href="#" class="revisitContent button assessbtnbg ' + Selectors.tabIndex + '">' + data.visitContent.label + '</a> <a href="#" class="exitCourse button assessbtnbg ' + Selectors.tabIndex + '" onclick="showPopup()">' + data.exitCourse.label + '</a> '
+        }
         if (defaults.certificate && per >= assessment_config.passingScore && assessment_config.complianceType !== 1)
          str += '<a data-index="' + ++tabindex + '" href="#" class="certificate button assessbtnbg ' + Selectors.tabIndex + '">' + data.certificate.label + '</a></div>';
         $(selectors.wrapper + ' .text-content-header').html(obj.header);
         $('.assessment .end-page .buttons').html(str).show();
-        $('.assessment .end-page').show()
+        $('.assessment .end-page').show();
     }
 
     function updateLayout() {
@@ -874,7 +883,7 @@ function Assessment() {
 function exitCourse(_val)
 {
   //var _exitConfirm = confirm("Are you sure you want to exit the course?");
-  
+
   if(_val == true || _val == "true")
   {
 	  window.scormAdaptor_adlOnunload();
@@ -883,13 +892,13 @@ function exitCourse(_val)
   else
   {
 	 var exitPopup = document.getElementById('exitAlert');
-		exitPopup.style.display = 'none'; 
+		exitPopup.style.display = 'none';
   }
 }
 
 function showPopup()
 {
-	
+
 	var exitPopup = document.getElementById('exitAlert');
 	exitPopup.style.display = 'block';
 	console.log(exitPopup);
