@@ -31,10 +31,8 @@ var Shell = React.createClass ({
 
   clickOpenMenu: function(e) {
     this.setState({sidebarOpen: !this.state.sidebarOpen});
-    togglePlayPuase();
     this.setState({transcriptVisible: false});
     this.setState({isHelpDockOpen: false});
-    enableTranscript();
   },
 
   clickOpenToolsMenu: function() {
@@ -85,8 +83,23 @@ var Shell = React.createClass ({
 
   componentDidUpdate: function(prevProps, prevState) {
     window.addEventListener("resize", this.updateDimensions);
+    if (this.state.transcriptVisible === false) {
+      $("#button-transcript").removeClass("selected");
+    }
+    if (jarvisAudio.playState != 1) {
+      $("button-playPause").removeClass("selected");
+    }
+    if (this.state.sidebarOpen || this.state.isHelpDockOpen) {
+      $("#button-playPause").addClass("disabled");
+      jarvisAudio.pause();
+    }
+    else {
+      $("#button-playPause").removeClass("disabled");
+      if (!$("#button-playPause").hasClass("selected")) {
+        jarvisAudio.resume();
+      }
+    }
   },
-
 
   setToolsMenuOpen() {
     this.setState({toolsMenuOpen: false});
@@ -117,8 +130,6 @@ var Shell = React.createClass ({
   clickOpenHelpDock() {
     this.setState({isHelpDockOpen: !this.state.isHelpDockOpen});
     this.setState({transcriptVisible: false});
-    togglePlayPuase();
-    enableTranscript();
   },
 
   enableTranscript(e) {

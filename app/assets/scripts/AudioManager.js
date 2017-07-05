@@ -1,10 +1,9 @@
 var tInterval;
-
+var jarvisAudio ={};
 function loadAudio(pageNum) {
-	soundManager.unload();
-  soundManager.stopAll();
+	soundManager.destruct();
     clearInterval(tInterval);
-  jarvisAudio = soundManager.createSound({
+  	jarvisAudio = soundManager.createSound({
     url: '../app/assets/audio/m01_t01_p0'+pageNum+'.mp3',
     autoLoad: true,
     autoPlay: true,
@@ -19,13 +18,11 @@ function loadAudio(pageNum) {
       disableButtons();
       $(".start-button").removeClass("disabled");
       $(".button").removeClass('disabled');
-      if(Number(pageNum) !== 9 && Number(pageNum) !== 6) {
+      if(Number(pageNum) !== 9 && Number(pageNum) !== 6 && Number(pageNum) !== 3) {
         document.querySelector('.next-button').classList.add("blinker");
-
       }
     },
     whileplaying() {
-
       syncPageText(jarvisAudio.position);
       if(!jarvisAudio.paused)
       {
@@ -75,17 +72,7 @@ function millisToMinutesAndSeconds(millis) {
 }
 
 function pauseSound() {
-
   jarvisAudio.pause();
-  //  console.log(jarvisAudio.paused)
-//   var elements = document.querySelectorAll('.button');
-//   var ele;
-//   for(ele=0; ele<elements.length; ele++)
-//   {
-//     console.log($(elements[ele]).hasClass('disabled'));
-//   $(elements[ele]).removeClass('disabled');
-// }
-
 }
 
 function changeFontSize() {
