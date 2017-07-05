@@ -7,6 +7,56 @@ var HeaderTitle = React.createClass ({
     onMenuClick:React.PropTypes.func
   },
 
+  getInitialState: function() {
+    return {
+      exitPopupVisible: false
+    };
+
+  },
+  exitCourse: function(_val)
+  {
+    if(_val == true)
+    {
+        setTimeout(function(){window.close();parent.window.close();this.window.opener.close();}, 300);
+    }
+    else if(_val == false)
+    {
+      this.setState({exitPopupVisible: false});
+    }
+  },
+
+showExitPopup() {
+  return(
+  <section className="exit-alert" id="exitAlert">
+  <div className="popup-header">
+    Exit
+  </div>
+  <div className="popup-area">
+    <div className="popup-content">
+      <p className="warning-msg">
+        <span className="warning-sign"></span>
+        Are you sure you wish to exit the module?
+      </p>
+    </div>
+    <div className="popup-buttons">
+      <div>
+        <a href="#" id="popup-yes-button" onClick={this.exitCourse.bind(this,true)} className="course-button box-shadow popup-yes-button tabindextabindex">Yes</a>
+      </div>
+      <div>
+        <a href="#" id="popup-no-button" onClick={this.exitCourse.bind(this,false)} className="course-button box-shadow popup-yes-button tabindextabindex">No</a>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  )
+},
+
+enablePopupVisible()
+{
+  this.setState({exitPopupVisible: true});
+},
+
   render() {
     return (
       <div>
@@ -19,12 +69,13 @@ var HeaderTitle = React.createClass ({
           </div>
 
         </div>
-        <span className="close_btn icon-close"></span>
+        <a href="#" className="close_btn icon-close" onClick={this.enablePopupVisible}></a>
         <div className="courseProgress">
           <span id="courseProgressUpdate"></span>
         </div>
-
+          {this.state.exitPopupVisible && this.showExitPopup()}
       </div>
+
     )
   }
 });

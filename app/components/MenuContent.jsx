@@ -52,11 +52,11 @@ render() {
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(3)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={4}>
-              <a className="disable-event">Growth in portable- and home-use medical devices</a>
+              <a className="disable-event">Growth in portable-and home-use medical devices</a>
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(4)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={5}>
-              <a className="disable-event">Internet of things—connected medical equipment</a>
+              <a className="disable-event">Internet of things-connected medical equipment</a>
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(5)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={6}>
@@ -64,7 +64,7 @@ render() {
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(6)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={7}>
-              <a className="disable-event">Medical appications for Honeywell sensors - Activity</a>
+              <a className="disable-event">Medical appications for Honeywell sensors-Activity</a>
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(7)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={8}>
