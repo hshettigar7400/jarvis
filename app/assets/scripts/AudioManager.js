@@ -2,6 +2,7 @@ var tInterval;
 var jarvisAudio ={};
 function loadAudio(pageNum) {
 	soundManager.destruct();
+	soundManager.stopAll();
     clearInterval(tInterval);
   	jarvisAudio = soundManager.createSound({
     url: '../app/assets/audio/m01_t01_p0'+pageNum+'.mp3',
