@@ -169,6 +169,7 @@ var Shell = React.createClass ({
   },
 
   replayScreen() {
+    this.setState({isHelpDockOpen: false});
     loadPage(this.state.currentPageNumber);
     loadAudio(this.state.currentPageNumber);
   },

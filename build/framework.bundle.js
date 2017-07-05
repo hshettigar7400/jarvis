@@ -18195,6 +18195,7 @@ var tInterval;
 var jarvisAudio = {};
 function loadAudio(pageNum) {
   soundManager.destruct();
+  soundManager.stopAll();
   clearInterval(tInterval);
   jarvisAudio = soundManager.createSound({
     url: '../app/assets/audio/m01_t01_p0' + pageNum + '.mp3',
@@ -23230,6 +23231,7 @@ var Shell = React.createClass({
     toggleButtonState(e);
   },
   replayScreen: function replayScreen() {
+    this.setState({ isHelpDockOpen: false });
     loadPage(this.state.currentPageNumber);
     loadAudio(this.state.currentPageNumber);
   },
