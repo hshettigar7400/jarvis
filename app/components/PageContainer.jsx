@@ -130,6 +130,12 @@ var PageContainer = React.createClass ({
     if((this.props.PageNum !== prevProps.PageNum)) {
       loadPage(this.props.PageNum)
     }
+    if(this.state.isLoading) {
+      $("#button-playPause").addClass("disabled");
+    }
+    else {
+      $("#button-playPause").removeClass("disabled");
+    }
   },
 
 
@@ -141,10 +147,13 @@ var PageContainer = React.createClass ({
   },
 
   componentWillReceiveProps(nextProps) {
-    
+    var _self = this
     if(this.props.PageNum !== nextProps.PageNum) {
       $(".loading").show();
-    var preloader = new Preloader({
+
+      _self.setState({isLoading: true});
+      soundManager.stopAll();
+      var preloader = new Preloader({
       resources:pageAssets[nextProps.PageNum - 1]
       });
 
@@ -156,6 +165,7 @@ var PageContainer = React.createClass ({
         $(".loading").hide();
         loadPage(nextProps.PageNum);
         loadAudio(nextProps.PageNum)
+        _self.setState({isLoading: false});
       });
 
       preloader.start();

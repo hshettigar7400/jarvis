@@ -67,15 +67,15 @@
 
 
 
-  var qPoints = [0, 1, 1, 23, 23, 30, 34, 39, 9, 15, 23, 62,];
+  var qPoints = [0, 1, 1, 23, 23, 30, 34, 39, 9, 15, 23, 62, ];
+  var AudioComplete = [0, 0];
   var qPointsExecution = ["", "", "", "", "", "", "changeText('main-content')", "", "", "", "", ""];
   var currentCuePointId = 0;
   var globalAudioPosition = 0
   var startAudioPlay = false;
 
-   function openPopup(e, path) {
-
-    jarvisAudio1 = soundManager.createSound({
+  function openPopup(e, path) {
+    var jarvisAudio1 = soundManager.createSound({
       url: path,
       autoLoad: true,
       autoPlay: true,
@@ -83,20 +83,24 @@
         enableButtons();
       },
       onfinish: function() {
-          $(".button").removeClass('disabled');
-          disableButtons();
-        },
-        whileplaying: function() {
-          $(".button").addClass('disabled');
-		        syncPageText(jarvisAudio1.position);
-            console.log(currentCuePointId);
-        },
+        $(".button").removeClass('disabled');
+        disableButtons();
+        if(AudioComplete.indexOf(0) === -1) {
+          document.querySelector('.next-button').classList.add("blinker");
+        }
+      },
+      whileplaying: function() {
+        $(".button").addClass('disabled');
+        syncPageText(jarvisAudio1.position);
+        console.log(currentCuePointId);
+      },
     });
 
-}
-  function showTab1(e,path) {
+  }
 
-	currentCuePointId = 2;
+  function showTab1(e, path) {
+
+    currentCuePointId = 2;
     $(".tab1-content").removeClass("fadeIn");
     $(".tab1-content").addClass("fadeOut");
     document.querySelector('.tab-content').style.display = 'block';
@@ -107,12 +111,13 @@
     //  document.querySelector('.main-content').style.display = 'none';
     //jarvisAudio.setPosition(3000);
 
-	openPopup(e,'../app/assets/audio/m01_t01_p03_02.mp3');
+    openPopup(e, '../app/assets/audio/m01_t01_p03_02.mp3');
     //jarvisAudio.play();
     //currentCuePointId = 2;
     $(e).css("background-color", "#ef3125 !important");
     $(".tab-2").css("background-color", "#1792e5 !important");
     $('.main-content').show();
+    AudioComplete[0] = 1;
   }
 
   function showTab2(e, path) {
@@ -126,10 +131,11 @@
     document.querySelector('.img1').style.display = 'none';
     //jarvisAudio.setPosition(62000);
     //jarvisAudio.play();
-	openPopup(e,'../app/assets/audio/m01_t01_p03_03.mp3');
+    openPopup(e, '../app/assets/audio/m01_t01_p03_03.mp3');
 
     $(e).css("background-color", "#ef3125 !important");
     $(".tab-1").css("background-color", "#1792e5 !important");
+    AudioComplete[1] = 1;
   }
 
 
@@ -147,54 +153,53 @@
 
   function syncPageText(position) {
 
-  $("#button-playPause").removeClass("selected");
+    $("#button-playPause").removeClass("selected");
 
-  if (qPoints !== null && currentCuePointId != undefined) {
-     var t = millisToMinutesAndSeconds(position);
+    if (qPoints !== null && currentCuePointId != undefined) {
+      var t = millisToMinutesAndSeconds(position);
 
-	console.log(qPoints[currentCuePointId]);
-     if (t == qPoints[currentCuePointId]) {
+      console.log(qPoints[currentCuePointId]);
+      if (t == qPoints[currentCuePointId]) {
         console.log(t == qPoints[currentCuePointId])
-       if (document.querySelector('.sync'+(currentCuePointId+1))) {
-         document.querySelector('.sync'+(currentCuePointId+1)).classList.remove('fadeOut');
-         document.querySelector('.sync'+(currentCuePointId+1)).classList.add('fadeIn');
+        if (document.querySelector('.sync' + (currentCuePointId + 1))) {
+          document.querySelector('.sync' + (currentCuePointId + 1)).classList.remove('fadeOut');
+          document.querySelector('.sync' + (currentCuePointId + 1)).classList.add('fadeIn');
 
-       }
-       if(qPointsExecution && qPointsExecution[currentCuePointId])
-       {
-         eval(qPointsExecution[currentCuePointId]);
+        }
+        if (qPointsExecution && qPointsExecution[currentCuePointId]) {
+          eval(qPointsExecution[currentCuePointId]);
 
-       }
-       currentCuePointId++;
+        }
+        currentCuePointId++;
 
-     }
-   }
+      }
+    }
 
-}
+  }
 
-function millisToMinutesAndSeconds(millis) {
-  var minutes = Math.floor(millis / 60000);
-  var seconds = ((millis % 60000) / 1000).toFixed(0);
-  var s = ((minutes * 60) + parseInt(seconds));
-  return s;
-}
+  function millisToMinutesAndSeconds(millis) {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    var s = ((minutes * 60) + parseInt(seconds));
+    return s;
+  }
 
-function changeText(element) {
-  $("."+element).hide();
-}
+  function changeText(element) {
+    $("." + element).hide();
+  }
 
-function disableButtons() {
-  if (document.getElementById('button-playPause'))
-  document.getElementById('button-playPause').classList.add("disabled");
-  if (document.getElementById('button-audio'))
-  document.getElementById('button-audio').classList.add("disabled");
-}
+  function disableButtons() {
+    if (document.getElementById('button-playPause'))
+      document.getElementById('button-playPause').classList.add("disabled");
+    if (document.getElementById('button-audio'))
+      document.getElementById('button-audio').classList.add("disabled");
+  }
 
-function enableButtons() {
-  if (document.getElementById('button-playPause'))
-  document.getElementById('button-playPause').classList.remove("disabled");
-  if (document.getElementById('button-audio'))
-  document.getElementById('button-audio').classList.remove("disabled");
-}
+  function enableButtons() {
+    if (document.getElementById('button-playPause'))
+      document.getElementById('button-playPause').classList.remove("disabled");
+    if (document.getElementById('button-audio'))
+      document.getElementById('button-audio').classList.remove("disabled");
+  }
   // console.log(preloader.resource.length);
 </script>

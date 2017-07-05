@@ -29,10 +29,18 @@ componentDidMount() {
   });
 
   preloader.addCompletionListener(function () {
-    jarvisAudio.play();
+    soundManager.play();
     $('#html5Loader').css('display', 'none');
     self.setState({
       isLoading: false
+    });
+    soundManager.createSound({
+      url: '../app/assets/audio/course_instruction.mp3',
+      autoLoad: true,
+      autoPlay: true,
+      onload: function() {
+      },
+      volume: 100
     });
   });
 
@@ -46,14 +54,6 @@ startCourse() {
 
 playInstructionAudio() {
   $('.playAudioParent').hide()
-  soundManager.createSound({
-    url: '../app/assets/audio/course_instruction.mp3',
-    autoLoad: true,
-    autoPlay: true,
-    onload: function() {
-    },
-    volume: 100
-  });
 },
 
 render() {

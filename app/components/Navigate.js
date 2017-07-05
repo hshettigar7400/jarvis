@@ -29,6 +29,7 @@ function loadPage(pageNumber) {
   $(".page-loader").load('components/content/m01/t01/m01_t01_p0'+(pageNumber)+'.html');
   window.updatePageStatusList(pageNumber);
   $(".page-title").html(topicNamesArray[pageNumber-1]);
+  $("#button-playPause").removeClass("disabled");
 }
 
 function loadSound(filePath) {

@@ -1,4 +1,4 @@
- <style>
+<style>
   .m01_t01_p06 .left-side {
     width: 33%;
     display: inline-block;
@@ -140,12 +140,13 @@
     font-size: 1em;
     text-align: center;
     margin-top: 2%;
-	  font-weight: bold;
+    font-weight: bold;
   }
-	.m01_t01_p06 .popup_second img
-	{
-	    border: 2px solid black;
-	}
+
+  .m01_t01_p06 .popup_second img {
+    border: 2px solid black;
+  }
+
   @media only screen and (max-device-width: 1024px) and (orientation: landscape) {
 
 
@@ -163,8 +164,8 @@
       margin: auto;
       margin-left: 4%;
       margin-top: 1%;
-         background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
-          height: 420px;
+      background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
+      height: 420px;
     }
 
     .m01_t01_p06 .flex-container {
@@ -305,8 +306,8 @@
       margin: auto;
       margin-left: 4%;
       margin-top: 1%;
-         background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
-          height: 420px;
+      background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
+      height: 420px;
     }
 
     .m01_t01_p06 .flex-container {
@@ -367,22 +368,22 @@
     }
   }
 
-	 @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
-   .m01_t01_p06 .container {
-    width: 100%;
-	}
-	.m01_t01_p06 .left-side {
-    width: 35%;
-    display: inline-block;
-	}
+  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+    .m01_t01_p06 .container {
+      width: 100%;
+    }
+    .m01_t01_p06 .left-side {
+      width: 35%;
+      display: inline-block;
+    }
 
-	.m01_t01_p06 .right-side {
-    display: inline-block;
-    width: 61%;
-	}
- }
- @media only screen and (min-device-width: 320px) and (max-device-width: 480px)
- {
+    .m01_t01_p06 .right-side {
+      display: inline-block;
+      width: 61%;
+    }
+  }
+
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
 
     .m01_t01_p06 .left-side {
@@ -399,8 +400,8 @@
       margin: auto;
       margin-left: 4%;
       margin-top: 1%;
-         background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
-          height: 420px;
+      background-image: url('images/m01_t01_p06/medical_device_bg_images.png');
+      height: 420px;
     }
 
     .m01_t01_p06 .flex-container {
@@ -455,7 +456,7 @@
 
   .m01_t01_p06 .popup-content {
     display: none;
-	text-align: left;
+    text-align: left;
   }
 
   .m01_t01_p06 .highlight-button {
@@ -684,8 +685,7 @@
 </div>
 
 <script>
-
-var isIE = /*@cc_on!@*/false || !!document.documentMode;
+  var isIE = /*@cc_on!@*/ false || !!document.documentMode;
 
 
   var qPoints = [0, 28, 51, 86, 103, 124, 145, 167, 202, 8, 12, 14, 18];
@@ -693,9 +693,10 @@ var isIE = /*@cc_on!@*/false || !!document.documentMode;
   var qPointsExecution = ["", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "pauseSound()", "", "", "", ""];
   var currentCuePointId = 0;
   var imageSwap = false;
-	var count = 0;
+  var AudioComplete = [0, 0, 0, 0, 0, 0, 0, 0];
+
   function openPopup(e, id, path) {
-	count++;
+    AudioComplete[id - 1] = 1;
     $(".popup-content").hide();
     $("#popup" + id).show();
     $(".right-side").css('background', 'none');
@@ -707,32 +708,32 @@ var isIE = /*@cc_on!@*/false || !!document.documentMode;
         enableButtons();
       },
       onfinish: function() {
-          $(".button").removeClass('disabled');
-          disableButtons();
-		  if(count >= 8)
-		  {
-			document.querySelector('.next-button').classList.add("blinker");
-		  }
-        },
-        whileplaying: function() {
-          $(".button").addClass('disabled');
+        $(".button").removeClass('disabled');
+        disableButtons();
+        if (AudioComplete.indexOf(0) === -1) {
+          document.querySelector('.next-button').classList.add("blinker");
         }
+      },
+      whileplaying: function() {
+        $(".button").addClass('disabled');
+      }
     });
 
     $(".button").removeClass("highlight-button");
     $($(e).parent()).addClass("highlight-button");
   }
+
   function disableButtons() {
     if (document.getElementById('button-playPause'))
-    document.getElementById('button-playPause').classList.add("disabled");
+      document.getElementById('button-playPause').classList.add("disabled");
     if (document.getElementById('button-audio'))
-    document.getElementById('button-audio').classList.add("disabled");
+      document.getElementById('button-audio').classList.add("disabled");
   }
 
   function enableButtons() {
     if (document.getElementById('button-playPause'))
-    document.getElementById('button-playPause').classList.remove("disabled");
+      document.getElementById('button-playPause').classList.remove("disabled");
     if (document.getElementById('button-audio'))
-    document.getElementById('button-audio').classList.remove("disabled");
+      document.getElementById('button-audio').classList.remove("disabled");
   }
 </script>

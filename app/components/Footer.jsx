@@ -82,7 +82,7 @@ render() {
           </a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-playPause" onClick={this.props.onPlayPauseClick} className={this.props.isMenuOpened ? "tabindex" : "tabindex disabled"} aria-label="playPause" role="button" aria-disabled="true" aria-pressed="true">
+          <a href="#" id="button-playPause" onClick={this.props.onPlayPauseClick} className="tabindex" aria-label="playPause" role="button" aria-disabled="true" aria-pressed="true">
             <span className="button-label"></span>
             <span className="icon-playPause"></span>
           </a>
