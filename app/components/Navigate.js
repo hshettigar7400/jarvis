@@ -4,7 +4,7 @@ var currentCuePointId = 0;
 var topicNamesArray = [
   'Welcome',
   'Course Objectives',
-  'Medical Devices Move to The Home',
+  'Medical Devices Move to the Home',
   'Growth in Portable-and Home-Use Medical Devices',
   'Internet of Things-Connected Medical Equipment',
   'Target/focus Medical Applications',
@@ -21,8 +21,9 @@ function loadPage(pageNumber) {
   $(".page-number").html(pageNumber);
   if (document.querySelector('.next-button'))
     document.querySelector('.next-button').classList.remove("blinker");
-  if (document.querySelector('#button-audio'))
+  if (document.querySelector('#button-audio')) {
     document.querySelector('#button-audio').classList.remove("disabled");
+  }
   if (document.querySelector('#button-playPause'))
     document.querySelector('#button-playPause').classList.remove("disabled");
   $(".page-loader").empty();

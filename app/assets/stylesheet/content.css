@@ -726,7 +726,7 @@ figcaption {
 .activity-nav-button {
   position: absolute;
   right: 60px;
-  bottom: 80px;
+  top: 430px;;
   background: #0097e1;
   border: none;
   color: #fff;

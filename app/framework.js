@@ -1,6 +1,7 @@
 var React = require('react'),
   ReactDOM = require('react-dom'),
-  Instruction = require('./components/Instruction.jsx').default;
+  Instruction = require('./components/Instruction.jsx').default,
+  Shell = require('./components/Shell.jsx').default;
 import SCSS from './assets/stylesheet/app.scss';
 //import * as scormAdaptor from "./assets/scripts/scorm_adaptor";
 
@@ -35,9 +36,9 @@ window.updatePageStatusList = function(pageNum) {
 	 document.getElementById('courseProgressUpdate').style.width = getCourseProgress();
 
   window.scormAdaptor_setsuspenddata(window.pageStatusList);
-  
+
   window.scormAdaptor_setlocation(pageNum.toString());
-  
+
   window.scormAdaptor_commit();
 }
 
@@ -62,6 +63,12 @@ window.reloadFromStart = function () {
   window.updatePageStatusList(1);
 }
 
-ReactDOM.render(
-  <Instruction data={appData} />, document.getElementById('root')
-);
+if(window.scormAdaptor_getlocation() == '' || window.scormAdaptor_getlocation() == null || window.scormAdaptor_getlocation() == undefined) {
+  ReactDOM.render(
+    <Instruction data={appData} />, document.getElementById('root')
+  );
+} else {
+  ReactDOM.render(
+    <Shell />, document.getElementById('root')
+  );
+}

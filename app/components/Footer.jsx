@@ -69,7 +69,7 @@ render() {
         </div>
         {!this.state.isiPad &&
         <div className="button-box">
-          <a href="#" id="button-audio" onClick={this.props.onVolumeClick} className={this.props.isMenuOpened ? "tabindex" : "tabindex disabled"} aria-label="audio" role="button" aria-disabled="false" aria-pressed="true">
+          <a href="#" id="button-audio" onClick={this.props.onVolumeClick} className="tabindex" aria-label="audio" role="button" aria-disabled="false" aria-pressed="true">
             <span className="button-label"></span>
             <span className="icon-audio"></span>
           </a>

@@ -27,7 +27,9 @@ var HeaderTitle = React.createClass ({
 
 showExitPopup() {
   return(
-  <section className="exit-alert" id="exitAlert">
+  <div>
+  <div className="overlay"></div>
+  <section className="exit-alert">
   <div className="popup-header">
     Exit
   </div>
@@ -48,7 +50,7 @@ showExitPopup() {
     </div>
   </div>
   </section>
-
+</div>
   )
 },
 
@@ -69,7 +71,7 @@ enablePopupVisible()
           </div>
 
         </div>
-        <a href="#" className="close_btn icon-close" onClick={this.enablePopupVisible}></a>
+        <a href="#" className="icon-close close_btn" onClick={this.enablePopupVisible}></a>
         <div className="courseProgress">
           <span id="courseProgressUpdate"></span>
         </div>

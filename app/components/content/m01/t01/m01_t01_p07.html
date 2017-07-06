@@ -203,7 +203,7 @@
             </ul>
           </li>
           <li>
-            <a href="#stuff">Patient monitoring systems   <span class="fa-arrow"></span></a>
+            <a href="#stuff">Patient monitoring system   <span class="fa-arrow"></span></a>
             <ul>
               <li class="box">
                 <p>Blood glucose monitoring </p>
@@ -251,22 +251,22 @@ var activityAttempt = 1;
 var timeTaken = "";
 var actvityAns = [[2],[3],[3],[1],[3],[2],[4],[3],[3],[4],[3],[4],[2],[2],[1],[1]];
 var dropOption= [
-  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pumps"],
-  ["Kidney dialysis machines", "Hospital hardware", "Surgical equipment", "Infusion pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pump"],
+  ["Kidney dialysis machines", "Hospital hardware", "Surgical equipment", "Infusion pump"],
   ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Surgical equipment"],
-  ["Dental equipment", "Hospital hardware", "Respiratory", "Infusion pumps"],
-  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pumps"],
-  ["Kidney dialysis machines", "Patient monitoring systems", "Respiratory", "Infusion pumps"],
+  ["Dental equipment", "Hospital hardware", "Respiratory", "Infusion pump"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pump"],
+  ["Kidney dialysis machines", "Patient monitoring system", "Respiratory", "Infusion pump"],
   ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Diagnostic/ analytical equipment"],
-  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pumps"],
-  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pumps"],
-  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pumps"],
-  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pumps"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pump"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pump"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pump"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pump"],
   ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Surgical equipment"],
-  ["Kidney dialysis machines", "Diagnostic/analytical equipment", "Respiratory", "Infusion pumps"],
-  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pumps"],
-  ["Patient monitoring systems", "Hospital hardware", "Respiratory", "Infusion pumps"],
-  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pumps"],
+  ["Kidney dialysis machines", "Diagnostic/analytical equipment", "Respiratory", "Infusion pump"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pump"],
+  ["Patient monitoring system", "Hospital hardware", "Respiratory", "Infusion pump"],
+  ["Kidney dialysis machines", "Hospital hardware", "Respiratory", "Infusion pump"],
 ];
 
 var dragOption= [
@@ -345,7 +345,7 @@ function loadCustomAudio(audioPath) {
 
 function startTimer(duration, display) {
   var timer = duration, minutes, seconds;
-  tInterval = setInterval(function () {
+  window.tInterval = setInterval(function () {
     minutes = parseInt(timer / 60, 10)
     seconds = parseInt(timer % 60, 10);
 
@@ -356,7 +356,7 @@ function startTimer(duration, display) {
     timeTaken = minutes + ":" + seconds;
 
     if (--timer < 0) {
-      clearInterval(tInterval);
+      clearInterval(window.tInterval);
       timer = duration;
       currentActivityNumber = 1;
       loadCustomAudio('../app/assets/audio/m01_t01_p07_01.mp3')
@@ -368,7 +368,7 @@ function startTimer(duration, display) {
         document.querySelector('.attempt').textContent = activityAttempt;
         document.querySelector('.time-taken').textContent = timeTaken;
       })
-      clearInterval(tInterval);
+      clearInterval(window.tInterval);
     }
   }, 1000);
 }
@@ -423,7 +423,7 @@ function loadNextActivity() {
         document.querySelector('.activity-feedback-container__success .attempt').textContent = activityAttempt;
         document.querySelector('.activity-feedback-container__success .time-taken').textContent = timeTaken;
         document.querySelector('.next-button').classList.add("blinker");
-        clearInterval(tInterval);
+        clearInterval(window.tInterval);
       })
     }
     else {
@@ -436,14 +436,14 @@ function loadNextActivity() {
         document.querySelector('.activity-feedback-container__failed .attempt').textContent = activityAttempt;
         document.querySelector('.activity-feedback-container__failed .time-taken').textContent = timeTaken;
         document.querySelector('.next-button').classList.add("blinker");
-        clearInterval(tInterval);
+        clearInterval(window.tInterval);
       })
     }
   }
 }
 
 function tryAgainActivity() {
-	clearInterval(tInterval);
+	clearInterval(window.tInterval);
   currentActivityNumber = 1;
   correctAns = 0;
   timeTaken = "";
@@ -463,7 +463,7 @@ function showAns() {
   $(".activity-feedback-container__failed").fadeOut( "slow", function() {
     $(".show-answer-container").show();
   })
-  clearInterval(tInterval);
+  clearInterval(window.tInterval);
 }
 
 function hideShowAnswer() {
@@ -483,7 +483,7 @@ function reviewAnswer() {
     $('.dragImg').css("pointer-events", "none");
     currentActivityNumber = 1;
   })
-  clearInterval(tInterval);
+  clearInterval(window.tInterval);
 }
 
 function reviewActivity() {

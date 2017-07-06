@@ -5,7 +5,7 @@
   var currentActivityNumber = 1;
   var activityAttempt = 1;
   var timeTaken = "";
-  var tInterval;
+
 
   var minutes = 60 * 4,
   display = document.querySelector('#time');
@@ -14,7 +14,7 @@
   var counts = [0];
 
   function startActivity() {
-    clearInterval(tInterval);
+    clearInterval(window.tInterval);
     $(".activity-intro-container").fadeOut( "slow", function() {
       $("#activity1").show();
       startTimer(minutes, display);
@@ -46,7 +46,7 @@
 
   function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    tInterval = setInterval(function () {
+    window.tInterval = setInterval(function () {
       minutes = parseInt(timer / 60, 10)
       seconds = parseInt(timer % 60, 10);
 
@@ -58,7 +58,7 @@
 
       if (--timer < 0) {
         // console.log(timer)
-        clearInterval(tInterval);
+        clearInterval(window.tInterval);
         timer = duration;
         currentActivityNumber = 1;
         $(".activity-holder").fadeOut( "slow", function() {
@@ -168,7 +168,7 @@
           document.querySelector('.activity-feedback-container__success .score-got').textContent = correctAns;
           document.querySelector('.activity-feedback-container__success .attempt').textContent = activityAttempt;
           document.querySelector('.activity-feedback-container__success .time-taken').textContent = timeTaken;
-          clearInterval(tInterval);
+          clearInterval(window.tInterval);
           document.querySelector('.next-button').classList.add("blinker");
         })
       }
@@ -178,7 +178,7 @@
           document.querySelector('.activity-feedback-container__failed .score-got').textContent = correctAns;
           document.querySelector('.activity-feedback-container__failed .attempt').textContent = activityAttempt;
           document.querySelector('.activity-feedback-container__failed .time-taken').textContent = timeTaken;
-          clearInterval(tInterval);
+          clearInterval(window.tInterval);
           document.querySelector('.next-button').classList.add("blinker");
         })
       }

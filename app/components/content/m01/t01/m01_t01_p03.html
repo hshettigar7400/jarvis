@@ -75,7 +75,7 @@
   var startAudioPlay = false;
 
   function openPopup(e, path) {
-    var jarvisAudio1 = soundManager.createSound({
+    window.jarvisAudio = soundManager.createSound({
       url: path,
       autoLoad: true,
       autoPlay: true,
@@ -91,7 +91,7 @@
       },
       whileplaying: function() {
         $(".button").addClass('disabled');
-        syncPageText(jarvisAudio1.position);
+        syncPageText(window.jarvisAudio.position);
         console.log(currentCuePointId);
       },
     });
@@ -108,12 +108,9 @@
     document.querySelector('#tab-data-2').style.display = 'none';
     document.querySelector('.img1').style.display = 'block';
     document.querySelector('.img2').style.display = 'none';
-    //  document.querySelector('.main-content').style.display = 'none';
-    //jarvisAudio.setPosition(3000);
+
 
     openPopup(e, '../app/assets/audio/m01_t01_p03_02.mp3');
-    //jarvisAudio.play();
-    //currentCuePointId = 2;
     $(e).css("background-color", "#ef3125 !important");
     $(".tab-2").css("background-color", "#1792e5 !important");
     $('.main-content').show();
@@ -129,8 +126,6 @@
     document.querySelector('#tab-data-1').style.display = 'none';
     document.querySelector('.img2').style.display = 'block';
     document.querySelector('.img1').style.display = 'none';
-    //jarvisAudio.setPosition(62000);
-    //jarvisAudio.play();
     openPopup(e, '../app/assets/audio/m01_t01_p03_03.mp3');
 
     $(e).css("background-color", "#ef3125 !important");
@@ -152,9 +147,7 @@
 
 
   function syncPageText(position) {
-
-    $("#button-playPause").removeClass("selected");
-
+    //$("#button-playPause").removeClass("selected");
     if (qPoints !== null && currentCuePointId != undefined) {
       var t = millisToMinutesAndSeconds(position);
 
@@ -176,6 +169,7 @@
     }
 
   }
+}
 
   function millisToMinutesAndSeconds(millis) {
     var minutes = Math.floor(millis / 60000);

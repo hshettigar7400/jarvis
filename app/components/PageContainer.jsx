@@ -105,7 +105,7 @@ var PageContainer = React.createClass ({
   },
 
   componentDidMount() {
-    loadPage(this.props.PageNum);
+    var _self = this;
     $(".loading").show();
 
     var preloader = new Preloader({
@@ -118,8 +118,8 @@ var PageContainer = React.createClass ({
 
       preloader.addCompletionListener(function () {
         $(".loading").hide();
-        loadPage(1);
-        loadAudio(1)
+        loadPage(_self.props.PageNum);
+        loadAudio(_self.props.PageNum);
       });
 
       preloader.start();

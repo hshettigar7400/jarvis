@@ -24,11 +24,12 @@ var Shell = React.createClass ({
       transcriptVisible: false,
       isPause: false,
       isReplayed: false,
-      currentPageNumber: 1,
+      currentPageNumber: window.scormAdaptor_getlocation() != ''? parseInt(window.scormAdaptor_getlocation()): 1,
+      visibleResumePopup: (window.scormAdaptor_getlocation() != '') ? true : false,
       volume: 100
     };
-  },
 
+  },
   clickOpenMenu: function(e) {
     this.setState({sidebarOpen: !this.state.sidebarOpen});
     this.setState({transcriptVisible: false});
@@ -41,7 +42,6 @@ var Shell = React.createClass ({
 
   setOpen() {
     this.setState({sidebarOpen: false});
-    togglePlayPuase()
   },
 
   updateDimensions: function() {
@@ -71,7 +71,6 @@ var Shell = React.createClass ({
         var contentHeight = height - 65;
       else
         var contentHeight = height - 46;*/
-        //alert('contentHeight: '+contentHeight);
       $('.page-container').css('height', contentHeight+'px');
       $('.page-loader').css('height', (contentHeight-40)+'px');
   },
@@ -91,12 +90,14 @@ var Shell = React.createClass ({
     }
     if (this.state.sidebarOpen || this.state.isHelpDockOpen) {
       $("#button-playPause").addClass("disabled");
-      jarvisAudio.pause();
+      $("#button-audio").addClass("disabled");
+      window.jarvisAudio.pause();
     }
     else {
       $("#button-playPause").removeClass("disabled");
+      $("#button-audio").removeClass("disabled");
       if (!$("#button-playPause").hasClass("selected")) {
-        jarvisAudio.resume();
+        window.jarvisAudio.resume();
       }
     }
   },
@@ -180,102 +181,153 @@ var Shell = React.createClass ({
     toggleButtonState(e);
   },
 
+  resumeCourse(flag) {
+
+    if(flag) {
+      this.setState({currentPageNumber: parseInt(window.scormAdaptor_getlocation())})
+
+    }
+    else {
+    this.setState({currentPageNumber: 1})
+    }
+    this.setState({visibleResumePopup:false})
+  },
+
+  renderUI() {
+    return(
+    <div>
+    <div className="header">
+      <MediaQuery query='(max-width: 680px)'>
+        <TopNav
+          onMenuClick={this.clickOpenMenu.bind(null, this)}
+          onToolsMenuClick={this.clickOpenToolsMenu}
+          onNextButtonClick={this.loadNextPage}
+          onBackButtonClick={this.loadPreviousPage}
+          onTranscriptButtonClick={this.enableTranscript}
+          totalPages={9}
+          currentPageNumber={this.state.currentPageNumber}
+          onPlayPauseClick={this.audioPlayPause}
+          onReplayClick={this.replayScreen}
+          onVolumeClick={this.volumeChange}
+          isMenuOpened={!this.state.sidebarOpen}
+        />
+      </MediaQuery>
+      <MediaQuery query='(min-width: 680px)'>
+        <HeaderTitle />
+      </MediaQuery>
+    </div>
+    <div className="page-container" >
+      {!this.state.visibleResumePopup && <PageContainer
+        PageNum={this.state.currentPageNumber}
+        audioState={this.state.isPause}
+        replayState={this.state.isReplayed}
+        volume={this.state.volume}/>}
+      <div className="help-container">
+        <HelpDock
+          position='top'
+          isVisible={this.state.isHelpDockOpen}
+          duration={800}
+          size={0.98}
+          dockStyle={{position: 'absolute', height: 'auto'}}
+          dimStyle={{position: 'relative', height: '100%'}}
+          >
+          <HelpContent closeHelp={this.clickOpenHelpDock}/>
+        </HelpDock>
+      </div>
+    </div>
+
+    <MediaQuery query='(min-width: 680px)'>
+      <div className="footer">
+        <Footer
+          onMenuClick={this.clickOpenMenu.bind(null, this)}
+          onHelpClick={this.clickOpenHelpDock}
+          onNextButtonClick={this.loadNextPage}
+          onBackButtonClick={this.loadPreviousPage}
+          onTranscriptButtonClick={this.enableTranscript}
+          totalPages={9}
+          currentPageNumber={this.state.currentPageNumber}
+          onPlayPauseClick={this.audioPlayPause}
+          onReplayClick={this.replayScreen}
+          onVolumeClick={this.volumeChange}
+          isMenuOpened={!this.state.sidebarOpen}
+        />
+      </div>
+    </MediaQuery>
+
+    <Menu sidebar={<MenuContent
+        onCloseMenuClick={this.setOpen}
+        onPageLinkClick={this.menuItemClicked}
+      />}
+       open={this.state.sidebarOpen}
+       onSetOpen={this.onSetSidebarOpen}
+       overlayClassName="menu-overlay-style"
+       onSetOpen={this.setOpen}
+       pullRight={true}
+       rootClassName="menu-custom-style"
+       sidebarClassName="menu-style">
+       <b>{}</b>
+    </Menu>
+
+    <ToolsMenu sidebar={<ToolsMenuContent
+        onCloseMenuClick={this.setOpen}
+        onVolumeClick={this.volumeChange}
+        onHelpClick={this.clickOpenHelpDock}
+        />}
+       open={this.state.toolsMenuOpen}
+       onSetOpen={this.onSetSidebarOpen}
+       overlayClassName="tool-menu-overlay-style"
+       onSetOpen={this.setToolsMenuOpen}
+       pullRight={true}
+       rootClassName="tool-menu-custom-style"
+       sidebarClassName="tool-menu-style">
+       <b>{}</b>
+    </ToolsMenu>
+    </div>
+    )
+  },
+
+  resumePopup()
+  {
+    return(
+    <div>
+    <div className="overlay"></div>
+    <section className="popup-alert" id="resumeAlert">
+  	<div className="popup-header">
+  	Resume
+  	</div>
+  	<div className="popup-area">
+  	<div className="popup-content">
+
+  	<p className="warning-msg">
+  	<span className="warning-sign">
+  	</span>Do you want to resume your course where you left?</p>
+
+  	</div>
+  	<div className="popup-buttons">
+  	<div>
+  	<a href="#" id="popup-yes-button" onClick={this.resumeCourse.bind(this, true)} className="course-button box-shadow popup-yes-button tabindextabindex">Yes</a>
+  	</div>
+  	<div>
+  	<a href="#" id="popup-no-button" onClick={this.resumeCourse.bind(this, false)} className="course-button box-shadow popup-yes-button tabindextabindex">No</a>
+  	</div>
+  	</div>
+  	</div>
+  	</section>
+    </div>
+    )
+
+  },
+
   render() {
     return (
       <div className="shell-container" style={{position: 'relative'}}>
-        <div className="header">
-          <MediaQuery query='(max-width: 680px)'>
-            <TopNav
-              onMenuClick={this.clickOpenMenu.bind(null, this)}
-              onToolsMenuClick={this.clickOpenToolsMenu}
-              onNextButtonClick={this.loadNextPage}
-              onBackButtonClick={this.loadPreviousPage}
-              onTranscriptButtonClick={this.enableTranscript}
-              totalPages={9}
-              currentPageNumber={this.state.currentPageNumber}
-              onPlayPauseClick={this.audioPlayPause}
-              onReplayClick={this.replayScreen}
-              onVolumeClick={this.volumeChange}
-              isMenuOpened={!this.state.sidebarOpen}
-            />
-          </MediaQuery>
-          <MediaQuery query='(min-width: 680px)'>
-            <HeaderTitle />
-          </MediaQuery>
-        </div>
-        <div className="page-container" >
-          <PageContainer
-            PageNum={this.state.currentPageNumber}
-            audioState={this.state.isPause}
-            replayState={this.state.isReplayed}
-            volume={this.state.volume}/>
-          <div className="help-container">
-            <HelpDock
-              position='top'
-              isVisible={this.state.isHelpDockOpen}
-              duration={800}
-              size={0.98}
-              dockStyle={{position: 'absolute', height: 'auto'}}
-              dimStyle={{position: 'relative', height: '100%'}}
-              >
-              <HelpContent closeHelp={this.clickOpenHelpDock}/>
-            </HelpDock>
-          </div>
-
-        </div>
-
-        <MediaQuery query='(min-width: 680px)'>
-          <div className="footer">
-            <Footer
-              onMenuClick={this.clickOpenMenu.bind(null, this)}
-              onHelpClick={this.clickOpenHelpDock}
-              onNextButtonClick={this.loadNextPage}
-              onBackButtonClick={this.loadPreviousPage}
-              onTranscriptButtonClick={this.enableTranscript}
-              totalPages={9}
-              currentPageNumber={this.state.currentPageNumber}
-              onPlayPauseClick={this.audioPlayPause}
-              onReplayClick={this.replayScreen}
-              onVolumeClick={this.volumeChange}
-              isMenuOpened={!this.state.sidebarOpen}
-            />
-          </div>
-        </MediaQuery>
-
-        <Menu sidebar={<MenuContent
-            onCloseMenuClick={this.setOpen}
-            onPageLinkClick={this.menuItemClicked}
-          />}
-           open={this.state.sidebarOpen}
-           onSetOpen={this.onSetSidebarOpen}
-           overlayClassName="menu-overlay-style"
-           onSetOpen={this.setOpen}
-           pullRight={true}
-           rootClassName="menu-custom-style"
-           sidebarClassName="menu-style">
-           <b>{}</b>
-        </Menu>
-
-        <ToolsMenu sidebar={<ToolsMenuContent
-            onCloseMenuClick={this.setOpen}
-            onVolumeClick={this.volumeChange}
-            onHelpClick={this.clickOpenHelpDock}
-            />}
-           open={this.state.toolsMenuOpen}
-           onSetOpen={this.onSetSidebarOpen}
-           overlayClassName="tool-menu-overlay-style"
-           onSetOpen={this.setToolsMenuOpen}
-           pullRight={true}
-           rootClassName="tool-menu-custom-style"
-           sidebarClassName="tool-menu-style">
-           <b>{}</b>
-        </ToolsMenu>
-
+      {this.renderUI()}
+      {this.state.visibleResumePopup && this.resumePopup()}
       {this.state.transcriptVisible && this.showTranscript()}
 
       </div>
     )
-  }
+    }
 });
 
 export default Shell;

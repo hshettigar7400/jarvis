@@ -48,23 +48,23 @@ render() {
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(2)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={3}>
-              <a className="disable-event">Medical devices move to the home</a>
+              <a className="disable-event">Medical Devices Move to the Home</a>
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(3)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={4}>
-              <a className="disable-event">Growth in portable-and home-use medical devices</a>
+              <a className="disable-event">Growth in Portable-and Home-Use Medical Devices</a>
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(4)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={5}>
-              <a className="disable-event">Internet of things-connected medical equipment</a>
+              <a className="disable-event">Internet of Things-Connected Medical Equipment</a>
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(5)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={6}>
-              <a className="disable-event">Target/focus medical applications</a>
+              <a className="disable-event">Target/Focus Medical Applications</a>
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(6)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={7}>
-              <a className="disable-event">Medical appications for Honeywell sensors-Activity</a>
+              <a className="disable-event">Medical appications for Honeywell Sensors-Activity</a>
               <span className="menu-page-progress" style={{backgroundColor:this.getProgressColor(7)}}></span>
             </li>
             <li  onClick={this.props.onPageLinkClick} data-page-id={8}>

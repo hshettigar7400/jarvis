@@ -15,16 +15,20 @@
   {
     overflow: hidden;
   }
+
+  #exitAlert
+  {
+    display: none;
+  }
   .popup-alert
   {
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	left: 0;
 	right: 0;
 	width: 300px;
 	margin: auto;
 	padding: 5px;
-	display: none;
 	z-index: 99999;
   }
 
@@ -141,28 +145,6 @@
 	</div>
 	</section>
 
-	<section class="popup-alert" id="resumeAlert">
-	<div class="popup-header">
-	Resume
-	</div>
-	<div class="popup-area">
-	<div class="popup-content">
-
-	<p class="warning-msg">
-	<span class="warning-sign">
-	</span>Are you sure you wish to exit the module?</p>
-
-	</div>
-	<div class="popup-buttons">
-	<div>
-	<a href="#" id="popup-yes-button" onclick="exitCourse(true)" class="course-button box-shadow popup-yes-button tabindextabindex">Yes</a>
-	</div>
-	<div>
-	<a href="#" id="popup-no-button" onclick="exitCourse(false)" class="course-button box-shadow popup-yes-button tabindextabindex">No</a>
-	</div>
-	</div>
-	</div>
-	</section>
 
   </body>
 </html>
