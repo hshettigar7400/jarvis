@@ -24,8 +24,7 @@ var Shell = React.createClass ({
       transcriptVisible: false,
       isPause: false,
       isReplayed: false,
-      currentPageNumber: window.scormAdaptor_getlocation() != ''? parseInt(window.scormAdaptor_getlocation()): 1,
-      visibleResumePopup: (window.scormAdaptor_getlocation() != '') ? true : false,
+      currentPageNumber: 1,
       volume: 100
     };
 

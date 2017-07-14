@@ -15,7 +15,7 @@
   {
     overflow: hidden;
   }
-
+  
   #exitAlert
   {
     display: none;
@@ -77,6 +77,12 @@
 
 
   }
+
+  @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+    .popup-alert{
+      top: 25%;
+    }
+  }
   </style>
   <body>
     <div id="root"></div>
@@ -93,7 +99,7 @@
     <script>
     var jarvisAudio;
     var qPoints = [];
-	var appType = 'scorm';
+	var appType = 'standalone';
     soundManager.setup({
       onready: function() {
         init();

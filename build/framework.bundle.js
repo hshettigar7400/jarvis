@@ -548,7 +548,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 var _prodInvariant = __webpack_require__(3);
 
 var DOMProperty = __webpack_require__(20);
-var ReactDOMComponentFlags = __webpack_require__(114);
+var ReactDOMComponentFlags = __webpack_require__(115);
 
 var invariant = __webpack_require__(1);
 
@@ -1237,9 +1237,9 @@ $exports.store = store;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var CallbackQueue = __webpack_require__(112);
+var CallbackQueue = __webpack_require__(113);
 var PooledClass = __webpack_require__(23);
-var ReactFeatureFlags = __webpack_require__(117);
+var ReactFeatureFlags = __webpack_require__(118);
 var ReactReconciler = __webpack_require__(31);
 var Transaction = __webpack_require__(47);
 
@@ -1864,7 +1864,7 @@ if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject       = __webpack_require__(26)
-  , IE8_DOM_DEFINE = __webpack_require__(95)
+  , IE8_DOM_DEFINE = __webpack_require__(96)
   , toPrimitive    = __webpack_require__(65)
   , dP             = Object.defineProperty;
 
@@ -1885,7 +1885,7 @@ exports.f = __webpack_require__(21) ? Object.defineProperty : function definePro
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(96)
+var IObject = __webpack_require__(97)
   , defined = __webpack_require__(54);
 module.exports = function(it){
   return IObject(defined(it));
@@ -2268,7 +2268,7 @@ var warning = __webpack_require__(2);
 var canDefineProperty = __webpack_require__(51);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-var REACT_ELEMENT_TYPE = __webpack_require__(133);
+var REACT_ELEMENT_TYPE = __webpack_require__(134);
 
 var RESERVED_PROPS = {
   key: true,
@@ -2674,7 +2674,7 @@ module.exports = __webpack_require__(21) ? function(object, key, value){
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys       = __webpack_require__(100)
+var $keys       = __webpack_require__(101)
   , enumBugKeys = __webpack_require__(55);
 
 module.exports = Object.keys || function keys(O){
@@ -2702,7 +2702,7 @@ var DOMNamespaces = __webpack_require__(71);
 var setInnerHTML = __webpack_require__(49);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(78);
-var setTextContent = __webpack_require__(130);
+var setTextContent = __webpack_require__(131);
 
 var ELEMENT_NODE_TYPE = 1;
 var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
@@ -3015,7 +3015,7 @@ var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
   var canDefineProperty = __webpack_require__(51);
-  var ReactElementValidator = __webpack_require__(134);
+  var ReactElementValidator = __webpack_require__(135);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
@@ -3174,8 +3174,8 @@ var EventPluginRegistry = __webpack_require__(44);
 var EventPluginUtils = __webpack_require__(72);
 var ReactErrorUtils = __webpack_require__(76);
 
-var accumulateInto = __webpack_require__(124);
-var forEachAccumulated = __webpack_require__(125);
+var accumulateInto = __webpack_require__(125);
+var forEachAccumulated = __webpack_require__(126);
 var invariant = __webpack_require__(1);
 
 /**
@@ -3455,8 +3455,8 @@ module.exports = EventPluginHub;
 var EventPluginHub = __webpack_require__(38);
 var EventPluginUtils = __webpack_require__(72);
 
-var accumulateInto = __webpack_require__(124);
-var forEachAccumulated = __webpack_require__(125);
+var accumulateInto = __webpack_require__(125);
+var forEachAccumulated = __webpack_require__(126);
 var warning = __webpack_require__(2);
 
 var getListener = EventPluginHub.getListener;
@@ -3990,7 +3990,7 @@ var _assign = __webpack_require__(4);
 
 var EventPluginRegistry = __webpack_require__(44);
 var ReactEventEmitterMixin = __webpack_require__(286);
-var ViewportMetrics = __webpack_require__(123);
+var ViewportMetrics = __webpack_require__(124);
 
 var getVendorPrefixedEventName = __webpack_require__(322);
 var isEventSupported = __webpack_require__(82);
@@ -4320,7 +4320,7 @@ module.exports = ReactBrowserEventEmitter;
 
 
 var SyntheticUIEvent = __webpack_require__(41);
-var ViewportMetrics = __webpack_require__(123);
+var ViewportMetrics = __webpack_require__(124);
 
 var getEventModifierState = __webpack_require__(80);
 
@@ -5572,7 +5572,7 @@ var anObject    = __webpack_require__(26)
 // Create object with fake `null` prototype: use iframe Object with cleared prototype
 var createDict = function(){
   // Thrash, waste and sodomy: IE GC bug
-  var iframe = __webpack_require__(94)('iframe')
+  var iframe = __webpack_require__(95)('iframe')
     , i      = enumBugKeys.length
     , lt     = '<'
     , gt     = '>'
@@ -5613,7 +5613,7 @@ var pIE            = __webpack_require__(42)
   , toIObject      = __webpack_require__(19)
   , toPrimitive    = __webpack_require__(65)
   , has            = __webpack_require__(22)
-  , IE8_DOM_DEFINE = __webpack_require__(95)
+  , IE8_DOM_DEFINE = __webpack_require__(96)
   , gOPD           = Object.getOwnPropertyDescriptor;
 
 exports.f = __webpack_require__(21) ? gOPD : function getOwnPropertyDescriptor(O, P){
@@ -16084,7 +16084,7 @@ var ReactInstrumentation = __webpack_require__(10);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(78);
 var setInnerHTML = __webpack_require__(49);
-var setTextContent = __webpack_require__(130);
+var setTextContent = __webpack_require__(131);
 
 function getNodeAfter(parentNode, node) {
   // Special case for text components, which return [open, close] comments
@@ -16632,7 +16632,7 @@ module.exports = KeyEscapeUtils;
 var _prodInvariant = __webpack_require__(3);
 
 var React = __webpack_require__(32);
-var ReactPropTypesSecret = __webpack_require__(122);
+var ReactPropTypesSecret = __webpack_require__(123);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -18033,11 +18033,388 @@ module.exports = ReactNoopUpdateQueue;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var React = __webpack_require__(7),
+    HeaderTitle = __webpack_require__(143).default,
+    Footer = __webpack_require__(142).default,
+    PageContainer = __webpack_require__(146).default,
+    MenuContent = __webpack_require__(145).default,
+    ToolsMenuContent = __webpack_require__(147).default,
+    MediaQuery = __webpack_require__(50),
+    TopNav = __webpack_require__(89).default,
+    HelpContent = __webpack_require__(144).default,
+    Menu = __webpack_require__(133).default,
+    ToolsMenu = __webpack_require__(133).default,
+    HelpDock = __webpack_require__(253),
+    _require = __webpack_require__(90),
+    toggleSoundVolume = _require.toggleSoundVolume,
+    togglePlayPuase = _require.togglePlayPuase,
+    loadAudio = _require.loadAudio,
+    toggleButtonState = _require.toggleButtonState,
+    _require2 = __webpack_require__(91),
+    loadPage = _require2.loadPage,
+    $ = __webpack_require__(69);
+
+
+var Shell = React.createClass({
+  displayName: 'Shell',
+
+  getInitialState: function getInitialState() {
+    return {
+      sidebarOpen: false,
+      toolsMenuOpen: false,
+      isHelpDockOpen: false,
+      transcriptVisible: false,
+      isPause: false,
+      isReplayed: false,
+      currentPageNumber: 1,
+      volume: 100
+    };
+  },
+  clickOpenMenu: function clickOpenMenu(e) {
+    this.setState({ sidebarOpen: !this.state.sidebarOpen });
+    this.setState({ transcriptVisible: false });
+    this.setState({ isHelpDockOpen: false });
+  },
+
+  clickOpenToolsMenu: function clickOpenToolsMenu() {
+    this.setState({ toolsMenuOpen: !this.state.toolsMenuOpen });
+  },
+
+  setOpen: function setOpen() {
+    this.setState({ sidebarOpen: false });
+  },
+
+
+  updateDimensions: function updateDimensions() {
+    var w = window,
+        d = document,
+        documentElement = d.documentElement,
+        body = d.getElementsByTagName('body')[0],
+        width = w.innerWidth,
+        height = w.innerHeight;
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+      var contentHeight = height - 65;
+      $('#root').css({
+        'min-width': '320px'
+      });
+    } else {
+      var contentHeight = height - 65;
+      $('#root').css({
+        'max-width': '1010px',
+        'max-height': '650px'
+      });
+      $('.shell-container').css({
+        'max-width': '1010px',
+        'max-height': '650px'
+      });
+    }
+    /*if (width > 680)
+      var contentHeight = height - 65;
+    else
+      var contentHeight = height - 46;*/
+    $('.page-container').css('height', contentHeight + 'px');
+    $('.page-loader').css('height', contentHeight - 40 + 'px');
+  },
+
+  componentDidMount: function componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions);
+    this.updateDimensions();
+  },
+
+  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
+    window.addEventListener("resize", this.updateDimensions);
+    if (this.state.transcriptVisible === false) {
+      $("#button-transcript").removeClass("selected");
+    }
+    if (jarvisAudio.playState != 1) {
+      $("button-playPause").removeClass("selected");
+    }
+    if (this.state.sidebarOpen || this.state.isHelpDockOpen) {
+      $("#button-playPause").addClass("disabled");
+      $("#button-audio").addClass("disabled");
+      window.jarvisAudio.pause();
+    } else {
+      $("#button-playPause").removeClass("disabled");
+      $("#button-audio").removeClass("disabled");
+      if (!$("#button-playPause").hasClass("selected")) {
+        window.jarvisAudio.resume();
+      }
+    }
+  },
+
+  setToolsMenuOpen: function setToolsMenuOpen() {
+    this.setState({ toolsMenuOpen: false });
+  },
+  loadNextPage: function loadNextPage() {
+    if (this.state.currentPageNumber + 1 > 9) {
+      this.setState({ currentPageNumber: 2 });
+    } else {
+      this.setState({ currentPageNumber: this.state.currentPageNumber + 1 });
+    }
+    this.setState({ isPause: false });
+  },
+  loadPreviousPage: function loadPreviousPage() {
+    this.setState({ currentPageNumber: this.state.currentPageNumber - 1 });
+    this.setState({ isPause: false });
+  },
+  menuItemClicked: function menuItemClicked(e) {
+    var pageId = e.currentTarget.dataset.pageId;
+    this.setState({ currentPageNumber: parseInt(pageId) });
+    this.setState({ sidebarOpen: !this.state.sidebarOpen });
+    console.log("Clicked", parseInt(pageId));
+  },
+  clickOpenHelpDock: function clickOpenHelpDock() {
+    this.setState({ isHelpDockOpen: !this.state.isHelpDockOpen });
+    this.setState({ transcriptVisible: false });
+  },
+  enableTranscript: function enableTranscript(e) {
+    this.setState({ isHelpDockOpen: false });
+    var _self = this;
+    if (!this.state.transcriptVisible) {
+      $("#button-transcript").addClass("selected");
+    } else {
+      $("#button-transcript").removeClass("selected");
+    }
+    this.setState({ transcriptVisible: !this.state.transcriptVisible });
+    $.getJSON("../app/assets/data/transcript.json", function (data) {
+      $(".transcript-text-container").html(data.transcript[_self.state.currentPageNumber - 1].text);
+    });
+  },
+  showTranscript: function showTranscript() {
+    return React.createElement(
+      'div',
+      { className: 'transcript-container' },
+      React.createElement(
+        'div',
+        { id: 'transcript-header', className: 'transcript-header' },
+        React.createElement(
+          'div',
+          { className: 'transcript-title' },
+          'Transcript'
+        ),
+        React.createElement(
+          'a',
+          { href: '#', id: 'transcript-close-button', onClick: this.enableTranscript, className: 'transcript-close-button tabindex', 'aria-label': 'Transcript close', role: 'button' },
+          React.createElement(
+            'span',
+            { className: 'icon-close' },
+            '\uE60A'
+          )
+        )
+      ),
+      React.createElement('div', { className: 'transcript-text-container' })
+    );
+  },
+  audioPlayPause: function audioPlayPause(e) {
+    togglePlayPuase();
+    toggleButtonState(e);
+  },
+  replayScreen: function replayScreen() {
+    this.setState({ isHelpDockOpen: false });
+    loadPage(this.state.currentPageNumber);
+    loadAudio(this.state.currentPageNumber);
+  },
+  volumeChange: function volumeChange(e) {
+    toggleSoundVolume();
+    toggleButtonState(e);
+  },
+  resumeCourse: function resumeCourse(flag) {
+
+    if (flag) {
+      this.setState({ currentPageNumber: parseInt(window.scormAdaptor_getlocation()) });
+    } else {
+      this.setState({ currentPageNumber: 1 });
+    }
+    this.setState({ visibleResumePopup: false });
+  },
+  renderUI: function renderUI() {
+    var _React$createElement, _React$createElement2;
+
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'div',
+        { className: 'header' },
+        React.createElement(
+          MediaQuery,
+          { query: '(max-width: 680px)' },
+          React.createElement(TopNav, {
+            onMenuClick: this.clickOpenMenu.bind(null, this),
+            onToolsMenuClick: this.clickOpenToolsMenu,
+            onNextButtonClick: this.loadNextPage,
+            onBackButtonClick: this.loadPreviousPage,
+            onTranscriptButtonClick: this.enableTranscript,
+            totalPages: 9,
+            currentPageNumber: this.state.currentPageNumber,
+            onPlayPauseClick: this.audioPlayPause,
+            onReplayClick: this.replayScreen,
+            onVolumeClick: this.volumeChange,
+            isMenuOpened: !this.state.sidebarOpen
+          })
+        ),
+        React.createElement(
+          MediaQuery,
+          { query: '(min-width: 680px)' },
+          React.createElement(HeaderTitle, null)
+        )
+      ),
+      React.createElement(
+        'div',
+        { className: 'page-container' },
+        !this.state.visibleResumePopup && React.createElement(PageContainer, {
+          PageNum: this.state.currentPageNumber,
+          audioState: this.state.isPause,
+          replayState: this.state.isReplayed,
+          volume: this.state.volume }),
+        React.createElement(
+          'div',
+          { className: 'help-container' },
+          React.createElement(
+            HelpDock,
+            {
+              position: 'top',
+              isVisible: this.state.isHelpDockOpen,
+              duration: 800,
+              size: 0.98,
+              dockStyle: { position: 'absolute', height: 'auto' },
+              dimStyle: { position: 'relative', height: '100%' }
+            },
+            React.createElement(HelpContent, { closeHelp: this.clickOpenHelpDock })
+          )
+        )
+      ),
+      React.createElement(
+        MediaQuery,
+        { query: '(min-width: 680px)' },
+        React.createElement(
+          'div',
+          { className: 'footer' },
+          React.createElement(Footer, {
+            onMenuClick: this.clickOpenMenu.bind(null, this),
+            onHelpClick: this.clickOpenHelpDock,
+            onNextButtonClick: this.loadNextPage,
+            onBackButtonClick: this.loadPreviousPage,
+            onTranscriptButtonClick: this.enableTranscript,
+            totalPages: 9,
+            currentPageNumber: this.state.currentPageNumber,
+            onPlayPauseClick: this.audioPlayPause,
+            onReplayClick: this.replayScreen,
+            onVolumeClick: this.volumeChange,
+            isMenuOpened: !this.state.sidebarOpen
+          })
+        )
+      ),
+      React.createElement(
+        Menu,
+        (_React$createElement = { sidebar: React.createElement(MenuContent, {
+            onCloseMenuClick: this.setOpen,
+            onPageLinkClick: this.menuItemClicked
+          }),
+          open: this.state.sidebarOpen,
+          onSetOpen: this.onSetSidebarOpen,
+          overlayClassName: 'menu-overlay-style'
+        }, _defineProperty(_React$createElement, 'onSetOpen', this.setOpen), _defineProperty(_React$createElement, 'pullRight', true), _defineProperty(_React$createElement, 'rootClassName', 'menu-custom-style'), _defineProperty(_React$createElement, 'sidebarClassName', 'menu-style'), _React$createElement),
+        React.createElement('b', null)
+      ),
+      React.createElement(
+        ToolsMenu,
+        (_React$createElement2 = { sidebar: React.createElement(ToolsMenuContent, {
+            onCloseMenuClick: this.setOpen,
+            onVolumeClick: this.volumeChange,
+            onHelpClick: this.clickOpenHelpDock
+          }),
+          open: this.state.toolsMenuOpen,
+          onSetOpen: this.onSetSidebarOpen,
+          overlayClassName: 'tool-menu-overlay-style'
+        }, _defineProperty(_React$createElement2, 'onSetOpen', this.setToolsMenuOpen), _defineProperty(_React$createElement2, 'pullRight', true), _defineProperty(_React$createElement2, 'rootClassName', 'tool-menu-custom-style'), _defineProperty(_React$createElement2, 'sidebarClassName', 'tool-menu-style'), _React$createElement2),
+        React.createElement('b', null)
+      )
+    );
+  },
+  resumePopup: function resumePopup() {
+    return React.createElement(
+      'div',
+      null,
+      React.createElement('div', { className: 'overlay' }),
+      React.createElement(
+        'section',
+        { className: 'popup-alert', id: 'resumeAlert' },
+        React.createElement(
+          'div',
+          { className: 'popup-header' },
+          'Resume'
+        ),
+        React.createElement(
+          'div',
+          { className: 'popup-area' },
+          React.createElement(
+            'div',
+            { className: 'popup-content' },
+            React.createElement(
+              'p',
+              { className: 'warning-msg' },
+              React.createElement('span', { className: 'warning-sign' }),
+              'Do you want to resume your course where you left?'
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: 'popup-buttons' },
+            React.createElement(
+              'div',
+              null,
+              React.createElement(
+                'a',
+                { href: '#', id: 'popup-yes-button', onClick: this.resumeCourse.bind(this, true), className: 'course-button box-shadow popup-yes-button tabindextabindex' },
+                'Yes'
+              )
+            ),
+            React.createElement(
+              'div',
+              null,
+              React.createElement(
+                'a',
+                { href: '#', id: 'popup-no-button', onClick: this.resumeCourse.bind(this, false), className: 'course-button box-shadow popup-yes-button tabindextabindex' },
+                'No'
+              )
+            )
+          )
+        )
+      )
+    );
+  },
+  render: function render() {
+    return React.createElement(
+      'div',
+      { className: 'shell-container', style: { position: 'relative' } },
+      this.renderUI(),
+      this.state.visibleResumePopup && this.resumePopup(),
+      this.state.transcriptVisible && this.showTranscript()
+    );
+  }
+});
+
+exports.default = Shell;
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 module.exports = __webpack_require__(267);
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18185,7 +18562,7 @@ var TopNav = React.createClass({
 exports.default = TopNav;
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18312,7 +18689,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18353,13 +18730,13 @@ module.exports = {
 };
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = { "default": __webpack_require__(176), __esModule: true };
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18388,13 +18765,13 @@ exports.default = _assign2.default || function (target) {
 };
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(166);
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(33)
@@ -18406,15 +18783,15 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = !__webpack_require__(21) && !__webpack_require__(27)(function(){
-  return Object.defineProperty(__webpack_require__(94)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+  return Object.defineProperty(__webpack_require__(95)('div'), 'a', {get: function(){ return 7; }}).a != 7;
 });
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
@@ -18424,20 +18801,20 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
 };
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var LIBRARY        = __webpack_require__(56)
   , $export        = __webpack_require__(16)
-  , redefine       = __webpack_require__(101)
+  , redefine       = __webpack_require__(102)
   , hide           = __webpack_require__(28)
   , has            = __webpack_require__(22)
   , Iterators      = __webpack_require__(34)
   , $iterCreate    = __webpack_require__(190)
   , setToStringTag = __webpack_require__(61)
-  , getPrototypeOf = __webpack_require__(99)
+  , getPrototypeOf = __webpack_require__(100)
   , ITERATOR       = __webpack_require__(12)('iterator')
   , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
   , FF_ITERATOR    = '@@iterator'
@@ -18500,11 +18877,11 @@ module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED
 };
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-var $keys      = __webpack_require__(100)
+var $keys      = __webpack_require__(101)
   , hiddenKeys = __webpack_require__(55).concat('length', 'prototype');
 
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
@@ -18512,7 +18889,7 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
 };
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
@@ -18530,7 +18907,7 @@ module.exports = Object.getPrototypeOf || function(O){
 };
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var has          = __webpack_require__(22)
@@ -18552,13 +18929,13 @@ module.exports = function(object, names){
 };
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(28);
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
@@ -18569,7 +18946,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18577,7 +18954,7 @@ module.exports = function(it){
 var $at  = __webpack_require__(199)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
-__webpack_require__(97)(String, 'String', function(iterated){
+__webpack_require__(98)(String, 'String', function(iterated){
   this._t = String(iterated); // target
   this._i = 0;                // next index
 // 21.1.5.2.1 %StringIteratorPrototype%.next()
@@ -18592,7 +18969,7 @@ __webpack_require__(97)(String, 'String', function(iterated){
 });
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18682,7 +19059,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18714,7 +19091,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18756,22 +19133,22 @@ function getActiveElement(doc) /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(138)))
-
-/***/ }),
-/* 107 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/fonts/Lato-Light.eot";
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(139)))
 
 /***/ }),
 /* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/lato-regular-webfont.eot";
+module.exports = __webpack_require__.p + "assets/fonts/Lato-Light.eot";
 
 /***/ }),
 /* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "assets/fonts/lato-regular-webfont.eot";
+
+/***/ }),
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -18954,7 +19331,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18975,7 +19352,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19128,7 +19505,7 @@ var CSSProperty = {
 module.exports = CSSProperty;
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19253,7 +19630,7 @@ module.exports = PooledClass.addPoolingTo(CallbackQueue);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19496,7 +19873,7 @@ module.exports = DOMPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19519,7 +19896,7 @@ var ReactDOMComponentFlags = {
 module.exports = ReactDOMComponentFlags;
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19725,7 +20102,7 @@ module.exports = ReactDOMSelect;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19760,7 +20137,7 @@ ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 module.exports = ReactEmptyComponent;
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19787,7 +20164,7 @@ var ReactFeatureFlags = {
 module.exports = ReactFeatureFlags;
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19861,7 +20238,7 @@ module.exports = ReactHostComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19880,8 +20257,8 @@ module.exports = ReactHostComponent;
 var ReactDOMSelection = __webpack_require__(277);
 
 var containsNode = __webpack_require__(223);
-var focusNode = __webpack_require__(105);
-var getActiveElement = __webpack_require__(106);
+var focusNode = __webpack_require__(106);
+var getActiveElement = __webpack_require__(107);
 
 function isInDocument(node) {
   return containsNode(document.documentElement, node);
@@ -19990,7 +20367,7 @@ var ReactInputSelection = {
 module.exports = ReactInputSelection;
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20016,7 +20393,7 @@ var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMContainerInfo = __webpack_require__(269);
 var ReactDOMFeatureFlags = __webpack_require__(271);
-var ReactFeatureFlags = __webpack_require__(117);
+var ReactFeatureFlags = __webpack_require__(118);
 var ReactInstanceMap = __webpack_require__(40);
 var ReactInstrumentation = __webpack_require__(10);
 var ReactMarkupChecksum = __webpack_require__(291);
@@ -20025,7 +20402,7 @@ var ReactUpdateQueue = __webpack_require__(77);
 var ReactUpdates = __webpack_require__(13);
 
 var emptyObject = __webpack_require__(37);
-var instantiateReactComponent = __webpack_require__(128);
+var instantiateReactComponent = __webpack_require__(129);
 var invariant = __webpack_require__(1);
 var setInnerHTML = __webpack_require__(49);
 var shouldUpdateReactComponent = __webpack_require__(83);
@@ -20534,7 +20911,7 @@ module.exports = ReactMount;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20580,7 +20957,7 @@ module.exports = ReactNodeTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20602,7 +20979,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20634,7 +21011,7 @@ var ViewportMetrics = {
 module.exports = ViewportMetrics;
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20698,7 +21075,7 @@ module.exports = accumulateInto;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20734,7 +21111,7 @@ function forEachAccumulated(arr, cb, scope) {
 module.exports = forEachAccumulated;
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20750,7 +21127,7 @@ module.exports = forEachAccumulated;
 
 
 
-var ReactNodeTypes = __webpack_require__(121);
+var ReactNodeTypes = __webpack_require__(122);
 
 function getHostComponentFromComposite(inst) {
   var type;
@@ -20769,7 +21146,7 @@ function getHostComponentFromComposite(inst) {
 module.exports = getHostComponentFromComposite;
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20807,7 +21184,7 @@ function getTextContentAccessor() {
 module.exports = getTextContentAccessor;
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20827,8 +21204,8 @@ var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
 var ReactCompositeComponent = __webpack_require__(266);
-var ReactEmptyComponent = __webpack_require__(116);
-var ReactHostComponent = __webpack_require__(118);
+var ReactEmptyComponent = __webpack_require__(117);
+var ReactHostComponent = __webpack_require__(119);
 
 var getNextDebugID = __webpack_require__(320);
 var invariant = __webpack_require__(1);
@@ -20941,7 +21318,7 @@ module.exports = instantiateReactComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20997,7 +21374,7 @@ function isTextInputElement(elem) {
 module.exports = isTextInputElement;
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21054,7 +21431,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setTextContent;
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21236,7 +21613,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21255,7 +21632,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _sidebar2.default;
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21280,7 +21657,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21310,7 +21687,7 @@ var ReactElement = __webpack_require__(24);
 var checkReactTypeSpec = __webpack_require__(335);
 
 var canDefineProperty = __webpack_require__(51);
-var getIteratorFn = __webpack_require__(136);
+var getIteratorFn = __webpack_require__(137);
 var warning = __webpack_require__(2);
 
 function getDeclarationErrorAddendum() {
@@ -21539,7 +21916,7 @@ module.exports = ReactElementValidator;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21570,7 +21947,7 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21616,13 +21993,13 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAABeCAYAAACwwoGlAAAObUlEQVR4nO2dX2xT9xXHv+fnkKShxAkkkKQDhwBLoqSLkTP1L+BVopRJg5SKP6VUcYWa9GEPCTzw0Ie5j3vYmtd2mppJVcc0qUtVaVpXbTWrWjqJKKa0o9A6GFoCbULiAIEkxffswXZwHDu+tu/1vdf+fd5iX/ue/L4+95x7fuf3uwSTsL/nhL2E550k4ARzFQAnEarSfY4ZIQB+EIVYgf8elfr/+uZvp/W3WJIJxagvGXXiw0ePO8imuJnYTYwuqBho1TBCTBgiJh+Hhe+dP/7usmbfLVGF1DfPzrW/54R9Bc17wOwhgjNf52WGH0SDP3LpoFWuelZE6ruYvDjXkd5jHQqUPgI8+TjfcjAwKCAG3n7j92eNtqVQkPomR1fnOtzbvxfM3nxexdQSvdp533nj9feMtsWqSH2XRxfnOtJ7rIOhDABw6/H9GuMjiD4zXOmsgtRXHZo61/6eE/ZSzHlB6Mv1u+rX1eKB8vK0x92dncW178dzPR3AGJhHmddMObvZ0FLfDRMzWDkfTnvcTKkNV2pW5no6Q/TVzLmef7l/hyAeyrQqVG2vRFvLFlTbK9FQtxYNdWtVOVUid2dnMXb9B0yFbmLs+x8QCF7J3OkYIYWp689/eP1UxgYUONnqW3NrDq5Lk6i9PQ/HxAw23LijyqkSmSm14cqaCoyvKsPlNRU431CZudPlWV9NnOtwT99viOBVe3xb82a0NW9BU+N6rK6ya2FCUu7OziIQ/BbDZ79AIPgtZufmVH2OGd533hx4TTfDLEam+rouTcIVnELr2E3U3p7Xza6ZUhvON1Ti45/W4HxDJe6Ulaj6XL70zcm59vecsK/AnE/NDW21vRJPPuJCp7M9q8iUK3dnZ/HlV9/g4/+eURXRmOH/EWXuYk4TM9G35tYcnjl3HdsujGcVmXJlptSG4cZq/OPhOlURLR/6Zu1cR3qPdSisDKYb+LbmzXB1tKO9ZUu2p9KcQPAKzpz9AsNnv1z2OGb4BQlPMRY71OrrujSJbRcn0BmcypdpaTlfvwr/aa7Fx821yx6nt75ZOdeR3mMdzIpvufy7ybEee3Y9hYa6tdlbpzOToWm8/8G/8eWFb1IfxAgRCXcxOZgafVvHbuLIp5fhuHEnn6ZlxPiDpXj7cQeGN65OfZCO+mbsXJG2lrA/1cCXl5XhwN7dpopU6fjiq6/x4alPUqeLjBCHbU6zttloSTp9K+buocc3aqpIlY4zjdV41/VQ6nRRJ30zcq50OfjOHY9j544ntLHMAD489Qk+PPVp0veK4R4snb77znyHfcNX822WZrzregjvdv4k6Xt66KvauZYb+PKyMnQf7MKmxg1a2WUYY9d/wF/e+3vyKFbAKeJy+lbM3UP/BxfReu2WEaZpyuU1FXjD3ZQ8immsr03tgU7Xz08SLZ2Rb2vejFe6D2FtzRot7DGcVQ+uhLO9BeMTkxi/Mbn4TUI5mA897Hzi5LmR0wUVwVLp67o0iVffP4+G6VkDrNKeqrs/4tHADVyrKse16gcWv6mxvqqc63Bv31tEOJT4uqujDS88twcrStTNL1iFFSUlcLa3YjI0vTSCEcpB7G5x7Tj5v+FP1E2cmZxU+m67MI5f/yuA0jAbYZZulIYZjwUmMb6qbGkE01DftM71Qk9/d7IJxAN7duNpt3Xvr9TQ3rIF1Xb7kmoiEeoEhevODX9m+abfVPr2fBTAcxa+v1JDZ3AKNbfmllQTtdJ3Wec60nusA+CTICya9T2wZzc6ne25nNcyNNStTe5ggPNnrseC54Y/s+z9Vyp9ez4KYPvFCaPMyiuOG3eSO5gG+orl3lRYGUwsyca6LIqJTmc7nnzEleQdHjh89Lgj7wZpRDJ9d31+rWgcK8b2ixPY9fm1JO/kpm9K54r2ky2qHLk62rBn11PZnsvS7Nn1FNqaNy9+kVBFJeFBQwzKkWT6brswjhdPXzHKJEN58fQVuC4tKWDlpG/StPDw0eMOEjwYny40OdbDc/DZbM9TEKQocjRaLT1Mpm/r2E30//NrI80ynBRFjqz1TRq5qCS8KF2oX1eL7oNdmVtbgBzc+0vUr1vcs8bE3v09J/Rr79eYRH03TMyg74OLRppkGnp9o9gwMbPotWz1XeJcz7/cvwNxK0wjE8TPGtLJblZe6T6Eanvlwt8ENK7AXM4LCPNBor6xCWIjOtnNyqvvn0fNrftV+Gz1XeJcQrA3/u8De3fruubKijxQXo7uhBSZgD4rRK9EfXt8o7quubIiK+fD6E+I5Nnou8i5Eq9qTz7islQDbj5pqFuLXz39i/svEKpW0LzHMINUkKjvrs+vWaoBN584btzBkU/j+niz0HeRcxHxQuirtlcWbWVQLdse7USTY33cK2zq1DBe35pbc0VbGVTLM+euo3XsZtwrmem74FyHjx53EGGhanFg724NzCt84seJgMYXevq7DTQnJYn69n4UMNIcy9ATN06Z6ns/cpUoCwPv6mgriA73fLC6yo6dOx5f+JvB5iyrxum77cJ4QXS454Pa2/PYd+a7hb8z0TcuLbwf8qy8JssIdu54YqF6SIQucxY27usb/2ORpGff8NWF6mEm+gog0mNGQCMQWfAoq4OZE39BKsW8qaJXvL77znwnq4NZEH9BUquvAAAF7AYic1rJe+gk6eh0ti9EL7OlhjF9K+buYde56wZbY022X5xYiF5q9Y2khRwZ/LaWzXKyOAdi0YvMts1zVF9XcEpOFudALHqp1VcAkTwSkPdaudLpbEd5WRlAqIos5zAHMX3lvVZubL84gYq5e6r1FbGDmhz67n5bLMSW48RSMaOJ6av37rfFwrYLkaZtNfoKZnYCQGdHca3R0ovYPSsxNxprSYSYvrEfhSQ3nones6rRVzAiB7W1bE5zqEQNq6vska55kzyzKqavS7Y5aULt7flI17wKfQUAZ5NjvSxkaEh7yxaAzeFcAJytYzdlIUNDOoNTqvQVRKhassJWkhNtzVug6QO2c4AIVTJqaYsrOKVKXwGGU7Y6aUtD3VqUl5XBFBVDjkQuiXY4btxBxdy9tPqK8vKyKjM/LMGqbGpcj7DChkevivl7VWZ+WIJVaR27mVZfIR1LH8wyrtKx9EHNuErn0on6deYY18T9ICTasEGNc8XvBSHRDrNMyMuJY32ovZV+p2sZuXTCLOPqkJFLF1SlhXJ+q7CpkPNbhkFXr14trEdYmAghhLu+vv6UkTYwHpP66oebcDqlvsvuFS+RSLJHOpdEohPSuSQSnSgpLS012gaJjtyFYrQJBQulGduSNWsK41nGZoRI9fPcdeM65DyXXqRTV6aFEolOSOeSSHRCAPAZbUShQkSGznFFYJ/RFhQqGzGyrL4yckkkOiGY2W+0EQWKKcaVTWJH4ZHeb4QQIpQPU4oQU4yrMIkdBUjacZX3XDpBRD6jbYhgFjsKC1LhNwIybdALU4yrAmEKOwqQ9GkhEU2rOVCSMT6jDQCATRieVnN/IMkMBTZfumMEAMiihub4oxctUyCLGlrD/shFa3kEAAghhvQ3qHhgNtfckgCkvhrCKrOS2DyXqoMl6hBC+Iy2IR41KYxEPSIT54qmMPLqpg1BInrPaCPi2YThaQZLfTWBgxvhV6XvQocGEcnB1wBmc/6IZWqoDZzBOC7qmlcUZQowxx7nVoWInER01mg7kjEK5xRAUt/ccDZhRJW+i3oLmXlQF3OKB59ZHQsAGBg02gZrwz61jgUkOJcQYkB7g4oHIjL1+BHMbZ/ZISCj8VvkXER0WUavrPGZrZCRSBNGLjOkvtnBPrWFjBhLlpwIIbya2VNEEJHXaBvUQLCGnWYjm3Fb4lzR6CXTh8zwmWNhZHqi0UvqmxHsS7cwMhlJ99hgZjszByErh2oIRSuEl402RC0BuOyEcFBWDtXAIYCcTRjJWN+kK5GJaJqIPDnbVQQQ0YCVHAuITCoT4DHaDitAwEA2jhX9bGoURfkbgK6srCoO/EKIrUYbkS0BOP9GIKlvStjfBH/W+i67h0Y0esmVrMkJEVn9h2nzRNIeyVI4hBwvPOmca9r6PyB9ICKP1dLBRCLpodQ3GQR4sk0HY6Td/YmITlmlzJwvmHnA7HNaatmIkVME9hpth5lg8ECmc1rJUL3fcjgcfksWOQAAQ0KIZ402QmsCcL5FkPoyeGgT/Jrom9Fm5oqijABwanFii2LpAkY6RuEcAaiI9c2tgJFIRpuCEpEbxbtk3B/9/wsWhs1dvPttsD/y/2tHps41TUTuYus/ZOZBInKbaV8MPYgsqrS5i63/kMGDDJtbzb4YmZD1M26K5R6MmQdtNttLRtuRb4rlHozBg5vg10XfnB4gVegOVqyOFaPQHUxPxwJyfBCDzWZ7KVqmL7iJSCLyFrNjAcAm+F+KlOkLb6KZwF49HStyDg1g5o7o3hGNWnyfwQSJyEtEfzLaELMwiq0dAA8B1GiwKRrAQQK8G+HXXV/Nnisa7aQfAuDW6jsNwEdEXYVeuMiGaCf9EGDliin7GLYurQsXqdD8ob3MvDdaTbTScoZQtLv9NaMNMTuX4Nwb2YvDSstVOETAwEb486qvLk/EZma7oiheIurT4/s1ZijaJyijlUoCcNmBsJdgfn0j+zXaPPmKVvHo+rh5ZnZEncyj53myxFcIzbdGMoqtDgZ7zVlRZB9AOTff5oKuzhWDmR0APMzsgbFFjxAzDwohLLfA0cyMYquDwB4GPMYWPTjEwCCBsl7gqCV5ca54mLk76mTuPJ7WH932bEimf/pyCc7uqJO583dW9hMwoMA2ZET6l4q8O1cMZrYDcCuK4o727GnZMBpkZl/0gQjSoQwgAJddIOxWADcBbm0bgjnIgE8APrM5VDyGOVciUWdzIhrRmNmdwWf90Wc7+xGJUoanBJLFRJxNcQIRXTmDzIUBf/TZzn4G+c2Q8qnh/9pFtkZcGeoaAAAAAElFTkSuQmCC"
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports) {
 
 var g;
@@ -21649,7 +22026,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21659,14 +22036,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _preloader = __webpack_require__(109);
+var _preloader = __webpack_require__(110);
 
 var _preloader2 = _interopRequireDefault(_preloader);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var React = __webpack_require__(7);
-var Shell = __webpack_require__(146).default;
+var Shell = __webpack_require__(87).default;
 
 
 var Instruction = React.createClass({
@@ -21981,7 +22358,7 @@ var Instruction = React.createClass({
 exports.default = Instruction;
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -22007,7 +22384,7 @@ if(false) {
 }
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22017,7 +22394,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var React = __webpack_require__(7),
-    ReactDOM = __webpack_require__(87);
+    ReactDOM = __webpack_require__(88);
 
 var Footer = React.createClass({
   displayName: 'Footer',
@@ -22214,7 +22591,7 @@ var Footer = React.createClass({
 exports.default = Footer;
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22225,7 +22602,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var React = __webpack_require__(7),
     MediaQuery = __webpack_require__(50),
-    TopNav = __webpack_require__(88).default;
+    TopNav = __webpack_require__(89).default;
 
 var HeaderTitle = React.createClass({
   displayName: 'HeaderTitle',
@@ -22344,7 +22721,7 @@ var HeaderTitle = React.createClass({
 exports.default = HeaderTitle;
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22806,7 +23183,7 @@ var HelpContent = React.createClass({
 exports.default = HelpContent;
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22978,7 +23355,7 @@ var MenuContent = React.createClass({
 exports.default = MenuContent;
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22988,16 +23365,16 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _preloader = __webpack_require__(109);
+var _preloader = __webpack_require__(110);
 
 var _preloader2 = _interopRequireDefault(_preloader);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var React = __webpack_require__(7),
-    _require = __webpack_require__(90),
+    _require = __webpack_require__(91),
     loadPage = _require.loadPage,
-    _require2 = __webpack_require__(89),
+    _require2 = __webpack_require__(90),
     loadAudio = _require2.loadAudio,
     $ = __webpack_require__(69);
 
@@ -23116,384 +23493,6 @@ var PageContainer = React.createClass({
 });
 
 exports.default = PageContainer;
-
-/***/ }),
-/* 146 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var React = __webpack_require__(7),
-    HeaderTitle = __webpack_require__(142).default,
-    Footer = __webpack_require__(141).default,
-    PageContainer = __webpack_require__(145).default,
-    MenuContent = __webpack_require__(144).default,
-    ToolsMenuContent = __webpack_require__(147).default,
-    MediaQuery = __webpack_require__(50),
-    TopNav = __webpack_require__(88).default,
-    HelpContent = __webpack_require__(143).default,
-    Menu = __webpack_require__(132).default,
-    ToolsMenu = __webpack_require__(132).default,
-    HelpDock = __webpack_require__(253),
-    _require = __webpack_require__(89),
-    toggleSoundVolume = _require.toggleSoundVolume,
-    togglePlayPuase = _require.togglePlayPuase,
-    loadAudio = _require.loadAudio,
-    toggleButtonState = _require.toggleButtonState,
-    _require2 = __webpack_require__(90),
-    loadPage = _require2.loadPage,
-    $ = __webpack_require__(69);
-
-
-var Shell = React.createClass({
-  displayName: 'Shell',
-
-  getInitialState: function getInitialState() {
-    return {
-      sidebarOpen: false,
-      toolsMenuOpen: false,
-      isHelpDockOpen: false,
-      transcriptVisible: false,
-      isPause: false,
-      isReplayed: false,
-      currentPageNumber: window.scormAdaptor_getlocation() != '' ? parseInt(window.scormAdaptor_getlocation()) : 1,
-      visibleResumePopup: window.scormAdaptor_getlocation() != '' ? true : false,
-      volume: 100
-    };
-  },
-  clickOpenMenu: function clickOpenMenu(e) {
-    this.setState({ sidebarOpen: !this.state.sidebarOpen });
-    this.setState({ transcriptVisible: false });
-    this.setState({ isHelpDockOpen: false });
-  },
-
-  clickOpenToolsMenu: function clickOpenToolsMenu() {
-    this.setState({ toolsMenuOpen: !this.state.toolsMenuOpen });
-  },
-
-  setOpen: function setOpen() {
-    this.setState({ sidebarOpen: false });
-  },
-
-
-  updateDimensions: function updateDimensions() {
-    var w = window,
-        d = document,
-        documentElement = d.documentElement,
-        body = d.getElementsByTagName('body')[0],
-        width = w.innerWidth,
-        height = w.innerHeight;
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-      var contentHeight = height - 65;
-      $('#root').css({
-        'min-width': '320px'
-      });
-    } else {
-      var contentHeight = height - 65;
-      $('#root').css({
-        'max-width': '1010px',
-        'max-height': '650px'
-      });
-      $('.shell-container').css({
-        'max-width': '1010px',
-        'max-height': '650px'
-      });
-    }
-    /*if (width > 680)
-      var contentHeight = height - 65;
-    else
-      var contentHeight = height - 46;*/
-    $('.page-container').css('height', contentHeight + 'px');
-    $('.page-loader').css('height', contentHeight - 40 + 'px');
-  },
-
-  componentDidMount: function componentDidMount() {
-    window.addEventListener("resize", this.updateDimensions);
-    this.updateDimensions();
-  },
-
-  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
-    window.addEventListener("resize", this.updateDimensions);
-    if (this.state.transcriptVisible === false) {
-      $("#button-transcript").removeClass("selected");
-    }
-    if (jarvisAudio.playState != 1) {
-      $("button-playPause").removeClass("selected");
-    }
-    if (this.state.sidebarOpen || this.state.isHelpDockOpen) {
-      $("#button-playPause").addClass("disabled");
-      $("#button-audio").addClass("disabled");
-      window.jarvisAudio.pause();
-    } else {
-      $("#button-playPause").removeClass("disabled");
-      $("#button-audio").removeClass("disabled");
-      if (!$("#button-playPause").hasClass("selected")) {
-        window.jarvisAudio.resume();
-      }
-    }
-  },
-
-  setToolsMenuOpen: function setToolsMenuOpen() {
-    this.setState({ toolsMenuOpen: false });
-  },
-  loadNextPage: function loadNextPage() {
-    if (this.state.currentPageNumber + 1 > 9) {
-      this.setState({ currentPageNumber: 2 });
-    } else {
-      this.setState({ currentPageNumber: this.state.currentPageNumber + 1 });
-    }
-    this.setState({ isPause: false });
-  },
-  loadPreviousPage: function loadPreviousPage() {
-    this.setState({ currentPageNumber: this.state.currentPageNumber - 1 });
-    this.setState({ isPause: false });
-  },
-  menuItemClicked: function menuItemClicked(e) {
-    var pageId = e.currentTarget.dataset.pageId;
-    this.setState({ currentPageNumber: parseInt(pageId) });
-    this.setState({ sidebarOpen: !this.state.sidebarOpen });
-    console.log("Clicked", parseInt(pageId));
-  },
-  clickOpenHelpDock: function clickOpenHelpDock() {
-    this.setState({ isHelpDockOpen: !this.state.isHelpDockOpen });
-    this.setState({ transcriptVisible: false });
-  },
-  enableTranscript: function enableTranscript(e) {
-    this.setState({ isHelpDockOpen: false });
-    var _self = this;
-    if (!this.state.transcriptVisible) {
-      $("#button-transcript").addClass("selected");
-    } else {
-      $("#button-transcript").removeClass("selected");
-    }
-    this.setState({ transcriptVisible: !this.state.transcriptVisible });
-    $.getJSON("../app/assets/data/transcript.json", function (data) {
-      $(".transcript-text-container").html(data.transcript[_self.state.currentPageNumber - 1].text);
-    });
-  },
-  showTranscript: function showTranscript() {
-    return React.createElement(
-      'div',
-      { className: 'transcript-container' },
-      React.createElement(
-        'div',
-        { id: 'transcript-header', className: 'transcript-header' },
-        React.createElement(
-          'div',
-          { className: 'transcript-title' },
-          'Transcript'
-        ),
-        React.createElement(
-          'a',
-          { href: '#', id: 'transcript-close-button', onClick: this.enableTranscript, className: 'transcript-close-button tabindex', 'aria-label': 'Transcript close', role: 'button' },
-          React.createElement(
-            'span',
-            { className: 'icon-close' },
-            '\uE60A'
-          )
-        )
-      ),
-      React.createElement('div', { className: 'transcript-text-container' })
-    );
-  },
-  audioPlayPause: function audioPlayPause(e) {
-    togglePlayPuase();
-    toggleButtonState(e);
-  },
-  replayScreen: function replayScreen() {
-    this.setState({ isHelpDockOpen: false });
-    loadPage(this.state.currentPageNumber);
-    loadAudio(this.state.currentPageNumber);
-  },
-  volumeChange: function volumeChange(e) {
-    toggleSoundVolume();
-    toggleButtonState(e);
-  },
-  resumeCourse: function resumeCourse(flag) {
-
-    if (flag) {
-      this.setState({ currentPageNumber: parseInt(window.scormAdaptor_getlocation()) });
-    } else {
-      this.setState({ currentPageNumber: 1 });
-    }
-    this.setState({ visibleResumePopup: false });
-  },
-  renderUI: function renderUI() {
-    var _React$createElement, _React$createElement2;
-
-    return React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'div',
-        { className: 'header' },
-        React.createElement(
-          MediaQuery,
-          { query: '(max-width: 680px)' },
-          React.createElement(TopNav, {
-            onMenuClick: this.clickOpenMenu.bind(null, this),
-            onToolsMenuClick: this.clickOpenToolsMenu,
-            onNextButtonClick: this.loadNextPage,
-            onBackButtonClick: this.loadPreviousPage,
-            onTranscriptButtonClick: this.enableTranscript,
-            totalPages: 9,
-            currentPageNumber: this.state.currentPageNumber,
-            onPlayPauseClick: this.audioPlayPause,
-            onReplayClick: this.replayScreen,
-            onVolumeClick: this.volumeChange,
-            isMenuOpened: !this.state.sidebarOpen
-          })
-        ),
-        React.createElement(
-          MediaQuery,
-          { query: '(min-width: 680px)' },
-          React.createElement(HeaderTitle, null)
-        )
-      ),
-      React.createElement(
-        'div',
-        { className: 'page-container' },
-        !this.state.visibleResumePopup && React.createElement(PageContainer, {
-          PageNum: this.state.currentPageNumber,
-          audioState: this.state.isPause,
-          replayState: this.state.isReplayed,
-          volume: this.state.volume }),
-        React.createElement(
-          'div',
-          { className: 'help-container' },
-          React.createElement(
-            HelpDock,
-            {
-              position: 'top',
-              isVisible: this.state.isHelpDockOpen,
-              duration: 800,
-              size: 0.98,
-              dockStyle: { position: 'absolute', height: 'auto' },
-              dimStyle: { position: 'relative', height: '100%' }
-            },
-            React.createElement(HelpContent, { closeHelp: this.clickOpenHelpDock })
-          )
-        )
-      ),
-      React.createElement(
-        MediaQuery,
-        { query: '(min-width: 680px)' },
-        React.createElement(
-          'div',
-          { className: 'footer' },
-          React.createElement(Footer, {
-            onMenuClick: this.clickOpenMenu.bind(null, this),
-            onHelpClick: this.clickOpenHelpDock,
-            onNextButtonClick: this.loadNextPage,
-            onBackButtonClick: this.loadPreviousPage,
-            onTranscriptButtonClick: this.enableTranscript,
-            totalPages: 9,
-            currentPageNumber: this.state.currentPageNumber,
-            onPlayPauseClick: this.audioPlayPause,
-            onReplayClick: this.replayScreen,
-            onVolumeClick: this.volumeChange,
-            isMenuOpened: !this.state.sidebarOpen
-          })
-        )
-      ),
-      React.createElement(
-        Menu,
-        (_React$createElement = { sidebar: React.createElement(MenuContent, {
-            onCloseMenuClick: this.setOpen,
-            onPageLinkClick: this.menuItemClicked
-          }),
-          open: this.state.sidebarOpen,
-          onSetOpen: this.onSetSidebarOpen,
-          overlayClassName: 'menu-overlay-style'
-        }, _defineProperty(_React$createElement, 'onSetOpen', this.setOpen), _defineProperty(_React$createElement, 'pullRight', true), _defineProperty(_React$createElement, 'rootClassName', 'menu-custom-style'), _defineProperty(_React$createElement, 'sidebarClassName', 'menu-style'), _React$createElement),
-        React.createElement('b', null)
-      ),
-      React.createElement(
-        ToolsMenu,
-        (_React$createElement2 = { sidebar: React.createElement(ToolsMenuContent, {
-            onCloseMenuClick: this.setOpen,
-            onVolumeClick: this.volumeChange,
-            onHelpClick: this.clickOpenHelpDock
-          }),
-          open: this.state.toolsMenuOpen,
-          onSetOpen: this.onSetSidebarOpen,
-          overlayClassName: 'tool-menu-overlay-style'
-        }, _defineProperty(_React$createElement2, 'onSetOpen', this.setToolsMenuOpen), _defineProperty(_React$createElement2, 'pullRight', true), _defineProperty(_React$createElement2, 'rootClassName', 'tool-menu-custom-style'), _defineProperty(_React$createElement2, 'sidebarClassName', 'tool-menu-style'), _React$createElement2),
-        React.createElement('b', null)
-      )
-    );
-  },
-  resumePopup: function resumePopup() {
-    return React.createElement(
-      'div',
-      null,
-      React.createElement('div', { className: 'overlay' }),
-      React.createElement(
-        'section',
-        { className: 'popup-alert', id: 'resumeAlert' },
-        React.createElement(
-          'div',
-          { className: 'popup-header' },
-          'Resume'
-        ),
-        React.createElement(
-          'div',
-          { className: 'popup-area' },
-          React.createElement(
-            'div',
-            { className: 'popup-content' },
-            React.createElement(
-              'p',
-              { className: 'warning-msg' },
-              React.createElement('span', { className: 'warning-sign' }),
-              'Do you want to resume your course where you left?'
-            )
-          ),
-          React.createElement(
-            'div',
-            { className: 'popup-buttons' },
-            React.createElement(
-              'div',
-              null,
-              React.createElement(
-                'a',
-                { href: '#', id: 'popup-yes-button', onClick: this.resumeCourse.bind(this, true), className: 'course-button box-shadow popup-yes-button tabindextabindex' },
-                'Yes'
-              )
-            ),
-            React.createElement(
-              'div',
-              null,
-              React.createElement(
-                'a',
-                { href: '#', id: 'popup-no-button', onClick: this.resumeCourse.bind(this, false), className: 'course-button box-shadow popup-yes-button tabindextabindex' },
-                'No'
-              )
-            )
-          )
-        )
-      )
-    );
-  },
-  render: function render() {
-    return React.createElement(
-      'div',
-      { className: 'shell-container', style: { position: 'relative' } },
-      this.renderUI(),
-      this.state.visibleResumePopup && this.resumePopup(),
-      this.state.transcriptVisible && this.showTranscript()
-    );
-  }
-});
-
-exports.default = Shell;
 
 /***/ }),
 /* 147 */
@@ -23869,7 +23868,7 @@ exports.default = MenuList;
 "use strict";
 
 
-var _app = __webpack_require__(140);
+var _app = __webpack_require__(141);
 
 var _app2 = _interopRequireDefault(_app);
 
@@ -23878,9 +23877,9 @@ function _interopRequireDefault(obj) {
 }
 
 var React = __webpack_require__(7),
-    ReactDOM = __webpack_require__(87),
-    Instruction = __webpack_require__(139).default,
-    Shell = __webpack_require__(146).default;
+    ReactDOM = __webpack_require__(88),
+    Instruction = __webpack_require__(140).default,
+    Shell = __webpack_require__(87).default;
 
 //import * as scormAdaptor from "./assets/scripts/scorm_adaptor";
 
@@ -24220,7 +24219,7 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 /* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(103);
+__webpack_require__(104);
 __webpack_require__(202);
 module.exports = __webpack_require__(8).Array.from;
 
@@ -24296,7 +24295,7 @@ module.exports = __webpack_require__(8).Symbol;
 /* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(103);
+__webpack_require__(104);
 __webpack_require__(215);
 module.exports = __webpack_require__(67).f('iterator');
 
@@ -24322,7 +24321,7 @@ module.exports = function(){ /* empty */ };
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = __webpack_require__(19)
-  , toLength  = __webpack_require__(102)
+  , toLength  = __webpack_require__(103)
   , toIndex   = __webpack_require__(200);
 module.exports = function(IS_INCLUDES){
   return function($this, el, fromIndex){
@@ -24586,7 +24585,7 @@ var getKeys  = __webpack_require__(29)
   , gOPS     = __webpack_require__(59)
   , pIE      = __webpack_require__(42)
   , toObject = __webpack_require__(36)
-  , IObject  = __webpack_require__(96)
+  , IObject  = __webpack_require__(97)
   , $assign  = Object.assign;
 
 // should work with symbols and should have deterministic property order (V8 bug)
@@ -24638,7 +24637,7 @@ module.exports = __webpack_require__(21) ? Object.defineProperties : function de
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
 var toIObject = __webpack_require__(19)
-  , gOPN      = __webpack_require__(98).f
+  , gOPN      = __webpack_require__(99).f
   , toString  = {}.toString;
 
 var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
@@ -24745,7 +24744,7 @@ var ctx            = __webpack_require__(53)
   , toObject       = __webpack_require__(36)
   , call           = __webpack_require__(189)
   , isArrayIter    = __webpack_require__(187)
-  , toLength       = __webpack_require__(102)
+  , toLength       = __webpack_require__(103)
   , createProperty = __webpack_require__(184)
   , getIterFn      = __webpack_require__(201);
 
@@ -24793,7 +24792,7 @@ var addToUnscopables = __webpack_require__(181)
 // 22.1.3.13 Array.prototype.keys()
 // 22.1.3.29 Array.prototype.values()
 // 22.1.3.30 Array.prototype[@@iterator]()
-module.exports = __webpack_require__(97)(Array, 'Array', function(iterated, kind){
+module.exports = __webpack_require__(98)(Array, 'Array', function(iterated, kind){
   this._t = toIObject(iterated); // target
   this._i = 0;                   // next index
   this._k = kind;                // kind
@@ -24863,7 +24862,7 @@ __webpack_require__(60)('getOwnPropertyDescriptor', function(){
 
 // 19.1.2.9 Object.getPrototypeOf(O)
 var toObject        = __webpack_require__(36)
-  , $getPrototypeOf = __webpack_require__(99);
+  , $getPrototypeOf = __webpack_require__(100);
 
 __webpack_require__(60)('getPrototypeOf', function(){
   return function getPrototypeOf(it){
@@ -24910,7 +24909,7 @@ var global         = __webpack_require__(17)
   , has            = __webpack_require__(22)
   , DESCRIPTORS    = __webpack_require__(21)
   , $export        = __webpack_require__(16)
-  , redefine       = __webpack_require__(101)
+  , redefine       = __webpack_require__(102)
   , META           = __webpack_require__(194).KEY
   , $fails         = __webpack_require__(27)
   , shared         = __webpack_require__(63)
@@ -25053,7 +25052,7 @@ if(!USE_NATIVE){
 
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f   = $defineProperty;
-  __webpack_require__(98).f = gOPNExt.f = $getOwnPropertyNames;
+  __webpack_require__(99).f = gOPNExt.f = $getOwnPropertyNames;
   __webpack_require__(42).f  = $propertyIsEnumerable;
   __webpack_require__(59).f = $getOwnPropertySymbols;
 
@@ -27086,7 +27085,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(138)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(139)))
 
 /***/ }),
 /* 218 */
@@ -27108,7 +27107,7 @@ exports = module.exports = __webpack_require__(220)(undefined);
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n@font-face {\n  font-family: 'Lato';\n  src: url(" + __webpack_require__(108) + ");\n  src: url(" + __webpack_require__(108) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(244) + ") format(\"woff2\"), url(" + __webpack_require__(243) + ") format(\"woff\"), url(" + __webpack_require__(242) + ") format(\"truetype\"), url(" + __webpack_require__(346) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'Lato-Light';\n  src: url(" + __webpack_require__(107) + ");\n  src: url(" + __webpack_require__(107) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(237) + ") format(\"woff2\"), url(" + __webpack_require__(236) + ") format(\"woff\"), url(" + __webpack_require__(235) + ") format(\"truetype\"), url(" + __webpack_require__(344) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'icomoon';\n  src: url(" + __webpack_require__(239) + ");\n  src: url(" + __webpack_require__(238) + "?#iefixc92yby) format(\"embedded-opentype\"), url(" + __webpack_require__(241) + ") format(\"woff\"), url(" + __webpack_require__(240) + ") format(\"truetype\"), url(" + __webpack_require__(345) + "#icomoon) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n[class^=\"icon-\"], [class*=\" icon-\"] {\n  font-family: 'icomoon';\n  speak: none;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  letter-spacing: 0;\n  -webkit-font-feature-settings: \"liga\";\n  -moz-font-feature-settings: \"liga=1\";\n  -moz-font-feature-settings: \"liga\";\n  -ms-font-feature-settings: \"liga\" 1;\n  font-feature-settings: \"liga\";\n  -webkit-font-variant-ligatures: discretionary-ligatures;\n  font-variant-ligatures: discretionary-ligatures;\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\n.menu-overlay-style {\n  position: absolute !important; }\n\n.menu-custom-style {\n  bottom: 44px !important;\n  top: 64px !important; }\n\n.menu-overlay-style {\n  background-color: rgba(0, 0, 0, 0.498039) !important; }\n\n.menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  z-index: 99 !important; }\n\n.menu-header h1 {\n  font: inherit;\n  margin: 0; }\n\n@media (min-width: 320px) {\n  .menu-style {\n    width: 100%; } }\n\n@media (min-width: 650px) {\n  .menu-style {\n    width: 460px; } }\n\n.menu-list__trigger {\n  display: none !important; }\n\n.disable-event {\n  pointer-events: none; }\n\nbody {\n  background: #5B6770;\n  font-family: 'Arial', Calibri, Arial, sans-serif;\n  height: 100%;\n  line-height: 1.4;\n  overflow: hidden;\n  max-width: 1010px;\n  max-height: 650px; }\n\n.wrapper {\n  bottom: 0;\n  display: table;\n  height: 100%;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  width: 100%; }\n\n.launcher {\n  display: table-cell;\n  padding-bottom: 40px;\n  vertical-align: top; }\n\n.whitePatch {\n  background-color: #FFFFFF;\n  height: 231px;\n  position: relative;\n  width: 100%; }\n\n.td1 {\n  align-items: center;\n  padding: 25px 25px 15px 25px;\n  position: relative;\n  top: 10px;\n  text-align: left; }\n\n.td2 {\n  align-items: center;\n  padding: 0;\n  position: relative;\n  top: 18px;\n  width: auto; }\n\n.divSeparator {\n  background-color: #CBCBCB;\n  height: 1px;\n  margin: 0 auto;\n  width: 100%; }\n\n.td3 {\n  align-items: center;\n  color: #5B6770;\n  font-size: 1.5em;\n  padding: 24px 25px;\n  position: relative;\n  text-align: left;\n  top: 5px;\n  vertical-align: middle; }\n\n.launch_btn {\n  background-image: url(" + __webpack_require__(137) + ");\n  background-repeat: no-repeat;\n  background-position: 0 0;\n  width: 88px;\n  height: 96px;\n  display: block;\n  color: #5B6770;\n  position: absolute;\n  right: 25px;\n  font-size: 0.6em;\n  text-align: center;\n  top: 57px;\n  font-weight: bold; }\n\n.launch_btn:hover {\n  background-image: url(" + __webpack_require__(137) + ");\n  background-position: -120px 0 !important;\n  color: #FFFFFF; }\n\n.launch_btn span {\n  vertical-align: middle;\n  line-height: 99px; }\n\na {\n  text-decoration: none; }\n\n@media (min-width: 768px) {\n  .launcher {\n    vertical-align: middle; }\n  .whitePatch {\n    display: table;\n    height: 120px;\n    position: static;\n    text-align: center;\n    vertical-align: middle;\n    width: 100%; }\n  .td1 {\n    display: table-cell;\n    height: 73px;\n    padding: 0;\n    padding-top: 5px;\n    position: static;\n    text-align: right;\n    vertical-align: middle;\n    width: 40%; }\n  .td2 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: static;\n    vertical-align: middle;\n    width: 4%; }\n  .divSeparator {\n    background-color: #CBCBCB;\n    height: 80px;\n    width: 1px; }\n  .td3 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: relative;\n    text-align: left;\n    top: 0;\n    vertical-align: middle;\n    width: 56%; }\n  .launch_btn {\n    font-size: 0.6em;\n    font-weight: bold;\n    left: 65%;\n    position: absolute;\n    text-align: center;\n    top: 71px; } }\n\nbody {\n  background: #ffffff !important;\n  margin: 0 auto;\n  overflow-y: auto;\n  font-family: 'Arial' !important;\n  max-width: 1024px;\n  max-height: 650px; }\n\n.cover-page {\n  height: auto;\n  color: #FFF;\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  overflow: hidden;\n  background-color: #0A4166; }\n\n.cover-page .btnIcon {\n  background: url(" + __webpack_require__(340) + ") repeat-x scroll 0 0 transparent;\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em; }\n\n.instruction-container {\n  height: 100%;\n  display: table;\n  width: 100%;\n  position: relative;\n  margin-top: 0;\n  overflow-y: auto; }\n\n.logo-container {\n  background-color: #FFF;\n  display: block;\n  padding: 35px 15px 24px; }\n\n.instruction-title .title {\n  color: rgba(0, 0, 0, 0.68);\n  font-size: 2em;\n  font-weight: 100;\n  margin: 0; }\n\n.text-container {\n  padding: 15px 10px 0px; }\n\n.cover-page .text-container p {\n  display: table-cell;\n  vertical-align: middle;\n  padding-right: 20px;\n  font-size: 1.35em; }\n\n.cover-page .btnIconBlank {\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em;\n  color: #FFFF; }\n\n.cover-page .text-container .text {\n  font-size: 0.875em;\n  padding: 4px; }\n\n.cover-page .text-container .text > div {\n  display: table;\n  width: 100%; }\n\n.cover-page .text-container .btnIcon {\n  padding-right: 0px; }\n\n.cover-page .text-container .btnIconBlank {\n  padding-right: 0px;\n  color: #fff;\n  font-size: 1.65em; }\n\n.cover-page .text-container .btnIcon1 span {\n  font-size: 1.3em; }\n\n.cover-page .text-container p:nth-child(2) {\n  padding-left: 20px;\n  font-size: 1.07em; }\n\n.cover-page .text {\n  color: #FFF;\n  height: 40px;\n  display: table;\n  width: 100%;\n  padding: 0 15px;\n  margin-bottom: 4px;\n  font-size: 1.1em; }\n\n.cover-page .dis_sys_check {\n  position: relative;\n  top: 7px;\n  z-index: 101; }\n\n.cover-page .container {\n  height: 100%;\n  position: relative;\n  display: table; }\n\n.cover-page .startbtn {\n  display: table-cell;\n  width: 100%; }\n\n.cover-page .instruction {\n  color: #FFF;\n  max-height: 40px;\n  margin: 0;\n  padding: 10px 0 10px 12px;\n  position: relative;\n  background-color: #083451;\n  font-size: 0.9375em; }\n\n.cover-page .instruction span {\n  font-weight: normal; }\n\n.cover-page .startbtn_a {\n  /* background: url(\"../../images/btnstrip2.png\") repeat-x scroll 0 0 rgba(0, 0, 0, 0); */\n  color: #ffffff;\n  display: inline-block;\n  float: right;\n  font-size: 1.5625em;\n  height: 40px;\n  margin-top: 0;\n  position: relative;\n  text-decoration: none;\n  top: 25px;\n  vertical-align: middle;\n  width: 100px;\n  margin-left: 10px;\n  z-index: 101;\n  background-color: #1792E5; }\n\n.cover-page .btnContent {\n  display: table;\n  width: 100%;\n  padding: 0;\n  height: 40px; }\n\n.cover-page .btnContent:hover {\n  background-color: #ee3124; }\n\n.cover-page .btnContent span {\n  vertical-align: middle;\n  display: table-cell;\n  text-align: center; }\n\n.cover-page .instruction .fontBold {\n  font-weight: bold; }\n\n.cover-page .sys_container {\n  display: none; }\n\n.text-container a {\n  color: #ffffff; }\n\n.cover-page .invisible-container {\n  height: 70px; }\n\n.playAudioParent {\n  height: 100%;\n  left: 0;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  z-index: 88888; }\n\n.playBlinkBlack {\n  background-color: #FFF;\n  height: 100%;\n  left: 0;\n  opacity: 0.6;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  z-index: 5; }\n\n.playBlink {\n  background: url(" + __webpack_require__(343) + ") no-repeat scroll 0 0 transparent;\n  height: 100px;\n  margin: -50px auto 0;\n  position: relative;\n  top: 50%;\n  width: 112px;\n  z-index: 500; }\n\n.button-autoPlay {\n  background: url(" + __webpack_require__(342) + ") no-repeat scroll 0 0 transparent;\n  display: block;\n  height: 42px;\n  margin: 0 auto;\n  position: relative;\n  top: 29px;\n  width: 38px;\n  z-index: 900000;\n  margin-top: 25%; }\n\n@media (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px;\n    font-size: 1.35; }\n  .cover-page .text-container p {\n    font-size: 1em;\n    font-weight: bold; }\n  .cover-page .text-container p:nth-child(2) {\n    padding-left: 20px;\n    font-size: 1.07em; }\n  .cover-page .instruction {\n    font-size: 1.07em; } }\n\n@media all and (min-width: 320px) {\n  .cover-page .dis_container {\n    /* padding: 10px 15px 0; */ }\n  .cover-page .dis_sys_check {\n    padding: 0 15px; } }\n\n@media all and (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px; } }\n\n@media all and (min-width: 480px) {\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media all and (min-width: 600px) {\n  .cover-page .cover-page {\n    padding: 0; }\n  .cover-page .dis_container {\n    max-width: 100%; }\n  .cover-page .dis_text .title {\n    font-size: 2em;\n    font-weight: 100; }\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media (min-width: 768px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .text-container {\n    padding: 25px 25px 0; }\n  .cover-page .text-container p {\n    font-weight: normal !important; }\n  .cover-page .holder_text_mobile .desc {\n    padding: 0 0 0 22px; }\n  .cover-page .dis_logo {\n    width: auto; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .text {\n    font-size: 1.15em !important;\n    padding: 2px 4px; }\n  .cover-page .text > div {\n    width: 85%; }\n  .cover-page .dis_logo {\n    float: none;\n    top: 0; }\n  .cover-page .startbtn_a {\n    float: none;\n    top: 0;\n    right: -1px; }\n  .cover-page .startbtn {\n    width: 80%;\n    display: block; }\n  .cover-page .instruction {\n    padding: 0 0 0 15px;\n    display: table-cell;\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    padding-left: 25px; }\n  .cover-page .holder_text_mobile {\n    display: block; }\n  .cover-page .support-image {\n    position: absolute;\n    right: 0;\n    z-index: 102;\n    bottom: 0;\n    height: 100%; }\n  .cover-page .holder_text {\n    display: table-cell;\n    width: 80%;\n    position: static;\n    padding-right: 10px; }\n  .cover-page .text {\n    color: #FFF;\n    font-weight: 700;\n    height: 40px;\n    display: table;\n    width: 100%;\n    padding: 0 15px;\n    margin-bottom: 10px;\n    padding-right: 115px; }\n  .cover-page .icon-arrow {\n    margin-right: 10px; }\n  .cover-page .icon-btn {\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    z-index: 101; }\n  .cover-page .dis_img1 {\n    background: url(" + __webpack_require__(341) + ") no-repeat scroll 0 0 transparent;\n    position: absolute;\n    right: -315px;\n    bottom: -20px;\n    display: block;\n    width: 770px;\n    height: 424px; }\n  .cover-page .dis_logo {\n    margin-bottom: 5px; }\n  .cover-page .dis_logo_bg {\n    bottom: 35px;\n    padding: 0;\n    position: absolute;\n    right: 35px; }\n  .cover-page .dis_text .title {\n    margin-left: 10px; }\n  .cover-page .holder_text_mobile .btnIcon {\n    font-size: 0.9em; }\n  .cover-page .holder_text_mobile p:nth-child(2) {\n    padding-left: 15px;\n    font-size: 1em;\n    font-weight: normal;\n    line-height: 1em; } }\n\n@media (min-width: 995px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .dis_img1 {\n    right: -240px;\n    bottom: 0px; } }\n\n/* Absolute Center Spinner */\n.loading {\n  position: fixed;\n  z-index: 999;\n  height: 2em;\n  width: 2em;\n  overflow: show;\n  margin: auto;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0; }\n\n/* Transparent Overlay */\n.loading:before {\n  content: '';\n  display: block;\n  position: fixed;\n  max-height: 650px;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #ddd; }\n\n/* :not(:required) hides these rules from IE9 and below */\n.loading:not(:required) {\n  /* hide \"loading...\" text */\n  font: 0/0 a;\n  color: transparent;\n  text-shadow: none;\n  background-color: transparent;\n  border: 0; }\n\n.email {\n  margin-left: -15px; }\n\n.loading:not(:required):after {\n  content: '';\n  display: block;\n  font-size: 10px;\n  width: 1em;\n  height: 1em;\n  margin-top: -0.5em;\n  -webkit-animation: spinner 1500ms infinite linear;\n  -moz-animation: spinner 1500ms infinite linear;\n  -ms-animation: spinner 1500ms infinite linear;\n  -o-animation: spinner 1500ms infinite linear;\n  animation: spinner 1500ms infinite linear;\n  border-radius: 0.5em;\n  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;\n  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0; }\n\n/* Animation */\n@-webkit-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@-moz-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@-o-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n.overlay {\n  background-color: #000;\n  position: absolute;\n  width: 100%;\n  height: 620px;\n  top: 0;\n  opacity: 0.5; }\n\n.exit-alert {\n  position: absolute;\n  top: 430%;\n  left: 0;\n  right: 0;\n  width: 300px;\n  margin: auto;\n  padding: 5px;\n  z-index: 99999; }\n\n.popup-content {\n  text-align: center;\n  padding: 20px 0; }\n\n.popup-header {\n  padding: 10px;\n  background-color: #ee3124; }\n\n.popup-area {\n  background-color: #D3D4D4;\n  display: block;\n  text-align: center;\n  padding: 0 35px; }\n\n.warning-msg {\n  margin: 0;\n  color: #000; }\n\n.popup-buttons {\n  text-align: center; }\n\n.popup-buttons div {\n  display: inline-block;\n  width: 100px; }\n\n.popup-yes-button, .popup-no-button {\n  display: block;\n  margin: 10px;\n  padding: 5px 10px;\n  width: 60px;\n  background-color: #1792e5;\n  color: #FFF; }\n\nbody {\n  margin: 0 auto;\n  font-family: Arial;\n  color: #FFF;\n  font-size: 1em;\n  font-weight: 300;\n  overflow: auto; }\n\n#root {\n  overflow: hidden; }\n\n.shell-container {\n  position: relative;\n  overflow: hidden; }\n\n.header {\n  background-color: #E9ECED;\n  position: relative;\n  width: 100%;\n  z-index: 100;\n  max-height: 61px; }\n\n.courseProgress {\n  width: 100%;\n  height: 4px;\n  top: -10px;\n  position: relative;\n  /* border: 0.1em solid #ccc; */\n  background: #c5cdcf; }\n\n.courseProgress span {\n  width: 0%;\n  background: #ee3124;\n  height: 4px;\n  display: block;\n  color: #000;\n  text-align: center; }\n\n.title-holder {\n  display: table;\n  color: #5C6670;\n  font-weight: 700;\n  height: 100%;\n  font-size: 1.3em; }\n\n.close_btn {\n  position: absolute;\n  right: 25px;\n  top: 20px;\n  color: #000 !important;\n  font-size: 20px;\n  cursor: pointer; }\n\n.close_btn:hover, icon-close:hover {\n  color: #ee3124 !important; }\n\n.title-holder > div {\n  display: table-cell;\n  padding: 0 10px;\n  vertical-align: middle; }\n\n.course-logo {\n  float: left; }\n  .course-logo img {\n    width: 80%;\n    margin: 5px; }\n\n.page-title__container {\n  min-height: 40px;\n  line-height: 35px;\n  display: flex;\n  align-items: baseline;\n  width: 100%;\n  color: #FFF;\n  font-weight: 700;\n  background-color: #5C6670; }\n\n.page-title__container .topic-title {\n  color: #C1C6C9;\n  padding: 10px 5px 0 5px;\n  display: inline-block; }\n\n.title-seperator {\n  padding: 0 5px; }\n\n.page-title__container .page-title {\n  align-self: center;\n  padding-top: 2px; }\n\n.footer {\n  position: absolute;\n  height: 46px;\n  width: 100%;\n  background-color: #707c89;\n  bottom: 0px;\n  z-index: 999999999999; }\n\n.right-column {\n  text-align: right;\n  width: 100%;\n  border-right: 0px solid #C1C6C9; }\n\n.button-box {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: middle;\n  height: 45px;\n  width: 41px; }\n\n.button-box a {\n  color: #5C6670;\n  display: block;\n  text-align: center;\n  width: 40px;\n  height: 44px;\n  line-height: 42px;\n  margin-top: 1px; }\n\n.footer .button-box a, .footer .nav-comp-container .page-counter, .footer .button-box a.disabled, .footer .button-box a.selected {\n  background: #ffffff;\n  /* Old browsers */\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 );\n  /* IE6-8 */ }\n\n.footer .button-box a:hover {\n  color: #fff !important;\n  background: #ee3124;\n  /* Old browsers */\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n  /* IE6-8 */ }\n\n.nav-comp-container {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 44px;\n  padding: 1px 1px 0px 0;\n  color: #5C6670;\n  height: 44px; }\n\n.nav-comp-container .page-counter {\n  padding: 0 10px; }\n\n.button-box a.disabled {\n  color: #AAB1B9;\n  cursor: default;\n  pointer-events: none; }\n\n@media (min-width: 650px) {\n  .footer .button-box, .nav-comp-container {\n    background-color: #C1C6C9;\n    border-bottom: 1px solid #C1C6C9; } }\n\n.blinker {\n  -webkit-animation: blink 1s infinite;\n  /* Safari 4+ */\n  -moz-animation: blink 1s infinite;\n  /* Fx 5+ */\n  -o-animation: blink 1s infinite;\n  /* Opera 12+ */\n  animation: blink 1s infinite;\n  /* IE 10+, Fx 29+ */ }\n\n@-webkit-keyframes blink {\n  0%, 49% {\n    background: #ffffff;\n    /* Old browsers */\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 );\n    /* IE6-8 */ }\n  50%, 100% {\n    color: #ffffff !important;\n    background: #ee3124;\n    /* Old browsers */\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n    /* IE6-8 */ } }\n\n.page-container {\n  position: relative;\n  top: -2px;\n  margin: 0;\n  overflow-y: hidden;\n  width: 100%;\n  z-index: 9; }\n  @media all and (max-width: 680px) {\n    .page-container {\n      overflow-y: auto; } }\n\n.page-container .page-holder {\n  height: 100%; }\n\n.page-loader {\n  height: 100%;\n  z-index: 99; }\n\n.help-container > div:first-child {\n  position: static !important;\n  width: 100% !important;\n  height: 100% !important;\n  z-index: 1 !important; }\n\n.fadeOut {\n  opacity: 0; }\n\n.fadeIn {\n  opacity: 1;\n  transition: .5s; }\n\n.icon-transcript::before {\n  content: \"\\E629\"; }\n\n.icon-audio:before {\n  content: \"\\E606\"; }\n\n.icon-playPause:before {\n  content: \"\\E619\"; }\n\n.selected .icon-transcript:before {\n  content: \"\\E628\"; }\n\n.selected .icon-audio:before {\n  content: \"\\E605\"; }\n\n.selected .icon-playPause:before {\n  content: \"\\E61B\"; }\n\n.hide {\n  display: none; }\n\n/*.page {\r\n    margin: 0 auto;\r\n    padding: 0 15px 15px 15px;\r\n    background: #fff;\r\n    color: #000;\r\n}\r\n\r\n.screen-holder {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\n.screen-bg {\r\n    background: url('../images/bg.jpg') left bottom no-repeat;\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n}\r\n\r\n.objective-holder {\r\n    width: 55%;\r\n    background-color: #FFF;\r\n    margin-top: 10%;\r\n}\r\n\r\n.objective-title {\r\n    width: 75%;\r\n    color: #ed3125;\r\n    border-bottom: 1px solid #f18b86;\r\n    padding: 5px 0;\r\n    margin-left: 10px;\r\n    margin-bottom: 5px;\r\n    font-size: 1.5em;\r\n}\r\n\r\n.objective-content {\r\n    margin-left: 10px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.heading {\r\n    font-size: 1em;\r\n    font-weight: 700;\r\n}\r\n\r\n.objective-content ul {\r\n    list-style: none;\r\n    padding-bottom: 20px;\r\n}\r\n\r\n.objective-content li {\r\n    background: url(../images/li_red.png) no-repeat scroll 0px 4px transparent;\r\n    padding: 0px 0 0px 15px;\r\n    margin-top: 7px;\r\n    line-height: 1.3em;\r\n    margin-left: -30px;\r\n}\r\n\r\n@media all and (min-width:320px) and (max-width: 640px) {\r\n\t.screen-bg {\r\n   \t\tbackground: url(../images/bg.jpg) bottom right no-repeat;\r\n   \t}\r\n\r\n   \t.objective-holder {\r\n\t    width: 88%;\r\n\t    background-color: #FFF;\r\n\t    margin-top: 10%;\r\n\t    margin-left: 5%;\r\n\t}\r\n}*/\n.top-nav .middleButtons {\n  text-align: center; }\n\n.top-nav a,\n.top-nav .page-counter {\n  font-size: 1.2em; }\n\n.top-nav .nav-comp-container {\n  vertical-align: inherit; }\n\n.tool-menu-custom-style {\n  height: auto;\n  max-height: 50px;\n  top: 49px !important; }\n\n.tool-menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  width: 300px; }\n\n.help-header {\n  display: table;\n  width: 100%;\n  height: 40px;\n  background: #EE3124;\n  font-size: 1.25em; }\n  .help-header h1 {\n    margin: 0;\n    font-size: 1.35em; }\n\n.help-header .title-container {\n  display: table-cell;\n  width: 100%;\n  vertical-align: middle;\n  padding: 5px 15px;\n  color: #FFF;\n  font-weight: 400; }\n\n.help-header .button-container {\n  display: table-cell;\n  width: 50px;\n  vertical-align: middle; }\n\n.help-close-button {\n  height: 40px;\n  width: 40px;\n  line-height: 40px;\n  display: block;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.elements-container {\n  display: table;\n  width: 100%;\n  height: 37px; }\n\n.elements-container .title-container {\n  display: table-cell;\n  width: 145px;\n  vertical-align: middle;\n  padding: 3px 5px 2px 15px;\n  border: 1px solid #999999;\n  border-top: none;\n  background-color: #dadada;\n  font-size: 1.05em; }\n\n.elements-container .button-container {\n  display: table-cell;\n  vertical-align: middle;\n  padding: 2px 5px;\n  border: 1px solid #999999;\n  border-left: none;\n  border-top: none;\n  background-color: #e9e9e9; }\n\n.iconbg {\n  color: #5C6670;\n  border: 1px solid #CCC;\n  height: 25px;\n  display: inline-block;\n  float: right; }\n\n.btnbg {\n  background: #ffffff;\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 ); }\n\n.iconbg .pagecounter {\n  width: 41px;\n  color: #5C6670;\n  font-weight: bold; }\n\n.iconbg span {\n  vertical-align: middle;\n  font-size: 0.8em;\n  height: 26px;\n  display: table-cell;\n  text-align: center;\n  width: 25px; }\n\n.elements-container .title-container p {\n  width: 75px;\n  padding-top: 0px;\n  display: inline-block;\n  float: left;\n  padding-left: 4px;\n  margin: 0; }\n\n.button-container p {\n  margin: 0; }\n\n.help-content {\n  color: #333333; }\n\n@media (min-width: 750px) {\n  .elements-container .title-container p {\n    width: auto;\n    padding-top: 5px;\n    display: inline-block;\n    float: left;\n    padding-left: 5px; }\n  .elements-container .title-container {\n    width: 190px; } }\n\n.transcript-container {\n  width: 320px;\n  max-height: 240px;\n  margin: 0 auto;\n  bottom: 73px;\n  left: 30%;\n  z-index: 99999;\n  position: absolute; }\n\n.transcript-container .transcript-header {\n  font-size: 1.25em;\n  background-color: #EE3124;\n  color: #FFF;\n  font-weight: 400;\n  cursor: move; }\n\n.transcript-container .transcript-title {\n  display: inline-block;\n  padding: 10px 8px 10px 16px; }\n\n.transcript-container .transcript-close-button {\n  display: block;\n  float: right;\n  font-size: 1.25em;\n  height: 44px;\n  width: 44px;\n  line-height: 44px;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.transcript-text-container {\n  height: 198px;\n  text-align: center;\n  background-color: #e9e9e9;\n  padding: 10px;\n  text-align: left;\n  color: #333333;\n  overflow-y: auto; }\n\n@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {\n  .transcript-container {\n    width: 400px;\n    max-height: 240px;\n    margin: 0 auto;\n    bottom: 20px;\n    right: 0%;\n    left: 0;\n    z-index: 99999;\n    position: fixed; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {\n  .transcript-container {\n    width: 270px;\n    max-height: 240px;\n    margin: 0 auto;\n    bottom: 5px;\n    right: 5%;\n    left: 0px;\n    z-index: 99999;\n    position: fixed; } }\n\n.menu-header {\n  background-color: #EE3124;\n  display: table;\n  font-size: 1.25em;\n  height: 40px;\n  width: 100%; }\n\n.menu-header-title {\n  color: #ffffff;\n  display: table-cell;\n  font-size: 1.15em;\n  height: 100%;\n  padding-left: 14px;\n  vertical-align: middle; }\n\n.menu-close-button-container {\n  color: #FFFFFF;\n  cursor: pointer;\n  display: table-cell;\n  height: 100%;\n  vertical-align: middle;\n  width: 40px; }\n\n.collapse-menu .collapse-menu-header h1 {\n  padding: 6px 14px; }\n\n/* Style for list view expand componen t */\n.menu-list {\n  background-color: #e9e9e9; }\n\n.menu-list__contentInner {\n  border: 1px solid #ebebeb;\n  border-top: 0;\n  position: relative; }\n\n.menu-list__contentInner ul {\n  padding: 0;\n  margin: 0; }\n\n.menu-list__contentInner ul li {\n  box-shadow: inset 0 -1px #BABABA;\n  cursor: pointer;\n  list-style: none;\n  padding: 10px 10px 10px 30px;\n  font-size: 16px;\n  color: #333333; }\n\n.menu-list__contentInner ul li:hover,\n.menu-list__contentInner ul li:active {\n  background-color: #bababa; }\n\n.menu-list__contentInner p:last-child {\n  margin-bottom: 0; }\n\n.menu-list__trigger {\n  box-shadow: inset 0 -1px #BABABA;\n  display: block;\n  font-weight: 400;\n  text-decoration: none;\n  text-indent: 8px;\n  position: relative;\n  border: 1px solid white;\n  padding: 10px;\n  background-color: #e9e9e9;\n  color: #333333;\n  cursor: pointer;\n  font-size: 16px; }\n\n.menu-list__trigger:hover {\n  background-color: #bababa; }\n\n.is-closed .icon-tree::before {\n  content: \"\\E603\";\n  font-size: 1.3em; }\n\n.is-open .icon-tree::before {\n  content: \"\\E601\";\n  font-size: 1.3em; }\n\n.icon-tree {\n  vertical-align: middle; }\n\n.menu-list__trigger.is-disabled {\n  opacity: 0.5;\n  background-color: grey; }\n\n.menu-page-progress {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  border: 1px solid #EE3124;\n  vertical-align: sub;\n  right: 18px;\n  position: absolute; }\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n@font-face {\n  font-family: 'Lato';\n  src: url(" + __webpack_require__(109) + ");\n  src: url(" + __webpack_require__(109) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(244) + ") format(\"woff2\"), url(" + __webpack_require__(243) + ") format(\"woff\"), url(" + __webpack_require__(242) + ") format(\"truetype\"), url(" + __webpack_require__(346) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'Lato-Light';\n  src: url(" + __webpack_require__(108) + ");\n  src: url(" + __webpack_require__(108) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(237) + ") format(\"woff2\"), url(" + __webpack_require__(236) + ") format(\"woff\"), url(" + __webpack_require__(235) + ") format(\"truetype\"), url(" + __webpack_require__(344) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'icomoon';\n  src: url(" + __webpack_require__(239) + ");\n  src: url(" + __webpack_require__(238) + "?#iefixc92yby) format(\"embedded-opentype\"), url(" + __webpack_require__(241) + ") format(\"woff\"), url(" + __webpack_require__(240) + ") format(\"truetype\"), url(" + __webpack_require__(345) + "#icomoon) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n[class^=\"icon-\"], [class*=\" icon-\"] {\n  font-family: 'icomoon';\n  speak: none;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  letter-spacing: 0;\n  -webkit-font-feature-settings: \"liga\";\n  -moz-font-feature-settings: \"liga=1\";\n  -moz-font-feature-settings: \"liga\";\n  -ms-font-feature-settings: \"liga\" 1;\n  font-feature-settings: \"liga\";\n  -webkit-font-variant-ligatures: discretionary-ligatures;\n  font-variant-ligatures: discretionary-ligatures;\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\n.menu-overlay-style {\n  position: absolute !important; }\n\n.menu-custom-style {\n  bottom: 44px !important;\n  top: 64px !important; }\n\n.menu-overlay-style {\n  background-color: rgba(0, 0, 0, 0.498039) !important; }\n\n.menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  z-index: 99 !important; }\n\n.menu-header h1 {\n  font: inherit;\n  margin: 0; }\n\n@media (min-width: 320px) {\n  .menu-style {\n    width: 100%; } }\n\n@media (min-width: 650px) {\n  .menu-style {\n    width: 460px; } }\n\n.menu-list__trigger {\n  display: none !important; }\n\n.disable-event {\n  pointer-events: none; }\n\nbody {\n  background: #5B6770;\n  font-family: 'Arial', Calibri, Arial, sans-serif;\n  height: 100%;\n  line-height: 1.4;\n  overflow: hidden;\n  max-width: 1010px;\n  max-height: 650px; }\n\n.wrapper {\n  bottom: 0;\n  display: table;\n  height: 100%;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  width: 100%; }\n\n.launcher {\n  display: table-cell;\n  padding-bottom: 40px;\n  vertical-align: top; }\n\n.whitePatch {\n  background-color: #FFFFFF;\n  height: 231px;\n  position: relative;\n  width: 100%; }\n\n.td1 {\n  align-items: center;\n  padding: 25px 25px 15px 25px;\n  position: relative;\n  top: 10px;\n  text-align: left; }\n\n.td2 {\n  align-items: center;\n  padding: 0;\n  position: relative;\n  top: 18px;\n  width: auto; }\n\n.divSeparator {\n  background-color: #CBCBCB;\n  height: 1px;\n  margin: 0 auto;\n  width: 100%; }\n\n.td3 {\n  align-items: center;\n  color: #5B6770;\n  font-size: 1.5em;\n  padding: 24px 25px;\n  position: relative;\n  text-align: left;\n  top: 5px;\n  vertical-align: middle; }\n\n.launch_btn {\n  background-image: url(" + __webpack_require__(138) + ");\n  background-repeat: no-repeat;\n  background-position: 0 0;\n  width: 88px;\n  height: 96px;\n  display: block;\n  color: #5B6770;\n  position: absolute;\n  right: 25px;\n  font-size: 0.6em;\n  text-align: center;\n  top: 57px;\n  font-weight: bold; }\n\n.launch_btn:hover {\n  background-image: url(" + __webpack_require__(138) + ");\n  background-position: -120px 0 !important;\n  color: #FFFFFF; }\n\n.launch_btn span {\n  vertical-align: middle;\n  line-height: 99px; }\n\na {\n  text-decoration: none; }\n\n@media (min-width: 768px) {\n  .launcher {\n    vertical-align: middle; }\n  .whitePatch {\n    display: table;\n    height: 120px;\n    position: static;\n    text-align: center;\n    vertical-align: middle;\n    width: 100%; }\n  .td1 {\n    display: table-cell;\n    height: 73px;\n    padding: 0;\n    padding-top: 5px;\n    position: static;\n    text-align: right;\n    vertical-align: middle;\n    width: 40%; }\n  .td2 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: static;\n    vertical-align: middle;\n    width: 4%; }\n  .divSeparator {\n    background-color: #CBCBCB;\n    height: 80px;\n    width: 1px; }\n  .td3 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: relative;\n    text-align: left;\n    top: 0;\n    vertical-align: middle;\n    width: 56%; }\n  .launch_btn {\n    font-size: 0.6em;\n    font-weight: bold;\n    left: 65%;\n    position: absolute;\n    text-align: center;\n    top: 71px; } }\n\nbody {\n  background: #ffffff !important;\n  margin: 0 auto;\n  overflow-y: auto;\n  font-family: 'Arial' !important;\n  max-width: 1024px;\n  max-height: 650px; }\n\n.cover-page {\n  height: auto;\n  color: #FFF;\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  overflow: hidden;\n  background-color: #0A4166; }\n\n.cover-page .btnIcon {\n  background: url(" + __webpack_require__(340) + ") repeat-x scroll 0 0 transparent;\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em; }\n\n.instruction-container {\n  height: 100%;\n  display: table;\n  width: 100%;\n  position: relative;\n  margin-top: 0;\n  overflow-y: auto; }\n\n.logo-container {\n  background-color: #FFF;\n  display: block;\n  padding: 35px 15px 24px; }\n\n.instruction-title .title {\n  color: rgba(0, 0, 0, 0.68);\n  font-size: 2em;\n  font-weight: 100;\n  margin: 0; }\n\n.text-container {\n  padding: 15px 10px 0px; }\n\n.cover-page .text-container p {\n  display: table-cell;\n  vertical-align: middle;\n  padding-right: 20px;\n  font-size: 1.35em; }\n\n.cover-page .btnIconBlank {\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em;\n  color: #FFFF; }\n\n.cover-page .text-container .text {\n  font-size: 0.875em;\n  padding: 4px; }\n\n.cover-page .text-container .text > div {\n  display: table;\n  width: 100%; }\n\n.cover-page .text-container .btnIcon {\n  padding-right: 0px; }\n\n.cover-page .text-container .btnIconBlank {\n  padding-right: 0px;\n  color: #fff;\n  font-size: 1.65em; }\n\n.cover-page .text-container .btnIcon1 span {\n  font-size: 1.3em; }\n\n.cover-page .text-container p:nth-child(2) {\n  padding-left: 20px;\n  font-size: 1.07em; }\n\n.cover-page .text {\n  color: #FFF;\n  height: 40px;\n  display: table;\n  width: 100%;\n  padding: 0 15px;\n  margin-bottom: 4px;\n  font-size: 1.1em; }\n\n.cover-page .dis_sys_check {\n  position: relative;\n  top: 7px;\n  z-index: 101; }\n\n.cover-page .container {\n  height: 100%;\n  position: relative;\n  display: table; }\n\n.cover-page .startbtn {\n  display: table-cell;\n  width: 100%; }\n\n.cover-page .instruction {\n  color: #FFF;\n  max-height: 40px;\n  margin: 0;\n  padding: 10px 0 10px 12px;\n  position: relative;\n  background-color: #083451;\n  font-size: 0.9375em; }\n\n.cover-page .instruction span {\n  font-weight: normal; }\n\n.cover-page .startbtn_a {\n  /* background: url(\"../../images/btnstrip2.png\") repeat-x scroll 0 0 rgba(0, 0, 0, 0); */\n  color: #ffffff;\n  display: inline-block;\n  float: right;\n  font-size: 1.5625em;\n  height: 40px;\n  margin-top: 0;\n  position: relative;\n  text-decoration: none;\n  top: 25px;\n  vertical-align: middle;\n  width: 100px;\n  margin-left: 10px;\n  z-index: 101;\n  background-color: #1792E5; }\n\n.cover-page .btnContent {\n  display: table;\n  width: 100%;\n  padding: 0;\n  height: 40px; }\n\n.cover-page .btnContent:hover {\n  background-color: #ee3124; }\n\n.cover-page .btnContent span {\n  vertical-align: middle;\n  display: table-cell;\n  text-align: center; }\n\n.cover-page .instruction .fontBold {\n  font-weight: bold; }\n\n.cover-page .sys_container {\n  display: none; }\n\n.text-container a {\n  color: #ffffff; }\n\n.cover-page .invisible-container {\n  height: 70px; }\n\n.playAudioParent {\n  height: 100%;\n  left: 0;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  z-index: 88888; }\n\n.playBlinkBlack {\n  background-color: #FFF;\n  height: 100%;\n  left: 0;\n  opacity: 0.6;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  z-index: 5; }\n\n.playBlink {\n  background: url(" + __webpack_require__(343) + ") no-repeat scroll 0 0 transparent;\n  height: 100px;\n  margin: -50px auto 0;\n  position: relative;\n  top: 50%;\n  width: 112px;\n  z-index: 500; }\n\n.button-autoPlay {\n  background: url(" + __webpack_require__(342) + ") no-repeat scroll 0 0 transparent;\n  display: block;\n  height: 42px;\n  margin: 0 auto;\n  position: relative;\n  top: 29px;\n  width: 38px;\n  z-index: 900000;\n  margin-top: 25%; }\n\n@media (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px;\n    font-size: 1.35; }\n  .cover-page .text-container p {\n    font-size: 1em;\n    font-weight: bold; }\n  .cover-page .text-container p:nth-child(2) {\n    padding-left: 20px;\n    font-size: 1.07em; }\n  .cover-page .instruction {\n    font-size: 1.07em; } }\n\n@media all and (min-width: 320px) {\n  .cover-page .dis_container {\n    /* padding: 10px 15px 0; */ }\n  .cover-page .dis_sys_check {\n    padding: 0 15px; } }\n\n@media all and (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px; } }\n\n@media all and (min-width: 480px) {\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media all and (min-width: 600px) {\n  .cover-page .cover-page {\n    padding: 0; }\n  .cover-page .dis_container {\n    max-width: 100%; }\n  .cover-page .dis_text .title {\n    font-size: 2em;\n    font-weight: 100; }\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media (min-width: 768px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .text-container {\n    padding: 25px 25px 0; }\n  .cover-page .text-container p {\n    font-weight: normal !important; }\n  .cover-page .holder_text_mobile .desc {\n    padding: 0 0 0 22px; }\n  .cover-page .dis_logo {\n    width: auto; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .text {\n    font-size: 1.15em !important;\n    padding: 2px 4px; }\n  .cover-page .text > div {\n    width: 85%; }\n  .cover-page .dis_logo {\n    float: none;\n    top: 0; }\n  .cover-page .startbtn_a {\n    float: none;\n    top: 0;\n    right: -1px; }\n  .cover-page .startbtn {\n    width: 80%;\n    display: block; }\n  .cover-page .instruction {\n    padding: 0 0 0 15px;\n    display: table-cell;\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    padding-left: 25px; }\n  .cover-page .holder_text_mobile {\n    display: block; }\n  .cover-page .support-image {\n    position: absolute;\n    right: 0;\n    z-index: 102;\n    bottom: 0;\n    height: 100%; }\n  .cover-page .holder_text {\n    display: table-cell;\n    width: 80%;\n    position: static;\n    padding-right: 10px; }\n  .cover-page .text {\n    color: #FFF;\n    font-weight: 700;\n    height: 40px;\n    display: table;\n    width: 100%;\n    padding: 0 15px;\n    margin-bottom: 10px;\n    padding-right: 115px; }\n  .cover-page .icon-arrow {\n    margin-right: 10px; }\n  .cover-page .icon-btn {\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    z-index: 101; }\n  .cover-page .dis_img1 {\n    background: url(" + __webpack_require__(341) + ") no-repeat scroll 0 0 transparent;\n    position: absolute;\n    right: -315px;\n    bottom: -20px;\n    display: block;\n    width: 770px;\n    height: 424px; }\n  .cover-page .dis_logo {\n    margin-bottom: 5px; }\n  .cover-page .dis_logo_bg {\n    bottom: 35px;\n    padding: 0;\n    position: absolute;\n    right: 35px; }\n  .cover-page .dis_text .title {\n    margin-left: 10px; }\n  .cover-page .holder_text_mobile .btnIcon {\n    font-size: 0.9em; }\n  .cover-page .holder_text_mobile p:nth-child(2) {\n    padding-left: 15px;\n    font-size: 1em;\n    font-weight: normal;\n    line-height: 1em; } }\n\n@media (min-width: 995px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .dis_img1 {\n    right: -240px;\n    bottom: 0px; } }\n\n/* Absolute Center Spinner */\n.loading {\n  position: fixed;\n  z-index: 999;\n  height: 2em;\n  width: 2em;\n  overflow: show;\n  margin: auto;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0; }\n\n/* Transparent Overlay */\n.loading:before {\n  content: '';\n  display: block;\n  position: fixed;\n  max-height: 650px;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #ddd; }\n\n/* :not(:required) hides these rules from IE9 and below */\n.loading:not(:required) {\n  /* hide \"loading...\" text */\n  font: 0/0 a;\n  color: transparent;\n  text-shadow: none;\n  background-color: transparent;\n  border: 0; }\n\n.email {\n  margin-left: -15px; }\n\n.loading:not(:required):after {\n  content: '';\n  display: block;\n  font-size: 10px;\n  width: 1em;\n  height: 1em;\n  margin-top: -0.5em;\n  -webkit-animation: spinner 1500ms infinite linear;\n  -moz-animation: spinner 1500ms infinite linear;\n  -ms-animation: spinner 1500ms infinite linear;\n  -o-animation: spinner 1500ms infinite linear;\n  animation: spinner 1500ms infinite linear;\n  border-radius: 0.5em;\n  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;\n  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0; }\n\n/* Animation */\n@-webkit-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@-moz-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@-o-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n.overlay {\n  background-color: #000;\n  position: absolute;\n  width: 100%;\n  height: 620px;\n  top: 0;\n  opacity: 0.5; }\n\n.exit-alert {\n  position: absolute;\n  top: 430%;\n  left: 0;\n  right: 0;\n  width: 300px;\n  margin: auto;\n  padding: 5px;\n  z-index: 99999; }\n\n.popup-content {\n  text-align: center;\n  padding: 20px 0; }\n\n.popup-header {\n  padding: 10px;\n  background-color: #ee3124; }\n\n.popup-area {\n  background-color: #D3D4D4;\n  display: block;\n  text-align: center;\n  padding: 0 35px; }\n\n.warning-msg {\n  margin: 0;\n  color: #000; }\n\n.popup-buttons {\n  text-align: center; }\n\n.popup-buttons div {\n  display: inline-block;\n  width: 100px; }\n\n.popup-yes-button, .popup-no-button {\n  display: block;\n  margin: 10px;\n  padding: 5px 10px;\n  width: 60px;\n  background-color: #1792e5;\n  color: #FFF; }\n\nbody {\n  margin: 0 auto;\n  font-family: Arial;\n  color: #FFF;\n  font-size: 1em;\n  font-weight: 300;\n  overflow: auto; }\n\n#root {\n  overflow: hidden; }\n\n.shell-container {\n  position: relative;\n  overflow: hidden; }\n\n.header {\n  background-color: #E9ECED;\n  position: relative;\n  width: 100%;\n  z-index: 100;\n  max-height: 61px; }\n\n.courseProgress {\n  width: 100%;\n  height: 4px;\n  top: -10px;\n  position: relative;\n  /* border: 0.1em solid #ccc; */\n  background: #c5cdcf; }\n\n.courseProgress span {\n  width: 0%;\n  background: #ee3124;\n  height: 4px;\n  display: block;\n  color: #000;\n  text-align: center; }\n\n.title-holder {\n  display: table;\n  color: #5C6670;\n  font-weight: 700;\n  height: 100%;\n  font-size: 1.3em; }\n\n.close_btn {\n  position: absolute;\n  right: 25px;\n  top: 20px;\n  color: #000 !important;\n  font-size: 20px;\n  cursor: pointer; }\n\n.close_btn:hover, icon-close:hover {\n  color: #ee3124 !important; }\n\n.title-holder > div {\n  display: table-cell;\n  padding: 0 10px;\n  vertical-align: middle; }\n\n.course-logo {\n  float: left; }\n  .course-logo img {\n    width: 80%;\n    margin: 5px; }\n\n.page-title__container {\n  min-height: 40px;\n  line-height: 35px;\n  display: flex;\n  align-items: baseline;\n  width: 100%;\n  color: #FFF;\n  font-weight: 700;\n  background-color: #5C6670; }\n\n.page-title__container .topic-title {\n  color: #C1C6C9;\n  padding: 10px 5px 0 5px;\n  display: inline-block; }\n\n.title-seperator {\n  padding: 0 5px; }\n\n.page-title__container .page-title {\n  align-self: center;\n  padding-top: 2px; }\n\n.footer {\n  position: absolute;\n  height: 46px;\n  width: 100%;\n  background-color: #707c89;\n  bottom: 0px;\n  z-index: 999999999999; }\n\n.right-column {\n  text-align: right;\n  width: 100%;\n  border-right: 0px solid #C1C6C9; }\n\n.button-box {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: middle;\n  height: 45px;\n  width: 41px; }\n\n.button-box a {\n  color: #5C6670;\n  display: block;\n  text-align: center;\n  width: 40px;\n  height: 44px;\n  line-height: 42px;\n  margin-top: 1px; }\n\n.footer .button-box a, .footer .nav-comp-container .page-counter, .footer .button-box a.disabled, .footer .button-box a.selected {\n  background: #ffffff;\n  /* Old browsers */\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 );\n  /* IE6-8 */ }\n\n.footer .button-box a:hover {\n  color: #fff !important;\n  background: #ee3124;\n  /* Old browsers */\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n  /* IE6-8 */ }\n\n.nav-comp-container {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 44px;\n  padding: 1px 1px 0px 0;\n  color: #5C6670;\n  height: 44px; }\n\n.nav-comp-container .page-counter {\n  padding: 0 10px; }\n\n.button-box a.disabled {\n  color: #AAB1B9;\n  cursor: default;\n  pointer-events: none; }\n\n@media (min-width: 650px) {\n  .footer .button-box, .nav-comp-container {\n    background-color: #C1C6C9;\n    border-bottom: 1px solid #C1C6C9; } }\n\n.blinker {\n  -webkit-animation: blink 1s infinite;\n  /* Safari 4+ */\n  -moz-animation: blink 1s infinite;\n  /* Fx 5+ */\n  -o-animation: blink 1s infinite;\n  /* Opera 12+ */\n  animation: blink 1s infinite;\n  /* IE 10+, Fx 29+ */ }\n\n@-webkit-keyframes blink {\n  0%, 49% {\n    background: #ffffff;\n    /* Old browsers */\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 );\n    /* IE6-8 */ }\n  50%, 100% {\n    color: #ffffff !important;\n    background: #ee3124;\n    /* Old browsers */\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n    /* IE6-8 */ } }\n\n.page-container {\n  position: relative;\n  top: -2px;\n  margin: 0;\n  overflow-y: hidden;\n  width: 100%;\n  z-index: 9; }\n  @media all and (max-width: 680px) {\n    .page-container {\n      overflow-y: auto; } }\n\n.page-container .page-holder {\n  height: 100%; }\n\n.page-loader {\n  height: 100%;\n  z-index: 99; }\n\n.help-container > div:first-child {\n  position: static !important;\n  width: 100% !important;\n  height: 100% !important;\n  z-index: 1 !important; }\n\n.fadeOut {\n  opacity: 0; }\n\n.fadeIn {\n  opacity: 1;\n  transition: .5s; }\n\n.icon-transcript::before {\n  content: \"\\E629\"; }\n\n.icon-audio:before {\n  content: \"\\E606\"; }\n\n.icon-playPause:before {\n  content: \"\\E619\"; }\n\n.selected .icon-transcript:before {\n  content: \"\\E628\"; }\n\n.selected .icon-audio:before {\n  content: \"\\E605\"; }\n\n.selected .icon-playPause:before {\n  content: \"\\E61B\"; }\n\n.hide {\n  display: none; }\n\n/*.page {\r\n    margin: 0 auto;\r\n    padding: 0 15px 15px 15px;\r\n    background: #fff;\r\n    color: #000;\r\n}\r\n\r\n.screen-holder {\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\n.screen-bg {\r\n    background: url('../images/bg.jpg') left bottom no-repeat;\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n}\r\n\r\n.objective-holder {\r\n    width: 55%;\r\n    background-color: #FFF;\r\n    margin-top: 10%;\r\n}\r\n\r\n.objective-title {\r\n    width: 75%;\r\n    color: #ed3125;\r\n    border-bottom: 1px solid #f18b86;\r\n    padding: 5px 0;\r\n    margin-left: 10px;\r\n    margin-bottom: 5px;\r\n    font-size: 1.5em;\r\n}\r\n\r\n.objective-content {\r\n    margin-left: 10px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.heading {\r\n    font-size: 1em;\r\n    font-weight: 700;\r\n}\r\n\r\n.objective-content ul {\r\n    list-style: none;\r\n    padding-bottom: 20px;\r\n}\r\n\r\n.objective-content li {\r\n    background: url(../images/li_red.png) no-repeat scroll 0px 4px transparent;\r\n    padding: 0px 0 0px 15px;\r\n    margin-top: 7px;\r\n    line-height: 1.3em;\r\n    margin-left: -30px;\r\n}\r\n\r\n@media all and (min-width:320px) and (max-width: 640px) {\r\n\t.screen-bg {\r\n   \t\tbackground: url(../images/bg.jpg) bottom right no-repeat;\r\n   \t}\r\n\r\n   \t.objective-holder {\r\n\t    width: 88%;\r\n\t    background-color: #FFF;\r\n\t    margin-top: 10%;\r\n\t    margin-left: 5%;\r\n\t}\r\n}*/\n.top-nav .middleButtons {\n  text-align: center; }\n\n.top-nav a,\n.top-nav .page-counter {\n  font-size: 1.2em; }\n\n.top-nav .nav-comp-container {\n  vertical-align: inherit; }\n\n.tool-menu-custom-style {\n  height: auto;\n  max-height: 50px;\n  top: 49px !important; }\n\n.tool-menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  width: 300px; }\n\n.help-header {\n  display: table;\n  width: 100%;\n  height: 40px;\n  background: #EE3124;\n  font-size: 1.25em; }\n  .help-header h1 {\n    margin: 0;\n    font-size: 1.35em; }\n\n.help-header .title-container {\n  display: table-cell;\n  width: 100%;\n  vertical-align: middle;\n  padding: 5px 15px;\n  color: #FFF;\n  font-weight: 400; }\n\n.help-header .button-container {\n  display: table-cell;\n  width: 50px;\n  vertical-align: middle; }\n\n.help-close-button {\n  height: 40px;\n  width: 40px;\n  line-height: 40px;\n  display: block;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.elements-container {\n  display: table;\n  width: 100%;\n  height: 37px; }\n\n.elements-container .title-container {\n  display: table-cell;\n  width: 145px;\n  vertical-align: middle;\n  padding: 3px 5px 2px 15px;\n  border: 1px solid #999999;\n  border-top: none;\n  background-color: #dadada;\n  font-size: 1.05em; }\n\n.elements-container .button-container {\n  display: table-cell;\n  vertical-align: middle;\n  padding: 2px 5px;\n  border: 1px solid #999999;\n  border-left: none;\n  border-top: none;\n  background-color: #e9e9e9; }\n\n.iconbg {\n  color: #5C6670;\n  border: 1px solid #CCC;\n  height: 25px;\n  display: inline-block;\n  float: right; }\n\n.btnbg {\n  background: #ffffff;\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 ); }\n\n.iconbg .pagecounter {\n  width: 41px;\n  color: #5C6670;\n  font-weight: bold; }\n\n.iconbg span {\n  vertical-align: middle;\n  font-size: 0.8em;\n  height: 26px;\n  display: table-cell;\n  text-align: center;\n  width: 25px; }\n\n.elements-container .title-container p {\n  width: 75px;\n  padding-top: 0px;\n  display: inline-block;\n  float: left;\n  padding-left: 4px;\n  margin: 0; }\n\n.button-container p {\n  margin: 0; }\n\n.help-content {\n  color: #333333; }\n\n@media (min-width: 750px) {\n  .elements-container .title-container p {\n    width: auto;\n    padding-top: 5px;\n    display: inline-block;\n    float: left;\n    padding-left: 5px; }\n  .elements-container .title-container {\n    width: 190px; } }\n\n.transcript-container {\n  width: 320px;\n  max-height: 240px;\n  margin: 0 auto;\n  bottom: 73px;\n  left: 30%;\n  z-index: 99999;\n  position: absolute; }\n\n.transcript-container .transcript-header {\n  font-size: 1.25em;\n  background-color: #EE3124;\n  color: #FFF;\n  font-weight: 400;\n  cursor: move; }\n\n.transcript-container .transcript-title {\n  display: inline-block;\n  padding: 10px 8px 10px 16px; }\n\n.transcript-container .transcript-close-button {\n  display: block;\n  float: right;\n  font-size: 1.25em;\n  height: 44px;\n  width: 44px;\n  line-height: 44px;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.transcript-text-container {\n  height: 198px;\n  text-align: center;\n  background-color: #e9e9e9;\n  padding: 10px;\n  text-align: left;\n  color: #333333;\n  overflow-y: auto; }\n\n@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {\n  .transcript-container {\n    width: 400px;\n    max-height: 240px;\n    margin: 0 auto;\n    bottom: 20px;\n    right: 0%;\n    left: 0;\n    z-index: 99999;\n    position: fixed; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {\n  .transcript-container {\n    width: 270px;\n    max-height: 240px;\n    margin: 0 auto;\n    bottom: 5px;\n    right: 5%;\n    left: 0px;\n    z-index: 99999;\n    position: fixed; } }\n\n.menu-header {\n  background-color: #EE3124;\n  display: table;\n  font-size: 1.25em;\n  height: 40px;\n  width: 100%; }\n\n.menu-header-title {\n  color: #ffffff;\n  display: table-cell;\n  font-size: 1.15em;\n  height: 100%;\n  padding-left: 14px;\n  vertical-align: middle; }\n\n.menu-close-button-container {\n  color: #FFFFFF;\n  cursor: pointer;\n  display: table-cell;\n  height: 100%;\n  vertical-align: middle;\n  width: 40px; }\n\n.collapse-menu .collapse-menu-header h1 {\n  padding: 6px 14px; }\n\n/* Style for list view expand componen t */\n.menu-list {\n  background-color: #e9e9e9; }\n\n.menu-list__contentInner {\n  border: 1px solid #ebebeb;\n  border-top: 0;\n  position: relative; }\n\n.menu-list__contentInner ul {\n  padding: 0;\n  margin: 0; }\n\n.menu-list__contentInner ul li {\n  box-shadow: inset 0 -1px #BABABA;\n  cursor: pointer;\n  list-style: none;\n  padding: 10px 10px 10px 30px;\n  font-size: 16px;\n  color: #333333; }\n\n.menu-list__contentInner ul li:hover,\n.menu-list__contentInner ul li:active {\n  background-color: #bababa; }\n\n.menu-list__contentInner p:last-child {\n  margin-bottom: 0; }\n\n.menu-list__trigger {\n  box-shadow: inset 0 -1px #BABABA;\n  display: block;\n  font-weight: 400;\n  text-decoration: none;\n  text-indent: 8px;\n  position: relative;\n  border: 1px solid white;\n  padding: 10px;\n  background-color: #e9e9e9;\n  color: #333333;\n  cursor: pointer;\n  font-size: 16px; }\n\n.menu-list__trigger:hover {\n  background-color: #bababa; }\n\n.is-closed .icon-tree::before {\n  content: \"\\E603\";\n  font-size: 1.3em; }\n\n.is-open .icon-tree::before {\n  content: \"\\E601\";\n  font-size: 1.3em; }\n\n.icon-tree {\n  vertical-align: middle; }\n\n.menu-list__trigger.is-disabled {\n  opacity: 0.5;\n  background-color: grey; }\n\n.menu-page-progress {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  border: 1px solid #EE3124;\n  vertical-align: sub;\n  right: 18px;\n  position: absolute; }\n", ""]);
 
 // exports
 
@@ -28486,7 +28485,7 @@ module.exports = debounce;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(1);
   var warning = __webpack_require__(2);
-  var ReactPropTypesSecret = __webpack_require__(110);
+  var ReactPropTypesSecret = __webpack_require__(111);
   var loggedTypeFailures = {};
 }
 
@@ -28584,7 +28583,7 @@ var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
-var ReactPropTypesSecret = __webpack_require__(110);
+var ReactPropTypesSecret = __webpack_require__(111);
 var checkPropTypes = __webpack_require__(248);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
@@ -29065,13 +29064,13 @@ var _createClass = __webpack_require__(162)['default'];
 
 var _classCallCheck = __webpack_require__(160)['default'];
 
-var _extends = __webpack_require__(92)['default'];
+var _extends = __webpack_require__(93)['default'];
 
 var _toConsumableArray = __webpack_require__(167)['default'];
 
-var _Object$keys = __webpack_require__(91)['default'];
+var _Object$keys = __webpack_require__(92)['default'];
 
-var _interopRequireDefault = __webpack_require__(93)['default'];
+var _interopRequireDefault = __webpack_require__(94)['default'];
 
 Object.defineProperty(exports, '__esModule', {
   value: true
@@ -29561,9 +29560,9 @@ module.exports = exports['default'];
 
 
 
-var _extends = __webpack_require__(92)['default'];
+var _extends = __webpack_require__(93)['default'];
 
-var _Object$keys = __webpack_require__(91)['default'];
+var _Object$keys = __webpack_require__(92)['default'];
 
 Object.defineProperty(exports, '__esModule', {
   value: true
@@ -29594,7 +29593,7 @@ module.exports = exports['default'];
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(93)['default'];
+var _interopRequireDefault = __webpack_require__(94)['default'];
 
 Object.defineProperty(exports, '__esModule', {
   value: true
@@ -29705,7 +29704,7 @@ module.exports = ARIADOMPropertyConfig;
 
 var ReactDOMComponentTree = __webpack_require__(5);
 
-var focusNode = __webpack_require__(105);
+var focusNode = __webpack_require__(106);
 
 var AutoFocusUtils = {
   focusDOMComponent: function () {
@@ -30122,7 +30121,7 @@ module.exports = BeforeInputEventPlugin;
 
 
 
-var CSSProperty = __webpack_require__(111);
+var CSSProperty = __webpack_require__(112);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(10);
 
@@ -30346,7 +30345,7 @@ var SyntheticEvent = __webpack_require__(15);
 
 var getEventTarget = __webpack_require__(81);
 var isEventSupported = __webpack_require__(82);
-var isTextInputElement = __webpack_require__(129);
+var isTextInputElement = __webpack_require__(130);
 
 var eventTypes = {
   change: {
@@ -30857,7 +30856,7 @@ var _assign = __webpack_require__(4);
 
 var PooledClass = __webpack_require__(23);
 
-var getTextContentAccessor = __webpack_require__(127);
+var getTextContentAccessor = __webpack_require__(128);
 
 /**
  * This helper class stores information about text content of a target node,
@@ -31172,10 +31171,10 @@ module.exports = HTMLDOMPropertyConfig;
 
 var ReactReconciler = __webpack_require__(31);
 
-var instantiateReactComponent = __webpack_require__(128);
+var instantiateReactComponent = __webpack_require__(129);
 var KeyEscapeUtils = __webpack_require__(73);
 var shouldUpdateReactComponent = __webpack_require__(83);
-var traverseAllChildren = __webpack_require__(131);
+var traverseAllChildren = __webpack_require__(132);
 var warning = __webpack_require__(2);
 
 var ReactComponentTreeHook;
@@ -31374,7 +31373,7 @@ var ReactCurrentOwner = __webpack_require__(14);
 var ReactErrorUtils = __webpack_require__(76);
 var ReactInstanceMap = __webpack_require__(40);
 var ReactInstrumentation = __webpack_require__(10);
-var ReactNodeTypes = __webpack_require__(121);
+var ReactNodeTypes = __webpack_require__(122);
 var ReactReconciler = __webpack_require__(31);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -32277,13 +32276,13 @@ module.exports = ReactCompositeComponent;
 
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDefaultInjection = __webpack_require__(284);
-var ReactMount = __webpack_require__(120);
+var ReactMount = __webpack_require__(121);
 var ReactReconciler = __webpack_require__(31);
 var ReactUpdates = __webpack_require__(13);
 var ReactVersion = __webpack_require__(299);
 
 var findDOMNode = __webpack_require__(316);
-var getHostComponentFromComposite = __webpack_require__(126);
+var getHostComponentFromComposite = __webpack_require__(127);
 var renderSubtreeIntoContainer = __webpack_require__(324);
 var warning = __webpack_require__(2);
 
@@ -32400,15 +32399,15 @@ var CSSPropertyOperations = __webpack_require__(257);
 var DOMLazyTree = __webpack_require__(30);
 var DOMNamespaces = __webpack_require__(71);
 var DOMProperty = __webpack_require__(20);
-var DOMPropertyOperations = __webpack_require__(113);
+var DOMPropertyOperations = __webpack_require__(114);
 var EventPluginHub = __webpack_require__(38);
 var EventPluginRegistry = __webpack_require__(44);
 var ReactBrowserEventEmitter = __webpack_require__(45);
-var ReactDOMComponentFlags = __webpack_require__(114);
+var ReactDOMComponentFlags = __webpack_require__(115);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMInput = __webpack_require__(273);
 var ReactDOMOption = __webpack_require__(276);
-var ReactDOMSelect = __webpack_require__(115);
+var ReactDOMSelect = __webpack_require__(116);
 var ReactDOMTextarea = __webpack_require__(279);
 var ReactInstrumentation = __webpack_require__(10);
 var ReactMultiChild = __webpack_require__(292);
@@ -33567,7 +33566,7 @@ module.exports = ReactDOMIDOperations;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var DOMPropertyOperations = __webpack_require__(113);
+var DOMPropertyOperations = __webpack_require__(114);
 var LinkedValueUtils = __webpack_require__(74);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(13);
@@ -34000,7 +33999,7 @@ var _assign = __webpack_require__(4);
 
 var React = __webpack_require__(32);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactDOMSelect = __webpack_require__(115);
+var ReactDOMSelect = __webpack_require__(116);
 
 var warning = __webpack_require__(2);
 var didWarnInvalidOptionChildren = false;
@@ -34128,7 +34127,7 @@ module.exports = ReactDOMOption;
 var ExecutionEnvironment = __webpack_require__(6);
 
 var getNodeForCharacterOffset = __webpack_require__(321);
-var getTextContentAccessor = __webpack_require__(127);
+var getTextContentAccessor = __webpack_require__(128);
 
 /**
  * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -35534,7 +35533,7 @@ module.exports = ReactEventEmitterMixin;
 
 var _assign = __webpack_require__(4);
 
-var EventListener = __webpack_require__(104);
+var EventListener = __webpack_require__(105);
 var ExecutionEnvironment = __webpack_require__(6);
 var PooledClass = __webpack_require__(23);
 var ReactDOMComponentTree = __webpack_require__(5);
@@ -35735,9 +35734,9 @@ var DOMProperty = __webpack_require__(20);
 var EventPluginHub = __webpack_require__(38);
 var EventPluginUtils = __webpack_require__(72);
 var ReactComponentEnvironment = __webpack_require__(75);
-var ReactEmptyComponent = __webpack_require__(116);
+var ReactEmptyComponent = __webpack_require__(117);
 var ReactBrowserEventEmitter = __webpack_require__(45);
-var ReactHostComponent = __webpack_require__(118);
+var ReactHostComponent = __webpack_require__(119);
 var ReactUpdates = __webpack_require__(13);
 
 var ReactInjection = {
@@ -36457,10 +36456,10 @@ module.exports = ReactPropTypeLocationNames;
 
 var _assign = __webpack_require__(4);
 
-var CallbackQueue = __webpack_require__(112);
+var CallbackQueue = __webpack_require__(113);
 var PooledClass = __webpack_require__(23);
 var ReactBrowserEventEmitter = __webpack_require__(45);
-var ReactInputSelection = __webpack_require__(119);
+var ReactInputSelection = __webpack_require__(120);
 var ReactInstrumentation = __webpack_require__(10);
 var Transaction = __webpack_require__(47);
 var ReactUpdateQueue = __webpack_require__(77);
@@ -37303,11 +37302,11 @@ module.exports = SVGDOMPropertyConfig;
 var EventPropagators = __webpack_require__(39);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactInputSelection = __webpack_require__(119);
+var ReactInputSelection = __webpack_require__(120);
 var SyntheticEvent = __webpack_require__(15);
 
-var getActiveElement = __webpack_require__(106);
-var isTextInputElement = __webpack_require__(129);
+var getActiveElement = __webpack_require__(107);
+var isTextInputElement = __webpack_require__(130);
 var shallowEqual = __webpack_require__(68);
 
 var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
@@ -37499,7 +37498,7 @@ module.exports = SelectEventPlugin;
 
 var _prodInvariant = __webpack_require__(3);
 
-var EventListener = __webpack_require__(104);
+var EventListener = __webpack_require__(105);
 var EventPropagators = __webpack_require__(39);
 var ReactDOMComponentTree = __webpack_require__(5);
 var SyntheticAnimationEvent = __webpack_require__(303);
@@ -38276,7 +38275,7 @@ module.exports = adler32;
 var _prodInvariant = __webpack_require__(3);
 
 var ReactPropTypeLocationNames = __webpack_require__(294);
-var ReactPropTypesSecret = __webpack_require__(122);
+var ReactPropTypesSecret = __webpack_require__(123);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -38366,7 +38365,7 @@ module.exports = checkReactTypeSpec;
 
 
 
-var CSSProperty = __webpack_require__(111);
+var CSSProperty = __webpack_require__(112);
 var warning = __webpack_require__(2);
 
 var isUnitlessNumber = CSSProperty.isUnitlessNumber;
@@ -38457,7 +38456,7 @@ var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstanceMap = __webpack_require__(40);
 
-var getHostComponentFromComposite = __webpack_require__(126);
+var getHostComponentFromComposite = __webpack_require__(127);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -38519,7 +38518,7 @@ module.exports = findDOMNode;
 
 
 var KeyEscapeUtils = __webpack_require__(73);
-var traverseAllChildren = __webpack_require__(131);
+var traverseAllChildren = __webpack_require__(132);
 var warning = __webpack_require__(2);
 
 var ReactComponentTreeHook;
@@ -38994,7 +38993,7 @@ module.exports = quoteAttributeValueForBrowser;
 
 
 
-var ReactMount = __webpack_require__(120);
+var ReactMount = __webpack_require__(121);
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
@@ -39864,7 +39863,7 @@ var _prodInvariant = __webpack_require__(25),
 
 var ReactComponent = __webpack_require__(85);
 var ReactElement = __webpack_require__(24);
-var ReactPropTypeLocationNames = __webpack_require__(135);
+var ReactPropTypeLocationNames = __webpack_require__(136);
 var ReactNoopUpdateQueue = __webpack_require__(86);
 
 var emptyObject = __webpack_require__(37);
@@ -40597,7 +40596,7 @@ var ReactElement = __webpack_require__(24);
  */
 var createDOMFactory = ReactElement.createFactory;
 if (process.env.NODE_ENV !== 'production') {
-  var ReactElementValidator = __webpack_require__(134);
+  var ReactElementValidator = __webpack_require__(135);
   createDOMFactory = ReactElementValidator.createFactory;
 }
 
@@ -40878,7 +40877,7 @@ module.exports = '15.5.4';
 
 var _prodInvariant = __webpack_require__(25);
 
-var ReactPropTypeLocationNames = __webpack_require__(135);
+var ReactPropTypeLocationNames = __webpack_require__(136);
 var ReactPropTypesSecret = __webpack_require__(332);
 
 var invariant = __webpack_require__(1);
@@ -41016,9 +41015,9 @@ module.exports = onlyChild;
 var _prodInvariant = __webpack_require__(25);
 
 var ReactCurrentOwner = __webpack_require__(14);
-var REACT_ELEMENT_TYPE = __webpack_require__(133);
+var REACT_ELEMENT_TYPE = __webpack_require__(134);
 
-var getIteratorFn = __webpack_require__(136);
+var getIteratorFn = __webpack_require__(137);
 var invariant = __webpack_require__(1);
 var KeyEscapeUtils = __webpack_require__(326);
 var warning = __webpack_require__(2);

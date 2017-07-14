@@ -301,10 +301,12 @@ b{font-weight:bold;}
      .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab span {width: 150px;}
      .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab {margin-left: -1%}
      .m01_t01_p03 .template-horizontal-tab .tab-content .tab-data { border-top: none;}
-     .m01_t01_p03 .template-horizontal-tab .tab-content {width: 90%;     height: 200px;}
-     .page {
-        padding: 6px 25px 0px 10px;
-     }
+     .m01_t01_p03 .template-horizontal-tab .tab-content {width: 95%;     height: 200px;}
+     .m01_t01_p03 .template-horizontal-tab .tab-content .tab-data {margin-left: 0%;}
+     .m01_t01_p03 .template-panel .image-holder div img { width: 95%;}
+     .page {padding: 6px 25px 0px 10px;}
+     .m01_t01_p03 .template-horizontal-tab .tabs-nav {margin-left: 2px;
+}
 	 .img-caption { bottom: 40px; margin-right: 0px;}
 }
 
@@ -939,10 +941,16 @@ vertical-align: top;
 }
  @media only screen  and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
 	 .m01_t01_p07
-	 {
-		 height: 500px;
-		 overflow-y: hidden;
+     {
+		 overflow-y: auto;
    }
+
+     .activity-intro, .activity-feedback {
+    width: 80%;
+    height: 440px;
+    margin: 0 auto;
+    overflow: auto;
+     }
 
 	.activity-holder
 	{
@@ -992,6 +1000,9 @@ vertical-align: top;
      align-items: center;
      font-size: 0.7em;
  }
+    .activity-holder {
+    height: 400px;
+ }
  .activity-drop__container {
      padding: 10px;
      display: flex !important;
@@ -1013,7 +1024,7 @@ vertical-align: top;
    }
 
    .proceed-button, .activity-nav-button {
-     bottom: 5px;
+     top: 340px;
      right: 10px;
    }
  }
@@ -1025,8 +1036,8 @@ vertical-align: top;
   color: #ffffff;
   padding: 10px;
   min-width: 60px;
-      min-width: 70px;
-    height: 55px;
+  max-width: 70px;
+  height: 55px;
   z-index: 999999;
   cursor: move;
   font-weight: 600;
@@ -1040,7 +1051,7 @@ vertical-align: top;
 .activity-nav-button {
   position: absolute;
   right: 60px;
-  bottom: 110px;
+  top: 450px;
   background: #0097e1;
   border: none;
   color: #fff;
@@ -1095,7 +1106,7 @@ vertical-align: top;
   }
 
   .proceed-button, .activity-nav-button {
-    bottom: 5px;
+    top: 370px;
     right: 10px;
   }
 }
