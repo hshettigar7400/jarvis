@@ -17,8 +17,8 @@ var TopNav = React.createClass ({
   },
 
   getDoubleDigit (num) {
-    return (num > 9) ? num : ('0'+num);
-  },
+  return (num > 9) ? num : ('0'+num);
+},
 
   render() {
     return (

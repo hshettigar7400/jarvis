@@ -23,7 +23,7 @@
 			{ "id":"result2", "path": "content/en/audio/assessment/m01_t04_p03_1.mp3", "transcript": [
 			{
 				"qPoint": 0,
-				"text":"Sorry, you did not achieve the passing score. If you would like to improve your score, please select Try Again."
+				"text":"Sorry, you did not achieve the passing score. If you would like to improve your score, please select "
 			}
 
 			], "qPoints": [] }
@@ -38,21 +38,21 @@
         "id": "assessment",
         "title": "Quiz questions",
         "visitContent": {
-            "label": "Home",
-            "text": "To go through the module again, select Home"
+            "label": "Revisit Learning",
+            "text": "To go through the module again, select "
         },
          "review": {
             "label": "Review responses",
-			"text": "To review the quiz questions and answers select Review Responses"
+			"text": "To review the quiz questions and answers select "
         },
         "tryAgain": {
             "label": "Try again",
-			"text": "To reattempt the quiz, select Try again "
+			"text": "To reattempt the quiz, select  "
 
         },
         "exitCourse": {
             "label": "Exit",
-			 "text": "To exit the module, select Exit"
+			 "text": "To exit the module, select "
         },
         "certificate": {
             "label": "Get Your Certificate!"
