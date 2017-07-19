@@ -18442,7 +18442,6 @@ var TopNav = React.createClass({
     onReplayClick: React.PropTypes.func,
     isMenuOpened: React.PropTypes.bool
   },
-
   getDoubleDigit: function getDoubleDigit(num) {
     return num > 9 ? num : '0' + num;
   },
