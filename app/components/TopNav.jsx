@@ -16,7 +16,13 @@ var TopNav = React.createClass ({
     isMenuOpened: React.PropTypes.bool
   },
   getDoubleDigit (num) {
-    return (num > 9) ? num : ('0'+num);
+
+    if(num > 9) {
+      console.log(num);
+        return num;
+    } else {
+      return ('0'+num);
+     }
 },
 
   render() {

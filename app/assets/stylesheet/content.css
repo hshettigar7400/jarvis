@@ -53,7 +53,7 @@ b {
     background: url("../../images/li_red.png") no-repeat scroll 0px 0px transparent;
     padding: 0px 0 0px 15px;
     margin-top: 7px;
-    line-height: 1.2;
+    line-height: 1;
   }
 
   .instruction ul li
@@ -1246,29 +1246,6 @@ figcaption {
   padding-bottom: 15px;
 }
 
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
-  .activity-condition span {
-    display: block;
-  }
-  .activity-condition {
-    background-color: #003650;
-    padding: 5px 30px;
-  }
-.drop-category span, .drop-container span
- .drag-element span {
-  width: 100%;
-text-align: center;
-}
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .activity-condition span {
-    display: block;
-  }
-  .activity-intro, .activity-feedback {
-    width: 100%;
-  }
-}
 
 .activity-condition {
     background-color: #003650;
@@ -1649,6 +1626,38 @@ text-align: center;
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+  .activity-condition span {
+    display: block;
+  }
+  .activity-condition {
+    background-color: #003650;
+    padding: 5px 30px;
+  }
+.drop-category span, .drop-container span
+ .drag-element span {
+  width: 100%;
+  text-align: center;
+}
+
+.activity-drop__container {
+    padding-top: 16px;
+    display: flex;
+    color: #333333;
+    width: 100%;
+}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .activity-condition span {
+    display: block;
+  }
+  .activity-intro, .activity-feedback {
+    width: 100%;
+  }
+}
+
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
   .m01_t01_p07 {
     overflow-y: auto;
   }
@@ -1672,9 +1681,9 @@ text-align: center;
     background-color: #0097e1;
     color: #ffffff;
     padding: 10px;
-    min-width: 80px;
+    min-width: 120px;
     max-width: 50px;
-    height: 60px;
+    height: 30px;
     z-index: 999999;
     cursor: move;
     font-weight: 600;
@@ -1687,9 +1696,14 @@ text-align: center;
     padding: 5px 10px;
   }
   .activity-score, .activity-timer {
-    background-color: #ee3124;
-    color: #fff;
-    padding: 0px 10px;
+    background-color: transparent;
+    color: #ee3124;
+    font-weight: bold;
+    padding: 0px 0px;
+  }
+
+  .activity-question span {
+      margin-bottom: 0px;
   }
   .drop-container {
     background-color: #47bbea;
@@ -1697,9 +1711,9 @@ text-align: center;
     margin-right: 20px;
     color: #fff;
     text-align: center;
-    min-width: 18%;
+    min-width: 21%;
     max-width: 23%;
-    height: 80px;
+    height: 50px;
     position: relative;
     font-weight: 600;
     display: flex;
@@ -1718,7 +1732,7 @@ text-align: center;
 
   .drop-container {
     float: left;
-    margin-left: 1%;
+    margin-left: 0%;
     margin-top: 15px;
   }
   .activity-drag__element {
@@ -1732,8 +1746,8 @@ text-align: center;
     width: 100%;
   }
   .proceed-button, .activity-nav-button {
-    top: 340px;
-    right: 10px;
+    top: 270px;
+    right: 25px;
   }
 }
 
@@ -1743,9 +1757,9 @@ text-align: center;
     background-color: #0097e1;
     color: #ffffff;
     padding: 10px;
-    min-width: 60px;
-    max-width: 70px;
-    height: 55px;
+    min-width: 130px;
+    max-width: 130px;
+    height: 40px;
     z-index: 999999;
     cursor: move;
     font-weight: 600;
@@ -1764,8 +1778,8 @@ text-align: center;
   }
   .proceed-button, .activity-nav-button {
     position: absolute;
-    right: 60px;
-    top: 450px;
+    top: 400px;
+    right: 15px;
     background: #0097e1;
     border: none;
     color: #fff;
@@ -1787,7 +1801,7 @@ text-align: center;
     margin-right: 0px;
     color: #fff;
     text-align: center;
-    min-width: 22%;
+    min-width: 45%;
     max-width: 10%;
     height: 60px;
     position: relative;
@@ -1802,7 +1816,7 @@ text-align: center;
   }
   .drop-container {
     float: left;
-    margin-left: 2%;
+    margin-left: 4%;
     margin-top: 15px;
   }
   .activity-drag__element {
@@ -1814,10 +1828,7 @@ text-align: center;
   .activity-option {
     padding: 0px;
   }
-  .proceed-button, .activity-nav-button {
-    top: 370px;
-    right: 10px;
-  }
+
 }
 
 
