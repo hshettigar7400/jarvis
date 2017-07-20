@@ -68,6 +68,7 @@ if(window.scormAdaptor_getlocation() == '' || window.scormAdaptor_getlocation() 
     <Instruction data={appData} />, document.getElementById('root')
   );
 } else {
+  debugger;
   ReactDOM.render(
     <Shell />, document.getElementById('root')
   );
