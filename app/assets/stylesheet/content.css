@@ -873,6 +873,7 @@ figcaption {
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
   .m01_t01_p04 .sub-page {
+    overflow: auto;
     height: 170vh;
     display: block;
   }
@@ -885,7 +886,7 @@ figcaption {
   .m01_t01_p04 .template-panel .image-holder div p {
     padding-top: 0%;
     position: relative;
-    top: -40px;
+    top: -65px;
   }
   .main_large_img {
     display: block;
@@ -904,7 +905,7 @@ figcaption {
   }
   .m01_t01_p04 .template-panel .image-holder .img1 img {
     width: 100%;
-    padding-top: 0%;
+    padding-top: 10%;
   }
   .main_large_img {
     display: block;
@@ -912,7 +913,7 @@ figcaption {
   .m01_t01_p04 .template-panel .image-holder div p {
     padding-top: 0%;
     position: relative;
-    top: -35px;
+    top: -47px;
   }
   .content-tab>span {
     width: 55%;
