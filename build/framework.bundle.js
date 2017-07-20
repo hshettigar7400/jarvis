@@ -22050,7 +22050,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var React = __webpack_require__(7);
 var Shell = __webpack_require__(87).default;
 
-
+var instructionSound = "";
 var Instruction = React.createClass({
   displayName: 'Instruction',
   getInitialState: function getInitialState() {
@@ -22075,12 +22075,11 @@ var Instruction = React.createClass({
     });
 
     preloader.addCompletionListener(function () {
-      soundManager.play();
       $('#html5Loader').css('display', 'none');
       self.setState({
         isLoading: false
       });
-      soundManager.createSound({
+      instructionSound = soundManager.createSound({
         url: '../app/assets/audio/course_instruction.mp3',
         autoLoad: true,
         autoPlay: true,
@@ -22097,6 +22096,7 @@ var Instruction = React.createClass({
   },
   playInstructionAudio: function playInstructionAudio() {
     $('.playAudioParent').hide();
+    instructionSound.play();
   },
   render: function render() {
     if (this.state.isStartCourse) {
@@ -23944,6 +23944,7 @@ window.reloadFromStart = function () {
 if (window.scormAdaptor_getlocation() == '' || window.scormAdaptor_getlocation() == null || window.scormAdaptor_getlocation() == undefined) {
   ReactDOM.render(React.createElement(Instruction, { data: appData }), document.getElementById('root'));
 } else {
+  debugger;
   ReactDOM.render(React.createElement(Shell, null), document.getElementById('root'));
 }
 

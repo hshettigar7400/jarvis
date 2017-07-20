@@ -1,7 +1,7 @@
 var React = require('react');
 var Shell = require('./Shell.jsx').default;
 import Preloader from 'preloader.js';
-
+var instructionSound = "";
 var Instruction = React.createClass ({
 
 getInitialState() {
@@ -29,12 +29,11 @@ componentDidMount() {
   });
 
   preloader.addCompletionListener(function () {
-    soundManager.play();
     $('#html5Loader').css('display', 'none');
     self.setState({
       isLoading: false
     });
-    soundManager.createSound({
+    instructionSound = soundManager.createSound({
       url: '../app/assets/audio/course_instruction.mp3',
       autoLoad: true,
       autoPlay: true,
@@ -53,7 +52,8 @@ startCourse() {
 },
 
 playInstructionAudio() {
-  $('.playAudioParent').hide()
+  $('.playAudioParent').hide();
+  instructionSound.play();
 },
 
 render() {
