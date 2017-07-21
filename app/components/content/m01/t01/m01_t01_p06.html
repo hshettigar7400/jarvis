@@ -13,10 +13,7 @@
   {
     display: none;
   }
-  .icon-close
-  {
-    display: none;
-  }
+
   .fadeIn {
     opacity: 1;
     transition: .5s;
@@ -398,10 +395,6 @@
     }
 
     .m01_t01_p06 .right-side {
-      position: absolute;
-      left: 5px;
-      right: 5px;
-      display: none;
       width: 90%;
       height: 100%;
       float: left;
@@ -471,13 +464,6 @@
       color: #000;
     }
 
-    .icon-close {
-      display: inline-block;
-      width: 30px;
-      color: #000;
-      font-size: 1em;
-      cursor: pointer;
-    }
   }
 
   @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
@@ -546,7 +532,7 @@
             <div class="right-side">
               <div id="popup1" class="popup-content">
                 <span class="buttonName">Kidney dialysis machines</span>
-                <span class="icon-close"></span>
+
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Replaces some kidney functions</li>
@@ -569,7 +555,7 @@
 
               <div id="popup2" class="popup-content">
                 <span class="buttonName">Respiratory</span>
-                <span class="icon-close">X</span>
+
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Detect/corrects respiratory interruptions</li>
@@ -590,7 +576,7 @@
 
               <div id="popup3" class="popup-content">
                 <span class="buttonName">Diagnostic/analytical Equipment</span>
-                <span class="icon-close">X</span>
+
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Provide data to:</li>
@@ -615,7 +601,7 @@
 
               <div id="popup4" class="popup-content">
                 <span class="buttonName">Hospital Hardware</span>
-                <span class="icon-close">X</span>
+
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Facilitate smooth hospital operations</li>
@@ -638,7 +624,6 @@
 
               <div id="popup5" class="popup-content">
                 <span class="buttonName">Dental Equipment</span>
-                <span class="icon-close">X</span>
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Facilitate smooth dental operations</li>
@@ -659,7 +644,6 @@
 
               <div id="popup6" class="popup-content">
                 <span class="buttonName">Surgical Instruments</span>
-                <span class="icon-close">X</span>
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Ensure patient safety</li>
@@ -683,7 +667,6 @@
 
               <div id="popup7" class="popup-content">
                 <span class="buttonName">Patient monitoring systems</span>
-                <span class="icon-close">X</span>
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Facilitate health monitoring</li>
@@ -709,7 +692,6 @@
 
               <div id="popup8" class="popup-content">
                 <span class="buttonName">Infusion pumps</span>
-                <span class="icon-close">X</span>
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Ensure delivery of fluids</li>
@@ -801,13 +783,8 @@
       },
       onfinish: function() {
         $(".button").removeClass('disabled');
-        $(".icon-close").removeClass('disabled');
         disableButtons();
 
-        $(".icon-close").click(function() {
-          $(".right-side").css({
-            'display': 'none'
-          });
         });
 
         if (count >= 8) {
@@ -817,7 +794,6 @@
       whileplaying: function() {
         $(".button").addClass('disabled');
         syncPageText(window.jarvisAudio.position, id);
-          $(".icon-close").addClass('disabled');
         $(".button").addClass('disabled');
         enableButtons();
         if (AudioComplete.indexOf(0) === -1) {

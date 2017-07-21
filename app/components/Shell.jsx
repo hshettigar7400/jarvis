@@ -16,7 +16,9 @@ var React = require('react'),
 
 
 var Shell = React.createClass ({
+
   getInitialState: function() {
+    //console.log('last location',window.scormAdaptor_getlocation());
     return {
       sidebarOpen: false,
       toolsMenuOpen: false,
@@ -24,7 +26,8 @@ var Shell = React.createClass ({
       transcriptVisible: false,
       isPause: false,
       isReplayed: false,
-      currentPageNumber: 1,
+      currentPageNumber: window.scormAdaptor_getlocation() !== null ? parseInt(window.scormAdaptor_getlocation()) : 1,
+      visibleResumePopup : window.scormAdaptor_getlocation() !== null ? true : false,
       volume: 100
     };
 
@@ -75,8 +78,8 @@ var Shell = React.createClass ({
 
         if(uagent.search("mobile") > -1)
         {
-          //$('.page-container').css('height', 'auto');
-          //$('.page-loader').css('height', 'auto');
+          $('.page-container').css({'height':'650px', 'overflow-y':'auto'});
+          $('.page-loader').css({'height':'650px'});
         }
         else {
           $('.page-container').css('height', contentHeight+'px');

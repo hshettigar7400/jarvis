@@ -15,7 +15,7 @@
   {
     overflow: hidden;
   }
-  
+
   #exitAlert
   {
     display: none;
@@ -99,7 +99,7 @@
     <script>
     var jarvisAudio;
     var qPoints = [];
-	var appType = 'standalone';
+	var appType = 'scorm';
     soundManager.setup({
       onready: function() {
         init();
@@ -109,8 +109,8 @@
 	window.onload = function () {
 	//console.log('appType: ', appType);
       if (appType != 'standalone') {
-        //scormAdaptor_getAPI();
-        //scormAdaptor_adlOnload();
+        scormAdaptor_getAPI();
+        scormAdaptor_adlOnload();
       }
     }
 
