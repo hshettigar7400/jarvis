@@ -70,8 +70,19 @@ var Shell = React.createClass ({
         var contentHeight = height - 65;
       else
         var contentHeight = height - 46;*/
-      $('.page-container').css('height', contentHeight+'px');
-      $('.page-loader').css('height', (contentHeight-40)+'px');
+
+        var uagent = navigator.userAgent.toLowerCase();
+
+        if(uagent.search("mobile") > -1)
+        {
+          //$('.page-container').css('height', 'auto');
+          //$('.page-loader').css('height', 'auto');
+        }
+        else {
+          $('.page-container').css('height', contentHeight+'px');
+          $('.page-loader').css('height', (contentHeight-40)+'px');
+        }
+
   },
 
   componentDidMount: function() {
