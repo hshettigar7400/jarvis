@@ -524,9 +524,9 @@ function Assessment() {
         str += '<div class="instruction">';
         str += '<ul>';
         if (totalQuestions == index) {
-            str += '<li data-index="' + ++tabindex + '" ><h3 >' + data.lastQuestion.text + '</h3></li>'
+            str += '<li data-index="' + ++tabindex + '" ><p>' + data.lastQuestion.text + '</p></li>'
         } else {
-            str += '<li data-index="' + ++tabindex + '" ><h3>' + element.instruction + '</h3></li>'
+            str += '<li data-index="' + ++tabindex + '" ><p>' + element.instruction + '</p></li>'
         }
         str += '</ul>';
         str += '</div>';

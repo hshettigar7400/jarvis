@@ -17,6 +17,7 @@
 .page-loader {
   height: 100%;
   z-index: 99;
+  overflow: auto;
 }
 
 .help-container > div:first-child {
@@ -31,7 +32,7 @@
 }
 
 .fadeIn {
-  opacity: 1;   
+  opacity: 1;
   transition: .5s;
 }
 

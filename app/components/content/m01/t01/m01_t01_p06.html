@@ -1,3 +1,5 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   .m01_t01_p06 .left-side {
     width: 33%;
@@ -88,7 +90,7 @@
     margin-bottom: 0;
     color: #fff;
     font-weight: normal;
-    font-size: 1.2em;
+    font-size: 1em;
   }
 
   .m01_t01_p06 .button {
@@ -108,6 +110,9 @@
     background-color: #EF3125;
   }
 
+  .m01_t01_p06 .button:visited{
+    background-color: #808080;
+  }
 
   .m01_t01_p06 .popup-container {
     background: #ECECEC;
@@ -381,9 +386,37 @@
       font-size: 1em;
       color: #000;
     }
+}
 
+  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+    .m01_t01_p06 .container {
+      width: 100%;
+    }
+    .m01_t01_p06 .left-side {
+      width: 35%;
+      display: inline-block;
+    }
 
+    .m01_t01_p06 .popup_first {
+    display: inline-block;
+    width: 60%;
   }
+    .m01_t01_p06 .right-side {
+      display: inline-block;
+      width: 61%;
+    }
+    .m01_t01_p06 .popup_second img {
+    border: 2px solid black;
+    width: 60%;
+    }
+    .m01_t01_p06 .popup_second {
+    display: inline-block;
+    width: 40%;
+  }
+  .m01_t01_p06 .img_caption {
+    font-size: 0.8em;
+  }
+}
 
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
 
@@ -464,21 +497,16 @@
       color: #000;
     }
 
+    .m01_t01_p06 .popup_second img {
+    border: 2px solid black;
+    width: 40%;
   }
 
-  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
-    .m01_t01_p06 .container {
-      width: 100%;
-    }
-    .m01_t01_p06 .left-side {
-      width: 35%;
-      display: inline-block;
-    }
+  }
 
-    .m01_t01_p06 .right-side {
-      display: inline-block;
-      width: 61%;
-    }
+
+  .popup-content {
+    padding: 0px 0;
   }
   .m01_t01_p06 .popup-content {
     display: none;
@@ -492,6 +520,7 @@
   .disabled {
     pointer-events: none;
   }
+
 </style>
 
 <div id="m01_t01_p06" class="page m01_t01_p06">
@@ -504,28 +533,28 @@
         <div class="flex-container">
           <div class="container">
             <div class="left-side">
-              <div class="button">
-                <a href="#" onclick="openPopup(this, 1, '../app/assets/audio/m01_t01_p06_02.mp3')">Kidney dialysis machines</a>
+              <div class="button" id="button_01">
+                <a href="#"  onclick="openPopup(this, 1, '../app/assets/audio/m01_t01_p06_02.mp3')">Kidney dialysis machines</a>
               </div>
-              <div class="button">
+              <div class="button" id="button_02">
                 <a href="#" onclick="openPopup(this, 2, '../app/assets/audio/m01_t01_p06_03.mp3')">Respiratory</a>
               </div>
-              <div class="button">
+              <div class="button" id="button_03">
                 <a href="#" onclick="openPopup(this, 3, '../app/assets/audio/m01_t01_p06_04.mp3')">Diagnostic/analytical equipment</a>
               </div>
-              <div class="button">
+              <div class="button" id="button_04">
                 <a href="#" onClick="openPopup(this, 4, '../app/assets/audio/m01_t01_p06_05.mp3')">Hospital hardware</a>
               </div>
-              <div class="button">
+              <div class="button" id="button_05">
                 <a href="#" onclick="openPopup(this, 5, '../app/assets/audio/m01_t01_p06_06.mp3')">Dental equipment</a>
               </div>
-              <div class="button">
+              <div class="button" id="button_06">
                 <a href="#" onclick="openPopup(this, 6, '../app/assets/audio/m01_t01_p06_07.mp3')">Surgical instruments</a>
               </div>
-              <div class="button">
+              <div class="button" id="button_07">
                 <a href="#" onclick="openPopup(this, 7, '../app/assets/audio/m01_t01_p06_08.mp3')">Patient monitoring systems</a>
               </div>
-              <div class="button">
+              <div class="button" id="button_08">
                 <a href="#" onclick="openPopup(this, 8, '../app/assets/audio/m01_t01_p06_09.mp3')">Infusion pumps</a>
               </div>
             </div>
@@ -692,6 +721,7 @@
 
               <div id="popup8" class="popup-content">
                 <span class="buttonName">Infusion pumps</span>
+
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Ensure delivery of fluids</li>
@@ -733,13 +763,24 @@
   var qPoint_Pop1 = [];
   var AudioComplete = [0, 0, 0, 0, 0, 0, 0, 0];
   var buttonName = "";
+  var clickedButtons = [];
   function openPopup(e, id, path) {
     $(".right-side").css('display', 'block');
     AudioComplete[id - 1] = 1;
+
     count++;
     currentCuePointId = 0;
     fadeOutAll();
 
+    var current_button = $(event.target).parent().attr('id');
+    clickedButtons.push(current_button);
+    console.log(clickedButtons);
+    for(i = 0; i < clickedButtons.length; i++)
+    {
+    $('#'+clickedButtons[i-1]).css('background-color','#808080');
+    }
+
+    $("#button_0"+id).css('background-color','#EF3125');
     switch (id) {
       case 1:
         qPoint_Pop1 = [0, 3, 9, 10, 12, 14, 16, 17, 18];
@@ -784,17 +825,13 @@
       onfinish: function() {
         $(".button").removeClass('disabled');
         disableButtons();
-
-        });
-
         if (count >= 8) {
-          document.querySelector('.next-button').classList.add("blinker");
+        document.querySelector('.next-button').classList.add("blinker");
         }
       },
       whileplaying: function() {
         $(".button").addClass('disabled');
         syncPageText(window.jarvisAudio.position, id);
-        $(".button").addClass('disabled');
         enableButtons();
         if (AudioComplete.indexOf(0) === -1) {
           document.querySelector('.next-button').classList.add("blinker");
@@ -826,7 +863,6 @@
         }
         if (qPointsExecution && qPointsExecution[currentCuePointId]) {
           eval(qPointsExecution[currentCuePointId]);
-
         }
         currentCuePointId++;
 
@@ -865,4 +901,6 @@
     if (document.getElementById('button-audio'))
       document.getElementById('button-audio').classList.remove("disabled");
   }
+
+
 </script>

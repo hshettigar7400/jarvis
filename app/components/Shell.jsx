@@ -18,17 +18,20 @@ var React = require('react'),
 var Shell = React.createClass ({
 
   getInitialState: function() {
+    var uagent = navigator.userAgent.toLowerCase();
     //console.log('last location',window.scormAdaptor_getlocation());
     return {
+      currentPageAudio: "",
       sidebarOpen: false,
       toolsMenuOpen: false,
       isHelpDockOpen: false,
       transcriptVisible: false,
       isPause: false,
       isReplayed: false,
-      currentPageNumber: window.scormAdaptor_getlocation() !== null ? parseInt(window.scormAdaptor_getlocation()) : 1,
-      visibleResumePopup : window.scormAdaptor_getlocation() !== null ? true : false,
-      volume: 100
+      currentPageNumber: window.scormAdaptor_getlocation() !== '' ? parseInt(window.scormAdaptor_getlocation()) : 1,
+      visibleResumePopup : window.scormAdaptor_getlocation() !== '' ? true : false,
+      volume: 100,
+      isMobile: uagent.search("mobile") > -1 ? true : false,
     };
 
   },
@@ -75,17 +78,18 @@ var Shell = React.createClass ({
         var contentHeight = height - 46;*/
 
         var uagent = navigator.userAgent.toLowerCase();
+      
 
         if(uagent.search("mobile") > -1)
         {
-          $('.page-container').css({'height':'650px', 'overflow-y':'auto'});
-          $('.page-loader').css({'height':'650px'});
+          var deviceHeight = window.innerHeight;
+          $('.page-container').css({'height': (deviceHeight - 40), 'overflow-y':'auto'});
+          //$('.page-loader').css({'height':'100%'});
         }
         else {
           $('.page-container').css('height', contentHeight+'px');
           $('.page-loader').css('height', (contentHeight-40)+'px');
         }
-
   },
 
   componentDidMount: function() {
@@ -298,7 +302,21 @@ var Shell = React.createClass ({
     </div>
     )
   },
-
+  playInstructionAudio() {
+    $('.playAudioParent').hide();
+    instructionSound.play();
+  },
+  showAutoPlay()
+  {
+    return(
+    <div className="playAudioParent">
+      <div className="playBlinkBlack"></div>
+      <div className="playBlink" onClick={this.playAudio.bind(null, this)}>
+           <a className="button-autoPlay" href="#"></a>
+      </div>
+    </div>
+)
+  },
   resumePopup()
   {
     return(
@@ -330,13 +348,18 @@ var Shell = React.createClass ({
     )
 
   },
-
+  playAudio()
+  {
+    $('.playAudioParent').hide();
+    loadAudio(this.state.currentPageNumber);
+  },
   render() {
     return (
       <div className="shell-container" style={{position: 'relative'}}>
       {this.renderUI()}
       {this.state.visibleResumePopup && this.resumePopup()}
       {this.state.transcriptVisible && this.showTranscript()}
+      {this.state.isMobile && this.showAutoPlay()}
 
       </div>
     )

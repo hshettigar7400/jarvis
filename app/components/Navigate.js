@@ -18,7 +18,7 @@ function loadPage(pageNumber) {
     if (document.querySelector('.back-button'))
       document.querySelector('.back-button').classList.remove("disabled");
   }
-  $(".page-number").html(pageNumber);
+  $(".page-number").html(getDoubleDigit(pageNumber));
   if (document.querySelector('.next-button'))
     document.querySelector('.next-button').classList.remove("blinker");
   if (document.querySelector('#button-audio')) {
@@ -44,7 +44,14 @@ function loadTranscript() {
 function loadMenu() {
 
 }
+function getDoubleDigit (num) {
 
+  if(num > 9) {
+      return num;
+  } else {
+    return ("0"+num);
+   }
+}
 
 module.exports = {
   loadPage,

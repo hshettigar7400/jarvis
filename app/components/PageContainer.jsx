@@ -193,6 +193,7 @@ var PageContainer = React.createClass ({
         </div>
         <div ref="pageLoader" className="page-loader">
         </div>
+        <div className="downArrow"><span className="fa fa-angle-double-down"></span></div>
       </div>
     )
   }
