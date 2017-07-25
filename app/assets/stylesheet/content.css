@@ -800,7 +800,7 @@ b {
 .m01_t01_p04 .template-panel .image-holder {
   width: 100%;
   height: 100%;
-  margin-top: 10px;
+  margin-top: -20px;
 }
 
 .m01_t01_p04 .template-panel .image-holder .img1 {
@@ -1050,7 +1050,7 @@ b {
     width: 70%;
   }
   .m01_t01_p04 .image-container, .m01_t01_p04 .image-container>div {
-    top: 0px;
+    top: 25px;
   }
   .m01_t01_p04 .image-container2>div:not(:first-child) {
     padding-top: 10px;
@@ -1065,7 +1065,7 @@ b {
     margin-left: 25px;
   }
   .m01_t01_p04 .image-container4>div {
-    top: 0px;
+    top: 25px;
     height: 150px;
   }
   .m01_t01_p04 .image-container>div img {
@@ -1080,7 +1080,7 @@ b {
   }
   .content-tab>.span {
     vertical-align: middle;
-    font-size: 1.25em;
+    font-size: 1em;
     color: #ffffff;
     display: inline-block;
     width: 70%;
@@ -1938,7 +1938,7 @@ b {
     width: 100%;
   }
   .proceed-button, .activity-nav-button {
-    top: 72%;
+    top: 73%;
     right: 25px;
   }
 }
@@ -2182,7 +2182,8 @@ b {
 }
 
 .final-assessment .question-page .options {
-  margin-top: 0
+  margin-top: 0;
+  margin-left: 20px;
 }
 
 .final-assessment .next-back-container {
@@ -2388,21 +2389,21 @@ b {
     width: 50%;
   }
   .final-assessment .next-back-container>div:last-child {
-    padding-left: 10px;
+    padding-left: 5px;
   }
   .final-assessment .assessBg {}
   .final-assessment .feedbackQuestion {
     padding: 0 25px;
   }
   .final-assessment .headerIntro, .final-assessment .contentIntro, .final-assessment .question-page .question {
-    padding-left: 25px;
+    padding-left: 20px;
     padding-right: 125px;
   }
   .final-assessment .start-page a {
     margin-left: 25px;
   }
   .final-assessment .end-page .buttons, .final-assessment .text-content, .final-assessment .end-page .text-content-header, .final-assessment .next-back-container, .assessment .question-page ul>li>a {
-    padding-left: 25px;
+    padding-left: 75px;
   }
   .final-assessment .start-page {
     background: url(../../images/assessmentBg.png) no-repeat scroll right bottom #083451;
@@ -2852,5 +2853,6 @@ b {
   }
   .assessment .question-page ul>li>p {
     padding: 0em 1em 0.45em 1.2em;
+    width: 90%;
   }
 }

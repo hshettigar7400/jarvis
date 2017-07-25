@@ -300,7 +300,7 @@ function Assessment() {
             $(".page-loader").empty();
             $(".page-loader").load('components/content/m01/t01/m01_t01_p01.html');
             $(".page-number").html(01);
-			$(".page-title").html(topicNamesArray[0]);
+			      $(".page-title").html(topicNamesArray[0]);
 
             $.getJSON( "../app/assets/data/transcript.json", function( data ) {
                 $(".transcript-text-container").html(data.transcript[0].text)

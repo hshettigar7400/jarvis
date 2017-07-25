@@ -17,7 +17,7 @@
 .page-loader {
   height: 100%;
   z-index: 99;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .help-container > div:first-child {
@@ -64,4 +64,20 @@
 
 .hide {
   display: none;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+.page-loader {
+  height: 100%;
+  z-index: 99;
+  overflow: auto;
+}
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+  .page-loader {
+    height: 100%;
+    z-index: 99;
+    overflow: auto;
+  }
 }
