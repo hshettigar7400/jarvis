@@ -18,7 +18,9 @@ function loadPage(pageNumber) {
     if (document.querySelector('.back-button'))
       document.querySelector('.back-button').classList.remove("disabled");
   }
-  $(".page-number").html(getDoubleDigit(pageNumber));
+
+  //alert(pageNumber);
+  //$(".page-number").html(getDoubleDigit(pageNumber));
   if (document.querySelector('.next-button'))
     document.querySelector('.next-button').classList.remove("blinker");
   if (document.querySelector('#button-audio')) {

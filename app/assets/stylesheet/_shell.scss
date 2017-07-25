@@ -1,6 +1,4 @@
-
-.overlay
-{
+.overlay {
   background-color: #000;
   position: absolute;
   width: 100%;
@@ -9,64 +7,68 @@
   opacity: 0.5;
 }
 
-.exit-alert
-{
-position: absolute;
-top: 430%;
-left: 0;
-right: 0;
-width: 300px;
-margin: auto;
-padding: 5px;
-z-index: 99999;
+.downArrow {
+  display: none;
+  position: fixed;
+  background-color: aquamarine;
+  width: 50px;
+  height: 50px;
+  color: #cc0707;
+  bottom: 30px;
+  right: 30px;
 }
 
-.popup-content
-{
-text-align: center;
-    padding: 20px 0;
+.exit-alert {
+  position: absolute;
+  top: 430%;
+  left: 0;
+  right: 0;
+  width: 300px;
+  margin: auto;
+  padding: 5px;
+  z-index: 99999;
 }
-.popup-header
-{
-padding: 10px;
+
+.popup-content {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.popup-header {
+  padding: 10px;
   background-color: #ee3124;
 }
 
-.popup-area
-{
-background-color: #D3D4D4;
-display: block;
+.popup-area {
+  background-color: #D3D4D4;
+  display: block;
   text-align: center;
   padding: 0 35px;
 }
 
-.warning-msg
-{
-margin: 0;
-color: #000;
+.warning-msg {
+  margin: 0;
+  color: #000;
 }
 
-.popup-buttons
-{
- text-align: center;
+.popup-buttons {
+  text-align: center;
 }
-.popup-buttons div
-{
-display: inline-block;
-width: 100px;
+
+.popup-buttons div {
+  display: inline-block;
+  width: 100px;
 }
-.popup-yes-button, .popup-no-button
-{
-display: block;
+
+.popup-no-button,
+.popup-yes-button {
+  display: block;
   margin: 10px;
   padding: 5px 10px;
   width: 60px;
   background-color: #1792e5;
   color: #FFF;
-
-
 }
-
 
 body {
   margin: 0 auto;
@@ -76,7 +78,6 @@ body {
   font-weight: 300;
   overflow: auto;
 }
-
 
 #root {
   overflow: hidden;
@@ -105,12 +106,12 @@ body {
 }
 
 .courseProgress span {
-    width: 0%;
-    background: rgb(238, 49, 36);
-    height: 4px;
-    display: block;
-    color: #000;
-    text-align: center;
+  width: 0;
+  background: rgb(238, 49, 36);
+  height: 4px;
+  display: block;
+  color: #000;
+  text-align: center;
 }
 
 .title-holder {
@@ -119,25 +120,23 @@ body {
   font-weight: 700;
   height: 100%;
   font-size: 1.3em;
-
 }
 
+.close_btn {
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  color: #000 !important;
+  font-size: 20px;
+  cursor: pointer;
+}
 
-  .close_btn
-  {
-    position: absolute;
-    right: 25px;
-    top: 20px;
-    color: #000 !important;
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-.close_btn:hover, icon-close:hover
-{
+.close_btn:hover,
+icon-close:hover {
   color: #ee3124 !important;
 }
-.title-holder>div {
+
+.title-holder > div {
   display: table-cell;
   padding: 0 10px;
   vertical-align: middle;
@@ -145,10 +144,10 @@ body {
 
 .course-logo {
   float: left;
-  img
-  {
-  width: 80%;
-  margin: 5px;
+
+  img {
+    width: 80%;
+    margin: 5px;
   }
 }
 
@@ -165,7 +164,7 @@ body {
 
 .page-title__container .topic-title {
   color: #C1C6C9;
-  padding: 10px 5px 0 5px;
+  padding: 10px 5px 0;
   display: inline-block;
 }
 
@@ -178,10 +177,8 @@ body {
   padding-top: 8px;
   padding-bottom: 5px;
 }
-.page-loader {
 
-}
-
+.page-loader {}
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   .page-title__container {
     line-height: 18px;

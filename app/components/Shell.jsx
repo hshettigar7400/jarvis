@@ -78,7 +78,7 @@ var Shell = React.createClass ({
         var contentHeight = height - 46;*/
 
         var uagent = navigator.userAgent.toLowerCase();
-      
+
 
         if(uagent.search("mobile") > -1)
         {

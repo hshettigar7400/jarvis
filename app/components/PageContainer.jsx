@@ -1,5 +1,4 @@
 var React = require('react'),
-
 {loadPage} = require('../components/Navigate.js'),
 {loadAudio} = require('../assets/scripts/AudioManager.js'),
 $ = require('jquery');
@@ -179,6 +178,7 @@ var PageContainer = React.createClass ({
     //  return false;
   },
 */
+
   render() {
 
     let audioPath = "../app/assets/audio/m01_t01_p0"+this.props.PageNum+".mp3";
@@ -193,10 +193,11 @@ var PageContainer = React.createClass ({
         </div>
         <div ref="pageLoader" className="page-loader">
         </div>
-        <div className="downArrow"><span className="fa fa-angle-double-down"></span></div>
+        <div className="downArrow"><span className="fa fa-angle-double-down">Go down</span></div>
       </div>
     )
   }
+
 });
 
 export default PageContainer;

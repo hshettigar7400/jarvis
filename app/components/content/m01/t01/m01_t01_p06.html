@@ -1,4 +1,3 @@
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   .m01_t01_p06 .left-side {
@@ -9,11 +8,6 @@
 
   .fadeOut {
     opacity: 0;
-  }
-
-  .buttonName
-  {
-    display: none;
   }
 
   .fadeIn {
@@ -110,7 +104,7 @@
     background-color: #EF3125;
   }
 
-  .m01_t01_p06 .button:visited{
+  .m01_t01_p06 .button:visited {
     background-color: #808080;
   }
 
@@ -165,6 +159,10 @@
 
   .m01_t01_p06 .popup_second img {
     border: 2px solid black;
+  }
+
+  .popup-content {
+    padding: 0px 0;
   }
 
   @media only screen and (max-device-width: 1024px) and (orientation: landscape) {
@@ -386,11 +384,14 @@
       font-size: 1em;
       color: #000;
     }
-}
+  }
 
   @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
     .m01_t01_p06 .container {
       width: 100%;
+    }
+    .popup-content {
+      padding: 10px 0;
     }
     .m01_t01_p06 .left-side {
       width: 35%;
@@ -398,29 +399,31 @@
     }
 
     .m01_t01_p06 .popup_first {
-    display: inline-block;
-    width: 60%;
-  }
+      display: inline-block;
+      width: 60%;
+    }
     .m01_t01_p06 .right-side {
       display: inline-block;
       width: 61%;
     }
     .m01_t01_p06 .popup_second img {
-    border: 2px solid black;
-    width: 60%;
+      border: 2px solid black;
+      width: 60%;
     }
     .m01_t01_p06 .popup_second {
-    display: inline-block;
-    width: 40%;
+      display: inline-block;
+      width: 40%;
+    }
+    .m01_t01_p06 .img_caption {
+      font-size: 0.8em;
+    }
   }
-  .m01_t01_p06 .img_caption {
-    font-size: 0.8em;
-  }
-}
 
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
 
-
+    .popup-content {
+      padding: 10px 0;
+    }
     .m01_t01_p06 .left-side {
       width: 90%;
       display: block;
@@ -468,16 +471,6 @@
       opacity: 1;
       padding-bottom: 2%;
     }
-    .buttonName
-    {
-      color: #000;
-      font-size: 1em;
-      font-weight: bold;
-      display: inline-block;
-      width: 85%;
-      margin: auto;
-    }
-
     .m01_t01_p06 .popup_first {
       display: block;
       width: 90%;
@@ -498,16 +491,11 @@
     }
 
     .m01_t01_p06 .popup_second img {
-    border: 2px solid black;
-    width: 40%;
+      border: 2px solid black;
+      width: 40%;
+    }
   }
 
-  }
-
-
-  .popup-content {
-    padding: 0px 0;
-  }
   .m01_t01_p06 .popup-content {
     display: none;
     text-align: left;
@@ -520,7 +508,6 @@
   .disabled {
     pointer-events: none;
   }
-
 </style>
 
 <div id="m01_t01_p06" class="page m01_t01_p06">
@@ -534,7 +521,7 @@
           <div class="container">
             <div class="left-side">
               <div class="button" id="button_01">
-                <a href="#"  onclick="openPopup(this, 1, '../app/assets/audio/m01_t01_p06_02.mp3')">Kidney dialysis machines</a>
+                <a href="#" onclick="openPopup(this, 1, '../app/assets/audio/m01_t01_p06_02.mp3')">Kidney dialysis machines</a>
               </div>
               <div class="button" id="button_02">
                 <a href="#" onclick="openPopup(this, 2, '../app/assets/audio/m01_t01_p06_03.mp3')">Respiratory</a>
@@ -560,7 +547,7 @@
             </div>
             <div class="right-side">
               <div id="popup1" class="popup-content">
-                <span class="buttonName">Kidney dialysis machines</span>
+
 
                 <div class="popup_first">
                   <ul class="bold">
@@ -583,7 +570,7 @@
               </div>
 
               <div id="popup2" class="popup-content">
-                <span class="buttonName">Respiratory</span>
+
 
                 <div class="popup_first">
                   <ul class="bold">
@@ -604,8 +591,6 @@
               </div>
 
               <div id="popup3" class="popup-content">
-                <span class="buttonName">Diagnostic/analytical Equipment</span>
-
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Provide data to:</li>
@@ -629,8 +614,6 @@
               </div>
 
               <div id="popup4" class="popup-content">
-                <span class="buttonName">Hospital Hardware</span>
-
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Facilitate smooth hospital operations</li>
@@ -652,7 +635,6 @@
               </div>
 
               <div id="popup5" class="popup-content">
-                <span class="buttonName">Dental Equipment</span>
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Facilitate smooth dental operations</li>
@@ -672,7 +654,6 @@
               </div>
 
               <div id="popup6" class="popup-content">
-                <span class="buttonName">Surgical Instruments</span>
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Ensure patient safety</li>
@@ -695,7 +676,7 @@
               </div>
 
               <div id="popup7" class="popup-content">
-                <span class="buttonName">Patient monitoring systems</span>
+
                 <div class="popup_first">
                   <ul class="bold">
                     <li class="animate fadeOut sync2">Facilitate health monitoring</li>
@@ -720,7 +701,6 @@
               </div>
 
               <div id="popup8" class="popup-content">
-                <span class="buttonName">Infusion pumps</span>
 
                 <div class="popup_first">
                   <ul class="bold">
@@ -762,8 +742,8 @@
   var count = 0;
   var qPoint_Pop1 = [];
   var AudioComplete = [0, 0, 0, 0, 0, 0, 0, 0];
-  var buttonName = "";
   var clickedButtons = [];
+
   function openPopup(e, id, path) {
     $(".right-side").css('display', 'block');
     AudioComplete[id - 1] = 1;
@@ -775,12 +755,11 @@
     var current_button = $(event.target).parent().attr('id');
     clickedButtons.push(current_button);
     console.log(clickedButtons);
-    for(i = 0; i < clickedButtons.length; i++)
-    {
-    $('#'+clickedButtons[i-1]).css('background-color','#808080');
+    for (i = 0; i < clickedButtons.length; i++) {
+      $('#' + clickedButtons[i - 1]).css('background-color', '#808080');
     }
 
-    $("#button_0"+id).css('background-color','#EF3125');
+    $("#button_0" + id).css('background-color', '#EF3125');
     switch (id) {
       case 1:
         qPoint_Pop1 = [0, 3, 9, 10, 12, 14, 16, 17, 18];
@@ -826,16 +805,17 @@
         $(".button").removeClass('disabled');
         disableButtons();
         if (count >= 8) {
-        document.querySelector('.next-button').classList.add("blinker");
+          document.querySelector('.next-button').classList.add("blinker");
+        }
+        if (AudioComplete.indexOf(0) === -1) {
+          document.querySelector('.next-button').classList.add("blinker");
         }
       },
       whileplaying: function() {
         $(".button").addClass('disabled');
         syncPageText(window.jarvisAudio.position, id);
         enableButtons();
-        if (AudioComplete.indexOf(0) === -1) {
-          document.querySelector('.next-button').classList.add("blinker");
-        }
+
       },
 
     });
@@ -901,6 +881,4 @@
     if (document.getElementById('button-audio'))
       document.getElementById('button-audio').classList.remove("disabled");
   }
-
-
 </script>

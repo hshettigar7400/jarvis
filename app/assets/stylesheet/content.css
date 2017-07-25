@@ -23,10 +23,7 @@ body {
   font-weight: 300;
 }
 
-.downArrow
-{
-  display: none;
-}
+
 .page .intro-text {
   padding-top: 15px;
 }
@@ -55,12 +52,12 @@ b {
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   .page ul li {
     background: url("../../images/li_red.png") no-repeat scroll 0px 0px transparent;
-    padding: 0px 0 0px 15px;
+    padding: 0px 0 5px 15px;
     margin-top: 7px;
     line-height: 1;
   }
   .instruction ul li {
-    padding: 0px 0 0px 5px;
+    padding: 0px 0 0px 0px;
   }
   .assessment .question-page ul>li>a, .assessment .question-page ul>li>h2, .assessment .question-page ul>li>h3 {
     padding: 0em 1em 0.45em 0.7em;
@@ -464,6 +461,7 @@ b {
   .m01_t01_p02 .img1 img {
     max-width: 70%;
     padding-bottom: 20px;
+    padding-top: 10px;
   }
   .m01_t01_p02 .img1 {
     max-width: 50%;
@@ -699,10 +697,21 @@ b {
   .m01_t01_p03 .template-panel {
     padding: 5px 0 0 0px;
   }
+
+  .m01_t01_p03 {
+    padding-bottom: 55px;
+}
+
   .m01_t01_p03 .template-horizontal-tab .tab-content {
     height: 250px;
     width: 100%;
   }
+  .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab {
+    margin-left: 3%;
+  }
+  .m01_t01_p03 .template-panel .instruction {
+    margin-left: 15px;
+}
   .m01_t01_p03 .template-panel .template-holder {
     display: flex;
   }
@@ -741,14 +750,15 @@ b {
     border-top: none;
   }
   .m01_t01_p03 .template-horizontal-tab .tab-content {
-    width: 95%;
+    width: 318px;
     height: 200px;
   }
   .m01_t01_p03 .template-horizontal-tab .tab-content .tab-data {
-    margin-left: 4%;
+    margin-left: 3.5%;
   }
   .m01_t01_p03 .template-panel .image-holder div img {
     width: 100%;
+    padding: 5px;
   }
   .page {
     padding: 6px 25px 0px 10px;
@@ -1255,10 +1265,6 @@ b {
 }
 
 @media all and (max-width: 680px) {
-  .m01_t01_p05 .content-area p:first-child{
-    margin-left: 10px;
-  }
-
   .m01_t01_p05 .template-panel .content-area .part-1 {
     width: 100%;
     padding-left: 30px;
@@ -1386,7 +1392,7 @@ b {
   background-color: #e1f4fb;
   margin: 0;
   padding: 0;
-  padding-bottom: 25px;
+  height: 100%;
 }
 
 #dropHere {
@@ -1507,7 +1513,7 @@ b {
 }
 
 .activity-score, .activity-timer {
-  background-color: #ee3124;
+  background-color: #000000;
   color: #fff;
   padding: 10px;
   margin-right: 10px;
@@ -1556,7 +1562,8 @@ b {
 
 .drag-element {
   margin-top: 10px;
-  background-color: #0097e1;
+  /* background-color: #0097e1; */
+  background-color: #333;
   color: #ffffff;
   padding: 10px;
   min-width: 180px;
@@ -1579,7 +1586,8 @@ b {
 }
 
 .drop-container {
-  background-color: #47bbea;
+  /* background-color: #47bbea; */
+  background-color: #0097e1;
   padding: 10px;
   margin-right: 10px;
   color: #fff;
@@ -1856,7 +1864,7 @@ b {
     width: 80%;
     height: 440px;
     margin: 0 auto;
-    overflow: auto;
+    overflow-x: hidden;
   }
   .activity-holder {
     overflow-x: hidden;
@@ -1864,12 +1872,11 @@ b {
   }
   .drag-element {
     margin-top: 10px;
-    background-color: #0097e1;
     color: #ffffff;
     padding: 10px;
-    min-width: 105px;
+    min-width: 120px;
     max-width: 50px;
-    height: 30px;
+    height: 40px;
     z-index: 999999;
     cursor: move;
     font-weight: 600;
@@ -1891,14 +1898,13 @@ b {
     margin-bottom: 0px;
   }
   .drop-container {
-    background-color: #47bbea;
-    padding: 0px;
-    margin-right: 20px;
+    padding: 5px;
+    margin-right: 5px;
     color: #fff;
     text-align: center;
-    min-width: 20%;
+    min-width: 21%;
     max-width: 23%;
-    height: 50px;
+    height: 60px;
     position: relative;
     font-weight: 600;
     display: flex;
@@ -1915,8 +1921,11 @@ b {
   }
   .drop-container {
     float: left;
-    margin-left: 2px;
+    margin-left: 1%;
     margin-top: 15px;
+  }
+  .drop-container:hover{
+    background-color: red;
   }
   .activity-drag__element {
     padding: 0px;
@@ -1929,7 +1938,7 @@ b {
     width: 100%;
   }
   .proceed-button, .activity-nav-button {
-    top: 75%;
+    top: 72%;
     right: 25px;
   }
 }
@@ -1937,7 +1946,6 @@ b {
 @media all and (max-device-width: 480px) and (orientation: portrait) {
   .drag-element {
     margin-top: 10px;
-    background-color: #0097e1;
     color: #ffffff;
     padding: 10px;
     min-width: 110px;
@@ -1973,12 +1981,9 @@ b {
     padding: 5px 10px;
   }
   .activity-score, .activity-timer {
-    background-color: #ee3124;
-    color: #fff;
     padding: 0px 10px;
   }
   .drop-container {
-    background-color: #47bbea;
     padding: 0px;
     margin-right: 0px;
     color: #fff;
@@ -2014,7 +2019,7 @@ b {
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   .m01_t01_p07 {
-    height: 500px;
+    height: 100%;
   }
   .activity-condition span {
     display: block;
@@ -2033,7 +2038,7 @@ b {
   }
   .error_msg {
     display: inline-block;
-    width: 90%;
+    width: 89%;
   }
 }
 
@@ -2151,7 +2156,7 @@ b {
 
 .final-assessment .question-page .question {
   background-color: #FFF;
-  padding: 5px 15px 5px 15px;
+  padding: 5px 15px 5px 5px;
 }
 
 .final-assessment .question-page .question li:last-child {
