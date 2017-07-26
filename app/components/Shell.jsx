@@ -142,6 +142,7 @@ var Shell = React.createClass ({
     var pageId = e.currentTarget.dataset.pageId;
     this.setState({currentPageNumber: parseInt(pageId)});
     this.setState({sidebarOpen: !this.state.sidebarOpen});
+    //loadPage(this.state.currentPageNumber);
     console.log("Clicked",  parseInt(pageId));
   },
 

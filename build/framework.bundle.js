@@ -7922,6 +7922,7 @@ var Shell = React.createClass({
     var pageId = e.currentTarget.dataset.pageId;
     this.setState({ currentPageNumber: parseInt(pageId) });
     this.setState({ sidebarOpen: !this.state.sidebarOpen });
+    //loadPage(this.state.currentPageNumber);
     console.log("Clicked", parseInt(pageId));
   },
   clickOpenHelpDock: function clickOpenHelpDock() {
@@ -23706,7 +23707,7 @@ function loadPage(pageNumber) {
   }
 
   //alert(pageNumber);
-  $(".page-number").html(getDoubleDigit(pageNumber));
+  //$(".page-number").html(getDoubleDigit(pageNumber));
   if (document.querySelector('.next-button')) document.querySelector('.next-button').classList.remove("blinker");
   if (document.querySelector('#button-audio')) {
     document.querySelector('#button-audio').classList.remove("disabled");

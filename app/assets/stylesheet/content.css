@@ -1837,6 +1837,10 @@ b {
   .m01_t01_p07 {
     height: 500px;
   }
+  .error_msg {
+    display: inline-block;
+    width: 90%;
+  }
   .activity-condition span {
     display: block;
   }

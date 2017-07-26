@@ -20,7 +20,7 @@ function loadPage(pageNumber) {
   }
 
   //alert(pageNumber);
-  $(".page-number").html(getDoubleDigit(pageNumber));
+  //$(".page-number").html(getDoubleDigit(pageNumber));
   if (document.querySelector('.next-button'))
     document.querySelector('.next-button').classList.remove("blinker");
   if (document.querySelector('#button-audio')) {

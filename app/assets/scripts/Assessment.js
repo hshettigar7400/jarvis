@@ -306,9 +306,9 @@ function Assessment() {
                 $(".transcript-text-container").html(data.transcript[0].text)
             });
 
-			$.getJSON( "../app/assets/data/menu.json", function( data ) {
-                $(".transcript-text-container").html(data.menu[0].text)
-            });
+			//$.getJSON( "../app/assets/data/menu.json", function( data ) {
+        //        $(".transcript-text-container").html(data.menu[0].text)
+          //  });
             document.querySelector('.next-button').classList.remove("disabled");
             soundManager.stopAll();
             document.querySelector('.back-button').classList.add("disabled");
