@@ -404,7 +404,15 @@ $(".drop-container").droppable({
 });
 
 $(window).on("orientationchange",function(){
-  
+  if(currentActivityNumber > 1) {
+    $(".activity-slider").css('left', '0px');
+    setTimeout(function () {
+      var newLeft = -($(".activity-option").outerWidth(true)) * (currentActivityNumber-1);
+      if(currentActivityNumber !== dragOption.length) {
+        $(".activity-slider").css('left', newLeft+'px');
+      }
+    }, 300)
+  }
 }).trigger('orientationchange');
 
 function loadNextActivity() {
@@ -412,6 +420,8 @@ function loadNextActivity() {
   //$('.dragImg').css("background-color", "#0097e1");
   $('.dragImg').css("background-color", "#333 ");
   $(".proceed-button").hide();
+  //alert('innext: '+$(".activity-slider").css('left'));
+
   var newLeft = -(($(".activity-option").outerWidth(true)) * currentActivityNumber);
   if(currentActivityNumber !== dragOption.length) {
     $(".activity-slider").stop(true).animate({
