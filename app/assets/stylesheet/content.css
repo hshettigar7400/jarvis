@@ -1506,6 +1506,7 @@ b {
   display: block;
   padding: 20px;
   position: relative;
+  width: 100%;
 }
 
 .activity-question span {
@@ -1557,6 +1558,7 @@ b {
   }
   .activity-option {
     display: inline-table;
+    width: 100%;
   }
 }
 
@@ -1621,13 +1623,22 @@ b {
   position: absolute;
   right: 60px;
   top: 430px;
-  ;
   background: #0097e1;
   border: none;
   color: #fff;
   padding: 10px 30px;
   font-size: 1em;
   cursor: pointer;
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+  .proceed-button, .activity-nav-button {
+    right: 105px;
+    top: 660px;
+  }
 }
 
 .activity-correct:after {
@@ -1675,7 +1686,7 @@ b {
   background-color: #004465;
   padding: 15px 50px;
   display: table;
-  width: 100%;
+  width: 86%;
   min-height: 300px;
   max-height: 300px;
   overflow-y: auto;
@@ -1690,7 +1701,7 @@ b {
 }
 
 .answer-container ul {
-  width: 65%;
+  width: 100%;
   max-height: 256px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -2018,6 +2029,7 @@ b {
   }
   .activity-option {
     padding: 0px;
+    width: 100%;
   }
 }
 
@@ -2393,7 +2405,7 @@ b {
     width: 50%;
   }
   .final-assessment .next-back-container>div:last-child {
-    padding-left: 5px;
+    padding-left: 30px;
   }
   .final-assessment .assessBg {}
   .final-assessment .feedbackQuestion {
@@ -2407,7 +2419,7 @@ b {
     margin-left: 25px;
   }
   .final-assessment .end-page .buttons, .final-assessment .text-content, .final-assessment .end-page .text-content-header, .final-assessment .next-back-container, .assessment .question-page ul>li>a {
-    padding-left: 75px;
+    padding-left: 40px;
   }
   .final-assessment .start-page {
     background: url(../../images/assessmentBg.png) no-repeat scroll right bottom #083451;
@@ -2646,7 +2658,7 @@ b {
 
 .assessment .text-content {
   display: block;
-  padding: 1em 1em 0 1em;
+  padding: 0.5em 1em 0 1em;
   vertical-align: top;
 }
 
@@ -2736,7 +2748,7 @@ b {
 }
 
 .assessment .end-page .buttons {
-  padding: 15px;
+  padding: 5px 15px;
   color: #FFF;
 }
 
@@ -2801,6 +2813,7 @@ b {
 .assessment .end-page .button-container {
   /* display: inline-block; */
   margin-right: 5px;
+  margin-top: 5px;
 }
 
 .final-assessment .assessbtnbg {
@@ -2821,6 +2834,11 @@ b {
   color: #FFF;
 }
 
+.assessment .question-page ul>li>p {
+  padding: 0em 1em 0.45em 1.2em;
+  width: 90%;
+}
+
 @media all and (max-width:680px) {
   .assessment .question-page ul>li>a, .assessment .question-page ul>li>h2, .assessment .question-page ul>li>h3 {
     padding: 0.45em 1em 0.45em 0.7em;
@@ -2834,7 +2852,14 @@ b {
   display: none;
 }
 
-@media all and (min-width:320px) {
+@media only screen and (min-device-width: 320px) {
+  .assessment .question-page ul>li>p {
+    padding: 0em 1em 0.45em 1.2em;
+    width: 90%;
+  }
+}
+
+@media only screen and (min-device-width: 480px) and (max-device-width: 640px) {
   .assessment {
     width: 90%;
     margin: 0 auto;
@@ -2856,7 +2881,20 @@ b {
     line-height: 1.3em;
   }
   .assessment .question-page ul>li>p {
-    padding: 0em 1em 0.45em 1.2em;
+    padding: 0em 1em 0.45em 0.4em;
     width: 90%;
   }
+}
+
+.question-page ul {
+  padding: 0;
+}
+
+.question-page .options li{
+  padding-left: 0;
+}
+
+
+.drop-hover {
+  background-color: #707c89;
 }

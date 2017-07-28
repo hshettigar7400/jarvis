@@ -104,9 +104,6 @@
         <button onclick="tryAgainActivity()">Try Again</button>
         <button onclick="showAns()"> Show me</button>
 		</p>
-
-
-
       </div>
     </div>
   </div>
@@ -299,7 +296,7 @@ function loadActivityData() {
 
 function createActivityQuestion(index) {
   var str = "";
-  str += '<div class="activity-option activity-option-'+index+'"><div class="activity-drag__element">'
+  str += '<div class="activity-option activity-option-'+index+'" id="activity-option"><div class="activity-drag__element">'
   str += 'Medical Equipment';
   str += '<div class="drag-element dragImg">'+dragOption[index]+'</div>';
   str += '</div>';
@@ -363,6 +360,7 @@ function startTimer(duration, display) {
       loadCustomAudio('../app/assets/audio/m01_t01_p07_01.mp3')
       $(".activity-feedback-container__success").hide();
       $(".activity-feedback-container__failed").hide();
+      $(".show-answer-container").hide();
       $(".activity-holder").fadeOut( "slow", function() {
         $(".activity-feedback-container").show();
         document.querySelector('.score-got').textContent = correctAns;
@@ -382,6 +380,7 @@ $(".dragImg").draggable({
 });
 
 $(".drop-container").droppable({
+  hoverClass: "drop-hover",
   drop: function(e, ui){
     if(actvityAns[currentActivityNumber-1].indexOf(parseInt($(this)[0].id)) !== -1) {
       $(this).addClass("activity-correct");
@@ -400,15 +399,20 @@ $(".drop-container").droppable({
     $(".item-"+counts[0]).dblclick(function() {
       $(this).remove();
     });
-  }
+  },
+
 });
+
+$(window).on("orientationchange",function(){
+  
+}).trigger('orientationchange');
 
 function loadNextActivity() {
   $('.dragImg').css("pointer-events", "auto");
   //$('.dragImg').css("background-color", "#0097e1");
   $('.dragImg').css("background-color", "#333 ");
   $(".proceed-button").hide();
-  var newLeft = -(($(".activity-option").outerWidth(true)) * currentActivityNumber) + 2;
+  var newLeft = -(($(".activity-option").outerWidth(true)) * currentActivityNumber);
   if(currentActivityNumber !== dragOption.length) {
     $(".activity-slider").stop(true).animate({
         'left': newLeft
@@ -421,6 +425,7 @@ function loadNextActivity() {
         $(".activity-feedback-container__success").show();
         $(".activity-feedback-container__failed").hide();
         $(".activity-feedback-container").hide();
+        $(".show-answer-container").hide();
         document.querySelector('.activity-feedback-container__success .score-got').textContent = correctAns;
         document.querySelector('.activity-feedback-container__success .attempt').textContent = activityAttempt;
         document.querySelector('.activity-feedback-container__success .time-taken').textContent = timeTaken;
@@ -434,6 +439,7 @@ function loadNextActivity() {
         $(".activity-feedback-container__failed").show();
         $(".activity-feedback-container__success").hide();
         $(".activity-feedback-container").hide();
+        $(".show-answer-container").hide();
         document.querySelector('.activity-feedback-container__failed .score-got').textContent = correctAns;
         document.querySelector('.activity-feedback-container__failed .attempt').textContent = activityAttempt;
         document.querySelector('.activity-feedback-container__failed .time-taken').textContent = timeTaken;
@@ -530,5 +536,7 @@ $('#nav li').on('click', function (event) {
 
     event.stopPropagation();
 });
+
+
 
 </script>

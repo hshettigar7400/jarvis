@@ -106,9 +106,7 @@ function syncPageText(position) {
 
   if (qPoints !== null && currentCuePointId != undefined) {
      var t = millisToMinutesAndSeconds(position);
-
      if (t == qPoints[currentCuePointId]) {
-        console.log(t == qPoints[currentCuePointId])
        if (document.querySelector('.sync'+(currentCuePointId+1))) {
          document.querySelector('.sync'+(currentCuePointId+1)).classList.remove('fadeOut');
          document.querySelector('.sync'+(currentCuePointId+1)).classList.add('fadeIn');

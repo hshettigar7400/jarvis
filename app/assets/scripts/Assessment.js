@@ -72,8 +72,7 @@ function Assessment() {
             reviewButtonContainer: '.assessment .review-button-container',
             exitReview: '.assessment .review-button-container .exitReview'
         };
-        //$(Selectors.player).trigger(FRED.event.ASSESSMENT_PAGE);
-        //pageObj = $('.final-assessment').closest('div.player-page').data('pageRef');
+        document.querySelector('.next-button').classList.add("disabled");
         $.getJSON("assets/data/assessment.json", function( result ) {
         	data = result.data;
         	$(Selectors.player).on('click', selectors.startQuizButton, function() {
@@ -87,8 +86,6 @@ function Assessment() {
 	        });
 	        $('.player-module-0').hide()
         });
-
-
     }
 
     function dataLoadComplete() {
@@ -96,7 +93,6 @@ function Assessment() {
         questionWidth = 0;
         reviewMode = false;
         initVars();
-        //FRED.loader.updatepageTitleObject(data.title);
         page = $(defaults.container).closest('div.player-page').data('pageRef');
         var min = Math.min(data.questionPools.length, defaults.poolsSharing.length);
         defaults.poolsSharing = defaults.poolsSharing.slice(0, min);
@@ -112,7 +108,7 @@ function Assessment() {
         createQuestionData();
         //console.log('container: ',defaults.container);
         $(defaults.container).html(createAssessmentHTML());
-        if (!reviewMode && defaults.exitReview /*|| FRED.player.isMobileFirst*/) {
+        if (!reviewMode && defaults.exitReview) {
             $(selectors.reviewButtonContainer).hide()
         }
         $(window).resize(function() {
@@ -291,15 +287,14 @@ function Assessment() {
             showQuestion(totalQuestions)
         });
         if (defaults.exitButtonOnResultPage) $(Selectors.player).on('click', selectors.exitCourseButton, function() {
-            //FRED.player.openComponent(FRED.player.exitName)
-            //SUMANTH open the exit popup window here
+
         });
         if (defaults.revisitContent) $(Selectors.player).on('click', selectors.visitContentButton, function() {
 
             $('.lastQuestion').html('Submit');
             $(".page-loader").empty();
             $(".page-loader").load('components/content/m01/t01/m01_t01_p01.html');
-            $(".page-number").html(01);
+            $(".page-number").html("01");
 			      $(".page-title").html(topicNamesArray[0]);
 
             $.getJSON( "../app/assets/data/transcript.json", function( data ) {
@@ -312,28 +307,11 @@ function Assessment() {
             document.querySelector('.next-button').classList.remove("disabled");
             soundManager.stopAll();
             document.querySelector('.back-button').classList.add("disabled");
-            jarvisAudio = soundManager.createSound({
+            window.jarvisAudio = soundManager.createSound({
               url: '../app/assets/audio/m01_t01_p01.mp3',
               autoLoad: true,
               autoPlay: true
             });
-            //window.reloadFromStart();
-            /*if (document.querySelector('.next-button'))
-                document.querySelector('.next-button').classList.remove("blinker");
-              if (document.querySelector('#button-audio'))
-                document.querySelector('#button-audio').classList.remove("disabled");
-              if (document.querySelector('#button-playPause'))
-                document.querySelector('#button-playPause').classList.remove("disabled");
-              $(".page-loader").empty();
-              $(".page-loader").load('components/content/m01/t01/m01_t01_p01.html');*/
-            //SUMANTH REVISIT FROM FIRST PAGE
-            // if (FRED.player.isDesktopFirst) {
-            //     FRED.navigation.loadPage(0)
-            // } else {
-            //     $(Selectors.scrollContainer).animate({
-            //         scrollTop: 0
-            //     }, 500)
-            // }
         });
         if (defaults.certificate) $(Selectors.player).on('click', selectors.certificateButton, function() {
             openCertificate()
@@ -413,10 +391,7 @@ function Assessment() {
                   autoPlay: true
                 });
               }
-              //
-                //var audioId = obj.audioID;
-                //FRED.contentSync.playAudioById(audioId)
-                //SUMANTH AUDIO TO BE PLAUED FOR ALL THE QUESTION SCREEN
+
             }
         }
         txt = txt.replace('<<X>>', correctCount);
@@ -430,11 +405,6 @@ function Assessment() {
         str += '</div>';
         str += '<div class="buttons">';
         str += '</div>';
-        /*FRED.player.enableButton(FRED.player.transcriptName);
-        FRED.player.enableButton(FRED.player.replayName);
-        FRED.player.enableButton(FRED.player.audioName);
-        FRED.player.enableButton(FRED.player.playPauseName);*/
-        //SUMANTH ENABLE THE REQUIRED BUTTONS
         $('.assessment .end-page').html(str).show();
         var str = '';
         if ((defaults.noOfAttempts > attemptCounter || defaults.noOfAttempts == 0) && per < assessment_config.passingScore) str += '<div class="button-container"><span>' + data.tryAgain.text + ' </span><a href="#" class="tryAgain button assessbtnbg ' + Selectors.tabIndex + '">' + data.tryAgain.label + '</a></div>';
@@ -589,14 +559,6 @@ function Assessment() {
     }
 
     function showQuestion(id) {
-        /*FRED.player.closeComponent(FRED.player.transcriptName);
-        FRED.player.disableButton(FRED.player.transcriptName);
-        FRED.player.disableButton(FRED.player.replayName);
-        FRED.player.disableButton(FRED.player.audioName);
-        FRED.player.disableButton(FRED.player.playPauseName);
-        FRED.player.disableButton(FRED.player.nextName);
-        FRED.player.disableButton(FRED.player.backName);*/
-        //SUMANTH DISABLE REQUIRED UI BUTTONS
         currentQuestion = id;
         if (defaults.exitReview) {
             if (!reviewMode || id == totalQuestions) {
@@ -609,10 +571,8 @@ function Assessment() {
         }
         if (assessment_config.playQuestionAudio) {
             var q = $(selectors.questionBlock).toArray();
-            //FRED.content.clearAudio();
             if (!reviewMode) {
                 var audioId = $(q[currentQuestion]).attr("data-audio");
-                //FRED.contentSync.playAudioById(audioId)
             }
         }
         updateQuestionsStatus();
@@ -622,9 +582,6 @@ function Assessment() {
         }, 300);
         handleNextBackStatus();
         updateOptionStatus();
-        /*FRED.player.disableButton(FRED.player.nextName);
-        FRED.player.disableButton(FRED.player.backName)*/
-        //SUMANTH DISABLE NEXT AND BACK
     }
 
     function updateQuestionsStatus() {
@@ -684,7 +641,6 @@ function Assessment() {
                 $(r).attr('aria-disabled', false)
             }
         }
-        //if (FRED.tabManager) FRED.tabManager.updateTabIndex()
     }
 
     function handleNextBackStatus() {
@@ -696,8 +652,6 @@ function Assessment() {
         $(selectors.nextQuestionBtn).attr('aria-disabled', true);
         if (currentQuestion === totalQuestions) {
             $(selectors.prevQuestionBtn + ', ' + selectors.nextQuestionBtn).removeClass('show');
-            //FRED.loader.updatepageTitleObject(data.resultPage.title);
-            //SUMANTH UPDATE RESULT PAGE TITLE
             return
         } else if (currentQuestion === 0) {
             if (!defaults.linearNavigation || attempted()) {
@@ -723,8 +677,6 @@ function Assessment() {
         }
         $(selectors.prevQuestionBtn).removeClass(Selectors.hover);
         $(selectors.nextQuestionBtn).removeClass(Selectors.hover);
-        //FRED.loader.updatepageTitleObject(data.title);
-        //sumanth update page title
         $(selectors.questionCounter).html("Question " + (currentQuestion + 1))
     }
 
@@ -742,11 +694,6 @@ function Assessment() {
     function restartAssessment() {
         reviewMode = false;
         initVars();
-        /*FRED.player.enableButton(FRED.player.transcriptName);
-        FRED.player.enableButton(FRED.player.replayName);
-        FRED.player.enableButton(FRED.player.audioName);
-        FRED.player.enableButton(FRED.player.playPauseName);*/
-        //SUMANTH ENABLE UI BUTTONS AS REQUIRED ABOVE
 		$('.correct-incorrect').hide();
         $(selectors.qOptions).attr(selectors.userValue, '0').removeClass(Selectors.selected + ' ' + Selectors.disabled);
         $(selectors.qOptions).attr(selectors.userValue, '0').attr('aria-disabled', false);
@@ -775,11 +722,6 @@ function Assessment() {
         jarvisAudio.pause();
         initVars();
 		$('.correct-incorrect').show();
-        /*FRED.player.disableButton(FRED.player.transcriptName);
-        FRED.player.disableButton(FRED.player.replayName);
-        FRED.player.disableButton(FRED.player.audioName);
-        FRED.player.disableButton(FRED.player.playPauseName);
-        FRED.player.closeComponent(FRED.player.transcriptName);*/
         if (defaults.exitReview) $(selectors.reviewButtonContainer).css({
             display: 'inline-block'
         });
@@ -853,8 +795,6 @@ function Assessment() {
     }
 
     function openCertificate() {
-        //FRED.util.popupWindow(FRED.util.resolveLangPath(defaults.certificateURL), defaults.certificateWidth, defaults.certificateHeight)
-        //sumanth open certificate
     }
 }
 

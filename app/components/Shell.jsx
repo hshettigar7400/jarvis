@@ -103,7 +103,7 @@ var Shell = React.createClass ({
       $("#button-transcript").removeClass("selected");
     }
     if (jarvisAudio.playState != 1) {
-      $("button-playPause").removeClass("selected");
+      $("#button-playPause").removeClass("selected");
     }
     if (this.state.sidebarOpen || this.state.isHelpDockOpen) {
       $("#button-playPause").addClass("disabled");
@@ -142,8 +142,8 @@ var Shell = React.createClass ({
     var pageId = e.currentTarget.dataset.pageId;
     this.setState({currentPageNumber: parseInt(pageId)});
     this.setState({sidebarOpen: !this.state.sidebarOpen});
-    //loadPage(this.state.currentPageNumber);
-    console.log("Clicked",  parseInt(pageId));
+    loadPage(this.state.currentPageNumber);
+    loadAudio(this.state.currentPageNumber);
   },
 
   clickOpenHelpDock() {
@@ -360,7 +360,7 @@ var Shell = React.createClass ({
       {this.renderUI()}
       {this.state.visibleResumePopup && this.resumePopup()}
       {this.state.transcriptVisible && this.showTranscript()}
-      {this.state.isMobile && this.showAutoPlay()}
+      {(this.state.isMobile && window.scormAdaptor_getlocation() !== '') && this.showAutoPlay()}
 
       </div>
     )

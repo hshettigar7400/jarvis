@@ -800,6 +800,9 @@
       autoPlay: true,
       onload: function() {
         enableButtons();
+        if($("#button-audio").hasClass("selected")) {
+          window.jarvisAudio.mute();
+        }
       },
       onfinish: function() {
         $(".button").removeClass('disabled');
