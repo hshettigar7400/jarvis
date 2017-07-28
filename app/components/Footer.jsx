@@ -43,7 +43,7 @@ render() {
           <span className="icon-menu"></span></a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-resources" className="tabindex  disabled" aria-label="resources" role="button" aria-disabled="true" aria-pressed="false">
+          <a href="#" id="button-resources" onClick={this.props.onResourceClick} className="tabindex disabled" aria-label="resources" role="button" aria-disabled="true" aria-pressed="false">
             <span className="button-label"></span>
             <span className="icon-resources"></span>
           </a>

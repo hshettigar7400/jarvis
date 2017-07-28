@@ -18058,8 +18058,20 @@ var React = __webpack_require__(7),
     toggleButtonState = _require.toggleButtonState,
     _require2 = __webpack_require__(91),
     loadPage = _require2.loadPage,
+    Modal = __webpack_require__(359),
     $ = __webpack_require__(69);
 
+
+var customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
 
 var Shell = React.createClass({
   displayName: 'Shell',
@@ -18074,6 +18086,7 @@ var Shell = React.createClass({
       toolsMenuOpen: false,
       isHelpDockOpen: false,
       transcriptVisible: false,
+      resourceVisible: false,
       isPause: false,
       isReplayed: false,
       currentPageNumber: window.scormAdaptor_getlocation() !== '' ? parseInt(window.scormAdaptor_getlocation()) : 1,
@@ -18202,6 +18215,9 @@ var Shell = React.createClass({
       $(".transcript-text-container").html(data.transcript[_self.state.currentPageNumber - 1].text);
     });
   },
+  enableResource: function enableResource(e) {
+    this.setState({ resourceVisible: !this.state.resourceVisible });
+  },
   showTranscript: function showTranscript() {
     return React.createElement(
       'div',
@@ -18225,6 +18241,40 @@ var Shell = React.createClass({
         )
       ),
       React.createElement('div', { className: 'transcript-text-container' })
+    );
+  },
+  showResource: function showResource() {
+    return React.createElement(
+      'div',
+      null,
+      React.createElement('div', { className: 'resource-overlay' }),
+      React.createElement(
+        'section',
+        { className: 'resource-popup', id: 'resumeAlert' },
+        React.createElement(
+          'div',
+          { className: 'popup-header' },
+          'Resource'
+        ),
+        React.createElement(
+          'div',
+          { className: 'popup-area' },
+          React.createElement('div', { className: 'popup-content' }),
+          React.createElement(
+            'div',
+            { className: 'popup-buttons' },
+            React.createElement(
+              'div',
+              null,
+              React.createElement(
+                'a',
+                { href: '#', id: 'popup-no-button', onClick: this.resumeCourse.bind(this, false), className: 'course-button box-shadow popup-yes-button tabindextabindex' },
+                'No'
+              )
+            )
+          )
+        )
+      )
     );
   },
   audioPlayPause: function audioPlayPause(e) {
@@ -18318,6 +18368,7 @@ var Shell = React.createClass({
             onNextButtonClick: this.loadNextPage,
             onBackButtonClick: this.loadPreviousPage,
             onTranscriptButtonClick: this.enableTranscript,
+            onResourceClick: this.enableResource,
             totalPages: 9,
             currentPageNumber: this.state.currentPageNumber,
             onPlayPauseClick: this.audioPlayPause,
@@ -18433,6 +18484,7 @@ var Shell = React.createClass({
       this.renderUI(),
       this.state.visibleResumePopup && this.resumePopup(),
       this.state.transcriptVisible && this.showTranscript(),
+      this.state.resourceVisible && this.showResource(),
       this.state.isMobile && window.scormAdaptor_getlocation() !== '' && this.showAutoPlay()
     );
   }
@@ -22496,7 +22548,7 @@ var Footer = React.createClass({
           { className: 'button-box' },
           React.createElement(
             'a',
-            { href: '#', id: 'button-resources', className: 'tabindex  disabled', 'aria-label': 'resources', role: 'button', 'aria-disabled': 'true', 'aria-pressed': 'false' },
+            { href: '#', id: 'button-resources', onClick: this.props.onResourceClick, className: 'tabindex disabled', 'aria-label': 'resources', role: 'button', 'aria-disabled': 'true', 'aria-pressed': 'false' },
             React.createElement('span', { className: 'button-label' }),
             React.createElement(
               'span',
@@ -27163,7 +27215,7 @@ exports = module.exports = __webpack_require__(220)(undefined);
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n@font-face {\n  font-family: 'Lato';\n  src: url(" + __webpack_require__(109) + ");\n  src: url(" + __webpack_require__(109) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(244) + ") format(\"woff2\"), url(" + __webpack_require__(243) + ") format(\"woff\"), url(" + __webpack_require__(242) + ") format(\"truetype\"), url(" + __webpack_require__(346) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'Lato-Light';\n  src: url(" + __webpack_require__(108) + ");\n  src: url(" + __webpack_require__(108) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(237) + ") format(\"woff2\"), url(" + __webpack_require__(236) + ") format(\"woff\"), url(" + __webpack_require__(235) + ") format(\"truetype\"), url(" + __webpack_require__(344) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'icomoon';\n  src: url(" + __webpack_require__(239) + ");\n  src: url(" + __webpack_require__(238) + "?#iefixc92yby) format(\"embedded-opentype\"), url(" + __webpack_require__(241) + ") format(\"woff\"), url(" + __webpack_require__(240) + ") format(\"truetype\"), url(" + __webpack_require__(345) + "#icomoon) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n[class^=\"icon-\"], [class*=\" icon-\"] {\n  font-family: 'icomoon';\n  speak: none;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  letter-spacing: 0;\n  -webkit-font-feature-settings: \"liga\";\n  -moz-font-feature-settings: \"liga=1\";\n  -moz-font-feature-settings: \"liga\";\n  -ms-font-feature-settings: \"liga\" 1;\n  font-feature-settings: \"liga\";\n  -webkit-font-variant-ligatures: discretionary-ligatures;\n  font-variant-ligatures: discretionary-ligatures;\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\n.menu-overlay-style {\n  position: absolute !important; }\n\n.menu-custom-style {\n  bottom: 44px !important;\n  top: 64px !important; }\n\n.menu-overlay-style {\n  background-color: rgba(0, 0, 0, 0.498039) !important; }\n\n.menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  z-index: 99 !important; }\n\n.menu-header h1 {\n  font: inherit;\n  margin: 0; }\n\n@media (min-width: 320px) {\n  .menu-style {\n    width: 100%; } }\n\n@media (min-width: 650px) {\n  .menu-style {\n    width: 460px; } }\n\n.menu-list__trigger {\n  display: none !important; }\n\n.disable-event {\n  pointer-events: none; }\n\nbody {\n  background: #5B6770;\n  font-family: 'Arial', Calibri, Arial, sans-serif;\n  height: 100%;\n  line-height: 1.4;\n  overflow: hidden;\n  max-width: 1010px;\n  max-height: 650px; }\n\n.wrapper {\n  bottom: 0;\n  display: table;\n  height: 100%;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  width: 100%; }\n\n.launcher {\n  display: table-cell;\n  padding-bottom: 40px;\n  vertical-align: top; }\n\n.whitePatch {\n  background-color: #FFFFFF;\n  height: 231px;\n  position: relative;\n  width: 100%; }\n\n.td1 {\n  align-items: center;\n  padding: 25px 25px 15px 25px;\n  position: relative;\n  top: 10px;\n  text-align: left; }\n\n.td2 {\n  align-items: center;\n  padding: 0;\n  position: relative;\n  top: 18px;\n  width: auto; }\n\n.divSeparator {\n  background-color: #CBCBCB;\n  height: 1px;\n  margin: 0 auto;\n  width: 100%; }\n\n.td3 {\n  align-items: center;\n  color: #5B6770;\n  font-size: 1.5em;\n  padding: 24px 25px;\n  position: relative;\n  text-align: left;\n  top: 5px;\n  vertical-align: middle; }\n\n.launch_btn {\n  background-image: url(" + __webpack_require__(138) + ");\n  background-repeat: no-repeat;\n  background-position: 0 0;\n  width: 88px;\n  height: 96px;\n  display: block;\n  color: #5B6770;\n  position: absolute;\n  right: 25px;\n  font-size: 0.6em;\n  text-align: center;\n  top: 57px;\n  font-weight: bold; }\n\n.launch_btn:hover {\n  background-image: url(" + __webpack_require__(138) + ");\n  background-position: -120px 0 !important;\n  color: #FFFFFF; }\n\n.launch_btn span {\n  vertical-align: middle;\n  line-height: 99px; }\n\na {\n  text-decoration: none; }\n\n@media (min-width: 768px) {\n  .launcher {\n    vertical-align: middle; }\n  .whitePatch {\n    display: table;\n    height: 120px;\n    position: static;\n    text-align: center;\n    vertical-align: middle;\n    width: 100%; }\n  .td1 {\n    display: table-cell;\n    height: 73px;\n    padding: 0;\n    padding-top: 5px;\n    position: static;\n    text-align: right;\n    vertical-align: middle;\n    width: 40%; }\n  .td2 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: static;\n    vertical-align: middle;\n    width: 4%; }\n  .divSeparator {\n    background-color: #CBCBCB;\n    height: 80px;\n    width: 1px; }\n  .td3 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: relative;\n    text-align: left;\n    top: 0;\n    vertical-align: middle;\n    width: 56%; }\n  .launch_btn {\n    font-size: 0.6em;\n    font-weight: bold;\n    left: 65%;\n    position: absolute;\n    text-align: center;\n    top: 71px; } }\n\nbody {\n  background: #ffffff !important;\n  margin: 0 auto;\n  overflow-y: auto;\n  font-family: 'Arial' !important;\n  max-width: 1024px;\n  max-height: 650px; }\n\n.cover-page {\n  height: auto;\n  color: #FFF;\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  overflow: hidden;\n  background-color: #0A4166; }\n\n.cover-page .btnIcon {\n  background: url(" + __webpack_require__(340) + ") repeat-x scroll 0 0 transparent;\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em; }\n\n.instruction-container {\n  height: 100%;\n  display: table;\n  width: 100%;\n  position: relative;\n  margin-top: 0;\n  overflow-y: auto; }\n\n.logo-container {\n  background-color: #FFF;\n  display: block;\n  padding: 35px 15px 24px; }\n\n.instruction-title .title {\n  color: rgba(0, 0, 0, 0.68);\n  font-size: 2em;\n  font-weight: 100;\n  margin: 0; }\n\n.text-container {\n  padding: 15px 10px 0px; }\n\n.cover-page .text-container p {\n  display: table-cell;\n  vertical-align: middle;\n  padding-right: 20px;\n  font-size: 1.35em; }\n\n.cover-page .btnIconBlank {\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em;\n  color: #FFFF; }\n\n.cover-page .text-container .text {\n  font-size: 0.875em;\n  padding: 4px; }\n\n.cover-page .text-container .text > div {\n  display: table;\n  width: 100%; }\n\n.cover-page .text-container .btnIcon {\n  padding-right: 0px; }\n\n.cover-page .text-container .btnIconBlank {\n  padding-right: 0px;\n  color: #fff;\n  font-size: 1.65em; }\n\n.cover-page .text-container .btnIcon1 span {\n  font-size: 1.3em; }\n\n.cover-page .text-container p:nth-child(2) {\n  padding-left: 20px;\n  font-size: 1.07em; }\n\n.cover-page .text {\n  color: #FFF;\n  height: 40px;\n  display: table;\n  width: 100%;\n  padding: 0 15px;\n  margin-bottom: 4px;\n  font-size: 1.1em; }\n\n.cover-page .dis_sys_check {\n  position: relative;\n  top: 7px;\n  z-index: 101; }\n\n.cover-page .container {\n  height: 100%;\n  position: relative;\n  display: table; }\n\n.cover-page .startbtn {\n  display: table-cell;\n  width: 100%; }\n\n.cover-page .instruction {\n  color: #FFF;\n  max-height: 40px;\n  margin: 0;\n  padding: 10px 0 10px 12px;\n  position: relative;\n  background-color: #083451;\n  font-size: 0.9375em; }\n\n.cover-page .instruction span {\n  font-weight: normal; }\n\n.cover-page .startbtn_a {\n  /* background: url(\"../../images/btnstrip2.png\") repeat-x scroll 0 0 rgba(0, 0, 0, 0); */\n  color: #ffffff;\n  display: inline-block;\n  float: right;\n  font-size: 1.5625em;\n  height: 40px;\n  margin-top: 0;\n  position: relative;\n  text-decoration: none;\n  top: 25px;\n  vertical-align: middle;\n  width: 100px;\n  margin-left: 10px;\n  z-index: 101;\n  background-color: #1792E5; }\n\n.cover-page .btnContent {\n  display: table;\n  width: 100%;\n  padding: 0;\n  height: 40px; }\n\n.cover-page .btnContent:hover {\n  background-color: #ee3124; }\n\n.cover-page .btnContent span {\n  vertical-align: middle;\n  display: table-cell;\n  text-align: center; }\n\n.cover-page .instruction .fontBold {\n  font-weight: bold; }\n\n.cover-page .sys_container {\n  display: none; }\n\n.text-container a {\n  color: #ffffff; }\n\n.cover-page .invisible-container {\n  height: 70px; }\n\n.playAudioParent {\n  height: 100%;\n  left: 0;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  z-index: 88888; }\n\n.playBlinkBlack {\n  background-color: #FFF;\n  height: 100%;\n  left: 0;\n  opacity: 0.6;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  z-index: 5; }\n\n.playBlink {\n  background: url(" + __webpack_require__(343) + ") no-repeat scroll 0 0 transparent;\n  height: 100px;\n  margin: -50px auto 0;\n  position: relative;\n  top: 50%;\n  width: 112px;\n  z-index: 500; }\n\n.button-autoPlay {\n  background: url(" + __webpack_require__(342) + ") no-repeat scroll 0 0 transparent;\n  display: block;\n  height: 42px;\n  margin: 0 auto;\n  position: relative;\n  top: 29px;\n  width: 38px;\n  z-index: 900000;\n  margin-top: 25%; }\n\n@media (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px;\n    font-size: 1.35; }\n  .cover-page .text-container p {\n    font-size: 1em;\n    font-weight: bold; }\n  .cover-page .text-container p:nth-child(2) {\n    padding-left: 20px;\n    font-size: 1.07em; }\n  .cover-page .instruction {\n    font-size: 1.07em; } }\n\n@media all and (min-width: 320px) {\n  .cover-page .dis_container {\n    /* padding: 10px 15px 0; */ }\n  .cover-page .dis_sys_check {\n    padding: 0 15px; } }\n\n@media all and (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px; } }\n\n@media all and (min-width: 480px) {\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media all and (min-width: 600px) {\n  .cover-page .cover-page {\n    padding: 0; }\n  .cover-page .dis_container {\n    max-width: 100%; }\n  .cover-page .dis_text .title {\n    font-size: 2em;\n    font-weight: 100; }\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media (min-width: 768px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .text-container {\n    padding: 25px 25px 0; }\n  .cover-page .text-container p {\n    font-weight: normal !important; }\n  .cover-page .holder_text_mobile .desc {\n    padding: 0 0 0 22px; }\n  .cover-page .dis_logo {\n    width: auto; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .text {\n    font-size: 1.15em !important;\n    padding: 2px 4px; }\n  .cover-page .text > div {\n    width: 85%; }\n  .cover-page .dis_logo {\n    float: none;\n    top: 0; }\n  .cover-page .startbtn_a {\n    float: none;\n    top: 0;\n    right: -1px; }\n  .cover-page .startbtn {\n    width: 80%;\n    display: block; }\n  .cover-page .instruction {\n    padding: 0 0 0 15px;\n    display: table-cell;\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    padding-left: 25px; }\n  .cover-page .holder_text_mobile {\n    display: block; }\n  .cover-page .support-image {\n    position: absolute;\n    right: 0;\n    z-index: 102;\n    bottom: 0;\n    height: 100%; }\n  .cover-page .holder_text {\n    display: table-cell;\n    width: 80%;\n    position: static;\n    padding-right: 10px; }\n  .cover-page .text {\n    color: #FFF;\n    font-weight: 700;\n    height: 40px;\n    display: table;\n    width: 100%;\n    padding: 0 15px;\n    margin-bottom: 10px;\n    padding-right: 115px; }\n  .cover-page .icon-arrow {\n    margin-right: 10px; }\n  .cover-page .icon-btn {\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    z-index: 101; }\n  .cover-page .dis_img1 {\n    background: url(" + __webpack_require__(341) + ") no-repeat scroll 0 0 transparent;\n    position: absolute;\n    right: -315px;\n    bottom: -20px;\n    display: block;\n    width: 770px;\n    height: 424px; }\n  .cover-page .dis_logo {\n    margin-bottom: 5px; }\n  .cover-page .dis_logo_bg {\n    bottom: 35px;\n    padding: 0;\n    position: absolute;\n    right: 35px; }\n  .cover-page .dis_text .title {\n    margin-left: 10px; }\n  .cover-page .holder_text_mobile .btnIcon {\n    font-size: 0.9em; }\n  .cover-page .holder_text_mobile p:nth-child(2) {\n    padding-left: 15px;\n    font-size: 1em;\n    font-weight: normal;\n    line-height: 1em; } }\n\n@media (min-width: 995px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .dis_img1 {\n    right: -240px;\n    bottom: 0px; } }\n\n/* Absolute Center Spinner */\n.loading {\n  position: fixed;\n  z-index: 999;\n  height: 2em;\n  width: 2em;\n  overflow: show;\n  margin: auto;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0; }\n\n/* Transparent Overlay */\n.loading:before {\n  content: '';\n  display: block;\n  position: fixed;\n  max-height: 650px;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #ddd; }\n\n/* :not(:required) hides these rules from IE9 and below */\n.loading:not(:required) {\n  /* hide \"loading...\" text */\n  font: 0/0 a;\n  color: transparent;\n  text-shadow: none;\n  background-color: transparent;\n  border: 0; }\n\n.email {\n  margin-left: -15px; }\n\n.loading:not(:required):after {\n  content: '';\n  display: block;\n  font-size: 10px;\n  width: 1em;\n  height: 1em;\n  margin-top: -0.5em;\n  -webkit-animation: spinner 1500ms infinite linear;\n  -moz-animation: spinner 1500ms infinite linear;\n  -ms-animation: spinner 1500ms infinite linear;\n  -o-animation: spinner 1500ms infinite linear;\n  animation: spinner 1500ms infinite linear;\n  border-radius: 0.5em;\n  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;\n  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0; }\n\n/* Animation */\n@-webkit-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@-moz-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@-o-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n.overlay {\n  background-color: #000;\n  position: absolute;\n  width: 100%;\n  height: 620px;\n  top: 0;\n  opacity: 0.5; }\n\n.downArrow {\n  display: none;\n  position: fixed;\n  background-color: aquamarine;\n  width: 50px;\n  height: 50px;\n  color: #cc0707;\n  bottom: 30px;\n  right: 30px; }\n\n.exit-alert {\n  position: absolute;\n  top: 430%;\n  left: 0;\n  right: 0;\n  width: 300px;\n  margin: auto;\n  padding: 5px;\n  z-index: 99999; }\n\n.popup-content {\n  text-align: center;\n  padding: 20px 0; }\n\n.popup-header {\n  padding: 10px;\n  background-color: #ee3124; }\n\n.popup-area {\n  background-color: #D3D4D4;\n  display: block;\n  text-align: center;\n  padding: 0 35px; }\n\n.warning-msg {\n  margin: 0;\n  color: #000; }\n\n.popup-buttons {\n  text-align: center; }\n\n.popup-buttons div {\n  display: inline-block;\n  width: 100px; }\n\n.popup-no-button,\n.popup-yes-button {\n  display: block;\n  margin: 10px;\n  padding: 5px 10px;\n  width: 60px;\n  background-color: #1792e5;\n  color: #FFF; }\n\nbody {\n  margin: 0 auto;\n  font-family: Arial;\n  color: #FFF;\n  font-size: 1em;\n  font-weight: 300;\n  overflow: auto; }\n\n#root {\n  overflow: hidden; }\n\n.shell-container {\n  position: relative;\n  overflow: hidden; }\n\n.header {\n  background-color: #E9ECED;\n  position: relative;\n  width: 100%;\n  z-index: 100;\n  max-height: 61px; }\n\n.courseProgress {\n  width: 100%;\n  height: 4px;\n  top: -10px;\n  position: relative;\n  /* border: 0.1em solid #ccc; */\n  background: #c5cdcf; }\n\n.courseProgress span {\n  width: 0;\n  background: #ee3124;\n  height: 4px;\n  display: block;\n  color: #000;\n  text-align: center; }\n\n.title-holder {\n  display: table;\n  color: #5C6670;\n  font-weight: 700;\n  height: 100%;\n  font-size: 1.3em; }\n\n.close_btn {\n  position: absolute;\n  right: 25px;\n  top: 20px;\n  color: #000 !important;\n  font-size: 20px;\n  cursor: pointer; }\n\n.close_btn:hover,\nicon-close:hover {\n  color: #ee3124 !important; }\n\n.title-holder > div {\n  display: table-cell;\n  padding: 0 10px;\n  vertical-align: middle; }\n\n.course-logo {\n  float: left; }\n  .course-logo img {\n    width: 80%;\n    margin: 5px; }\n\n.page-title__container {\n  min-height: 40px;\n  line-height: 35px;\n  display: flex;\n  align-items: baseline;\n  width: 100%;\n  color: #FFF;\n  font-weight: 700;\n  background-color: #5C6670; }\n\n.page-title__container .topic-title {\n  color: #C1C6C9;\n  padding: 10px 5px 0;\n  display: inline-block; }\n\n.title-seperator {\n  padding: 0 5px; }\n\n.page-title__container .page-title {\n  align-self: center;\n  padding-top: 8px;\n  padding-bottom: 5px; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {\n  .page-title__container {\n    line-height: 18px; } }\n\n.footer {\n  position: absolute;\n  height: 46px;\n  width: 100%;\n  background-color: #707c89;\n  bottom: 0px;\n  z-index: 999999999999; }\n\n.right-column {\n  text-align: right;\n  width: 100%;\n  border-right: 0px solid #C1C6C9; }\n\n.button-box {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: middle;\n  height: 45px;\n  width: 41px; }\n\n.button-box a {\n  color: #5C6670;\n  display: block;\n  text-align: center;\n  width: 40px;\n  height: 44px;\n  line-height: 42px;\n  margin-top: 1px; }\n\n.footer .button-box a, .footer .nav-comp-container .page-counter, .footer .button-box a.disabled, .footer .button-box a.selected {\n  background: #ffffff;\n  /* Old browsers */\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 );\n  /* IE6-8 */ }\n\n.footer .button-box a:hover {\n  color: #fff !important;\n  background: #ee3124;\n  /* Old browsers */\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n  /* IE6-8 */ }\n\n.nav-comp-container {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 44px;\n  padding: 1px 1px 0px 0;\n  color: #5C6670;\n  height: 44px; }\n\n.nav-comp-container .page-counter {\n  padding: 0 10px; }\n\n.button-box a.disabled {\n  color: #AAB1B9;\n  cursor: default;\n  pointer-events: none; }\n\n@media (min-width: 650px) {\n  .footer .button-box, .nav-comp-container {\n    background-color: #C1C6C9;\n    border-bottom: 1px solid #C1C6C9; } }\n\n.blinker {\n  -webkit-animation: blink 1s infinite;\n  /* Safari 4+ */\n  -moz-animation: blink 1s infinite;\n  /* Fx 5+ */\n  -o-animation: blink 1s infinite;\n  /* Opera 12+ */\n  animation: blink 1s infinite;\n  /* IE 10+, Fx 29+ */ }\n\n@-webkit-keyframes blink {\n  0%, 49% {\n    background: #ffffff;\n    /* Old browsers */\n    background-size: cover;\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #edebec 0%, #edebec 50%, #edebec 51%, #edebec 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #edebec), color-stop(50%, #edebec), color-stop(51%, #edebec), color-stop(100%, #edebec));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #edebec 0%, #edebec 50%, #edebec 51%, #edebec 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #edebec 0%, #edebec 50%, #edebec 51%, #edebec 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #edebec 0%, #edebec 50%, #edebec 51%, #edebec 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #edebec 0%, #edebec 50%, #edebec 51%, #edebec 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edebec', endColorstr='#edebec',GradientType=0 );\n    /* IE6-8 */ }\n  50%, 100% {\n    color: #ffffff !important;\n    background: #ee3124;\n    /* Old browsers */\n    background-size: cover;\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n    /* IE6-8 */ } }\n\n.page-container {\n  position: relative;\n  top: -2px;\n  margin: 0;\n  overflow-y: hidden;\n  width: 100%;\n  z-index: 9; }\n  @media all and (max-width: 680px) {\n    .page-container {\n      overflow-y: auto; } }\n\n.page-container .page-holder {\n  height: 100%; }\n\n.page-loader {\n  height: 100%;\n  z-index: 99;\n  overflow: hidden; }\n\n.help-container > div:first-child {\n  position: static !important;\n  width: 100% !important;\n  height: 100% !important;\n  z-index: 1 !important; }\n\n.fadeOut {\n  opacity: 0; }\n\n.fadeIn {\n  opacity: 1;\n  transition: .5s; }\n\n.icon-transcript::before {\n  content: \"\\E629\"; }\n\n.icon-audio:before {\n  content: \"\\E606\"; }\n\n.icon-playPause:before {\n  content: \"\\E619\"; }\n\n.selected .icon-transcript:before {\n  content: \"\\E628\"; }\n\n.selected .icon-audio:before {\n  content: \"\\E605\"; }\n\n.selected .icon-playPause:before {\n  content: \"\\E61B\"; }\n\n.hide {\n  display: none; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {\n  .page-loader {\n    height: 100%;\n    z-index: 99;\n    overflow: auto; } }\n\n@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {\n  .page-loader {\n    height: 100%;\n    z-index: 99;\n    overflow: auto; } }\n\n/*.page {\n    margin: 0 auto;\n    padding: 0 15px 15px 15px;\n    background: #fff;\n    color: #000;\n}\n\n.screen-holder {\n    width: 100%;\n    height: 100%;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n\n.screen-bg {\n    background: url('../images/bg.jpg') left bottom no-repeat;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 0;\n}\n\n.objective-holder {\n    width: 55%;\n    background-color: #FFF;\n    margin-top: 10%;\n}\n\n.objective-title {\n    width: 75%;\n    color: #ed3125;\n    border-bottom: 1px solid #f18b86;\n    padding: 5px 0;\n    margin-left: 10px;\n    margin-bottom: 5px;\n    font-size: 1.5em;\n}\n\n.objective-content {\n    margin-left: 10px;\n    margin-bottom: 5px;\n}\n\n.heading {\n    font-size: 1em;\n    font-weight: 700;\n}\n\n.objective-content ul {\n    list-style: none;\n    padding-bottom: 20px;\n}\n\n.objective-content li {\n    background: url(../images/li_red.png) no-repeat scroll 0px 4px transparent;\n    padding: 0px 0 0px 15px;\n    margin-top: 7px;\n    line-height: 1.3em;\n    margin-left: -30px;\n}\n\n@media all and (min-width:320px) and (max-width: 640px) {\n\t.screen-bg {\n   \t\tbackground: url(../images/bg.jpg) bottom right no-repeat;\n   \t}\n\n   \t.objective-holder {\n\t    width: 88%;\n\t    background-color: #FFF;\n\t    margin-top: 10%;\n\t    margin-left: 5%;\n\t}\n}*/\n.top-nav .middleButtons {\n  text-align: center; }\n\n.top-nav a,\n.top-nav .page-counter {\n  font-size: 1.2em; }\n\n.top-nav .nav-comp-container {\n  vertical-align: inherit; }\n\n.tool-menu-custom-style {\n  height: auto;\n  max-height: 50px;\n  top: 49px !important; }\n\n.tool-menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  width: 300px; }\n\n.help-header {\n  display: table;\n  width: 100%;\n  height: 40px;\n  background: #EE3124;\n  font-size: 1.25em; }\n  .help-header h1 {\n    margin: 0;\n    font-size: 1.35em; }\n\n.help-header .title-container {\n  display: table-cell;\n  width: 100%;\n  vertical-align: middle;\n  padding: 5px 15px;\n  color: #FFF;\n  font-weight: 400; }\n\n.help-header .button-container {\n  display: table-cell;\n  width: 50px;\n  vertical-align: middle; }\n\n.help-close-button {\n  height: 40px;\n  width: 40px;\n  line-height: 40px;\n  display: block;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.elements-container {\n  display: table;\n  width: 100%;\n  height: 37px; }\n\n.elements-container .title-container {\n  display: table-cell;\n  width: 145px;\n  vertical-align: middle;\n  padding: 3px 5px 2px 15px;\n  border: 1px solid #999999;\n  border-top: none;\n  background-color: #dadada;\n  font-size: 1.05em; }\n\n.elements-container .button-container {\n  display: table-cell;\n  vertical-align: middle;\n  padding: 2px 5px;\n  border: 1px solid #999999;\n  border-left: none;\n  border-top: none;\n  background-color: #e9e9e9; }\n\n.iconbg {\n  color: #5C6670;\n  border: 1px solid #CCC;\n  height: 25px;\n  display: inline-block;\n  float: right; }\n\n.btnbg {\n  background: #ffffff;\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 ); }\n\n.iconbg .pagecounter {\n  width: 41px;\n  color: #5C6670;\n  font-weight: bold; }\n\n.iconbg span {\n  vertical-align: middle;\n  font-size: 0.8em;\n  height: 26px;\n  display: table-cell;\n  text-align: center;\n  width: 25px; }\n\n.elements-container .title-container p {\n  width: 75px;\n  padding-top: 0px;\n  display: inline-block;\n  float: left;\n  padding-left: 4px;\n  margin: 0; }\n\n.button-container p {\n  margin: 0; }\n\n.help-content {\n  color: #333333; }\n\n@media (min-width: 750px) {\n  .elements-container .title-container p {\n    width: auto;\n    padding-top: 5px;\n    display: inline-block;\n    float: left;\n    padding-left: 5px; }\n  .elements-container .title-container {\n    width: 190px; } }\n\n.transcript-container {\n  width: 320px;\n  max-height: 240px;\n  margin: 0 auto;\n  bottom: 73px;\n  left: 30%;\n  z-index: 99999;\n  position: absolute; }\n\n.transcript-container .transcript-header {\n  font-size: 1.25em;\n  background-color: #EE3124;\n  color: #FFF;\n  font-weight: 400;\n  cursor: move; }\n\n.transcript-container .transcript-title {\n  display: inline-block;\n  padding: 10px 8px 10px 16px; }\n\n.transcript-container .transcript-close-button {\n  display: block;\n  float: right;\n  font-size: 1.25em;\n  height: 44px;\n  width: 44px;\n  line-height: 44px;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.transcript-text-container {\n  height: 198px;\n  text-align: center;\n  background-color: #e9e9e9;\n  padding: 10px;\n  text-align: left;\n  color: #333333;\n  overflow-y: auto; }\n\n@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {\n  .transcript-container {\n    width: 400px;\n    max-height: 240px;\n    margin: 0 auto;\n    bottom: 20px;\n    right: 0%;\n    left: 0;\n    z-index: 99999;\n    position: fixed; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {\n  .transcript-container {\n    width: 270px;\n    max-height: 240px;\n    margin: 0 auto;\n    bottom: 265px;\n    right: 5%;\n    left: 0px;\n    z-index: 99999;\n    position: fixed; } }\n\n.menu-header {\n  background-color: #EE3124;\n  display: table;\n  font-size: 1.25em;\n  height: 40px;\n  width: 100%; }\n\n.menu-header-title {\n  color: #ffffff;\n  display: table-cell;\n  font-size: 1.15em;\n  height: 100%;\n  padding-left: 14px;\n  vertical-align: middle; }\n\n.menu-close-button-container {\n  color: #FFFFFF;\n  cursor: pointer;\n  display: table-cell;\n  height: 100%;\n  vertical-align: middle;\n  width: 40px; }\n\n.collapse-menu .collapse-menu-header h1 {\n  padding: 6px 14px; }\n\n/* Style for list view expand componen t */\n.menu-list {\n  background-color: #e9e9e9; }\n\n.menu-list__contentInner {\n  border: 1px solid #ebebeb;\n  border-top: 0;\n  position: relative; }\n\n.menu-list__contentInner ul {\n  padding: 0;\n  margin: 0; }\n\n.menu-list__contentInner ul li {\n  box-shadow: inset 0 -1px #BABABA;\n  cursor: pointer;\n  list-style: none;\n  padding: 10px 10px 10px 30px;\n  font-size: 16px;\n  color: #333333; }\n\n.menu-list__contentInner ul li:hover,\n.menu-list__contentInner ul li:active {\n  background-color: #bababa; }\n\n.menu-list__contentInner p:last-child {\n  margin-bottom: 0; }\n\n.menu-list__trigger {\n  box-shadow: inset 0 -1px #BABABA;\n  display: block;\n  font-weight: 400;\n  text-decoration: none;\n  text-indent: 8px;\n  position: relative;\n  border: 1px solid white;\n  padding: 10px;\n  background-color: #e9e9e9;\n  color: #333333;\n  cursor: pointer;\n  font-size: 16px; }\n\n.menu-list__trigger:hover {\n  background-color: #bababa; }\n\n.is-closed .icon-tree::before {\n  content: \"\\E603\";\n  font-size: 1.3em; }\n\n.is-open .icon-tree::before {\n  content: \"\\E601\";\n  font-size: 1.3em; }\n\n.icon-tree {\n  vertical-align: middle; }\n\n.menu-list__trigger.is-disabled {\n  opacity: 0.5;\n  background-color: grey; }\n\n.menu-page-progress {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  border: 1px solid #EE3124;\n  vertical-align: sub;\n  right: 18px;\n  position: absolute; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {\n  .menu-list__contentInner ul li {\n    width: 80%; } }\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n@font-face {\n  font-family: 'Lato';\n  src: url(" + __webpack_require__(109) + ");\n  src: url(" + __webpack_require__(109) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(244) + ") format(\"woff2\"), url(" + __webpack_require__(243) + ") format(\"woff\"), url(" + __webpack_require__(242) + ") format(\"truetype\"), url(" + __webpack_require__(346) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'Lato-Light';\n  src: url(" + __webpack_require__(108) + ");\n  src: url(" + __webpack_require__(108) + "?#iefix) format(\"embedded-opentype\"), url(" + __webpack_require__(237) + ") format(\"woff2\"), url(" + __webpack_require__(236) + ") format(\"woff\"), url(" + __webpack_require__(235) + ") format(\"truetype\"), url(" + __webpack_require__(344) + "#latoregular) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n@font-face {\n  font-family: 'icomoon';\n  src: url(" + __webpack_require__(239) + ");\n  src: url(" + __webpack_require__(238) + "?#iefixc92yby) format(\"embedded-opentype\"), url(" + __webpack_require__(241) + ") format(\"woff\"), url(" + __webpack_require__(240) + ") format(\"truetype\"), url(" + __webpack_require__(345) + "#icomoon) format(\"svg\");\n  font-weight: normal;\n  font-style: normal; }\n\n[class^=\"icon-\"], [class*=\" icon-\"] {\n  font-family: 'icomoon';\n  speak: none;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  letter-spacing: 0;\n  -webkit-font-feature-settings: \"liga\";\n  -moz-font-feature-settings: \"liga=1\";\n  -moz-font-feature-settings: \"liga\";\n  -ms-font-feature-settings: \"liga\" 1;\n  font-feature-settings: \"liga\";\n  -webkit-font-variant-ligatures: discretionary-ligatures;\n  font-variant-ligatures: discretionary-ligatures;\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\n.menu-overlay-style {\n  position: absolute !important; }\n\n.menu-custom-style {\n  bottom: 44px !important;\n  top: 64px !important; }\n\n.menu-overlay-style {\n  background-color: rgba(0, 0, 0, 0.498039) !important; }\n\n.menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  z-index: 99 !important; }\n\n.menu-header h1 {\n  font: inherit;\n  margin: 0; }\n\n@media (min-width: 320px) {\n  .menu-style {\n    width: 100%; } }\n\n@media (min-width: 650px) {\n  .menu-style {\n    width: 460px; } }\n\n.menu-list__trigger {\n  display: none !important; }\n\n.disable-event {\n  pointer-events: none; }\n\nbody {\n  background: #5B6770;\n  font-family: 'Arial', Calibri, Arial, sans-serif;\n  height: 100%;\n  line-height: 1.4;\n  overflow: hidden;\n  max-width: 1010px;\n  max-height: 650px; }\n\n.wrapper {\n  bottom: 0;\n  display: table;\n  height: 100%;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  width: 100%; }\n\n.launcher {\n  display: table-cell;\n  padding-bottom: 40px;\n  vertical-align: top; }\n\n.whitePatch {\n  background-color: #FFFFFF;\n  height: 231px;\n  position: relative;\n  width: 100%; }\n\n.td1 {\n  align-items: center;\n  padding: 25px 25px 15px 25px;\n  position: relative;\n  top: 10px;\n  text-align: left; }\n\n.td2 {\n  align-items: center;\n  padding: 0;\n  position: relative;\n  top: 18px;\n  width: auto; }\n\n.divSeparator {\n  background-color: #CBCBCB;\n  height: 1px;\n  margin: 0 auto;\n  width: 100%; }\n\n.td3 {\n  align-items: center;\n  color: #5B6770;\n  font-size: 1.5em;\n  padding: 24px 25px;\n  position: relative;\n  text-align: left;\n  top: 5px;\n  vertical-align: middle; }\n\n.launch_btn {\n  background-image: url(" + __webpack_require__(138) + ");\n  background-repeat: no-repeat;\n  background-position: 0 0;\n  width: 88px;\n  height: 96px;\n  display: block;\n  color: #5B6770;\n  position: absolute;\n  right: 25px;\n  font-size: 0.6em;\n  text-align: center;\n  top: 57px;\n  font-weight: bold; }\n\n.launch_btn:hover {\n  background-image: url(" + __webpack_require__(138) + ");\n  background-position: -120px 0 !important;\n  color: #FFFFFF; }\n\n.launch_btn span {\n  vertical-align: middle;\n  line-height: 99px; }\n\na {\n  text-decoration: none; }\n\n@media (min-width: 768px) {\n  .launcher {\n    vertical-align: middle; }\n  .whitePatch {\n    display: table;\n    height: 120px;\n    position: static;\n    text-align: center;\n    vertical-align: middle;\n    width: 100%; }\n  .td1 {\n    display: table-cell;\n    height: 73px;\n    padding: 0;\n    padding-top: 5px;\n    position: static;\n    text-align: right;\n    vertical-align: middle;\n    width: 40%; }\n  .td2 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: static;\n    vertical-align: middle;\n    width: 4%; }\n  .divSeparator {\n    background-color: #CBCBCB;\n    height: 80px;\n    width: 1px; }\n  .td3 {\n    display: table-cell;\n    height: 100px;\n    padding: 0;\n    position: relative;\n    text-align: left;\n    top: 0;\n    vertical-align: middle;\n    width: 56%; }\n  .launch_btn {\n    font-size: 0.6em;\n    font-weight: bold;\n    left: 65%;\n    position: absolute;\n    text-align: center;\n    top: 71px; } }\n\nbody {\n  background: #ffffff !important;\n  margin: 0 auto;\n  overflow-y: auto;\n  font-family: 'Arial' !important;\n  max-width: 1024px;\n  max-height: 650px; }\n\n.cover-page {\n  height: auto;\n  color: #FFF;\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  overflow: hidden;\n  background-color: #0A4166; }\n\n.cover-page .btnIcon {\n  background: url(" + __webpack_require__(340) + ") repeat-x scroll 0 0 transparent;\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em; }\n\n.instruction-container {\n  height: 100%;\n  display: table;\n  width: 100%;\n  position: relative;\n  margin-top: 0;\n  overflow-y: auto; }\n\n.logo-container {\n  background-color: #FFF;\n  display: block;\n  padding: 35px 15px 24px; }\n\n.instruction-title .title {\n  color: rgba(0, 0, 0, 0.68);\n  font-size: 2em;\n  font-weight: 100;\n  margin: 0; }\n\n.text-container {\n  padding: 15px 10px 0px; }\n\n.cover-page .text-container p {\n  display: table-cell;\n  vertical-align: middle;\n  padding-right: 20px;\n  font-size: 1.35em; }\n\n.cover-page .btnIconBlank {\n  display: table-cell;\n  height: 40px;\n  color: #5C6670;\n  text-align: center;\n  vertical-align: middle;\n  margin: 0;\n  width: 40px;\n  font-size: 1.1em;\n  color: #FFFF; }\n\n.cover-page .text-container .text {\n  font-size: 0.875em;\n  padding: 4px; }\n\n.cover-page .text-container .text > div {\n  display: table;\n  width: 100%; }\n\n.cover-page .text-container .btnIcon {\n  padding-right: 0px; }\n\n.cover-page .text-container .btnIconBlank {\n  padding-right: 0px;\n  color: #fff;\n  font-size: 1.65em; }\n\n.cover-page .text-container .btnIcon1 span {\n  font-size: 1.3em; }\n\n.cover-page .text-container p:nth-child(2) {\n  padding-left: 20px;\n  font-size: 1.07em; }\n\n.cover-page .text {\n  color: #FFF;\n  height: 40px;\n  display: table;\n  width: 100%;\n  padding: 0 15px;\n  margin-bottom: 4px;\n  font-size: 1.1em; }\n\n.cover-page .dis_sys_check {\n  position: relative;\n  top: 7px;\n  z-index: 101; }\n\n.cover-page .container {\n  height: 100%;\n  position: relative;\n  display: table; }\n\n.cover-page .startbtn {\n  display: table-cell;\n  width: 100%; }\n\n.cover-page .instruction {\n  color: #FFF;\n  max-height: 40px;\n  margin: 0;\n  padding: 10px 0 10px 12px;\n  position: relative;\n  background-color: #083451;\n  font-size: 0.9375em; }\n\n.cover-page .instruction span {\n  font-weight: normal; }\n\n.cover-page .startbtn_a {\n  /* background: url(\"../../images/btnstrip2.png\") repeat-x scroll 0 0 rgba(0, 0, 0, 0); */\n  color: #ffffff;\n  display: inline-block;\n  float: right;\n  font-size: 1.5625em;\n  height: 40px;\n  margin-top: 0;\n  position: relative;\n  text-decoration: none;\n  top: 25px;\n  vertical-align: middle;\n  width: 100px;\n  margin-left: 10px;\n  z-index: 101;\n  background-color: #1792E5; }\n\n.cover-page .btnContent {\n  display: table;\n  width: 100%;\n  padding: 0;\n  height: 40px; }\n\n.cover-page .btnContent:hover {\n  background-color: #ee3124; }\n\n.cover-page .btnContent span {\n  vertical-align: middle;\n  display: table-cell;\n  text-align: center; }\n\n.cover-page .instruction .fontBold {\n  font-weight: bold; }\n\n.cover-page .sys_container {\n  display: none; }\n\n.text-container a {\n  color: #ffffff; }\n\n.cover-page .invisible-container {\n  height: 70px; }\n\n.playAudioParent {\n  height: 100%;\n  left: 0;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  z-index: 88888; }\n\n.playBlinkBlack {\n  background-color: #FFF;\n  height: 100%;\n  left: 0;\n  opacity: 0.6;\n  position: absolute;\n  top: 0;\n  width: 100%;\n  z-index: 5; }\n\n.playBlink {\n  background: url(" + __webpack_require__(343) + ") no-repeat scroll 0 0 transparent;\n  height: 100px;\n  margin: -50px auto 0;\n  position: relative;\n  top: 50%;\n  width: 112px;\n  z-index: 500; }\n\n.button-autoPlay {\n  background: url(" + __webpack_require__(342) + ") no-repeat scroll 0 0 transparent;\n  display: block;\n  height: 42px;\n  margin: 0 auto;\n  position: relative;\n  top: 29px;\n  width: 38px;\n  z-index: 900000;\n  margin-top: 25%; }\n\n@media (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px;\n    font-size: 1.35; }\n  .cover-page .text-container p {\n    font-size: 1em;\n    font-weight: bold; }\n  .cover-page .text-container p:nth-child(2) {\n    padding-left: 20px;\n    font-size: 1.07em; }\n  .cover-page .instruction {\n    font-size: 1.07em; } }\n\n@media all and (min-width: 320px) {\n  .cover-page .dis_container {\n    /* padding: 10px 15px 0; */ }\n  .cover-page .dis_sys_check {\n    padding: 0 15px; } }\n\n@media all and (min-width: 400px) {\n  .cover-page .startbtn_a {\n    top: 35px; } }\n\n@media all and (min-width: 480px) {\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media all and (min-width: 600px) {\n  .cover-page .cover-page {\n    padding: 0; }\n  .cover-page .dis_container {\n    max-width: 100%; }\n  .cover-page .dis_text .title {\n    font-size: 2em;\n    font-weight: 100; }\n  .cover-page .instruction {\n    padding: 0 0 0 20px;\n    display: table-cell;\n    vertical-align: middle;\n    font-size: 1em; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .startbtn_a {\n    top: 0px;\n    float: none; } }\n\n@media (min-width: 768px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .text-container {\n    padding: 25px 25px 0; }\n  .cover-page .text-container p {\n    font-weight: normal !important; }\n  .cover-page .holder_text_mobile .desc {\n    padding: 0 0 0 22px; }\n  .cover-page .dis_logo {\n    width: auto; }\n  .cover-page .container {\n    width: 100%; }\n  .cover-page .text {\n    font-size: 1.15em !important;\n    padding: 2px 4px; }\n  .cover-page .text > div {\n    width: 85%; }\n  .cover-page .dis_logo {\n    float: none;\n    top: 0; }\n  .cover-page .startbtn_a {\n    float: none;\n    top: 0;\n    right: -1px; }\n  .cover-page .startbtn {\n    width: 80%;\n    display: block; }\n  .cover-page .instruction {\n    padding: 0 0 0 15px;\n    display: table-cell;\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    padding-left: 25px; }\n  .cover-page .holder_text_mobile {\n    display: block; }\n  .cover-page .support-image {\n    position: absolute;\n    right: 0;\n    z-index: 102;\n    bottom: 0;\n    height: 100%; }\n  .cover-page .holder_text {\n    display: table-cell;\n    width: 80%;\n    position: static;\n    padding-right: 10px; }\n  .cover-page .text {\n    color: #FFF;\n    font-weight: 700;\n    height: 40px;\n    display: table;\n    width: 100%;\n    padding: 0 15px;\n    margin-bottom: 10px;\n    padding-right: 115px; }\n  .cover-page .icon-arrow {\n    margin-right: 10px; }\n  .cover-page .icon-btn {\n    vertical-align: middle; }\n  .cover-page .dis_sys_check {\n    z-index: 101; }\n  .cover-page .dis_img1 {\n    background: url(" + __webpack_require__(341) + ") no-repeat scroll 0 0 transparent;\n    position: absolute;\n    right: -315px;\n    bottom: -20px;\n    display: block;\n    width: 770px;\n    height: 424px; }\n  .cover-page .dis_logo {\n    margin-bottom: 5px; }\n  .cover-page .dis_logo_bg {\n    bottom: 35px;\n    padding: 0;\n    position: absolute;\n    right: 35px; }\n  .cover-page .dis_text .title {\n    margin-left: 10px; }\n  .cover-page .holder_text_mobile .btnIcon {\n    font-size: 0.9em; }\n  .cover-page .holder_text_mobile p:nth-child(2) {\n    padding-left: 15px;\n    font-size: 1em;\n    font-weight: normal;\n    line-height: 1em; } }\n\n@media (min-width: 995px) {\n  .cover-page .logo-container {\n    padding: 30px 25px 24px; }\n  .cover-page .dis_img1 {\n    right: -240px;\n    bottom: 0px; } }\n\n/* Absolute Center Spinner */\n.loading {\n  position: fixed;\n  z-index: 999;\n  height: 2em;\n  width: 2em;\n  overflow: show;\n  margin: auto;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0; }\n\n/* Transparent Overlay */\n.loading:before {\n  content: '';\n  display: block;\n  position: fixed;\n  max-height: 650px;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #ddd; }\n\n/* :not(:required) hides these rules from IE9 and below */\n.loading:not(:required) {\n  /* hide \"loading...\" text */\n  font: 0/0 a;\n  color: transparent;\n  text-shadow: none;\n  background-color: transparent;\n  border: 0; }\n\n.email {\n  margin-left: -15px; }\n\n.loading:not(:required):after {\n  content: '';\n  display: block;\n  font-size: 10px;\n  width: 1em;\n  height: 1em;\n  margin-top: -0.5em;\n  -webkit-animation: spinner 1500ms infinite linear;\n  -moz-animation: spinner 1500ms infinite linear;\n  -ms-animation: spinner 1500ms infinite linear;\n  -o-animation: spinner 1500ms infinite linear;\n  animation: spinner 1500ms infinite linear;\n  border-radius: 0.5em;\n  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;\n  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0; }\n\n/* Animation */\n@-webkit-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@-moz-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@-o-keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n@keyframes spinner {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg); } }\n\n.overlay {\n  background-color: #000;\n  position: absolute;\n  width: 100%;\n  height: 620px;\n  top: 0;\n  opacity: 0.5; }\n\n.downArrow {\n  display: none;\n  position: fixed;\n  background-color: aquamarine;\n  width: 50px;\n  height: 50px;\n  color: #cc0707;\n  bottom: 30px;\n  right: 30px; }\n\n.exit-alert {\n  position: absolute;\n  top: 430%;\n  left: 0;\n  right: 0;\n  width: 300px;\n  margin: auto;\n  padding: 5px;\n  z-index: 99999; }\n\n.popup-content {\n  text-align: center;\n  padding: 20px 0; }\n\n.popup-header {\n  padding: 10px;\n  background-color: #ee3124; }\n\n.popup-area {\n  background-color: #D3D4D4;\n  display: block;\n  text-align: center;\n  padding: 0 35px; }\n\n.warning-msg {\n  margin: 0;\n  color: #000; }\n\n.popup-buttons {\n  text-align: center; }\n\n.popup-buttons div {\n  display: inline-block;\n  width: 100px; }\n\n.popup-no-button,\n.popup-yes-button {\n  display: block;\n  margin: 10px;\n  padding: 5px 10px;\n  width: 60px;\n  background-color: #1792e5;\n  color: #FFF; }\n\nbody {\n  margin: 0 auto;\n  font-family: Arial;\n  color: #FFF;\n  font-size: 1em;\n  font-weight: 300;\n  overflow: auto; }\n\n#root {\n  overflow: hidden; }\n\n.shell-container {\n  position: relative;\n  overflow: hidden; }\n\n.header {\n  background-color: #E9ECED;\n  position: relative;\n  width: 100%;\n  z-index: 100;\n  max-height: 61px; }\n\n.courseProgress {\n  width: 100%;\n  height: 4px;\n  top: -10px;\n  position: relative;\n  /* border: 0.1em solid #ccc; */\n  background: #c5cdcf; }\n\n.courseProgress span {\n  width: 0;\n  background: #ee3124;\n  height: 4px;\n  display: block;\n  color: #000;\n  text-align: center; }\n\n.title-holder {\n  display: table;\n  color: #5C6670;\n  font-weight: 700;\n  height: 100%;\n  font-size: 1.3em; }\n\n.close_btn {\n  position: absolute;\n  right: 25px;\n  top: 20px;\n  color: #000 !important;\n  font-size: 20px;\n  cursor: pointer; }\n\n.close_btn:hover,\nicon-close:hover {\n  color: #ee3124 !important; }\n\n.title-holder > div {\n  display: table-cell;\n  padding: 0 10px;\n  vertical-align: middle; }\n\n.course-logo {\n  float: left; }\n  .course-logo img {\n    width: 80%;\n    margin: 5px; }\n\n.page-title__container {\n  min-height: 40px;\n  line-height: 35px;\n  display: flex;\n  align-items: baseline;\n  width: 100%;\n  color: #FFF;\n  font-weight: 700;\n  background-color: #5C6670; }\n\n.page-title__container .topic-title {\n  color: #C1C6C9;\n  padding: 10px 5px 0;\n  display: inline-block; }\n\n.title-seperator {\n  padding: 0 5px; }\n\n.page-title__container .page-title {\n  align-self: center;\n  padding-top: 8px;\n  padding-bottom: 5px; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {\n  .page-title__container {\n    line-height: 18px; } }\n\n.resource-overlay {\n  background-color: #000;\n  position: absolute;\n  width: 100%;\n  height: 620px;\n  top: 0;\n  opacity: 0.5;\n  z-index: 99; }\n\n.footer {\n  position: absolute;\n  height: 46px;\n  width: 100%;\n  background-color: #707c89;\n  bottom: 0px;\n  z-index: 999999999999; }\n\n.right-column {\n  text-align: right;\n  width: 100%;\n  border-right: 0px solid #C1C6C9; }\n\n.button-box {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: middle;\n  height: 45px;\n  width: 41px; }\n\n.button-box a {\n  color: #5C6670;\n  display: block;\n  text-align: center;\n  width: 40px;\n  height: 44px;\n  line-height: 42px;\n  margin-top: 1px; }\n\n.footer .button-box a, .footer .nav-comp-container .page-counter, .footer .button-box a.disabled, .footer .button-box a.selected {\n  background: #ffffff;\n  /* Old browsers */\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 );\n  /* IE6-8 */ }\n\n.footer .button-box a:hover {\n  color: #fff !important;\n  background: #ee3124;\n  /* Old browsers */\n  /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* FF3.6+ */\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n  /* Chrome,Safari4+ */\n  background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Chrome10+,Safari5.1+ */\n  background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* Opera 11.10+ */\n  background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* IE10+ */\n  background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n  /* W3C */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n  /* IE6-8 */ }\n\n.nav-comp-container {\n  font-size: 1em;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 44px;\n  padding: 1px 1px 0px 0;\n  color: #5C6670;\n  height: 44px; }\n\n.nav-comp-container .page-counter {\n  padding: 0 10px; }\n\n.button-box a.disabled {\n  color: #AAB1B9;\n  cursor: default;\n  pointer-events: none; }\n\n@media (min-width: 650px) {\n  .footer .button-box, .nav-comp-container {\n    background-color: #C1C6C9;\n    border-bottom: 1px solid #C1C6C9; } }\n\n.blinker {\n  -webkit-animation: blink 1s infinite;\n  /* Safari 4+ */\n  -moz-animation: blink 1s infinite;\n  /* Fx 5+ */\n  -o-animation: blink 1s infinite;\n  /* Opera 12+ */\n  animation: blink 1s infinite;\n  /* IE 10+, Fx 29+ */ }\n\n@-webkit-keyframes blink {\n  0%, 49% {\n    background: #ffffff;\n    /* Old browsers */\n    background-size: cover;\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iI2VkZWJlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGViZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #edebec 0%, #edebec 50%, #edebec 51%, #edebec 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #edebec), color-stop(50%, #edebec), color-stop(51%, #edebec), color-stop(100%, #edebec));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #edebec 0%, #edebec 50%, #edebec 51%, #edebec 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #edebec 0%, #edebec 50%, #edebec 51%, #edebec 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #edebec 0%, #edebec 50%, #edebec 51%, #edebec 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #edebec 0%, #edebec 50%, #edebec 51%, #edebec 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edebec', endColorstr='#edebec',GradientType=0 );\n    /* IE6-8 */ }\n  50%, 100% {\n    color: #ffffff !important;\n    background: #ee3124;\n    /* Old browsers */\n    background-size: cover;\n    /* IE9 SVG, needs conditional override of 'filter' to 'none' */\n    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iI2VlMzEyNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZTMxMjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n    background: -moz-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* FF3.6+ */\n    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee3124), color-stop(44%, #ee3124), color-stop(50%, #ee3124), color-stop(57%, #ee3124), color-stop(100%, #ee3124));\n    /* Chrome,Safari4+ */\n    background: -webkit-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Chrome10+,Safari5.1+ */\n    background: -o-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* Opera 11.10+ */\n    background: -ms-linear-gradient(top, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* IE10+ */\n    background: linear-gradient(to bottom, #ee3124 0%, #ee3124 44%, #ee3124 50%, #ee3124 57%, #ee3124 100%);\n    /* W3C */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee3124', endColorstr='#ee3124',GradientType=0 );\n    /* IE6-8 */ } }\n\n.page-container {\n  position: relative;\n  top: -2px;\n  margin: 0;\n  overflow-y: hidden;\n  width: 100%;\n  z-index: 9; }\n  @media all and (max-width: 680px) {\n    .page-container {\n      overflow-y: auto; } }\n\n.page-container .page-holder {\n  height: 100%; }\n\n.page-loader {\n  height: 100%;\n  z-index: 99;\n  overflow: hidden; }\n\n.help-container > div:first-child {\n  position: static !important;\n  width: 100% !important;\n  height: 100% !important;\n  z-index: 1 !important; }\n\n.fadeOut {\n  opacity: 0; }\n\n.fadeIn {\n  opacity: 1;\n  transition: .5s; }\n\n.icon-transcript::before {\n  content: \"\\E629\"; }\n\n.icon-audio:before {\n  content: \"\\E606\"; }\n\n.icon-playPause:before {\n  content: \"\\E619\"; }\n\n.selected .icon-transcript:before {\n  content: \"\\E628\"; }\n\n.selected .icon-audio:before {\n  content: \"\\E605\"; }\n\n.selected .icon-playPause:before {\n  content: \"\\E61B\"; }\n\n.hide {\n  display: none; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {\n  .page-loader {\n    height: 100%;\n    z-index: 99;\n    overflow: auto; } }\n\n@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {\n  .page-loader {\n    height: 100%;\n    z-index: 99;\n    overflow: auto; } }\n\n/*.page {\n    margin: 0 auto;\n    padding: 0 15px 15px 15px;\n    background: #fff;\n    color: #000;\n}\n\n.screen-holder {\n    width: 100%;\n    height: 100%;\n    overflow-x: hidden;\n    overflow-y: auto;\n}\n\n.screen-bg {\n    background: url('../images/bg.jpg') left bottom no-repeat;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 0;\n}\n\n.objective-holder {\n    width: 55%;\n    background-color: #FFF;\n    margin-top: 10%;\n}\n\n.objective-title {\n    width: 75%;\n    color: #ed3125;\n    border-bottom: 1px solid #f18b86;\n    padding: 5px 0;\n    margin-left: 10px;\n    margin-bottom: 5px;\n    font-size: 1.5em;\n}\n\n.objective-content {\n    margin-left: 10px;\n    margin-bottom: 5px;\n}\n\n.heading {\n    font-size: 1em;\n    font-weight: 700;\n}\n\n.objective-content ul {\n    list-style: none;\n    padding-bottom: 20px;\n}\n\n.objective-content li {\n    background: url(../images/li_red.png) no-repeat scroll 0px 4px transparent;\n    padding: 0px 0 0px 15px;\n    margin-top: 7px;\n    line-height: 1.3em;\n    margin-left: -30px;\n}\n\n@media all and (min-width:320px) and (max-width: 640px) {\n\t.screen-bg {\n   \t\tbackground: url(../images/bg.jpg) bottom right no-repeat;\n   \t}\n\n   \t.objective-holder {\n\t    width: 88%;\n\t    background-color: #FFF;\n\t    margin-top: 10%;\n\t    margin-left: 5%;\n\t}\n}*/\n.top-nav .middleButtons {\n  text-align: center; }\n\n.top-nav a,\n.top-nav .page-counter {\n  font-size: 1.2em; }\n\n.top-nav .nav-comp-container {\n  vertical-align: inherit; }\n\n.tool-menu-custom-style {\n  height: auto;\n  max-height: 50px;\n  top: 49px !important; }\n\n.tool-menu-style {\n  background-color: #fff;\n  bottom: 2px !important;\n  font-size: 1em;\n  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.6) !important;\n  margin-right: -10px;\n  width: 300px; }\n\n.help-header {\n  display: table;\n  width: 100%;\n  height: 40px;\n  background: #EE3124;\n  font-size: 1.25em; }\n  .help-header h1 {\n    margin: 0;\n    font-size: 1.35em; }\n\n.help-header .title-container {\n  display: table-cell;\n  width: 100%;\n  vertical-align: middle;\n  padding: 5px 15px;\n  color: #FFF;\n  font-weight: 400; }\n\n.help-header .button-container {\n  display: table-cell;\n  width: 50px;\n  vertical-align: middle; }\n\n.help-close-button {\n  height: 40px;\n  width: 40px;\n  line-height: 40px;\n  display: block;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.elements-container {\n  display: table;\n  width: 100%;\n  height: 37px; }\n\n.elements-container .title-container {\n  display: table-cell;\n  width: 145px;\n  vertical-align: middle;\n  padding: 3px 5px 2px 15px;\n  border: 1px solid #999999;\n  border-top: none;\n  background-color: #dadada;\n  font-size: 1.05em; }\n\n.elements-container .button-container {\n  display: table-cell;\n  vertical-align: middle;\n  padding: 2px 5px;\n  border: 1px solid #999999;\n  border-left: none;\n  border-top: none;\n  background-color: #e9e9e9; }\n\n.iconbg {\n  color: #5C6670;\n  border: 1px solid #CCC;\n  height: 25px;\n  display: inline-block;\n  float: right; }\n\n.btnbg {\n  background: #ffffff;\n  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);\n  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(50%, #ffffff), color-stop(51%, #edebec), color-stop(100%, #edebec));\n  background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -o-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: -ms-linear-gradient(top, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #edebec 51%, #edebec 100%);\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edebec',GradientType=0 ); }\n\n.iconbg .pagecounter {\n  width: 41px;\n  color: #5C6670;\n  font-weight: bold; }\n\n.iconbg span {\n  vertical-align: middle;\n  font-size: 0.8em;\n  height: 26px;\n  display: table-cell;\n  text-align: center;\n  width: 25px; }\n\n.elements-container .title-container p {\n  width: 75px;\n  padding-top: 0px;\n  display: inline-block;\n  float: left;\n  padding-left: 4px;\n  margin: 0; }\n\n.button-container p {\n  margin: 0; }\n\n.help-content {\n  color: #333333; }\n\n@media (min-width: 750px) {\n  .elements-container .title-container p {\n    width: auto;\n    padding-top: 5px;\n    display: inline-block;\n    float: left;\n    padding-left: 5px; }\n  .elements-container .title-container {\n    width: 190px; } }\n\n.transcript-container {\n  width: 320px;\n  max-height: 240px;\n  margin: 0 auto;\n  bottom: 73px;\n  left: 30%;\n  z-index: 99999;\n  position: absolute; }\n\n.transcript-container .transcript-header {\n  font-size: 1.25em;\n  background-color: #EE3124;\n  color: #FFF;\n  font-weight: 400;\n  cursor: move; }\n\n.transcript-container .transcript-title {\n  display: inline-block;\n  padding: 10px 8px 10px 16px; }\n\n.transcript-container .transcript-close-button {\n  display: block;\n  float: right;\n  font-size: 1.25em;\n  height: 44px;\n  width: 44px;\n  line-height: 44px;\n  text-align: center;\n  color: #FFF;\n  opacity: 0.6; }\n\n.transcript-text-container {\n  height: 198px;\n  text-align: center;\n  background-color: #e9e9e9;\n  padding: 10px;\n  text-align: left;\n  color: #333333;\n  overflow-y: auto; }\n\n@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {\n  .transcript-container {\n    width: 400px;\n    max-height: 240px;\n    margin: 0 auto;\n    bottom: 20px;\n    right: 0%;\n    left: 0;\n    z-index: 99999;\n    position: fixed; } }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {\n  .transcript-container {\n    width: 270px;\n    max-height: 240px;\n    margin: 0 auto;\n    bottom: 265px;\n    right: 5%;\n    left: 0px;\n    z-index: 99999;\n    position: fixed; } }\n\n.menu-header {\n  background-color: #EE3124;\n  display: table;\n  font-size: 1.25em;\n  height: 40px;\n  width: 100%; }\n\n.menu-header-title {\n  color: #ffffff;\n  display: table-cell;\n  font-size: 1.15em;\n  height: 100%;\n  padding-left: 14px;\n  vertical-align: middle; }\n\n.menu-close-button-container {\n  color: #FFFFFF;\n  cursor: pointer;\n  display: table-cell;\n  height: 100%;\n  vertical-align: middle;\n  width: 40px; }\n\n.collapse-menu .collapse-menu-header h1 {\n  padding: 6px 14px; }\n\n/* Style for list view expand componen t */\n.menu-list {\n  background-color: #e9e9e9; }\n\n.menu-list__contentInner {\n  border: 1px solid #ebebeb;\n  border-top: 0;\n  position: relative; }\n\n.menu-list__contentInner ul {\n  padding: 0;\n  margin: 0; }\n\n.menu-list__contentInner ul li {\n  box-shadow: inset 0 -1px #BABABA;\n  cursor: pointer;\n  list-style: none;\n  padding: 10px 10px 10px 30px;\n  font-size: 16px;\n  color: #333333; }\n\n.menu-list__contentInner ul li:hover,\n.menu-list__contentInner ul li:active {\n  background-color: #bababa; }\n\n.menu-list__contentInner p:last-child {\n  margin-bottom: 0; }\n\n.menu-list__trigger {\n  box-shadow: inset 0 -1px #BABABA;\n  display: block;\n  font-weight: 400;\n  text-decoration: none;\n  text-indent: 8px;\n  position: relative;\n  border: 1px solid white;\n  padding: 10px;\n  background-color: #e9e9e9;\n  color: #333333;\n  cursor: pointer;\n  font-size: 16px; }\n\n.menu-list__trigger:hover {\n  background-color: #bababa; }\n\n.is-closed .icon-tree::before {\n  content: \"\\E603\";\n  font-size: 1.3em; }\n\n.is-open .icon-tree::before {\n  content: \"\\E601\";\n  font-size: 1.3em; }\n\n.icon-tree {\n  vertical-align: middle; }\n\n.menu-list__trigger.is-disabled {\n  opacity: 0.5;\n  background-color: grey; }\n\n.menu-page-progress {\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  border: 1px solid #EE3124;\n  vertical-align: sub;\n  right: 18px;\n  position: absolute; }\n\n@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {\n  .menu-list__contentInner ul li {\n    width: 80%; } }\n", ""]);
 
 // exports
 
@@ -41665,6 +41717,1724 @@ module.exports = "data:image/svg+xml;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tf
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICJhc3NldHMvZm9udHMvbGF0by1yZWd1bGFyLXdlYmZvbnQuc3ZnIjs="
+
+/***/ }),
+/* 347 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+module.exports = ReactPropTypesSecret;
+
+
+/***/ }),
+/* 348 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.assertNodeList = assertNodeList;
+exports.setElement = setElement;
+exports.tryForceFallback = tryForceFallback;
+exports.validateElement = validateElement;
+exports.hide = hide;
+exports.show = show;
+exports.documentNotReadyOrSSRTesting = documentNotReadyOrSSRTesting;
+exports.resetForTesting = resetForTesting;
+var globalElement = null;
+
+function assertNodeList(nodeList, selector) {
+  if (!nodeList || !nodeList.length) {
+    throw new Error('react-modal: No elements were found for selector ' + selector + '.');
+  }
+}
+
+function setElement(element) {
+  var useElement = element;
+  if (typeof useElement === 'string') {
+    var el = document.querySelectorAll(useElement);
+    assertNodeList(el, useElement);
+    useElement = 'length' in el ? el[0] : el;
+  }
+  globalElement = useElement || globalElement;
+  return globalElement;
+}
+
+function tryForceFallback() {
+  if (document && document.body) {
+    // force fallback to document.body
+    setElement(document.body);
+    return true;
+  }
+  return false;
+}
+
+function validateElement(appElement) {
+  if (!appElement && !globalElement && !tryForceFallback()) {
+    throw new Error(['react-modal: Cannot fallback to `document.body`, because it\'s not ready or available.', 'If you are doing server-side rendering, use this function to defined an element.', '`Modal.setAppElement(el)` to make this accessible']);
+  }
+}
+
+function hide(appElement) {
+  validateElement(appElement);
+  (appElement || globalElement).setAttribute('aria-hidden', 'true');
+}
+
+function show(appElement) {
+  validateElement(appElement);
+  (appElement || globalElement).removeAttribute('aria-hidden');
+}
+
+function documentNotReadyOrSSRTesting() {
+  globalElement = null;
+}
+
+function resetForTesting() {
+  globalElement = document.body;
+}
+
+/***/ }),
+/* 349 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.get = get;
+exports.add = add;
+exports.remove = remove;
+exports.totalCount = totalCount;
+var classListMap = {};
+
+function get() {
+  return classListMap;
+}
+
+function add(bodyClass) {
+  // Set variable and default if none
+  if (!classListMap[bodyClass]) {
+    classListMap[bodyClass] = 0;
+  }
+  classListMap[bodyClass] += 1;
+  return bodyClass;
+}
+
+function remove(bodyClass) {
+  if (classListMap[bodyClass]) {
+    classListMap[bodyClass] -= 1;
+  }
+  return bodyClass;
+}
+
+function totalCount() {
+  return Object.keys(classListMap).reduce(function (acc, curr) {
+    return acc + classListMap[curr];
+  }, 0);
+}
+
+/***/ }),
+/* 350 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _exenv = __webpack_require__(353);
+
+var _exenv2 = _interopRequireDefault(_exenv);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var EE = _exenv2.default;
+
+var SafeHTMLElement = EE.canUseDOM ? window.HTMLElement : {};
+
+exports.default = SafeHTMLElement;
+
+/***/ }),
+/* 351 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = findTabbableDescendants;
+/*!
+ * Adapted from jQuery UI core
+ *
+ * http://jqueryui.com
+ *
+ * Copyright 2014 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/category/ui-core/
+ */
+
+var tabbableNode = /input|select|textarea|button|object/;
+
+function hidden(el) {
+  return el.offsetWidth <= 0 && el.offsetHeight <= 0 || el.style.display === 'none';
+}
+
+function visible(element) {
+  var parentElement = element;
+  while (parentElement) {
+    if (parentElement === document.body) break;
+    if (hidden(parentElement)) return false;
+    parentElement = parentElement.parentNode;
+  }
+  return true;
+}
+
+function focusable(element, isTabIndexNotNaN) {
+  var nodeName = element.nodeName.toLowerCase();
+  var res = tabbableNode.test(nodeName) && !element.disabled || (nodeName === "a" ? element.href || isTabIndexNotNaN : isTabIndexNotNaN);
+  return res && visible(element);
+}
+
+function tabbable(element) {
+  var tabIndex = element.getAttribute('tabindex');
+  if (tabIndex === null) tabIndex = undefined;
+  var isTabIndexNaN = isNaN(tabIndex);
+  return (isTabIndexNaN || tabIndex >= 0) && focusable(element, !isTabIndexNaN);
+}
+
+function findTabbableDescendants(element) {
+  return [].slice.call(element.querySelectorAll('*'), 0).filter(tabbable);
+}
+
+/***/ }),
+/* 352 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(362)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(361)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 353 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2015 Jed Watson.
+  Based on code that is Copyright 2013-2015, Facebook, Inc.
+  All rights reserved.
+*/
+
+(function () {
+	'use strict';
+
+	var canUseDOM = !!(
+		typeof window !== 'undefined' &&
+		window.document &&
+		window.document.createElement
+	);
+
+	var ExecutionEnvironment = {
+
+		canUseDOM: canUseDOM,
+
+		canUseWorkers: typeof Worker !== 'undefined',
+
+		canUseEventListeners:
+			canUseDOM && !!(window.addEventListener || window.attachEvent),
+
+		canUseViewport: canUseDOM && !!window.screen
+
+	};
+
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
+			return ExecutionEnvironment;
+		}.call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else if (typeof module !== 'undefined' && module.exports) {
+		module.exports = ExecutionEnvironment;
+	} else {
+		window.ExecutionEnvironment = ExecutionEnvironment;
+	}
+
+}());
+
+
+/***/ }),
+/* 354 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.bodyOpenClassName = exports.portalClassName = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(88);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _propTypes = __webpack_require__(352);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _ModalPortal = __webpack_require__(355);
+
+var _ModalPortal2 = _interopRequireDefault(_ModalPortal);
+
+var _ariaAppHider = __webpack_require__(348);
+
+var ariaAppHider = _interopRequireWildcard(_ariaAppHider);
+
+var _safeHTMLElement = __webpack_require__(350);
+
+var _safeHTMLElement2 = _interopRequireDefault(_safeHTMLElement);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var portalClassName = exports.portalClassName = 'ReactModalPortal';
+var bodyOpenClassName = exports.bodyOpenClassName = 'ReactModal__Body--open';
+
+var renderSubtreeIntoContainer = _reactDom2.default.unstable_renderSubtreeIntoContainer;
+
+function getParentElement(parentSelector) {
+  return parentSelector();
+}
+
+var Modal = function (_Component) {
+  _inherits(Modal, _Component);
+
+  function Modal() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Modal);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Modal.__proto__ || Object.getPrototypeOf(Modal)).call.apply(_ref, [this].concat(args))), _this), _this.removePortal = function () {
+      _reactDom2.default.unmountComponentAtNode(_this.node);
+      var parent = getParentElement(_this.props.parentSelector);
+      parent.removeChild(_this.node);
+    }, _this.renderPortal = function (props) {
+      _this.portal = renderSubtreeIntoContainer(_this, _react2.default.createElement(_ModalPortal2.default, _extends({ defaultStyles: Modal.defaultStyles }, props)), _this.node);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Modal, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.node = document.createElement('div');
+      this.node.className = this.props.portalClassName;
+
+      var parent = getParentElement(this.props.parentSelector);
+      parent.appendChild(this.node);
+
+      this.renderPortal(this.props);
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(newProps) {
+      var isOpen = newProps.isOpen;
+      // Stop unnecessary renders if modal is remaining closed
+
+      if (!this.props.isOpen && !isOpen) return;
+
+      var currentParent = getParentElement(this.props.parentSelector);
+      var newParent = getParentElement(newProps.parentSelector);
+
+      if (newParent !== currentParent) {
+        currentParent.removeChild(this.node);
+        newParent.appendChild(this.node);
+      }
+
+      this.renderPortal(newProps);
+    }
+  }, {
+    key: 'componentWillUpdate',
+    value: function componentWillUpdate(newProps) {
+      if (newProps.portalClassName !== this.props.portalClassName) {
+        this.node.className = newProps.portalClassName;
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      if (!this.node) return;
+
+      var state = this.portal.state;
+      var now = Date.now();
+      var closesAt = state.isOpen && this.props.closeTimeoutMS && (state.closesAt || now + this.props.closeTimeoutMS);
+
+      if (closesAt) {
+        if (!state.beforeClose) {
+          this.portal.closeWithTimeout();
+        }
+
+        setTimeout(this.removePortal, closesAt - now);
+      } else {
+        this.removePortal();
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return null;
+    }
+  }], [{
+    key: 'setAppElement',
+    value: function setAppElement(element) {
+      ariaAppHider.setElement(element);
+    }
+
+    /* eslint-disable no-console */
+
+  }, {
+    key: 'injectCSS',
+    value: function injectCSS() {
+      process.env.NODE_ENV !== "production" && console.warn('React-Modal: injectCSS has been deprecated ' + 'and no longer has any effect. It will be removed in a later version');
+    }
+    /* eslint-enable no-console */
+
+    /* eslint-disable react/no-unused-prop-types */
+
+    /* eslint-enable react/no-unused-prop-types */
+
+  }]);
+
+  return Modal;
+}(_react.Component);
+
+Modal.propTypes = {
+  isOpen: _propTypes2.default.bool.isRequired,
+  style: _propTypes2.default.shape({
+    content: _propTypes2.default.object,
+    overlay: _propTypes2.default.object
+  }),
+  portalClassName: _propTypes2.default.string,
+  bodyOpenClassName: _propTypes2.default.string,
+  className: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object]),
+  overlayClassName: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object]),
+  appElement: _propTypes2.default.instanceOf(_safeHTMLElement2.default),
+  onAfterOpen: _propTypes2.default.func,
+  onRequestClose: _propTypes2.default.func,
+  closeTimeoutMS: _propTypes2.default.number,
+  ariaHideApp: _propTypes2.default.bool,
+  shouldCloseOnOverlayClick: _propTypes2.default.bool,
+  parentSelector: _propTypes2.default.func,
+  aria: _propTypes2.default.object,
+  role: _propTypes2.default.string,
+  contentLabel: _propTypes2.default.string.isRequired
+};
+Modal.defaultProps = {
+  isOpen: false,
+  portalClassName: portalClassName,
+  bodyOpenClassName: bodyOpenClassName,
+  ariaHideApp: true,
+  closeTimeoutMS: 0,
+  shouldCloseOnOverlayClick: true,
+  parentSelector: function parentSelector() {
+    return document.body;
+  }
+};
+Modal.defaultStyles = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(255, 255, 255, 0.75)'
+  },
+  content: {
+    position: 'absolute',
+    top: '40px',
+    left: '40px',
+    right: '40px',
+    bottom: '40px',
+    border: '1px solid #ccc',
+    background: '#fff',
+    overflow: 'auto',
+    WebkitOverflowScrolling: 'touch',
+    borderRadius: '4px',
+    outline: 'none',
+    padding: '20px'
+  }
+};
+exports.default = Modal;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 355 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(352);
+
+var _focusManager = __webpack_require__(357);
+
+var focusManager = _interopRequireWildcard(_focusManager);
+
+var _scopeTab = __webpack_require__(358);
+
+var _scopeTab2 = _interopRequireDefault(_scopeTab);
+
+var _ariaAppHider = __webpack_require__(348);
+
+var ariaAppHider = _interopRequireWildcard(_ariaAppHider);
+
+var _refCount = __webpack_require__(349);
+
+var refCount = _interopRequireWildcard(_refCount);
+
+var _bodyClassList = __webpack_require__(356);
+
+var bodyClassList = _interopRequireWildcard(_bodyClassList);
+
+var _safeHTMLElement = __webpack_require__(350);
+
+var _safeHTMLElement2 = _interopRequireDefault(_safeHTMLElement);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// so that our CSS is statically analyzable
+var CLASS_NAMES = {
+  overlay: 'ReactModal__Overlay',
+  content: 'ReactModal__Content'
+};
+
+var TAB_KEY = 9;
+var ESC_KEY = 27;
+
+var ModalPortal = function (_Component) {
+  _inherits(ModalPortal, _Component);
+
+  function ModalPortal(props) {
+    _classCallCheck(this, ModalPortal);
+
+    var _this = _possibleConstructorReturn(this, (ModalPortal.__proto__ || Object.getPrototypeOf(ModalPortal)).call(this, props));
+
+    _this.setFocusAfterRender = function (focus) {
+      _this.focusAfterRender = focus;
+    };
+
+    _this.setOverlayRef = function (overlay) {
+      _this.overlay = overlay;
+    };
+
+    _this.setContentRef = function (content) {
+      _this.content = content;
+    };
+
+    _this.afterClose = function () {
+      focusManager.returnFocus();
+      focusManager.teardownScopedFocus();
+    };
+
+    _this.open = function () {
+      _this.beforeOpen();
+      if (_this.state.afterOpen && _this.state.beforeClose) {
+        clearTimeout(_this.closeTimer);
+        _this.setState({ beforeClose: false });
+      } else {
+        focusManager.setupScopedFocus(_this.node);
+        focusManager.markForFocusLater();
+        _this.setState({ isOpen: true }, function () {
+          _this.setState({ afterOpen: true });
+
+          if (_this.props.isOpen && _this.props.onAfterOpen) {
+            _this.props.onAfterOpen();
+          }
+        });
+      }
+    };
+
+    _this.close = function () {
+      _this.beforeClose();
+      if (_this.props.closeTimeoutMS > 0) {
+        _this.closeWithTimeout();
+      } else {
+        _this.closeWithoutTimeout();
+      }
+    };
+
+    _this.focusContent = function () {
+      return _this.content && !_this.contentHasFocus() && _this.content.focus();
+    };
+
+    _this.closeWithTimeout = function () {
+      var closesAt = Date.now() + _this.props.closeTimeoutMS;
+      _this.setState({ beforeClose: true, closesAt: closesAt }, function () {
+        _this.closeTimer = setTimeout(_this.closeWithoutTimeout, _this.state.closesAt - Date.now());
+      });
+    };
+
+    _this.closeWithoutTimeout = function () {
+      _this.setState({
+        beforeClose: false,
+        isOpen: false,
+        afterOpen: false,
+        closesAt: null
+      }, _this.afterClose);
+    };
+
+    _this.handleKeyDown = function (event) {
+      if (event.keyCode === TAB_KEY) {
+        (0, _scopeTab2.default)(_this.content, event);
+      }
+      if (event.keyCode === ESC_KEY) {
+        event.preventDefault();
+        _this.requestClose(event);
+      }
+    };
+
+    _this.handleOverlayOnClick = function (event) {
+      if (_this.shouldClose === null) {
+        _this.shouldClose = true;
+      }
+
+      if (_this.shouldClose && _this.props.shouldCloseOnOverlayClick) {
+        if (_this.ownerHandlesClose()) {
+          _this.requestClose(event);
+        } else {
+          _this.focusContent();
+        }
+      }
+      _this.shouldClose = null;
+    };
+
+    _this.handleContentOnClick = function () {
+      _this.shouldClose = false;
+    };
+
+    _this.requestClose = function (event) {
+      return _this.ownerHandlesClose() && _this.props.onRequestClose(event);
+    };
+
+    _this.ownerHandlesClose = function () {
+      return _this.props.onRequestClose;
+    };
+
+    _this.shouldBeClosed = function () {
+      return !_this.state.isOpen && !_this.state.beforeClose;
+    };
+
+    _this.contentHasFocus = function () {
+      return document.activeElement === _this.content || _this.content.contains(document.activeElement);
+    };
+
+    _this.buildClassName = function (which, additional) {
+      var classNames = (typeof additional === 'undefined' ? 'undefined' : _typeof(additional)) === 'object' ? additional : {
+        base: CLASS_NAMES[which],
+        afterOpen: CLASS_NAMES[which] + '--after-open',
+        beforeClose: CLASS_NAMES[which] + '--before-close'
+      };
+      var className = classNames.base;
+      if (_this.state.afterOpen) {
+        className = className + ' ' + classNames.afterOpen;
+      }
+      if (_this.state.beforeClose) {
+        className = className + ' ' + classNames.beforeClose;
+      }
+      return typeof additional === 'string' && additional ? className + ' ' + additional : className;
+    };
+
+    _this.ariaAttributes = function (items) {
+      return Object.keys(items).reduce(function (acc, name) {
+        acc['aria-' + name] = items[name];
+        return acc;
+      }, {});
+    };
+
+    _this.state = {
+      afterOpen: false,
+      beforeClose: false
+    };
+
+    _this.shouldClose = null;
+    return _this;
+  }
+
+  _createClass(ModalPortal, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      // Focus needs to be set when mounting and already open
+      if (this.props.isOpen) {
+        this.setFocusAfterRender(true);
+        this.open();
+      }
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(newProps) {
+      if (process.env.NODE_ENV !== "production") {
+        if (newProps.bodyOpenClassName !== this.props.bodyOpenClassName) {
+          // eslint-disable-next-line no-console
+          console.warn('React-Modal: "bodyOpenClassName" prop has been modified. ' + 'This may cause unexpected behavior when multiple modals are open.');
+        }
+      }
+      // Focus only needs to be set once when the modal is being opened
+      if (!this.props.isOpen && newProps.isOpen) {
+        this.setFocusAfterRender(true);
+        this.open();
+      } else if (this.props.isOpen && !newProps.isOpen) {
+        this.close();
+      }
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      if (this.focusAfterRender) {
+        this.focusContent();
+        this.setFocusAfterRender(false);
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.beforeClose();
+      clearTimeout(this.closeTimer);
+    }
+  }, {
+    key: 'beforeOpen',
+    value: function beforeOpen() {
+      var _props = this.props,
+          appElement = _props.appElement,
+          ariaHideApp = _props.ariaHideApp,
+          bodyOpenClassName = _props.bodyOpenClassName;
+      // Add body class
+
+      bodyClassList.add(bodyOpenClassName);
+      // Add aria-hidden to appElement
+      if (ariaHideApp) {
+        ariaAppHider.hide(appElement);
+      }
+    }
+  }, {
+    key: 'beforeClose',
+    value: function beforeClose() {
+      var _props2 = this.props,
+          appElement = _props2.appElement,
+          ariaHideApp = _props2.ariaHideApp,
+          bodyOpenClassName = _props2.bodyOpenClassName;
+      // Remove class if no more modals are open
+
+      bodyClassList.remove(bodyOpenClassName);
+      // Reset aria-hidden attribute if all modals have been removed
+      if (ariaHideApp && refCount.totalCount() < 1) {
+        ariaAppHider.show(appElement);
+      }
+    }
+
+    // Don't steal focus from inner elements
+
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props3 = this.props,
+          className = _props3.className,
+          overlayClassName = _props3.overlayClassName,
+          defaultStyles = _props3.defaultStyles;
+
+      var contentStyles = className ? {} : defaultStyles.content;
+      var overlayStyles = overlayClassName ? {} : defaultStyles.overlay;
+
+      return this.shouldBeClosed() ? null : _react2.default.createElement(
+        'div',
+        {
+          ref: this.setOverlayRef,
+          className: this.buildClassName('overlay', overlayClassName),
+          style: _extends({}, overlayStyles, this.props.style.overlay),
+          onClick: this.handleOverlayOnClick },
+        _react2.default.createElement(
+          'div',
+          _extends({
+            ref: this.setContentRef,
+            style: _extends({}, contentStyles, this.props.style.content),
+            className: this.buildClassName('content', className),
+            tabIndex: '-1',
+            onKeyDown: this.handleKeyDown,
+            onClick: this.handleContentOnClick,
+            role: this.props.role,
+            'aria-label': this.props.contentLabel
+          }, this.ariaAttributes(this.props.aria || {})),
+          this.props.children
+        )
+      );
+    }
+  }]);
+
+  return ModalPortal;
+}(_react.Component);
+
+ModalPortal.defaultProps = {
+  style: {
+    overlay: {},
+    content: {}
+  }
+};
+ModalPortal.propTypes = {
+  isOpen: _propTypes.PropTypes.bool.isRequired,
+  defaultStyles: _propTypes.PropTypes.shape({
+    content: _propTypes.PropTypes.object,
+    overlay: _propTypes.PropTypes.object
+  }),
+  style: _propTypes.PropTypes.shape({
+    content: _propTypes.PropTypes.object,
+    overlay: _propTypes.PropTypes.object
+  }),
+  className: _propTypes.PropTypes.oneOfType([_propTypes.PropTypes.string, _propTypes.PropTypes.object]),
+  overlayClassName: _propTypes.PropTypes.oneOfType([_propTypes.PropTypes.string, _propTypes.PropTypes.object]),
+  bodyOpenClassName: _propTypes.PropTypes.string,
+  ariaHideApp: _propTypes.PropTypes.bool,
+  appElement: _propTypes.PropTypes.instanceOf(_safeHTMLElement2.default),
+  onAfterOpen: _propTypes.PropTypes.func,
+  onRequestClose: _propTypes.PropTypes.func,
+  closeTimeoutMS: _propTypes.PropTypes.number,
+  shouldCloseOnOverlayClick: _propTypes.PropTypes.bool,
+  role: _propTypes.PropTypes.string,
+  contentLabel: _propTypes.PropTypes.string,
+  aria: _propTypes.PropTypes.object,
+  children: _propTypes.PropTypes.node
+};
+exports.default = ModalPortal;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 356 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.add = add;
+exports.remove = remove;
+
+var _refCount = __webpack_require__(349);
+
+var refCount = _interopRequireWildcard(_refCount);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function add(bodyClass) {
+  // Increment class(es) on refCount tracker and add class(es) to body
+  bodyClass.split(' ').map(refCount.add).forEach(function (className) {
+    return document.body.classList.add(className);
+  });
+}
+
+function remove(bodyClass) {
+  var classListMap = refCount.get();
+  // Decrement class(es) from the refCount tracker
+  // and remove unused class(es) from body
+  bodyClass.split(' ').map(refCount.remove).filter(function (className) {
+    return classListMap[className] === 0;
+  }).forEach(function (className) {
+    return document.body.classList.remove(className);
+  });
+}
+
+/***/ }),
+/* 357 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleBlur = handleBlur;
+exports.handleFocus = handleFocus;
+exports.markForFocusLater = markForFocusLater;
+exports.returnFocus = returnFocus;
+exports.setupScopedFocus = setupScopedFocus;
+exports.teardownScopedFocus = teardownScopedFocus;
+
+var _tabbable = __webpack_require__(351);
+
+var _tabbable2 = _interopRequireDefault(_tabbable);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var focusLaterElements = [];
+var modalElement = null;
+var needToFocus = false;
+
+function handleBlur() {
+  needToFocus = true;
+}
+
+function handleFocus() {
+  if (needToFocus) {
+    needToFocus = false;
+    if (!modalElement) {
+      return;
+    }
+    // need to see how jQuery shims document.on('focusin') so we don't need the
+    // setTimeout, firefox doesn't support focusin, if it did, we could focus
+    // the element outside of a setTimeout. Side-effect of this implementation
+    // is that the document.body gets focus, and then we focus our element right
+    // after, seems fine.
+    setTimeout(function () {
+      if (modalElement.contains(document.activeElement)) {
+        return;
+      }
+      var el = (0, _tabbable2.default)(modalElement)[0] || modalElement;
+      el.focus();
+    }, 0);
+  }
+}
+
+function markForFocusLater() {
+  focusLaterElements.push(document.activeElement);
+}
+
+/* eslint-disable no-console */
+function returnFocus() {
+  var toFocus = null;
+  try {
+    toFocus = focusLaterElements.pop();
+    toFocus.focus();
+    return;
+  } catch (e) {
+    console.warn(['You tried to return focus to', toFocus, 'but it is not in the DOM anymore'].join(" "));
+  }
+}
+/* eslint-enable no-console */
+
+function setupScopedFocus(element) {
+  modalElement = element;
+
+  if (window.addEventListener) {
+    window.addEventListener('blur', handleBlur, false);
+    document.addEventListener('focus', handleFocus, true);
+  } else {
+    window.attachEvent('onBlur', handleBlur);
+    document.attachEvent('onFocus', handleFocus);
+  }
+}
+
+function teardownScopedFocus() {
+  modalElement = null;
+
+  if (window.addEventListener) {
+    window.removeEventListener('blur', handleBlur);
+    document.removeEventListener('focus', handleFocus);
+  } else {
+    window.detachEvent('onBlur', handleBlur);
+    document.detachEvent('onFocus', handleFocus);
+  }
+}
+
+/***/ }),
+/* 358 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = scopeTab;
+
+var _tabbable = __webpack_require__(351);
+
+var _tabbable2 = _interopRequireDefault(_tabbable);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function scopeTab(node, event) {
+  var tabbable = (0, _tabbable2.default)(node);
+  if (!tabbable.length) {
+    event.preventDefault();
+    return;
+  }
+  var finalTabbable = tabbable[event.shiftKey ? 0 : tabbable.length - 1];
+  var leavingFinalTabbable = finalTabbable === document.activeElement ||
+  // handle immediate shift+tab after opening with mouse
+  node === document.activeElement;
+  if (!leavingFinalTabbable) return;
+  event.preventDefault();
+  var target = tabbable[event.shiftKey ? tabbable.length - 1 : 0];
+  target.focus();
+}
+
+/***/ }),
+/* 359 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Modal = __webpack_require__(354);
+
+var _Modal2 = _interopRequireDefault(_Modal);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Modal2.default;
+
+/***/ }),
+/* 360 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+if (process.env.NODE_ENV !== 'production') {
+  var invariant = __webpack_require__(1);
+  var warning = __webpack_require__(2);
+  var ReactPropTypesSecret = __webpack_require__(347);
+  var loggedTypeFailures = {};
+}
+
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */
+function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+  if (process.env.NODE_ENV !== 'production') {
+    for (var typeSpecName in typeSpecs) {
+      if (typeSpecs.hasOwnProperty(typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'React.PropTypes.', componentName || 'React class', location, typeSpecName);
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+        } catch (ex) {
+          error = ex;
+        }
+        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error.message] = true;
+
+          var stack = getStack ? getStack() : '';
+
+          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
+        }
+      }
+    }
+  }
+}
+
+module.exports = checkPropTypes;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 361 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+var emptyFunction = __webpack_require__(11);
+var invariant = __webpack_require__(1);
+var ReactPropTypesSecret = __webpack_require__(347);
+
+module.exports = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret) {
+      // It is still safe when called from React.
+      return;
+    }
+    invariant(
+      false,
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+  };
+  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  };
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim
+  };
+
+  ReactPropTypes.checkPropTypes = emptyFunction;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+
+/***/ }),
+/* 362 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+var emptyFunction = __webpack_require__(11);
+var invariant = __webpack_require__(1);
+var warning = __webpack_require__(2);
+
+var ReactPropTypesSecret = __webpack_require__(347);
+var checkPropTypes = __webpack_require__(360);
+
+module.exports = function(isValidElement, throwOnDirectAccess) {
+  /* global Symbol */
+  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+  /**
+   * Returns the iterator method function contained on the iterable object.
+   *
+   * Be sure to invoke the function with the iterable as context:
+   *
+   *     var iteratorFn = getIteratorFn(myIterable);
+   *     if (iteratorFn) {
+   *       var iterator = iteratorFn.call(myIterable);
+   *       ...
+   *     }
+   *
+   * @param {?object} maybeIterable
+   * @return {?function}
+   */
+  function getIteratorFn(maybeIterable) {
+    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+    if (typeof iteratorFn === 'function') {
+      return iteratorFn;
+    }
+  }
+
+  /**
+   * Collection of methods that allow declaration and validation of props that are
+   * supplied to React components. Example usage:
+   *
+   *   var Props = require('ReactPropTypes');
+   *   var MyArticle = React.createClass({
+   *     propTypes: {
+   *       // An optional string prop named "description".
+   *       description: Props.string,
+   *
+   *       // A required enum prop named "category".
+   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *
+   *       // A prop named "dialog" that requires an instance of Dialog.
+   *       dialog: Props.instanceOf(Dialog).isRequired
+   *     },
+   *     render: function() { ... }
+   *   });
+   *
+   * A more formal specification of how these methods are used:
+   *
+   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+   *   decl := ReactPropTypes.{type}(.isRequired)?
+   *
+   * Each and every declaration produces a function with the same signature. This
+   * allows the creation of custom validation functions. For example:
+   *
+   *  var MyLink = React.createClass({
+   *    propTypes: {
+   *      // An optional string or URI prop named "href".
+   *      href: function(props, propName, componentName) {
+   *        var propValue = props[propName];
+   *        if (propValue != null && typeof propValue !== 'string' &&
+   *            !(propValue instanceof URI)) {
+   *          return new Error(
+   *            'Expected a string or an URI for ' + propName + ' in ' +
+   *            componentName
+   *          );
+   *        }
+   *      }
+   *    },
+   *    render: function() {...}
+   *  });
+   *
+   * @internal
+   */
+
+  var ANONYMOUS = '<<anonymous>>';
+
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+  var ReactPropTypes = {
+    array: createPrimitiveTypeChecker('array'),
+    bool: createPrimitiveTypeChecker('boolean'),
+    func: createPrimitiveTypeChecker('function'),
+    number: createPrimitiveTypeChecker('number'),
+    object: createPrimitiveTypeChecker('object'),
+    string: createPrimitiveTypeChecker('string'),
+    symbol: createPrimitiveTypeChecker('symbol'),
+
+    any: createAnyTypeChecker(),
+    arrayOf: createArrayOfTypeChecker,
+    element: createElementTypeChecker(),
+    instanceOf: createInstanceTypeChecker,
+    node: createNodeChecker(),
+    objectOf: createObjectOfTypeChecker,
+    oneOf: createEnumTypeChecker,
+    oneOfType: createUnionTypeChecker,
+    shape: createShapeTypeChecker
+  };
+
+  /**
+   * inlined Object.is polyfill to avoid requiring consumers ship their own
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+   */
+  /*eslint-disable no-self-compare*/
+  function is(x, y) {
+    // SameValue algorithm
+    if (x === y) {
+      // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
+    }
+  }
+  /*eslint-enable no-self-compare*/
+
+  /**
+   * We use an Error-like object for backward compatibility as people may call
+   * PropTypes directly and inspect their output. However, we don't use real
+   * Errors anymore. We don't inspect their stack anyway, and creating them
+   * is prohibitively expensive if they are created too often, such as what
+   * happens in oneOfType() for any type before the one that matched.
+   */
+  function PropTypeError(message) {
+    this.message = message;
+    this.stack = '';
+  }
+  // Make `instanceof Error` still work for returned errors.
+  PropTypeError.prototype = Error.prototype;
+
+  function createChainableTypeChecker(validate) {
+    if (process.env.NODE_ENV !== 'production') {
+      var manualPropTypeCallCache = {};
+      var manualPropTypeWarningCount = 0;
+    }
+    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+      componentName = componentName || ANONYMOUS;
+      propFullName = propFullName || propName;
+
+      if (secret !== ReactPropTypesSecret) {
+        if (throwOnDirectAccess) {
+          // New behavior only for users of `prop-types` package
+          invariant(
+            false,
+            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+            'Use `PropTypes.checkPropTypes()` to call them. ' +
+            'Read more at http://fb.me/use-check-prop-types'
+          );
+        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
+          // Old behavior for people using React.PropTypes
+          var cacheKey = componentName + ':' + propName;
+          if (
+            !manualPropTypeCallCache[cacheKey] &&
+            // Avoid spamming the console because they are often not actionable except for lib authors
+            manualPropTypeWarningCount < 3
+          ) {
+            warning(
+              false,
+              'You are manually calling a React.PropTypes validation ' +
+              'function for the `%s` prop on `%s`. This is deprecated ' +
+              'and will throw in the standalone `prop-types` package. ' +
+              'You may be seeing this warning due to a third-party PropTypes ' +
+              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.',
+              propFullName,
+              componentName
+            );
+            manualPropTypeCallCache[cacheKey] = true;
+            manualPropTypeWarningCount++;
+          }
+        }
+      }
+      if (props[propName] == null) {
+        if (isRequired) {
+          if (props[propName] === null) {
+            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+          }
+          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+        }
+        return null;
+      } else {
+        return validate(props, propName, componentName, location, propFullName);
+      }
+    }
+
+    var chainedCheckType = checkType.bind(null, false);
+    chainedCheckType.isRequired = checkType.bind(null, true);
+
+    return chainedCheckType;
+  }
+
+  function createPrimitiveTypeChecker(expectedType) {
+    function validate(props, propName, componentName, location, propFullName, secret) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== expectedType) {
+        // `propValue` being instance of, say, date/regexp, pass the 'object'
+        // check, but we can offer a more precise error message here rather than
+        // 'of type `object`'.
+        var preciseType = getPreciseType(propValue);
+
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createAnyTypeChecker() {
+    return createChainableTypeChecker(emptyFunction.thatReturnsNull);
+  }
+
+  function createArrayOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+      }
+      var propValue = props[propName];
+      if (!Array.isArray(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+      }
+      for (var i = 0; i < propValue.length; i++) {
+        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+        if (error instanceof Error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!isValidElement(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createInstanceTypeChecker(expectedClass) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!(props[propName] instanceof expectedClass)) {
+        var expectedClassName = expectedClass.name || ANONYMOUS;
+        var actualClassName = getClassName(props[propName]);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createEnumTypeChecker(expectedValues) {
+    if (!Array.isArray(expectedValues)) {
+      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
+      return emptyFunction.thatReturnsNull;
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      for (var i = 0; i < expectedValues.length; i++) {
+        if (is(propValue, expectedValues[i])) {
+          return null;
+        }
+      }
+
+      var valuesString = JSON.stringify(expectedValues);
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createObjectOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+      }
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+      }
+      for (var key in propValue) {
+        if (propValue.hasOwnProperty(key)) {
+          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+          if (error instanceof Error) {
+            return error;
+          }
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createUnionTypeChecker(arrayOfTypeCheckers) {
+    if (!Array.isArray(arrayOfTypeCheckers)) {
+      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+      return emptyFunction.thatReturnsNull;
+    }
+
+    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+      var checker = arrayOfTypeCheckers[i];
+      if (typeof checker !== 'function') {
+        warning(
+          false,
+          'Invalid argument supplid to oneOfType. Expected an array of check functions, but ' +
+          'received %s at index %s.',
+          getPostfixForTypeWarning(checker),
+          i
+        );
+        return emptyFunction.thatReturnsNull;
+      }
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+        var checker = arrayOfTypeCheckers[i];
+        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
+          return null;
+        }
+      }
+
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createNodeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!isNode(props[propName])) {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      for (var key in shapeTypes) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          continue;
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function isNode(propValue) {
+    switch (typeof propValue) {
+      case 'number':
+      case 'string':
+      case 'undefined':
+        return true;
+      case 'boolean':
+        return !propValue;
+      case 'object':
+        if (Array.isArray(propValue)) {
+          return propValue.every(isNode);
+        }
+        if (propValue === null || isValidElement(propValue)) {
+          return true;
+        }
+
+        var iteratorFn = getIteratorFn(propValue);
+        if (iteratorFn) {
+          var iterator = iteratorFn.call(propValue);
+          var step;
+          if (iteratorFn !== propValue.entries) {
+            while (!(step = iterator.next()).done) {
+              if (!isNode(step.value)) {
+                return false;
+              }
+            }
+          } else {
+            // Iterator will provide entry [k,v] tuples rather than values.
+            while (!(step = iterator.next()).done) {
+              var entry = step.value;
+              if (entry) {
+                if (!isNode(entry[1])) {
+                  return false;
+                }
+              }
+            }
+          }
+        } else {
+          return false;
+        }
+
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  function isSymbol(propType, propValue) {
+    // Native Symbol.
+    if (propType === 'symbol') {
+      return true;
+    }
+
+    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+    if (propValue['@@toStringTag'] === 'Symbol') {
+      return true;
+    }
+
+    // Fallback for non-spec compliant Symbols which are polyfilled.
+    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+      return true;
+    }
+
+    return false;
+  }
+
+  // Equivalent of `typeof` but with special handling for array and regexp.
+  function getPropType(propValue) {
+    var propType = typeof propValue;
+    if (Array.isArray(propValue)) {
+      return 'array';
+    }
+    if (propValue instanceof RegExp) {
+      // Old webkits (at least until Android 4.0) return 'function' rather than
+      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+      // passes PropTypes.object.
+      return 'object';
+    }
+    if (isSymbol(propType, propValue)) {
+      return 'symbol';
+    }
+    return propType;
+  }
+
+  // This handles more types than `getPropType`. Only used for error messages.
+  // See `createPrimitiveTypeChecker`.
+  function getPreciseType(propValue) {
+    if (typeof propValue === 'undefined' || propValue === null) {
+      return '' + propValue;
+    }
+    var propType = getPropType(propValue);
+    if (propType === 'object') {
+      if (propValue instanceof Date) {
+        return 'date';
+      } else if (propValue instanceof RegExp) {
+        return 'regexp';
+      }
+    }
+    return propType;
+  }
+
+  // Returns a string that is postfixed to a warning about an invalid type.
+  // For example, "undefined" or "of type array"
+  function getPostfixForTypeWarning(value) {
+    var type = getPreciseType(value);
+    switch (type) {
+      case 'array':
+      case 'object':
+        return 'an ' + type;
+      case 'boolean':
+      case 'date':
+      case 'regexp':
+        return 'a ' + type;
+      default:
+        return type;
+    }
+  }
+
+  // Returns class name of the object, if any.
+  function getClassName(propValue) {
+    if (!propValue.constructor || !propValue.constructor.name) {
+      return ANONYMOUS;
+    }
+    return propValue.constructor.name;
+  }
+
+  ReactPropTypes.checkPropTypes = checkPropTypes;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 /******/ ]);

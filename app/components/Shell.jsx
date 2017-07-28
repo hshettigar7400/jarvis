@@ -12,8 +12,19 @@ var React = require('react'),
   HelpDock = require('react-dock'),
   {toggleSoundVolume, togglePlayPuase, loadAudio, toggleButtonState} = require('../assets/scripts/AudioManager.js'),
   {loadPage} = require('../components/Navigate.js'),
+  Modal = require('react-modal'),
   $ = require('jquery');
 
+  const customStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
+    }
+  };
 
 var Shell = React.createClass ({
 
@@ -26,6 +37,7 @@ var Shell = React.createClass ({
       toolsMenuOpen: false,
       isHelpDockOpen: false,
       transcriptVisible: false,
+      resourceVisible: false,
       isPause: false,
       isReplayed: false,
       currentPageNumber: window.scormAdaptor_getlocation() !== '' ? parseInt(window.scormAdaptor_getlocation()) : 1,
@@ -166,6 +178,10 @@ var Shell = React.createClass ({
     });
   },
 
+  enableResource(e) {
+    this.setState({resourceVisible: !this.state.resourceVisible});
+  },
+
   showTranscript() {
     return(
       <div className="transcript-container">
@@ -180,6 +196,29 @@ var Shell = React.createClass ({
         </div>
       </div>
     )
+  },
+
+  showResource() {
+    return (
+      <div>
+      <div className="resource-overlay"></div>
+      <section className="resource-popup" id="resumeAlert">
+    	<div className="popup-header">
+    	Resource
+    	</div>
+    	<div className="popup-area">
+    	<div className="popup-content">
+
+    	</div>
+    	<div className="popup-buttons">
+    	<div>
+    	<a href="#" id="popup-no-button" onClick={this.resumeCourse.bind(this, false)} className="course-button box-shadow popup-yes-button tabindextabindex">No</a>
+    	</div>
+    	</div>
+    	</div>
+    	</section>
+      </div>
+      )
   },
 
   audioPlayPause(e) {
@@ -262,6 +301,7 @@ var Shell = React.createClass ({
           onNextButtonClick={this.loadNextPage}
           onBackButtonClick={this.loadPreviousPage}
           onTranscriptButtonClick={this.enableTranscript}
+          onResourceClick={this.enableResource}
           totalPages={9}
           currentPageNumber={this.state.currentPageNumber}
           onPlayPauseClick={this.audioPlayPause}
@@ -360,6 +400,7 @@ var Shell = React.createClass ({
       {this.renderUI()}
       {this.state.visibleResumePopup && this.resumePopup()}
       {this.state.transcriptVisible && this.showTranscript()}
+      {this.state.resourceVisible && this.showResource()}
       {(this.state.isMobile && window.scormAdaptor_getlocation() !== '') && this.showAutoPlay()}
 
       </div>
