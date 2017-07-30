@@ -226,7 +226,6 @@ b {
   .m01_t01_p01 {
     padding: 0;
     height: 100%;
-    overflow: auto;
   }
 }
 
@@ -294,7 +293,6 @@ b {
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   .m01_t01_p01 .template-holder {
     width: 100%;
-    height: 480px;
   }
 }
 
@@ -446,10 +444,11 @@ b {
     padding-bottom: 70px;
   }
   .m01_t01_p02 .img1 {
-    max-width: 40%;
+    max-width: 25%;
+    margin-top: 25px;
   }
   .m01_t01_p02 .objective-holder {
-    min-width: 50%;
+    min-width: 65%;
     display: inline-block;
   }
 }
@@ -464,9 +463,13 @@ b {
     padding-top: 10px;
   }
   .m01_t01_p02 .img1 {
-    max-width: 50%;
+    max-width: 43%;
     display: inline-block;
     margin: 0 auto;
+  }
+
+  .m01_t01_p02 .objective-txt {
+    padding: 5px 20px;
   }
   .m01_t01_p02 .objective-holder {
     margin-top: 0px;
@@ -760,8 +763,9 @@ b {
     width: 100%;
     padding: 5px;
   }
-  .page {
+  .page-loader .page {
     padding: 6px 25px 0px 10px;
+    padding-bottom: 0;
   }
   .m01_t01_p03 .template-horizontal-tab .tabs-nav {
     margin: auto;
@@ -981,7 +985,7 @@ b {
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
   .m01_t01_p04 {
-    height: 400px;
+    height: 650px;
   }
   .m01_t01_p04 .sub-page {
     overflow: auto;
@@ -2095,7 +2099,16 @@ and (orientation : portrait) {
   padding: 3px;
 }
 
-@media all and (max-width: 768px) {
+.m01_t01_p08 .page-text1 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.m01_t01_p08 .content-holder ol {
+  margin-top: 5px;
+}
+
+@media all (min-device-width: 681px) and (max-width: 768px) {
   .m01_t01_p08 {
     background: url(../../images/m01_t01_p07/m01_t01_p07_bg.jpg);
     background-position: right bottom;
@@ -2111,6 +2124,15 @@ and (orientation : portrait) {
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   .m01_t01_p08 .template-panel .content-area .content-holder {
     width: 95%;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .assessment-container .assessment {
+    padding-top: 10px;
+  }
+  .assessment-container .assessment .question ul {
+    margin-top: 0;
   }
 }
 
@@ -2141,7 +2163,7 @@ and (orientation : portrait) {
 .final-assessment .headerIntro {
   background-color: #FFF;
   font-size: 1.3em;
-  padding: 15px;
+  padding: 5px 15px;
 }
 
 .final-assessment .contentIntro {
@@ -2897,4 +2919,36 @@ and (orientation : portrait) {
 
 .drop-hover {
   background-color: #707c89;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
+@-webkit-keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
+
+.arrow {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left:-20px;
+  display: none;
+  z-index: 999;
+}
+
+.bounce {
+
+  animation: bounce .5s infinite alternate;
+  -webkit-animation: bounce .5s infinite alternate;
 }

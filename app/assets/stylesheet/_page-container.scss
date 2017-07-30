@@ -17,7 +17,6 @@
 .page-loader {
   height: 100%;
   z-index: 99;
-  overflow: hidden;
 }
 
 .help-container > div:first-child {
@@ -70,7 +69,6 @@
 .page-loader {
   height: 100%;
   z-index: 99;
-  overflow: auto;
 }
 }
 
@@ -78,6 +76,5 @@
   .page-loader {
     height: 100%;
     z-index: 99;
-    overflow: auto;
   }
 }

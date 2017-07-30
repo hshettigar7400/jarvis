@@ -4,7 +4,7 @@
 <script type="text/javascript" src="../app/assets/scripts/jTouch.js"></script>
 <script type="text/javascript" src="../../../../../app/assets/scripts/jTouch.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div class="m01_t01_p07">
+<div class="m01_t01_p07 page-template">
   <div class="activity-intro-container" id="intro">
     <div class="activity-intro">
       <div class="activity-title">
@@ -231,10 +231,7 @@
         <button class="btn" onclick="tryAgainActivity()">Back</button>
       </div>
     </div>
-
-
   </div>
-
 </div>
 
 <script>
@@ -411,7 +408,7 @@ $(window).on("orientationchange",function(){
       if(currentActivityNumber !== dragOption.length) {
         $(".activity-slider").css('left', newLeft+'px');
       }
-    }, 300)
+    }, 500)
   }
 }).trigger('orientationchange');
 
@@ -470,6 +467,9 @@ function tryAgainActivity() {
   $(".activity-feedback-container").fadeOut( "slow", function() {
     $(".activity-slider").css("left", 0);
     $("#activity1").show();
+    $(".activity-feedback-container__failed").hide();
+    $(".activity-feedback-container__success").hide();
+    $(".show-answer-container").hide();
   })
   startTimer(60*4, document.querySelector('#time'));
   $('.activity-correct').removeClass('activity-correct');
@@ -546,7 +546,5 @@ $('#nav li').on('click', function (event) {
 
     event.stopPropagation();
 });
-
-
 
 </script>

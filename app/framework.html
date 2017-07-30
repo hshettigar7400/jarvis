@@ -125,6 +125,15 @@
         volume: 100
       });
     }
+
+    $(document).scroll(function () {
+    if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+      $(".arrow").hide();
+    } else {
+      $(".arrow").show();
+    }
+});
+
     </script>
 
 

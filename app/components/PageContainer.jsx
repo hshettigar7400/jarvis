@@ -1,23 +1,14 @@
-var React = require('react'),
-{loadPage} = require('../components/Navigate.js'),
-{loadAudio} = require('../assets/scripts/AudioManager.js'),
-$ = require('jquery');
+var React = require('react'), {loadPage} = require('../components/Navigate.js'), {loadAudio} = require('../assets/scripts/AudioManager.js'),
+  $ = require('jquery');
 import Preloader from 'preloader.js';
 
 var pageAssets = [
   [
-    'images/m01_t01_p01/img1.png',
-    '../app/assets/audio/m01_t01_p01.mp3'
+    'images/m01_t01_p01/img1.png', '../app/assets/audio/m01_t01_p01.mp3'
   ],
+  ['../app/assets/audio/m01_t01_p02.mp3'],
   [
-    '../app/assets/audio/m01_t01_p02.mp3'
-  ],
-  [
-    'images/m01_t01_p03/Slide_08_image_01.jpg',
-    'images/m01_t01_p03/Slide_08_image_02.jpg',
-    '../app/assets/audio/m01_t01_p03.mp3',
-    '../app/assets/audio/m01_t01_p03_02.mp3',
-    '../app/assets/audio/m01_t01_p03_03.mp3'
+    'images/m01_t01_p03/Slide_08_image_01.jpg', 'images/m01_t01_p03/Slide_08_image_02.jpg', '../app/assets/audio/m01_t01_p03.mp3', '../app/assets/audio/m01_t01_p03_02.mp3', '../app/assets/audio/m01_t01_p03_03.mp3'
   ],
   [
     'images/m01_t01_p04/m01_t01_p04_01_large.jpg',
@@ -38,9 +29,7 @@ var pageAssets = [
     '../app/assets/audio/m01_t01_p04.mp3'
   ],
   [
-    'images/m01_t01_p05/arrow.png',
-    'images/m01_t01_p05/m01_t01_p05_img1.jpg',
-    '../app/assets/audio/m01_t01_p05.mp3'
+    'images/m01_t01_p05/arrow.png', 'images/m01_t01_p05/m01_t01_p05_img1.jpg', '../app/assets/audio/m01_t01_p05.mp3'
   ],
   [
     '../app/assets/audio/m01_t01_p06.mp3',
@@ -60,32 +49,18 @@ var pageAssets = [
     'images/m01_t01_p06/image6.jpg',
     'images/m01_t01_p06/image7.jpg',
     'images/m01_t01_p06/image8.jpg',
-    'images/m01_t01_p06/medical_device_bg_images.png',
-
+    'images/m01_t01_p06/medical_device_bg_images.png'
   ],
   [
-    '../app/assets/audio/m01_t01_p07_01.mp3',
-    '../app/assets/audio/m01_t01_p07_02.mp3',
-    '../app/assets/audio/m01_t01_p07_03.mp3',
-    '../app/assets/audio/m01_t01_p07_04.mp3',
-    '../app/assets/audio/m01_t01_p07.mp3'
+    '../app/assets/audio/m01_t01_p07_01.mp3', '../app/assets/audio/m01_t01_p07_02.mp3', '../app/assets/audio/m01_t01_p07_03.mp3', '../app/assets/audio/m01_t01_p07_04.mp3', '../app/assets/audio/m01_t01_p07.mp3'
   ],
   [
-	'../app/assets/images/Yes.png',
-	'../app/assets/images/No.png',
-    'images/m01_t01_p07/m01_t01_p07_bg.jpg',
-    'images/m01_t01_p07/m01_t01_p07_bg1.jpg',
-    '../app/assets/audio/m01_t01_p08.mp3'
+    '../app/assets/images/Yes.png', '../app/assets/images/No.png', 'images/m01_t01_p07/m01_t01_p07_bg.jpg', 'images/m01_t01_p07/m01_t01_p07_bg1.jpg', '../app/assets/audio/m01_t01_p08.mp3'
   ],
-  [
-    '../app/assets/audio/m01_t01_p09_01.mp3',
-    '../app/assets/audio/m01_t01_p09_02.mp3',
-    '../app/assets/audio/m01_t01_p09.mp3'
-  ]
+  ['../app/assets/audio/m01_t01_p09_01.mp3', '../app/assets/audio/m01_t01_p09_02.mp3', '../app/assets/audio/m01_t01_p09.mp3']
 ]
 
-
-var PageContainer = React.createClass ({
+var PageContainer = React.createClass({
   propTypes: {
     PageNum: React.PropTypes.number,
     audioState: React.PropTypes.bool,
@@ -94,73 +69,64 @@ var PageContainer = React.createClass ({
   },
 
   getInitialState() {
-    return {
-      finishedPlaying: false,
-      stopAudio: false,
-      currentAudioPosition: 0,
-      isLoading: true,
-
-    }
+    return {finishedPlaying: false, stopAudio: false, currentAudioPosition: 0, isLoading: true}
   },
 
   componentDidMount() {
     var _self = this;
     $(".loading").show();
 
-    var preloader = new Preloader({
-      resources:pageAssets[0]
-      });
+    var preloader = new Preloader({resources: pageAssets[0]});
 
-      preloader.addProgressListener(function (loaded, length) {
-           console.log('loading ', loaded, length, loaded / length)
-      });
+    preloader.addProgressListener(function(loaded, length) {
+      console.log('loading ', loaded, length, loaded / length)
+    });
 
-      preloader.addCompletionListener(function () {
-        $(".loading").hide();
-        loadPage(_self.props.PageNum);
-        loadAudio(_self.props.PageNum);
-      });
+    preloader.addCompletionListener(function() {
+      $(".loading").hide();
+      loadPage(_self.props.PageNum);
+      loadAudio(_self.props.PageNum);
+    });
 
-      preloader.start();
+    preloader.start();
 
   },
 
   componentDidUpdate(prevProps, prevState) {
-    if((this.props.PageNum !== prevProps.PageNum)) {
+    if ((this.props.PageNum !== prevProps.PageNum)) {
       loadPage(this.props.PageNum)
     }
-    if(this.state.isLoading) {
+    if (this.state.isLoading) {
       $("#button-playPause").addClass("disabled");
-    }
-    else {
+    } else {
       $("#button-playPause").removeClass("disabled");
     }
   },
 
-
   shouldComponentUpdate: function(nextProps, nextState) {
-    if(this.props.PageNum !== nextProps.PageNum || this.props.volume !== nextProps.volume || this.props.audioState !== nextProps.audioState || this.state.stopAudio !== nextState.stopAudio)
+    if (this.props.PageNum !== nextProps.PageNum || this.props.volume !== nextProps.volume || this.props.audioState !== nextProps.audioState || this.state.stopAudio !== nextState.stopAudio) {
       return true;
-    else
+    } else {
       return false;
+    }
   },
 
   componentWillReceiveProps(nextProps) {
     var _self = this
-    if(this.props.PageNum !== nextProps.PageNum) {
+    if (this.props.PageNum !== nextProps.PageNum) {
       $(".loading").show();
 
       _self.setState({isLoading: true});
       soundManager.stopAll();
       var preloader = new Preloader({
-      resources:pageAssets[nextProps.PageNum - 1]
+        resources: pageAssets[nextProps.PageNum - 1]
       });
 
-      preloader.addProgressListener(function (loaded, length) {
+      preloader.addProgressListener(function(loaded, length) {
         console.log('loading ', loaded, length, loaded / length)
       });
 
-      preloader.addCompletionListener(function () {
+      preloader.addCompletionListener(function() {
         $(".loading").hide();
         loadPage(nextProps.PageNum);
         loadAudio(nextProps.PageNum)
@@ -168,32 +134,22 @@ var PageContainer = React.createClass ({
       });
 
       preloader.start();
-      }
+    }
   },
-
-/*  shouldComponentUpdate: function(nextProps, nextState) {
-    //if(this.props.PageNum !== nextProps.PageNum || this.props.volume !== nextProps.volume || this.props.audioState !== nextProps.audioState || this.state.stopAudio !== nextState.stopAudio)
-    //  return true;
-  //  else
-    //  return false;
-  },
-*/
 
   render() {
-
-    let audioPath = "../app/assets/audio/m01_t01_p0"+this.props.PageNum+".mp3";
-
+    let audioPath = "../app/assets/audio/m01_t01_p0" + this.props.PageNum + ".mp3";
     return (
       <div className="page-holder">
         <div className="loading">Loading&#8230;</div>
         <div className="page-title__container">
-          <span className="topic-title">
-          </span>
+          <span className="topic-title"></span>
           <span className="page-title"></span>
         </div>
-        <div ref="pageLoader" className="page-loader">
-        </div>
-        <div className="downArrow"><span className="fa fa-angle-double-down">Go down</span></div>
+        <div ref="pageLoader" className="page-loader"></div>
+        <svg className="arrow bounce" height="70" width="70">
+            <polyline points="15,38 28,50 40,38" stroke="#4a328e" stroke-width="3" fill="none"/>
+        </svg>
       </div>
     )
   }

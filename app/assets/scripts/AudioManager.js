@@ -2,7 +2,6 @@ var tInterval;
 var jarvisAudio ={};
 var jarvisAudio1 ={};
 
-
 function loadAudio(pageNum) {
 	soundManager.destruct();
 	soundManager.stopAll();

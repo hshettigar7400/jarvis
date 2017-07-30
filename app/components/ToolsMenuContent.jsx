@@ -9,7 +9,7 @@ propTypes: {
 
 render() {
   return (
-    <div>
+    <div className="Tools">
       <div className="button-box">
         <a href="#" id="button-help" onClick={this.props.onHelpClick} className="tabindex" aria-label="help" role="button" aria-disabled="false" aria-pressed="false">
           <span className="button-label"></span>
@@ -39,7 +39,7 @@ render() {
       </div>
 
       <div className="button-box">
-        <a href="#" id="button-replay" className="tabindex" aria-label="replay" role="button" aria-disabled="false">
+        <a href="#" id="button-replay" onClick={this.props.onReplayClick} className="tabindex" aria-label="replay" role="button" aria-disabled="false">
           <span className="button-label"></span>
           <span className="icon-replay"></span>
         </a>

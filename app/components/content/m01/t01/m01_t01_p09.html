@@ -1,49 +1,51 @@
-
 <style>
-
-ul li
-{
-list-style-type: circle;
-}
-
+  ul li {
+    list-style-type: circle;
+  }
 </style>
 <link rel="stylesheet" type="text/css" href="assets/stylesheet/content.css">
 
-    <div id="player" class="page final-assessment">
-        <div class="start-page" >
-            <div class="intro-text">
-                <div class="headerIntro">Welcome to the <b>Quiz</b></div>
-                <div class="contentIntro">
-                  <span> For each question, please select the best answer and click <span style="font-weight: bold;"> Submit</span></span> 
-                    <ul style="padding:0px">
-                        <p>Helpful hints:</p>
-				<p class="sync1" data-index="2" >
-               <li>Try this quiz as many times as needed</li></p>
-                    <p class="sync2" data-index="3" >
-                        <li>Take your time</li></p>
+<div id="player" class="page final-assessment page-template">
+  <div class="start-page">
+    <div class="intro-text">
+      <div class="headerIntro">Welcome to the <b>Quiz</b></div>
+      <div class="contentIntro">
+        <span> For each question, please select the best answer and click <span style="font-weight: bold;"> Submit</span></span>
+        <ul style="padding:0px">
+          <p>Helpful hints:</p>
+          <p class="sync1" data-index="2">
+            <li>Try this quiz as many times as needed</li>
+          </p>
+          <p class="sync2" data-index="3">
+            <li>Take your time</li>
+          </p>
 
-                    <p class="sync2" data-index="3" >
-                         <li>Read each question carefully</li></p>
-                    <p class="sync2" data-index="3" >
-                    <li>Select the best answer</li> </p>
-                    <p class="sync2" data-index="3" >
-                    <li>Review your work</li> </p>
-                    <p class="sync2" data-index="3" >
-                    <li><li>Review the course material</li>
-                </p></ul>
+          <p class="sync2" data-index="3">
+            <li>Read each question carefully</li>
+          </p>
+          <p class="sync2" data-index="3">
+            <li>Select the best answer</li>
+          </p>
+          <p class="sync2" data-index="3">
+            <li>Review your work</li>
+          </p>
+          <p class="sync2" data-index="3">
+            <li>
+              <li>Review the course material</li>
+          </p>
+        </ul>
 
-                    <p class="sync2" data-index="3" >Select the <span style="font-weight: bold;">start</span> button to begin. Good Luck!</p>
+        <p class="sync2" data-index="3">Select the <span style="font-weight: bold;">start</span> button to begin. Good Luck!</p>
 
-                </div>
-            </div>
-            <a class="assessment-start-btn assessbtnbg tabindex sync3" href="javascript:void(0);" data-index="4" role="button" aria-disabled="false" >Start</a>
-
-            <div class="assessBg"></div>
-        </div>
-        <div class = "template-holder assessment-container">
-
-        </div>
+      </div>
     </div>
+    <a class="assessment-start-btn assessbtnbg tabindex sync3" href="javascript:void(0);" data-index="4" role="button" aria-disabled="false">Start</a>
+
+    <div class="assessBg"></div>
+  </div>
+  <div class="template-holder assessment-container">
+  </div>
+</div>
 
 
 <script type="text/javascript" src="assets/scripts/jquery.js"></script>
@@ -53,8 +55,8 @@ list-style-type: circle;
 
 
 <script>
-var qPoints = null;
-assessment_config = {
+  var qPoints = null;
+  assessment_config = {
     poolsSharing: [5],
     randomizeQuestions: false,
     randomizeOptions: false,
@@ -74,13 +76,11 @@ assessment_config = {
     playQuestionAudio: true,
     passingScore: 75,
     complianceType: 2
-};
-    var assessment = new Assessment();
-    assessment.init(assessment_config, {
-        'pageSelector': '.final-assessment',
-        container: '.assessment-holder',
-        isMobileFirst: 1
-    })
-
-
+  };
+  var assessment = new Assessment();
+  assessment.init(assessment_config, {
+    'pageSelector': '.final-assessment',
+    container: '.assessment-holder',
+    isMobileFirst: 1
+  })
 </script>
