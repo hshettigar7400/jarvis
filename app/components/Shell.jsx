@@ -136,8 +136,8 @@ var Shell = React.createClass({
     var isMobile = window.matchMedia("only screen and (max-width: 760px)");
     if (isMobile.matches) {
       var deviceHeight = window.innerHeight;
-      $('.page-holder').css('height', (deviceHeight - 92) + 'px');
-      if ($(".page-template").height() > $('.page-container').height()) {
+      $('.page-holder').css('height', (deviceHeight - 85) + 'px');
+      if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
         $(".arrow").show();
       } else {
         $(".arrow").hide();
@@ -148,8 +148,8 @@ var Shell = React.createClass({
       if (isMobile.matches) {
         setTimeout(function() {
           var deviceHeight = window.innerHeight;
-          $('.page-holder').css('height', (deviceHeight - 92) + 'px');
-          if ($(".page-template").height() > $('.page-container').height()) {
+          $('.page-holder').css('height', (deviceHeight - 85) + 'px');
+          if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
             $(".arrow").show();
           } else {
             $(".arrow").hide();

@@ -766,6 +766,7 @@ b {
   .page-loader .page {
     padding: 6px 25px 0px 10px;
     padding-bottom: 0;
+    padding: 0;
   }
   .m01_t01_p03 .template-horizontal-tab .tabs-nav {
     margin: auto;
@@ -903,6 +904,7 @@ b {
   width: 50%;
   background-color: #116299;
   border-radius: 5px;
+  height: 90px;
 }
 
 .content-tab>img {
@@ -954,7 +956,7 @@ b {
 }
 
 .m01_t01_p04 .image-container>div {
-  top: 150px;
+  top: 80px;
   margin: 0 auto;
   position: relative;
   display: inline-block;
@@ -1051,7 +1053,9 @@ b {
     width: 100%;
   }
   .sub-page>.content-tab {
+    padding: 10px;
     width: 70%;
+    height: 50px;
   }
   .m01_t01_p04 .image-container, .m01_t01_p04 .image-container>div {
     top: 25px;
