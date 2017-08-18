@@ -11,7 +11,6 @@ function loadAudio(pageNum) {
     autoLoad: true,
     autoPlay: true,
     onload: function() {
-			alert('got it');
       enableButtons();
       $.getJSON( "../app/assets/data/transcript.json", function( data ) {
           $(".transcript-text-container").html(data.transcript[pageNum-1].text)

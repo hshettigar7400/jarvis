@@ -17,7 +17,7 @@
 			{ "id":"result1", "path": "content/en/audio/assessment/m01_t04_p03_2.mp3", "transcript": [
 			{
 				"qPoint": 0,
-				"text":"Congratulations, you've successfully completed the module."
+				"text":"Congratulations, you've successfully completed the course."
 			}
 			], "qPoints": [] },
 			{ "id":"result2", "path": "content/en/audio/assessment/m01_t04_p03_1.mp3", "transcript": [
@@ -38,20 +38,20 @@
         "id": "assessment",
         "title": "Quiz questions",
         "visitContent": {
-            "label": "Revisit learning",
-            "text": "To go through the module again, select "
+            "label": "<b>Revisit learning</b>",
+            "text": "To go through the course again, select "
         },
          "review": {
-            "label": "Review answers",
+            "label": "<b>Review answers</b>",
 			"text": "To review the quiz questions and answers select "
         },
         "tryAgain": {
-            "label": "Try again",
+            "label": "<b>Try again</b>",
 			"text": "To reattempt the quiz, select  "
 
         },
         "exitCourse": {
-            "label": "Exit",
+            "label": "<b>Exit</b>",
 			 "text": "To exit and return to the LMS, select "
         },
         "certificate": {

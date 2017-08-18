@@ -773,6 +773,7 @@ b {
     padding: 6px 25px 0px 10px;
     padding-bottom: 0;
     padding: 0;
+    height: 100%;
   }
   .m01_t01_p03 .template-horizontal-tab .tabs-nav {
     margin: auto;
@@ -940,7 +941,7 @@ b {
 
 .icon-arrow {
   width: 32px;
-  padding: 20px;
+  padding: 5px;
 }
 
 .icon-arrow img {
@@ -1011,7 +1012,7 @@ b {
     background-image: none;
   }
   .m01_t01_p04 .template-panel .image-holder .img1 img {
-    width: 100%;
+        margin: auto;
   }
   .m01_t01_p04 .template-panel .image-holder div p {
     padding-top: 0%;
@@ -2333,7 +2334,7 @@ and (orientation : portrait) {
 }
 
 .final-assessment .text-content p:last-child {
-  font-weight: 700
+  font-weight: 100;
 }
 
 .final-assessment .text-content p span {
@@ -2344,7 +2345,7 @@ and (orientation : portrait) {
 
 .final-assessment .text-content p span:last-child {
   width: 50px;
-  font-weight: 700
+  font-weight: 100;
 }
 
 .final-assessment .start-page a {

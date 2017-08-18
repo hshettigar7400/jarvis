@@ -91,6 +91,7 @@ var Shell = React.createClass({
       body = d.getElementsByTagName('body')[0],
       width = w.innerWidth,
       height = w.innerHeight;
+
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
       var contentHeight = height - 65;
       $('#root').css({'min-width': '320px'})
@@ -146,8 +147,8 @@ var Shell = React.createClass({
   setContainerDimension() {
     var isMobile = window.matchMedia("only screen and (max-width: 760px)");
     if (isMobile.matches) {
-      var deviceHeight = window.innerHeight;
-      $('.page-holder').css('height', (deviceHeight - 85) + 'px');
+      var deviceHeight = window.height;
+      $('.page-holder').css('height', (deviceHeight) + 'px');
       if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
         $(".arrow").show();
       } else {
@@ -158,8 +159,8 @@ var Shell = React.createClass({
     $(window).on("orientationchange", function() {
       if (isMobile.matches) {
         setTimeout(function() {
-          var deviceHeight = window.innerHeight;
-          $('.page-holder').css('height', (deviceHeight - 85) + 'px');
+          var deviceHeight = window.height;
+          $('.page-holder').css('height', (deviceHeight) + 'px');
           if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
             $(".arrow").show();
           } else {

@@ -88,8 +88,6 @@ var PageContainer = React.createClass({
       loadAudio(_self.props.PageNum);
     });
     var deviceHeight = window.innerHeight;
-      var currentPageNumber = '.m01_t01_p0'+this.state.currentPageNumber;
-    $(currentPageNumber).css('height',deviceHeight);
     preloader.start();
 
   },
