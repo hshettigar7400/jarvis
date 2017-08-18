@@ -125,14 +125,24 @@
         volume: 100
       });
     }
-
-    $(document).scroll(function () {
-    if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+  $(document).ready(function(){
+    $(".page-container").scroll(function () {
+      console.log("1====", $(".page-container").scrollTop())
+      console.log("2====", $(window).height())
+      console.log("3====", $(document).height() )
+    setTimeout(function(){if ($(".page-container").scrollTop() + $(".page-container").height() >= $(window).height()) {
       $(".arrow").hide();
     } else {
+      if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
       $(".arrow").show();
     }
+    }
 });
+});
+}, 1000);
+
+
+
 
     </script>
 

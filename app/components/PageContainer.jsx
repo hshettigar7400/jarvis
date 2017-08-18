@@ -87,7 +87,9 @@ var PageContainer = React.createClass({
       loadPage(_self.props.PageNum);
       loadAudio(_self.props.PageNum);
     });
-
+    var deviceHeight = window.innerHeight;
+      var currentPageNumber = '.m01_t01_p0'+this.state.currentPageNumber;
+    $(currentPageNumber).css('height',deviceHeight);
     preloader.start();
 
   },
@@ -148,7 +150,7 @@ var PageContainer = React.createClass({
         </div>
         <div ref="pageLoader" className="page-loader"></div>
         <svg className="arrow bounce" height="70" width="70">
-            <polyline points="15,38 28,50 40,38" stroke="#4a328e" stroke-width="3" fill="none"/>
+            <polyline points="15,38 28,50 40,38" stroke="#EF3125" stroke-width="3" fill="none"/>
         </svg>
       </div>
     )

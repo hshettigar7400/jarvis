@@ -412,12 +412,13 @@ function Assessment() {
 
             str += '<div class="button-container"><span>' + data.review.text + '</span><a href="#" class="review button assessbtnbg ' + Selectors.tabIndex + '">' + data.review.label + '</a></div>'
         }
-        if (defaults.revisitContent && per < assessment_config.passingScore) str += '<div class="button-container"><span>' + data.visitContent.text + ' </span><a href="#" class="revisitContent button assessbtnbg ' + Selectors.tabIndex + '">' + data.visitContent.label + '</a></div>';
+        if (defaults.revisitContent) str += '<div class="button-container"><span>' + data.visitContent.text + ' </span><a href="#" class="revisitContent button assessbtnbg ' + Selectors.tabIndex + '">' + data.visitContent.label + '</a></div>';
+
+        if (defaults.exitButtonOnResultPage) str += '<div class="button-container"><span>' + data.exitCourse.text + '</span><a href="#" class="exitCourse button assessbtnbg ' + Selectors.tabIndex + '" onclick="showPopup()">' + data.exitCourse.label + '</a></div>';
         if (per >= assessment_config.passingScore)
         {
         str += '<div class="button-container">Before you go, please take the time to complete a short <a href="https://www.surveymonkey.com/r/D9LF2YW" target="_blank" style="font-weight: bold; text-decoration: underline;">survey</a> to help us improve our courses.</div>';
         }
-        if (defaults.exitButtonOnResultPage) str += '<div class="button-container"><span>' + data.exitCourse.text + '</span><a href="#" class="exitCourse button assessbtnbg ' + Selectors.tabIndex + '" onclick="showPopup()">' + data.exitCourse.label + '</a></div>';
         if (defaults.certificate && per >= assessment_config.passingScore && assessment_config.complianceType !== 1)
          str += '<a data-index="' + ++tabindex + '" href="#" class="certificate button assessbtnbg ' + Selectors.tabIndex + '">' + data.certificate.label + '</a></div>';
         $(selectors.wrapper + ' .text-content-header').html(obj.header);

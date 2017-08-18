@@ -52,6 +52,9 @@ var Shell = React.createClass({
 
   },
   clickOpenMenu: function(e) {
+  this.setState({
+    toolsMenuOpen: false
+  });
     this.setState({
       sidebarOpen: !this.state.sidebarOpen
     });
@@ -60,6 +63,12 @@ var Shell = React.createClass({
   },
 
   clickOpenToolsMenu: function() {
+  this.setState({
+    transcriptVisible: false
+  });
+  this.setState({
+    sidebarOpen: false
+  });
     this.setState({
       toolsMenuOpen: !this.state.toolsMenuOpen
     });
@@ -94,9 +103,10 @@ var Shell = React.createClass({
     if (isMobile.matches) {
       var deviceHeight = window.innerHeight;
       $('.page-container').css({
-        'height': deviceHeight - 45,
+        'height': deviceHeight,
         'overflow-y': 'auto'
       });
+
     } else {
       $('.page-container').css('height', contentHeight + 'px');
       $('.page-loader').css('height', (contentHeight - 47) + 'px');
@@ -118,6 +128,7 @@ var Shell = React.createClass({
     if (jarvisAudio.playState != 1) {
       $("#button-playPause").removeClass("selected");
     }
+
     if (this.state.sidebarOpen || this.state.isHelpDockOpen) {
       $("#button-playPause").addClass("disabled");
       $("#button-audio").addClass("disabled");
@@ -172,12 +183,18 @@ var Shell = React.createClass({
         currentPageNumber: this.state.currentPageNumber + 1
       });
     }
+    this.setState({
+      isHelpDockOpen: false
+    });
     this.setState({isPause: false})
   },
 
   loadPreviousPage() {
     this.setState({
       currentPageNumber: this.state.currentPageNumber - 1
+    });
+    this.setState({
+      isHelpDockOpen: false
     });
     this.setState({isPause: false})
   },
@@ -196,11 +213,12 @@ var Shell = React.createClass({
     this.setState({
       isHelpDockOpen: !this.state.isHelpDockOpen
     });
+
+    $("#button-playPause").addClass("disabled");
     this.setState({transcriptVisible: false});
     this.setState({
       toolsMenuOpen: false
     });
-
     if(this.state.isHelpDockOpen) {
       $(".tool-menu-custom-style").css({"z-index": 99});
     }
@@ -211,6 +229,9 @@ var Shell = React.createClass({
 
   enableTranscript(e) {
     this.setState({isHelpDockOpen: false});
+    this.setState({
+      toolsMenuOpen: false
+    });
     var _self = this;
     if (!this.state.transcriptVisible) {
       $("#button-transcript").addClass("selected");
@@ -223,12 +244,14 @@ var Shell = React.createClass({
     $.getJSON("../app/assets/data/transcript.json", function(data) {
       $(".transcript-text-container").html(data.transcript[_self.state.currentPageNumber - 1].text)
     });
+
   },
 
   enableResource(e) {
     this.setState({
       resourceVisible: !this.state.resourceVisible
     });
+
   },
 
   showTranscript() {
@@ -305,7 +328,7 @@ var Shell = React.createClass({
       <div>
         <div className="header">
           <MediaQuery query='(max-width: 680px)'>
-            <TopNav onMenuClick={this.clickOpenMenu.bind(null, this)} onToolsMenuClick={this.clickOpenToolsMenu} onNextButtonClick={this.loadNextPage} onBackButtonClick={this.loadPreviousPage} onTranscriptButtonClick={this.enableTranscript} totalPages={9} currentPageNumber={this.state.currentPageNumber} onPlayPauseClick={this.audioPlayPause} onReplayClick={this.replayScreen} onVolumeClick={this.volumeChange} isMenuOpened={!this.state.sidebarOpen}/>
+            <TopNav onMenuClick={this.clickOpenMenu.bind(null, this)} onToolsMenuClick={this.clickOpenToolsMenu} onNextButtonClick={this.loadNextPage} onBackButtonClick={this.loadPreviousPage} onTranscriptButtonClick={this.enableTranscript} totalPages={9} currentPageNumber={this.state.currentPageNumber} onPlayPauseClick={this.audioPlayPause} onReplayClick={this.replayScreen} onVolumeClick={this.volumeChange} isMenuOpened={!this.state.sidebarOpen} isHelpOpen={!this.state.isHelpDockOpen} />
           </MediaQuery>
           <MediaQuery query='(min-width: 680px)'>
             <HeaderTitle/>

@@ -37,7 +37,7 @@ var TopNav = React.createClass ({
             </a>
           </div>
           <div className="button-box">
-            <a href="#" id="button-playPause" onClick={this.props.onPlayPauseClick} className="tabindex" aria-label="menu" role="button" aria-disabled="false" aria-pressed="false">
+            <a href="#" id="button-playPause" onClick={this.props.onPlayPauseClick} className={this.props.isHelpOpen ? "tabindex" : "tabindex disabled"} aria-label="menu" role="button" aria-disabled="false" aria-pressed="false">
               <span className="button-label">
               </span>
               <span className="icon-playPause"></span>

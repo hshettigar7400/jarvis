@@ -59,10 +59,7 @@ b {
   .instruction ul li {
     padding: 0px 0 0px 0px;
   }
-  .assessment .question-page ul>li>a, .assessment .question-page ul>li>h2, .assessment .question-page ul>li>h3 {
-    padding: 0em 1em 0.45em 0.7em;
-    width: 100%;
-  }
+
 }
 
 .page {
@@ -288,6 +285,10 @@ b {
     height: 400px;
     overflow: auto;
   }
+  .m01_t01_p01 .text-holder .intro-text {
+
+      height: 100%;
+  }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
@@ -422,7 +423,7 @@ b {
 
 @media all and (max-width: 680px) {
   .m01_t01_p02 .objective-holder {
-    min-width: 100%;
+    min-width: 97%;
   }
   .m01_t01_p02 .img1 {
     position: relative;
@@ -527,7 +528,7 @@ b {
 .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab {
   background-color: #1792E5;
   text-align: justify;
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab span {
@@ -699,6 +700,11 @@ b {
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
   .m01_t01_p03 .template-panel {
     padding: 5px 0 0 0px;
+  }
+
+
+  .m01_t01_p03 {
+    height: 380px;
   }
 
   .m01_t01_p03 {
@@ -987,11 +993,18 @@ b {
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
   .m01_t01_p04 {
-    height: 650px;
+    height: 600px;
+  }
+
+  .sub-page>.content-tab {
+    width: 70%;
+    background-color: #116299;
+    border-radius: 5px;
+    height: 90px;
   }
   .m01_t01_p04 .sub-page {
     overflow: auto;
-    height: 170vh;
+    height: 190vh;
     display: block;
   }
   .m01_t01_p04 .template-panel .image-holder .img1 {
@@ -1019,13 +1032,13 @@ b {
     top: 10px;
   }
   .m01_t01_p04 .image-container, .m01_t01_p04 .image-container>div {
-    top: 0px;
+    top: 30px;
   }
 }
 
 @media only screen and (max-device-width: 480px) and (orientation: portrait) {
   .m01_t01_p04 {
-    margin-top: 0px;
+        top: 0px;
   }
   .m01_t01_p04 .template-panel .image-holder .img1 {
     background-image: none;
@@ -1195,7 +1208,7 @@ b {
   padding: 0px;
   position: absolute;
   width: 90%;
-  top: 40%;
+  top: 30%;
   transform: translate(-50%, -50%);
   left: 50%;
 }
@@ -1694,7 +1707,7 @@ and (orientation : portrait) {
   background-color: #004465;
   padding: 15px 50px;
   display: table;
-  width: 86%;
+  width: 100%;
   min-height: 300px;
   max-height: 300px;
   overflow-y: auto;
@@ -1709,7 +1722,7 @@ and (orientation : portrait) {
 }
 
 .answer-container ul {
-  width: 100%;
+  width: 70%;
   max-height: 256px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -1947,9 +1960,7 @@ and (orientation : portrait) {
     margin-left: 1%;
     margin-top: 15px;
   }
-  .drop-container:hover{
-    background-color: red;
-  }
+
   .activity-drag__element {
     padding: 0px;
   }
@@ -2042,9 +2053,7 @@ and (orientation : portrait) {
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .m01_t01_p07 {
-    height: 100%;
-  }
+
   .activity-condition span {
     display: block;
   }
@@ -2324,7 +2333,6 @@ and (orientation : portrait) {
 }
 
 .final-assessment .text-content p:last-child {
-  border-top: 1px solid #737B85;
   font-weight: 700
 }
 
@@ -2533,7 +2541,7 @@ and (orientation : portrait) {
 .assessment {
   width: 90%;
   margin: 0 auto;
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 .correct-incorrect {
@@ -2897,7 +2905,7 @@ and (orientation : portrait) {
   }
   .assessment .question-page ul>li>a, .assessment .question-page ul>li>h2, .assessment .question-page ul>li>h3 {
     padding: 0.45em 1em 0.45em 0em;
-    width: 100%;
+    width: 95%;
   }
   .final-assessment .question-page .question li:last-child {
     line-height: 1.3em;
@@ -2910,6 +2918,7 @@ and (orientation : portrait) {
     padding: 0em 1em 0.45em 0.4em;
     width: 90%;
   }
+
 }
 
 .question-page ul {
@@ -2945,8 +2954,7 @@ and (orientation : portrait) {
 .arrow {
   position: fixed;
   bottom: 0;
-  left: 50%;
-  margin-left:-20px;
+  right: 2%;
   display: none;
   z-index: 999;
 }
