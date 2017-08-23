@@ -13,7 +13,8 @@ propTypes: {
   totalPages: React.PropTypes.number,
   currentPageNumber: React.PropTypes.number,
   onVolumeClick: React.PropTypes.func,
-  isMenuOpened: React.PropTypes.bool
+  isMenuOpened: React.PropTypes.bool,
+  onResourceClick: React.PropTypes.func
 },
 
 getInitialState() {

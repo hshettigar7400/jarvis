@@ -71,6 +71,7 @@ enablePopupVisible()
           </div>
 
         </div>
+        <a href="../app/assets/resource/medical_devices_industry_overview.pdf" target="_blank" className="icon-print print_btn"></a>
         <a href="#" className="icon-close close_btn" onClick={this.enablePopupVisible}></a>
         <div className="courseProgress">
           <span id="courseProgressUpdate"></span>

@@ -754,12 +754,13 @@ b {
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   .m01_t01_p03 .template-horizontal-tab .tabs-nav .h-tab span {
     width: 150px;
+    padding: 0 5px;
   }
   .m01_t01_p03 .template-horizontal-tab .tab-content .tab-data {
     border-top: none;
   }
   .m01_t01_p03 .template-horizontal-tab .tab-content {
-    width: 318px;
+    width: 340px;
     height: 200px;
   }
   .m01_t01_p03 .template-horizontal-tab .tab-content .tab-data {
@@ -970,7 +971,7 @@ b {
 }
 
 .image-container3>div {
-  width: 40%;
+  width: 25%;
 }
 
 .m01_t01_p04 figcaption {
@@ -1079,6 +1080,7 @@ b {
   }
 
   .m01_t01_p04 .image-container3>div {
+    width: 40%;
     padding-top: 10px;
   }
 
@@ -1086,6 +1088,8 @@ b {
     width: 40%;
     margin-left: 25px;
   }
+
+
   .m01_t01_p04 .image-container4>div {
     top: 25px;
     height: 150px;
@@ -1238,7 +1242,7 @@ b {
   position: absolute;
   right: 4%;
   max-width: 50%;
-  margin-top: -20px;
+  margin-top: -55px;
 }
 
 @media all and (max-width: 860px) {
@@ -1645,7 +1649,7 @@ b {
   position: absolute;
   right: 60px;
   top: 430px;
-  background: #0097e1;
+  background: #EE3124;
   border: none;
   color: #fff;
   padding: 10px 30px;
@@ -1660,6 +1664,10 @@ and (orientation : portrait) {
   .proceed-button, .activity-nav-button {
     right: 105px;
     top: 660px;
+  }
+
+  .drop-category span, .drop-container span .drag-element span {
+      width: 150px;
   }
 }
 
@@ -1926,10 +1934,10 @@ and (orientation : portrait) {
     padding: 5px 10px;
   }
   .activity-score, .activity-timer {
-    background-color: transparent;
-    color: #ee3124;
+    background-color: #000;
+    color: #fff;
     font-weight: bold;
-    padding: 0px 0px;
+    padding: 0px 0px 10px 10px;
   }
   .activity-question span {
     margin-bottom: 0px;
@@ -1973,7 +1981,7 @@ and (orientation : portrait) {
     width: 100%;
   }
   .proceed-button, .activity-nav-button {
-    top: 73%;
+    top: 82%;
     right: 25px;
   }
 }
@@ -2005,7 +2013,7 @@ and (orientation : portrait) {
     position: absolute;
     top: 410px;
     right: 15px;
-    background: #0097e1;
+    background: #EE3124;
     border: none;
     color: #fff;
     padding: 10px 30px;
@@ -2334,7 +2342,7 @@ and (orientation : portrait) {
 }
 
 .final-assessment .text-content p:last-child {
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .final-assessment .text-content p span {
@@ -2935,6 +2943,32 @@ and (orientation : portrait) {
   background-color: #707c89;
 }
 
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+.assessment .question-page {
+  margin-bottom: 20px;
+}
+
+.final-assessment .start-page {
+  margin-bottom: 20px;
+}
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+.assessment .option .text {
+  width: 85%;
+}
+
+
+ .final-assessment .next-back-container>div .lastQuestion
+ {
+       margin-bottom: 30px;
+ }
+.final-assessment .next-back-container>div {
+  padding-bottom: 5px;
+}
+}
+
 @keyframes bounce {
   from {
     transform: translateY(0px);
@@ -2964,4 +2998,18 @@ and (orientation : portrait) {
 
   animation: bounce .5s infinite alternate;
   -webkit-animation: bounce .5s infinite alternate;
+}
+
+
+/* Resource Popup*/
+
+.resource-popup
+{
+  position: absolute;
+  top: 40%;
+  z-index: 9999;
+  left: 0;
+  right: 0;
+  width: 200px;
+  margin: auto;
 }

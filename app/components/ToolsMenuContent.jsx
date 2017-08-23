@@ -1,13 +1,20 @@
 var React = require('react');
 
 var ToolsMenuContent = React.createClass ({
-
+getInitialState: function() {
+  return {
+    resourceVisible: false
+  }
+},
 propTypes: {
   onVolumeClick: React.PropTypes.func,
-  onHelpClick: React.PropTypes.func
+  onHelpClick: React.PropTypes.func,
+  onResourceClick: React.PropTypes.func
 },
 
+
 render() {
+
   return (
     <div className="Tools">
       <div className="button-box">
@@ -25,7 +32,7 @@ render() {
       </div>
 
       <div className="button-box">
-        <a href="#" id="button-resources" className="tabindex  disabled" aria-label="resources" role="button" aria-disabled="true" aria-pressed="false">
+        <a href="#" onClick={this.props.onResourceClick} id="button-resources" className="tabindex disabled" aria-label="resources" role="button" aria-disabled="true" aria-pressed="false">
           <span className="button-label"></span>
           <span className="icon-resources"></span>
         </a>
@@ -44,9 +51,16 @@ render() {
           <span className="icon-replay"></span>
         </a>
       </div>
+        <div className="button-box">
+        <a href="../app/assets/resource/medical_devices_industry_overview.pdf" target="_blank" className="tabindex" aria-label="replay" role="button" aria-disabled="false" >
+        <span className="button-label"></span>
+          <span className="icon-print"></span>
+        </a>
+      </div>
     </div>
+
   )
 }
-});
+})
 
 export default ToolsMenuContent;

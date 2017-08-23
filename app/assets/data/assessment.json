@@ -150,7 +150,7 @@
                         "id": "question",
 						"audioID":"p1q4",
                         "type": "mcq",
-                        "text": "Identify key reasons that led IOT revolution in the medical device industry.",
+                        "text": "Identify key reasons that led the IOT revolution in the medical device industry.",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                               {
@@ -184,7 +184,7 @@
                         "id": "question",
 			                  "audioID":"p1q5",
                         "type": "mcq",
-                        "text": "From medical applications listed below, identify Honeywell’s focus medical applications.",
+                        "text": "From medical applications listed below, identify Honeywell’s focus in medical applications.",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                             {

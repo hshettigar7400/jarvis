@@ -281,7 +281,7 @@ var Shell = React.createClass({
             <div className="popup-content"></div>
             <div className="popup-buttons">
               <div>
-                <a href="#" id="popup-no-button" onClick={this.resumeCourse.bind(this, false)} className="course-button box-shadow popup-yes-button tabindextabindex">No</a>
+                <a href="/app/assets/Resource/Course_PDF_template.pdf" target="_blank" id="resourceBtn" className="course-button box-shadow resourceBtn tabindex">Open PDF</a>
               </div>
             </div>
           </div>
@@ -374,6 +374,7 @@ var Shell = React.createClass({
         <ToolsMenu
           sidebar={
               <ToolsMenuContent onCloseMenuClick = {this.setOpen}
+                          onResourceClick = {this.enableResource}
                            onHelpClick = {this.clickOpenHelpDock}
                            onVolumeClick={this.volumeChange}
                            onReplayClick={this.replayScreen}
