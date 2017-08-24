@@ -118,7 +118,7 @@ var Shell = React.createClass({
   componentDidMount: function() {
     window.addEventListener("resize", this.updateDimensions);
     this.updateDimensions();
-    this.setContainerDimension();
+
   },
 
   componentDidUpdate: function(prevProps, prevState) {
@@ -141,7 +141,7 @@ var Shell = React.createClass({
         window.jarvisAudio.resume();
       }
     }
-    this.setContainerDimension();
+
   },
 
   setContainerDimension() {
@@ -150,6 +150,7 @@ var Shell = React.createClass({
       var deviceHeight = window.height;
       $('.page-holder').css('height', (deviceHeight) + 'px');
       if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
+
         $(".arrow").show();
       } else {
         $(".arrow").hide();

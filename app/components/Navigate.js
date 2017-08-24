@@ -14,6 +14,7 @@ var topicNamesArray = [
 ];
 
 function loadPage(pageNumber) {
+
   if(pageNumber > 1) {
     if (document.querySelector('.back-button'))
       document.querySelector('.back-button').classList.remove("disabled");
@@ -26,10 +27,12 @@ function loadPage(pageNumber) {
   if (document.querySelector('#button-audio')) {
     document.querySelector('#button-audio').classList.remove("disabled");
   }
+
   if (document.querySelector('#button-playPause'))
     document.querySelector('#button-playPause').classList.remove("disabled");
   $(".page-loader").empty();
   $(".page-loader").load('components/content/m01/t01/m01_t01_p0'+(pageNumber)+'.html');
+
   window.updatePageStatusList(pageNumber);
   $(".page-title").html(topicNamesArray[pageNumber-1]);
   $("#button-playPause").removeClass("disabled");

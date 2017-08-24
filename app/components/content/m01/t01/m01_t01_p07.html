@@ -4,6 +4,23 @@
 <script type="text/javascript" src="../app/assets/scripts/jTouch.js"></script>
 <script type="text/javascript" src="../../../../../app/assets/scripts/jTouch.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@media only screen and (max-device-width: 320px) and (orientation: portrait) {
+.page-loader {
+  height: calc(100% + 150px);
+  z-index: 99;
+}
+}
+@media only screen and (min-device-width: 320px) and (max-device-height: 480px) and (orientation: landscape) {
+.page-loader {
+  height: calc(100% + 150px);
+  z-index: 99;
+}
+}
+
+
+</style>
 <div class="m01_t01_p07 page-template">
   <div class="activity-intro-container" id="intro">
     <div class="activity-intro">

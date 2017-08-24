@@ -89,7 +89,7 @@ var PageContainer = React.createClass({
     });
     var deviceHeight = window.innerHeight;
     preloader.start();
-
+    this.setContainerDimension();
   },
 
   componentDidUpdate(prevProps, prevState) {
@@ -101,6 +101,7 @@ var PageContainer = React.createClass({
     } else {
       $("#button-playPause").removeClass("disabled");
     }
+      this.setContainerDimension();
   },
 
   shouldComponentUpdate: function(nextProps, nextState) {
@@ -109,6 +110,35 @@ var PageContainer = React.createClass({
     } else {
       return false;
     }
+  },
+
+  setContainerDimension() {
+    var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+    if (isMobile.matches) {
+      var deviceHeight = window.height;
+      $('.page-holder').css('height', (deviceHeight) + 'px');
+      if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
+
+        $(".arrow").show();
+      } else {
+        $(".arrow").hide();
+      }
+    }
+
+    $(window).on("orientationchange", function() {
+      if (isMobile.matches) {
+        setTimeout(function() {
+          var deviceHeight = window.height;
+          $('.page-holder').css('height', (deviceHeight) + 'px');
+          if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
+            $(".arrow").show();
+          } else {
+            $(".arrow").hide();
+          }
+        }, 500);
+
+      }
+    }).trigger('orientationchange');
   },
 
   componentWillReceiveProps(nextProps) {

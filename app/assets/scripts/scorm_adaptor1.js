@@ -49,13 +49,13 @@ function scormAdaptor_getAPI(){
     }
     tries++;
   }
-  
+
   console.log('myAPI: ', myAPI);
-  
+
   if (myAPI == null){
 
   } else {
-	
+
     scormAPIHandle = myAPI;
     scormAdaptor_adlOnload();
   }
@@ -188,7 +188,7 @@ function scormAdaptor_setlocation(lPageNum){
 		}
   }
   else {
-  	localStorage.setItem("_lesson_location",lPageNum);
+  	//localStorage.setItem("_lesson_location",lPageNum);
   }
 }
 
@@ -287,16 +287,20 @@ function scormAdaptor_getscore(){
  }
 
 function scormAdaptor_setsuspenddata(args){
-
 	if(scormAPIHandle != null){
+    alert("Scorm Adaptor");
 		var res = scormAPIHandle.LMSSetValue("cmi.suspend_data", args);
 		if (res == "true"){
 		}else{
 		}
 		fGetLastError();
-	}else {
-  		localStorage.setItem("_suspend_data",args);
-  	}
+	}//else {
+    //  try {
+    		//localStorage.setItem("_suspend_data",args);
+    //  }catch(ex) {
+      //  return true;
+    //  }
+  	//}
 }
 
 function scormAdaptor_getsuspenddata(){

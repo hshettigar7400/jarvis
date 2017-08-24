@@ -18192,7 +18192,6 @@ var Shell = React.createClass({
   componentDidMount: function componentDidMount() {
     window.addEventListener("resize", this.updateDimensions);
     this.updateDimensions();
-    this.setContainerDimension();
   },
 
   componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
@@ -18215,7 +18214,6 @@ var Shell = React.createClass({
         window.jarvisAudio.resume();
       }
     }
-    this.setContainerDimension();
   },
 
   setContainerDimension: function setContainerDimension() {
@@ -18224,6 +18222,7 @@ var Shell = React.createClass({
       var deviceHeight = window.height;
       $('.page-holder').css('height', deviceHeight + 'px');
       if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
+
         $(".arrow").show();
       } else {
         $(".arrow").hide();
@@ -18862,6 +18861,7 @@ var currentCuePointId = 0;
 var topicNamesArray = ['Welcome', 'Course objectives', 'Medical devices move to the home', 'Growth in portable- and home-use medical devices', 'Internet of things—connected medical equipment', 'Target/focus medical applications', 'Medical applications for Honeywell sensors—Activity', 'Course summary', 'Welcome to the quiz'];
 
 function loadPage(pageNumber) {
+
   if (pageNumber > 1) {
     if (document.querySelector('.back-button')) document.querySelector('.back-button').classList.remove("disabled");
   }
@@ -18872,9 +18872,11 @@ function loadPage(pageNumber) {
   if (document.querySelector('#button-audio')) {
     document.querySelector('#button-audio').classList.remove("disabled");
   }
+
   if (document.querySelector('#button-playPause')) document.querySelector('#button-playPause').classList.remove("disabled");
   $(".page-loader").empty();
   $(".page-loader").load('components/content/m01/t01/m01_t01_p0' + pageNumber + '.html');
+
   window.updatePageStatusList(pageNumber);
   $(".page-title").html(topicNamesArray[pageNumber - 1]);
   $("#button-playPause").removeClass("disabled");
@@ -23811,6 +23813,7 @@ var PageContainer = React.createClass({
     });
     var deviceHeight = window.innerHeight;
     preloader.start();
+    this.setContainerDimension();
   },
   componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
     if (this.props.PageNum !== prevProps.PageNum) {
@@ -23821,6 +23824,7 @@ var PageContainer = React.createClass({
     } else {
       $("#button-playPause").removeClass("disabled");
     }
+    this.setContainerDimension();
   },
 
 
@@ -23832,6 +23836,33 @@ var PageContainer = React.createClass({
     }
   },
 
+  setContainerDimension: function setContainerDimension() {
+    var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+    if (isMobile.matches) {
+      var deviceHeight = window.height;
+      $('.page-holder').css('height', deviceHeight + 'px');
+      if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
+
+        $(".arrow").show();
+      } else {
+        $(".arrow").hide();
+      }
+    }
+
+    $(window).on("orientationchange", function () {
+      if (isMobile.matches) {
+        setTimeout(function () {
+          var deviceHeight = window.height;
+          $('.page-holder').css('height', deviceHeight + 'px');
+          if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
+            $(".arrow").show();
+          } else {
+            $(".arrow").hide();
+          }
+        }, 500);
+      }
+    }).trigger('orientationchange');
+  },
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
     var _self = this;
     if (this.props.PageNum !== nextProps.PageNum) {
@@ -24323,7 +24354,6 @@ window.updatePageStatusList = function (pageNum) {
   if (document.getElementById('courseProgressUpdate')) document.getElementById('courseProgressUpdate').style.width = getCourseProgress();
 
   window.scormAdaptor_setsuspenddata(window.pageStatusList);
-
   window.scormAdaptor_setlocation(pageNum.toString());
 
   window.scormAdaptor_commit();

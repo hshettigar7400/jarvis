@@ -36,7 +36,6 @@ window.updatePageStatusList = function(pageNum) {
 	 document.getElementById('courseProgressUpdate').style.width = getCourseProgress();
 
   window.scormAdaptor_setsuspenddata(window.pageStatusList);
-
   window.scormAdaptor_setlocation(pageNum.toString());
 
   window.scormAdaptor_commit();
