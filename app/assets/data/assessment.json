@@ -150,7 +150,7 @@
                         "id": "question",
 						"audioID":"p1q4",
                         "type": "mcq",
-                        "text": "Identify key reasons that led the IOT revolution in the medical device industry.",
+                        "text": "Identify key reasons that led the IoT revolution in the medical device industry.",
                         "instruction": "Select the correct option and select <b>Next question</b>.",
                         "options": [
                               {

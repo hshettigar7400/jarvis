@@ -372,6 +372,18 @@ function Assessment() {
         var obj = getResultPageData(per);
         gData.userScore = per;
         gData.quizAttempted = true;
+        console.log('scormAdaptor_getscore(): ', window.scormAdaptor_getscore());
+    		var lmsScore = Number(scormAdaptor_getscore());
+
+    		if(gData.userScore > lmsScore) {
+    			scormAdaptor_setscore(gData.userScore.toString());
+    			scormAdaptor_commit();
+    		}
+
+    		if(gData.userScore >= assessment_config.passingScore) {
+    			scormAdaptor_complete();
+    			scormAdaptor_commit();
+    		}
         //gData.updatePageStatus(2, page);
         tabindex = 3;
         if (!obj) return;

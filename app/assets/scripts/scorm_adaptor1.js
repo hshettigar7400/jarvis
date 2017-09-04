@@ -288,7 +288,6 @@ function scormAdaptor_getscore(){
 
 function scormAdaptor_setsuspenddata(args){
 	if(scormAPIHandle != null){
-    alert("Scorm Adaptor");
 		var res = scormAPIHandle.LMSSetValue("cmi.suspend_data", args);
 		if (res == "true"){
 		}else{

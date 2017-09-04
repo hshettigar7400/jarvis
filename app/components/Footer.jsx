@@ -44,7 +44,7 @@ render() {
           <span className="icon-menu"></span></a>
         </div>
         <div className="button-box">
-          <a href="#" id="button-resources" onClick={this.props.onResourceClick} className="tabindex disabled" aria-label="resources" role="button" aria-disabled="true" aria-pressed="false">
+          <a href="../app/assets/resource/medical_devices_industry_overview_pdg_v1.pdf" target="_blank "download id="button-resources"  className="tabindex" aria-label="resources" role="button" aria-disabled="true" aria-pressed="false">
             <span className="button-label"></span>
             <span className="icon-resources"></span>
           </a>
