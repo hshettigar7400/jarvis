@@ -1,4 +1,6 @@
 var React = require('react'),
+ Draggable = require('react-draggable'),
+ DraggableCore = Draggable.DraggableCore,
   HeaderTitle = require('../components/HeaderTitle.jsx').default,
   Footer = require('../components/Footer.jsx').default,
   PageContainer = require('../components/PageContainer.jsx').default,
@@ -12,7 +14,6 @@ var React = require('react'),
   HelpDock = require('react-dock'), {toggleSoundVolume, togglePlayPuase, loadAudio, toggleButtonState} = require('../assets/scripts/AudioManager.js'), {loadPage} = require('../components/Navigate.js'),
   Modal = require('react-modal'),
   $ = require('jquery');
-
 const customStyles = {
   content: {
     top: '50%',
@@ -25,7 +26,6 @@ const customStyles = {
 };
 
 var Shell = React.createClass({
-
   getInitialState: function() {
     var uagent = navigator.userAgent.toLowerCase();
     //console.log('last location',window.scormAdaptor_getlocation());
@@ -45,11 +45,9 @@ var Shell = React.createClass({
         ? true
         : false,
       volume: 100,
-      isMobile: uagent.search("mobile") > -1
-        ? true
-        : false
-    };
+      isMobile: uagent.search("mobile") > -1 ? true : false,
 
+    }
   },
   clickOpenMenu: function(e) {
   this.setState({
@@ -83,7 +81,6 @@ var Shell = React.createClass({
   setOpen() {
     this.setState({sidebarOpen: false});
   },
-
   updateDimensions: function() {
     var w = window,
       d = document,
@@ -97,8 +94,8 @@ var Shell = React.createClass({
       $('#root').css({'min-width': '320px'})
     } else {
       var contentHeight = height - 65;
-      $('#root').css({'max-width': '1010px', 'max-height': '650px'})
-      $('.shell-container').css({'max-width': '1010px', 'max-height': '650px'})
+      $('#root').css({'max-width': '1030px', 'max-height': '720px'})
+      $('.shell-container').css({'max-width': '1030px', 'max-height': '720px'})
     }
     var isMobile = window.matchMedia("only screen and (max-width: 760px)");
     if (isMobile.matches) {
@@ -257,8 +254,11 @@ var Shell = React.createClass({
   },
 
   showTranscript() {
+
     return (
-      <div className="transcript-container">
+    <Draggable axis="both" handle=".handle" defaultPosition={{x: 0, y: 0}} position={null} grid={[10, 10]} onStart={this.handleStart}
+   bounds={{top: -350, left: -310, right: 400, bottom: 0}} onDrag={this.handleDrag} onStop={this.handleStop}>
+      <div className="transcript-container handle">
         <div id="transcript-header" className="transcript-header">
           <div className="transcript-title">Transcript</div>
           <a href="#" id="transcript-close-button" onClick={this.enableTranscript} className="transcript-close-button tabindex" aria-label="Transcript close" role="button">
@@ -267,6 +267,7 @@ var Shell = React.createClass({
         </div>
         <div className="transcript-text-container"></div>
       </div>
+       </Draggable>
     )
   },
 

@@ -23,6 +23,7 @@
     "react-collapsible": "^1.4.0",
     "react-dock": "^0.2.3",
     "react-dom": "^15.4.2",
+    "react-draggable": "^3.0.3",
     "react-expandable-listview": "^0.6.0",
     "react-interval": "^1.3.3",
     "react-jay-preload": "^0.0.9",
