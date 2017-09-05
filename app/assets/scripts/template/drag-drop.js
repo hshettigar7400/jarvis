@@ -12,7 +12,6 @@
 
   //Make every clone image unique.
   var counts = [0];
-
   function startActivity() {
     clearInterval(window.tInterval);
     $(".activity-intro-container").fadeOut( "slow", function() {

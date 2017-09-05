@@ -197,8 +197,8 @@
   <!--<script type="text/javascript" src="components/Navigate.js"></script>-->
   <script>
   function launchCourse() {
-    var winwidth = 1010;
-    var winheight = 650;
+    var winwidth = 1030;
+    var winheight = 720;
     var xOffset = screen.width / 2 - winwidth / 2;
     var yOffset = screen.height / 2 - winheight / 2;
     var sysInfo = new SystemDetect();
@@ -209,7 +209,7 @@
     var appType = 'scorm';
 
     if (is_chrome) {
-        winheight = 650;
+        winheight = 720;
     } else if (is_safari && isWindows) {
         /** v. 5.1.7 */
         if (parseInt($.browser.version) === 534) {

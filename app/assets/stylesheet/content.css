@@ -1933,6 +1933,27 @@ and (orientation : portrait) {
   width: 95%;
 }
 
+@media only screen and (min-width: 640px) and (max-width: 750px) {
+  .activity-holder {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .drop-category span, .drop-container span .drag-element span {
+    width: 150px;
+  }
+  .activity-drop__container {
+    padding-top: 30px;
+  }
+
+  .proceed-button, .activity-nav-button {
+    position: absolute;
+    right: 30px;
+    top: 560px;
+    height: 40px;
+    margin-bottom: 20px;
+  }
+}
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
   .m01_t01_p07 {
     height: 500px;
