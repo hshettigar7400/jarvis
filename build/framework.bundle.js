@@ -23847,26 +23847,10 @@ var PageContainer = React.createClass({
     if (isMobile.matches) {
       var deviceHeight = window.height;
       $('.page-holder').css('height', deviceHeight + 'px');
-      if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
-
-        $(".arrow").show();
-      } else {
-        $(".arrow").hide();
-      }
     }
 
     $(window).on("orientationchange", function () {
-      if (isMobile.matches) {
-        setTimeout(function () {
-          var deviceHeight = window.height;
-          $('.page-holder').css('height', deviceHeight + 'px');
-          if ($(".page-template").height() > $('.page-container').height() || $(".template-panel").height() > $('.page-container').height()) {
-            $(".arrow").show();
-          } else {
-            $(".arrow").hide();
-          }
-        }, 500);
-      }
+      if (isMobile.matches) {}
     }).trigger('orientationchange');
   },
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
@@ -23910,12 +23894,7 @@ var PageContainer = React.createClass({
         React.createElement('span', { className: 'topic-title' }),
         React.createElement('span', { className: 'page-title' })
       ),
-      React.createElement('div', { ref: 'pageLoader', className: 'page-loader' }),
-      React.createElement(
-        'svg',
-        { className: 'arrow bounce', height: '70', width: '70' },
-        React.createElement('polyline', { points: '15,38 28,50 40,38', stroke: '#EF3125', 'stroke-width': '3', fill: 'none' })
-      )
+      React.createElement('div', { ref: 'pageLoader', className: 'page-loader' })
     );
   }
 });

@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "@zippytech/react-notify-resize": "^3.0.0",
+    "bootstrap": "^3.3.7",
     "css-loader": "^0.27.3",
     "css-to-string-loader": "^0.1.2",
     "electron-open-link-in-browser": "^1.0.2",

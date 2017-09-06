@@ -46,12 +46,12 @@
 
   <div class="activity-holder" id="activity1">
       <div class="activity-question">
-        <span>Drag and drop each medical equipment label on to the correct medical application.</span>
+        <span class="questionText">Drag and drop each medical equipment label on to the correct medical application.</span>
         <div class="activity-score">Score - <span id="correct-answer"></span>/16</div>
         <div class="activity-timer">Time - <span id="time">0:15</span></div>
       </div>
-      <div class="activity-slider">
-
+      <div class="activity-slider-holder">
+        <div class="activity-slider"></div>
       </div>
       <button class="proceed-button" onclick="loadNextActivity()" style="display:none;">Proceed</button>
       <button class="activity-nav-button" onclick="reviewActivity()" style="display:none;">Next</button>
@@ -297,6 +297,16 @@ var dragOption= [
   "Peritoneal dialysis (PD)"
 ];
 
+function updateLayout () {
+  questionWidth = parseInt($('.activity-holder').outerWidth());
+  $('.activity-slider-holder').width(questionWidth);
+  $('.activity-option').width(questionWidth);
+  $('.activity-slider').css({
+      width: (questionWidth * (dragOption.length - 1)),
+      'left': -(questionWidth * (currentActivityNumber - 1))
+  })
+}
+
 function loadActivityData() {
   var str = "";
   $.each(dropOption, function(index, element) {
@@ -333,6 +343,10 @@ function createActivityQuestion(index) {
 
 $(function(){
   loadActivityData();
+  setTimeout(updateLayout, 200);
+  $(window).resize(function() {
+      updateLayout()
+  });
 });
 
 function startActivity() {
@@ -411,8 +425,10 @@ $(".drop-container").droppable({
       $(this).remove();
     });
   },
-
 });
+
+
+
 
 $(window).on("orientationchange",function(){
   if(currentActivityNumber > 1) {
