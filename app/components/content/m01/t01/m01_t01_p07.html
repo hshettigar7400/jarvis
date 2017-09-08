@@ -50,11 +50,13 @@
         <div class="activity-score">Score - <span id="correct-answer"></span>/16</div>
         <div class="activity-timer">Time - <span id="time">0:15</span></div>
       </div>
-      <div class="activity-slider-holder">
+      <div class="activity-slider-holder" style="overflow: hidden; height: 100%;">
         <div class="activity-slider"></div>
       </div>
-      <button class="proceed-button" onclick="loadNextActivity()" style="display:none;">Proceed</button>
-      <button class="activity-nav-button" onclick="reviewActivity()" style="display:none;">Next</button>
+      <div class="nav-holder">
+          <button class="proceed-button" onclick="loadNextActivity()" style="display:none;">Proceed</button>
+          <button class="activity-nav-button" onclick="reviewActivity()" style="display:none;">Next</button>
+      </div>
   </div>
 
   <div class="activity-feedback-container">
@@ -301,6 +303,10 @@ function updateLayout () {
   questionWidth = parseInt($('.activity-holder').outerWidth());
   $('.activity-slider-holder').width(questionWidth);
   $('.activity-option').width(questionWidth);
+  $('.activity-drop__container').width(questionWidth);
+  $('.nav-holder').width(questionWidth);
+
+  $('.drag-element').width((questionWidth/100)*19);
   $('.activity-slider').css({
       width: (questionWidth * (dragOption.length - 1)),
       'left': -(questionWidth * (currentActivityNumber - 1))

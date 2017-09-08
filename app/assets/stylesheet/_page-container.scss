@@ -28,11 +28,13 @@
 
 .fadeOut {
    opacity: 0;
+    visibility: hidden;
 }
 
 .fadeIn {
+    visibility: visible;
   opacity: 1;
-  transition: .5s;
+  transition: visibility .5s, opacity .5s linear;
 }
 
 .icon-transcript::before {

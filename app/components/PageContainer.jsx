@@ -90,6 +90,7 @@ var PageContainer = React.createClass({
     var deviceHeight = window.innerHeight;
     preloader.start();
     this.setContainerDimension();
+    
   },
 
   componentDidUpdate(prevProps, prevState) {
@@ -115,14 +116,23 @@ var PageContainer = React.createClass({
   setContainerDimension() {
     var isMobile = window.matchMedia("only screen and (max-width: 760px)");
     if (isMobile.matches) {
-      var deviceHeight = window.height;
+        setTimeout(function () {
+             var deviceHeight = window.height;
+        //alert('if isMobile.matches: '+deviceHeight);
       $('.page-holder').css('height', (deviceHeight) + 'px');
+        }, 100)
+     
     }
 
     $(window).on("orientationchange", function() {
       if (isMobile.matches) {
-
-      }
+        setTimeout(function () {
+             var deviceHeight = window.height;
+        //alert('if isMobile.matches: '+deviceHeight);
+      $('.page-holder').css('height', (deviceHeight) + 'px');
+        }, 100)
+     
+    }
     }).trigger('orientationchange');
   },
 

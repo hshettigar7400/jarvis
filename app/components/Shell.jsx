@@ -258,8 +258,8 @@ var Shell = React.createClass({
     return (
     <Draggable axis="both" handle=".handle" defaultPosition={{x: 0, y: 0}} position={null} grid={[10, 10]} onStart={this.handleStart}
    bounds={{top: -350, left: -310, right: 400, bottom: 0}} onDrag={this.handleDrag} onStop={this.handleStop}>
-      <div className="transcript-container handle">
-        <div id="transcript-header" className="transcript-header">
+      <div className="transcript-container">
+        <div id="transcript-header" className="transcript-header handle">
           <div className="transcript-title">Transcript</div>
           <a href="#" id="transcript-close-button" onClick={this.enableTranscript} className="transcript-close-button tabindex" aria-label="Transcript close" role="button">
             <span className="icon-close"></span>
