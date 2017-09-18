@@ -73,6 +73,7 @@ var PageContainer = React.createClass({
   },
 
   componentDidMount() {
+
     var _self = this;
     $(".loading").show();
 
@@ -90,10 +91,11 @@ var PageContainer = React.createClass({
     var deviceHeight = window.innerHeight;
     preloader.start();
     this.setContainerDimension();
-    
+
   },
 
   componentDidUpdate(prevProps, prevState) {
+
     if ((this.props.PageNum !== prevProps.PageNum)) {
       loadPage(this.props.PageNum)
     }
@@ -102,10 +104,11 @@ var PageContainer = React.createClass({
     } else {
       $("#button-playPause").removeClass("disabled");
     }
-      this.setContainerDimension();
+    this.setContainerDimension();
   },
 
   shouldComponentUpdate: function(nextProps, nextState) {
+
     if (this.props.PageNum !== nextProps.PageNum || this.props.volume !== nextProps.volume || this.props.audioState !== nextProps.audioState || this.state.stopAudio !== nextState.stopAudio) {
       return true;
     } else {
@@ -116,23 +119,23 @@ var PageContainer = React.createClass({
   setContainerDimension() {
     var isMobile = window.matchMedia("only screen and (max-width: 760px)");
     if (isMobile.matches) {
-        setTimeout(function () {
-             var deviceHeight = window.height;
+      setTimeout(function() {
+        var deviceHeight = window.height;
         //alert('if isMobile.matches: '+deviceHeight);
-      $('.page-holder').css('height', (deviceHeight) + 'px');
-        }, 100)
-     
+        $('.page-holder').css('height', (deviceHeight) + 'px');
+      }, 100)
+
     }
 
     $(window).on("orientationchange", function() {
-      if (isMobile.matches) {
-        setTimeout(function () {
-             var deviceHeight = window.height;
-        //alert('if isMobile.matches: '+deviceHeight);
-      $('.page-holder').css('height', (deviceHeight) + 'px');
+      //if (isMobile.matches) {
+        setTimeout(function() {
+          var deviceHeight = window.height;
+          //alert('if isMobile.matches: '+deviceHeight);
+          $('.page-holder').css('height', (deviceHeight) + 'px');
         }, 100)
-     
-    }
+
+      //}
     }).trigger('orientationchange');
   },
 

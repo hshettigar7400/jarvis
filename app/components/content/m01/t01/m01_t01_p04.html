@@ -13,7 +13,7 @@
             </div>
 
             <div class="image-container image-container2">
-              <div class="fadeOut  sync2">
+              <div class="fadeOut sync2">
                 <img src="images/m01_t01_p04/m01_t01_p04_02.jpg" />
                 <figcaption>Glucometer</figcaption>
               </div>
@@ -102,4 +102,16 @@
 var qPoints = [0, 11, 13, 14, 27, 29, 30, 32, 39, 41, 45, 48, 51, 52, 53, 54, 54, 55, 55];
 var qPointsExecution = ["", "imageSwap(1)", "", "", "imageSwap(2)","", "", "", "imageSwap(3)", "highlightElement(1)", "highlightElement(2)", "highlightElement(3)", "imageSwap(4)"];
 var currentCuePointId = 0;
+
+var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+$('.page-container').css({
+    'overflow': 'auto'
+});
+
+$(window).on("orientationchange", function() {
+  $('.page-container').css({
+      'overflow': 'auto'
+  });
+});
+
 </script>

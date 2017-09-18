@@ -21,7 +21,7 @@
 
 
 </style>
-<div class="m01_t01_p07 page-template">
+<div id="m01_t01_p07" class="m01_t01_p07 page-template">
   <div class="activity-intro-container" id="intro">
     <div class="activity-intro">
           <div class="activity-instruction">
@@ -44,16 +44,16 @@
     </div>
   </div>
 
-  <div class="activity-holder" id="activity1">
+  <div class="activity-holder" id="activity1" style="overflow: auto">
       <div class="activity-question">
         <span class="questionText">Drag and drop each medical equipment label on to the correct medical application.</span>
         <div class="activity-score">Score - <span id="correct-answer"></span>/16</div>
         <div class="activity-timer">Time - <span id="time">0:15</span></div>
       </div>
-      <div class="activity-slider-holder" style="overflow: hidden; height: 100%;">
+      <div class="activity-slider-holder" style="overflow: hidden;height:450px;">
         <div class="activity-slider"></div>
       </div>
-      <div class="nav-holder">
+      <div class="nav-holder" style="margin-top:-125px">
           <button class="proceed-button" onclick="loadNextActivity()" style="display:none;">Proceed</button>
           <button class="activity-nav-button" onclick="reviewActivity()" style="display:none;">Next</button>
       </div>
@@ -251,7 +251,10 @@
 </div>
 
 <script>
-
+$('.page-container').css('overflow', 'auto');
+$(window).on("orientationchange", function() {
+    $('.page-container').css('overflow', 'auto');
+});
 var qPointsExecution = [];
 var qPoints = [0];
 var counts = [0];

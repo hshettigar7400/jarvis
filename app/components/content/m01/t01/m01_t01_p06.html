@@ -753,6 +753,14 @@
   var AudioComplete = [0, 0, 0, 0, 0, 0, 0, 0];
   var clickedButtons = [];
 
+  $('.page-container').css({
+      'overflow-y': 'auto'
+  });
+
+  $(window).on("orientationchange", function() {
+  		$('.page-container').css('overflow', 'auto');
+  });
+
   function openPopup(e, id, path) {
     $(".right-side").css('display', 'block');
     AudioComplete[id - 1] = 1;

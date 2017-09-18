@@ -16,6 +16,8 @@ var Collapsible = React.createClass({
     contentInnerClassName: React.PropTypes.string,
     accordionPosition: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
     handleTriggerClick: React.PropTypes.func,
+    onOpen: React.PropTypes.func,
+    onClose: React.PropTypes.func,
     trigger: React.PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.element
@@ -55,6 +57,8 @@ var Collapsible = React.createClass({
       contentInnerClassName: '',
       className: '',
       triggerSibling: null,
+      onOpen: () => {},
+      onClose: () => {},
     };
   },
 
@@ -167,7 +171,7 @@ var Collapsible = React.createClass({
       shouldSwitchAutoOnNextCycle: true,
       height: this.refs.inner.offsetHeight,
       overflow: 'hidden',
-    });
+    }, this.props.onClose);
   },
 
   openCollapsible: function() {
@@ -176,7 +180,7 @@ var Collapsible = React.createClass({
       transition: 'height ' + this.props.transitionTime + 'ms ' + this.props.easing,
       isClosed: false,
       hasBeenOpened: true
-    });
+    }, this.props.onOpen);
   },
 
   makeResponsive: function() {

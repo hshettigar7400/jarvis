@@ -55,6 +55,25 @@
 
 
 <script>
+setTimeout(function () {
+  if(window.innerHeight < 640) {
+    $('#player').css('height', '107vh');
+    $('.page-container').css('overflow', 'auto');
+  } else {
+    $('.page-container').css('overflow', 'hidden');
+  }
+}, 500)
+
+$(window).on("orientationchange", function() {
+  if(window.innerHeight < 640) {
+    $('#player').css('height', '107vh');
+    $('.page-container').css('overflow', 'auto');
+  } else {
+    $('.page-container').css('overflow', 'hidden');
+  }
+});
+
+$('.assessment-container').css('background-color', '#0A4166')
   var qPoints = null;
   assessment_config = {
     poolsSharing: [5],

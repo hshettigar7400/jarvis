@@ -100,9 +100,27 @@
     });
 
   }
+  var isTabOpen = false;
+  var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+  $('.page-container').css({
+      'overflow-y': 'hidden'
+  });
+  $(window).on("orientationchange", function() {
+  	if(isMobile.matches && screen.availHeight <= 640 && isTabOpen == true) {
+
+  		$('.page-container').css('overflow', 'auto');
+  	}else{
+  		$('.page-container').css('overflow', 'hidden');
+  	}
+  });
 
   function showTab1(e, path) {
-
+    isTabOpen = true;
+    if(isMobile.matches && screen.availHeight <= 640) {
+      $('.page-container').css({
+          'overflow-y': 'auto'
+      });
+    }
     currentCuePointId = 2;
     $(".tab1-content").removeClass("fadeIn");
     $(".tab1-content").addClass("fadeOut");
@@ -123,6 +141,12 @@
   }
 
   function showTab2(e, path) {
+    isTabOpen = true;
+    if(isMobile.matches && screen.availHeight <= 640) {
+      $('.page-container').css({
+          'overflow-y': 'auto'
+      });
+    }
     $(".tab2-content").removeClass("fadeIn");
     $(".tab2-content").addClass("fadeOut");
     currentCuePointId = 8;

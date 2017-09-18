@@ -99,11 +99,32 @@ var Shell = React.createClass({
     }
     var isMobile = window.matchMedia("only screen and (max-width: 760px)");
     if (isMobile.matches) {
-      var deviceHeight = window.innerHeight;
+      var isLandscape =  window.matchMedia("only screen and (max-width: 760px) and (orientation: landscape)");
+      if(isLandscape.matches) {
+          var deviceHeight = window.innerHeight - ($('.header').height()) + 10;
+      } else {
+        var deviceHeight = window.innerHeight - ($('.header').height());
+      }
+
+      $('.page-container').scrollTop(0);
       $('.page-container').css({
-        'height': deviceHeight,
-        'overflow-y': 'auto'
+        'height': deviceHeight
+        // ,
+        // 'overflow-y': 'auto'
       });
+      // if(this.state.currentPageNumber == 3) {
+      //   $('.page-container').css({
+      //       'overflow-y': 'auto'
+      //     });
+      // }
+      // if(screen.availHeight < 481 && (this.state.currentPageNumber == 2 || this.state.currentPageNumber == 3 || this.state.currentPageNumber == 4 || this.state.currentPageNumber == 5 || this.state.currentPageNumber == 6 )) {
+      //   $('.page-container').css({
+      //     'overflow-y': 'auto'
+      //   });
+      // }
+
+
+      $('.page-loader').css('height', (deviceHeight) + 'px');
 
     } else {
       $('.page-container').css('height', contentHeight + 'px');
@@ -119,6 +140,17 @@ var Shell = React.createClass({
   },
 
   componentDidUpdate: function(prevProps, prevState) {
+    $('.page-container').scrollTop(0);
+
+    // if(screen.availHeight < 481 && (this.state.currentPageNumber == 2 || this.state.currentPageNumber == 3 || this.state.currentPageNumber == 4 || this.state.currentPageNumber == 5 || this.state.currentPageNumber == 6)) {
+    //   $('.page-container').css({
+    //     'overflow-y': 'auto'
+    //   });
+    // } else {
+    //   $('.page-container').css({
+    //     'overflow-y': 'hidden'
+    //   });
+    // }
     window.addEventListener("resize", this.updateDimensions);
     if (this.state.transcriptVisible === false) {
       $("#button-transcript").removeClass("selected");
@@ -326,6 +358,18 @@ var Shell = React.createClass({
 
   },
 
+  /*
+  <HelpDock position='top' isVisible={this.state.isHelpDockOpen} duration={800} size={0.98} dockStyle={{
+    position: 'absolute',
+    height: 'auto'
+  }} dimStyle={{
+    position: 'relative',
+    height: '100%'
+  }}>
+    <HelpContent closeHelp={this.clickOpenHelpDock}/>
+  </HelpDock>
+  */
+
   renderUI() {
     return (
       <div>
@@ -340,15 +384,7 @@ var Shell = React.createClass({
         <div className="page-container">
           {!this.state.visibleResumePopup && <PageContainer PageNum={this.state.currentPageNumber} audioState={this.state.isPause} replayState={this.state.isReplayed} volume={this.state.volume}/>}
           <div className="help-container">
-            <HelpDock position='top' isVisible={this.state.isHelpDockOpen} duration={800} size={0.98} dockStyle={{
-              position: 'absolute',
-              height: 'auto'
-            }} dimStyle={{
-              position: 'relative',
-              height: '100%'
-            }}>
-              <HelpContent closeHelp={this.clickOpenHelpDock}/>
-            </HelpDock>
+
           </div>
         </div>
 

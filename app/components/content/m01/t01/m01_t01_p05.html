@@ -49,4 +49,25 @@ var qPoints = [0, 1, 4, 7, 13, 17, 20];
 var qPointsExecution = ["", "", "", "", "", "", "", "", "", ""];
 var currentCuePointId = 0;
 var imageSwap = false;
+var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+//alert(isMobile.matches);
+if(isMobile.matches) {
+	// alert(screen.availHeight);
+	if(screen.availHeight <= 460) {
+
+		$('.page-container').css('overflow', 'auto');
+	}else{
+		$('.page-container').css('overflow', 'hidden');
+	}
+}
+
+
+$(window).on("orientationchange", function() {
+	if(isMobile.matches && screen.availHeight <= 460) {
+
+		$('.page-container').css('overflow', 'auto');
+	}else{
+		$('.page-container').css('overflow', 'hidden');
+	}
+});
 </script>

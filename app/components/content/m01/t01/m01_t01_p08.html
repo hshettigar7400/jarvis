@@ -31,4 +31,21 @@ var qPoints = [0, 2, 11, 17, 28, 33, 35, 36, 37, 40, 41, 43, 44];
 var qPointsExecution = ["", "", "", "", "", "", "", "", "", "","", "", "", ""];
 var qPointsExecution = [];
 var currentCuePointId = 0;
+
+if(screen.availHeight <= 640) {
+  $('.page-container').css('height', '100vh');
+  $('.page-container').css('overflow', 'auto');
+}else{
+  $('.page-container').css('height', '100%');
+  $('.page-container').css('overflow', 'hidden');
+}
+
+$(window).on("orientationchange", function() {
+  if(screen.availHeight <= 640) {
+    $('.page-container').css('height', '100vh');
+    $('.page-container').css('overflow', 'auto');
+  }else{
+    $('.page-container').css('overflow', 'hidden');
+  }
+});
 </script>

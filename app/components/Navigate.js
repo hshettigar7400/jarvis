@@ -36,6 +36,28 @@ function loadPage(pageNumber) {
   window.updatePageStatusList(pageNumber);
   $(".page-title").html(topicNamesArray[pageNumber-1]);
   $("#button-playPause").removeClass("disabled");
+
+  var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+  var uagentMobile = navigator.userAgent.indexOf('Mobile');
+  var isIpad =  navigator.userAgent.indexOf('iPad');
+  //console.log(navigator);
+  //alert(uagentMobile+' ::: '+isIpad);
+  //alert(isMobile.matches+' || ('+uagentMobile+' !== -1 && '+isIpad+' === -1)')
+  if(isMobile.matches || (uagentMobile !== -1 && isIpad === -1)) {
+    //console.log(pageNumber, ':::', typeof pageNumber);
+    setTimeout(function () {
+      $('.page').css('height', '100vh');
+      if(pageNumber == 9) {
+        $('#player').css('height', '100vh');
+      }
+      //alert('coming 1')
+    }, 500);
+  } else {
+    setTimeout(function () {
+      $('.page').css('height', '100%');
+    }, 500);
+  }
+
 }
 
 function loadSound(filePath) {
